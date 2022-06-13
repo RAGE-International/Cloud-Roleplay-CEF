@@ -1,0 +1,351 @@
+@font-face {
+    font-family: "ubuntu";
+    src: url('../utils/fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('../utils/fonts/Ubuntu-Medium.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: "ubuntu";
+}
+
+body::before {
+    content: "";
+    background-image: url('../Inventory/img/02.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.85;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .produce {
+    display: flex;
+    position: relative;
+}
+
+.container .produce .text {
+    margin-bottom: 1vh;
+    white-space: nowrap;
+}
+
+.container .produce p.title {
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.8vh;
+    margin-bottom: 0.35vh;
+}
+
+.container .produce p.description {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.15vh;
+}
+
+.container .produce .producecost .items {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: -2vh;
+}
+
+.container .produce .producecost .items .item {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    width: 4.5vh;
+    height: 4.5vh;
+    padding: 1vh;
+    border-radius: 0.5vh;
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .produce .producecost .items .item img {
+    width: 5.5vh;
+}
+
+.container .produce .producecost .items .item span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    bottom: -0.4vh;
+    width: auto;
+    height: auto;
+    padding-right: 1vh;
+    padding-left: 1vh;
+    padding-top: 0.2vh;
+    padding-bottom: 0.2vh;
+    border-radius: 0.5vh;
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+    color: white;
+    font-size: 1.1vh;
+}
+
+.container .produce .product {
+
+}
+
+.container .produce .circle {
+    border-radius: 50%;
+    width: 7vh;
+    height: 7vh;
+    border: 0.1vh solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-right: 3vh;
+}
+
+.container .produce .circle .circle1 {
+    border-radius: 50%;
+    width: 4.5vh;
+    height: 4.5vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .produce .circle .circle1 .icon-bg {
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+    border-radius: 50%;
+    width: 3vh;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .produce .circle .circle1 .icon-bg i {
+    color: white;
+    margin-top: 0.1vh;
+    font-size: 1.45vh;
+}
+
+.container .produce .product .result {
+    width: 17vh;
+}
+
+.container .produce .product .result .weapon {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    width: 16.8vh;
+    height: 8vh;
+    border-radius: 0.5vh;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.container .produce .product .result .weapon span {
+    color: white;
+    font-size: 1.1vh;
+    font-family: "ubuntu-m";
+    position: relative;
+    top: 0.5vh;
+    left: 0.5vh;
+    white-space: nowrap;
+}
+
+.container .produce .product .result .weapon img {
+    width: 6vh;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container .produce .product .result .result-info {
+    width: 17vh;
+    height: auto;
+    display: flex;
+    margin-top: 1vh;
+}
+
+.container .produce .product .result .result-info .amount {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    margin-right: 0.4vh;
+    width: 40%;
+    height: 2.5vh;
+    border-radius: 0.5vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container .produce .product .result .result-info .time {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    width: 60%;
+    height: 2.5vh;
+    border-radius: 0.5vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container .produce .product .result .result-info i {
+    float: left;
+    color: white;
+    margin-left: 1vh;
+    font-size: 1.25vh;
+}
+
+.container .produce .product .result .result-info p {
+    font-family: "ubuntu-m";
+    margin-bottom: 0.2vh;
+    position: absolute;
+    left: 60%;
+    transform: translate(-50%, 0);
+    white-space: nowrap;
+    color: white;
+    font-size: 1.15vh;
+}
+
+.container .produce .product .result #start {
+    color: white;
+    margin-top: 1vh;
+    width: 100%;
+    height: 3.5vh;
+    background: #0DAAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vh;
+    font-family: "ubuntu-m";
+    border-radius: 0.5vh;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+}
+
+.container span#spacer-bar {
+    width: 100%;
+    height: 0.15vh;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.container .vehicles{
+    width: 52.60833333333333vh;
+}
+
+.container .vehicles .text {
+    margin-bottom: 1vh;
+    white-space: nowrap;
+}
+
+.container .vehicles p.title {
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.8vh;
+    margin-bottom: 0.35vh;
+}
+
+.container .vehicles p.description {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.15vh;
+}
+
+.container .vehicles .vehicle-flex {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1vh;
+}
+
+.container .vehicles .vehicle-flex::-webkit-scrollbar {
+    height: 0.5vh;
+    width: 100%;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+}
+
+.container .vehicles .vehicle-flex::-webkit-scrollbar-thumb{
+    background-color: #0DAAFF;
+    box-sizing: 0 0 2vh 0 #0DAAFF;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box {
+    margin-right: 2.76vh;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box button{
+    outline: none;
+    border: none;
+    color: white;
+    margin-top: 1vh;
+    width: 100%;
+    height: 3.5vh;
+    background: #0DAAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vh;
+    font-family: "ubuntu-m";
+    border-radius: 0.5vh;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box .vehicle-box-inner {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    width: 15.5vh;
+    border-radius: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box .vehicle-box-inner img {
+    width: 12.5vh;
+    height: auto;
+    padding: 2vh;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box .vehicle-box-inner p.title {
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.45vh;
+    margin-bottom: 0.35vh;
+}
+
+.container .vehicles .vehicle-flex .vehicle-box .vehicle-box-inner p.numberplate {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: "ubuntu";
+    font-size: 1.45vh;
+    margin-bottom: 0.75vh;
+}

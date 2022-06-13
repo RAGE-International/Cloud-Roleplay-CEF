@@ -1,0 +1,373 @@
+@font-face {
+    font-family: "ubuntu";
+    src: url('../utils/fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('../utils/fonts/Ubuntu-Medium.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: "ubuntu";
+    list-style: none;
+}
+
+body {
+    background-image: url('../Inventory/img/02.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container .header {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    padding-left: 12.5vh;
+}
+
+.container .header .garage-info {
+    display: flex;
+    align-items: center;
+    padding: 1vh;
+}
+
+.container .header .garage-info .icon-bg {
+    width: 4.5vh;
+    height: 4.5vh;
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vh;
+    overflow: unset;
+}
+
+.container .header .garage-info .icon-bg i {
+    color: white;
+    font-size: 2vh;
+    line-height: 2.3vh;
+}
+
+.container .header .garage-info .text {
+    margin-left: 1vh;
+}
+
+.container .header .garage-info .text p.title {
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.7vh;
+}
+
+.container .header .garage-info .text p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2vh;
+}
+
+.container .header .garage-info .text input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    padding-top: 0.5vh;
+    padding-bottom: 0.25vh;
+    padding-right: 1vh;
+    font-size: 1.2vh;
+    border-bottom: 0.2vh solid white;
+}
+
+.container .header .garage-info .text input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1.2vh;
+}
+
+.container .selector {
+    margin-left: 7vh;
+}
+
+.container .selector button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    color: white;
+    background: transparent;
+    height: 4.5vh;
+    width: 15vh;
+    font-size: 1.6vh;
+    font-family: "ubuntu-m";
+    border-radius: 0.5vh;
+    margin: 1vh;
+    transition: color 250ms;
+}
+
+.container .selector button:hover {
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.container .selector #active {
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+}
+
+.container .car-cards {
+    margin-top: 4vh;
+    display: flex;
+    width: 102.5vh;
+    max-width: 102.5vh;
+}
+
+.container .car-cards .car-card {
+    width: 28vh;
+    min-width: 28vh;
+    height: auto;
+    margin-left: 2.5vh;
+    margin-right: 2.5vh;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+.container .car-cards .car-card p.cartitle {
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: white;
+    font-family: "ubuntu-m";
+    margin-bottom: 3vh;
+}
+
+.container .car-cards .car-card .car-frame {
+    background-image: url(./img/car-frame.png);
+    background-size: 28vh 10vh;
+    background-repeat: no-repeat;
+    width: 28vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .car-cards .car-card .car-frame .car {
+    margin-bottom: 5vh;
+    position: absolute;
+    width: 21vh;
+    height: auto;
+}
+
+.container .car-cards .car-card .car-frame .park {
+    display: flex;
+    align-items: center;
+    margin-top: 6.5vh;
+    margin-left: 18vh;
+    border-radius: 0.3vh;
+    z-index: 9999;
+}
+
+.container .car-cards .car-card .car-frame .park img {
+    width: 1.85vh;
+    height: 1.842vh;
+}
+
+.container .car-cards .car-card .car-frame span {
+    background: #7cb25c;
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.3vh;
+    padding-right: 0.3vh;
+    width: auto;
+    height: 1.836266258607498vh;
+}
+
+.container .car-cards .car-card .car-shortinfo .fuel {
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.container .car-cards .car-card .car-shortinfo .fuel .icon-bg {
+    background: orange;
+    width: 4.5vh;
+    height: 2.5vh;
+    border-radius: 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .car-cards .car-card .car-shortinfo .fuel .icon-bg i {
+    color: white;
+    font-size: 1.5vh;
+    line-height: 2vh;
+}
+
+.container .car-cards .car-card .car-shortinfo .fuel p.fueltext {
+    color: orange;
+    font-family: "ubuntu-m";
+    font-size: 1.6vh;
+    margin-left: 0.5vh;
+}
+
+.container .car-cards .car-card .car-shortinfo .fuel p.fueltext span {
+    font-weight: bold;
+}
+
+.container .car-cards .car-card .car-shortinfo .carhealth {
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.container .car-cards .car-card .car-shortinfo .carhealth .icon-bg {
+    background: #8DD85F;
+    width: 4.5vh;
+    height: 2.5vh;
+    border-radius: 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .car-cards .car-card .car-shortinfo .carhealth .icon-bg i {
+    color: white;
+    font-size: 1.5vh;
+    line-height: 2vh;
+}
+
+.container .car-cards .car-card .car-shortinfo .carhealth p.healthtext {
+    color: #8DD85F;
+    font-family: "ubuntu-m";
+    font-size: 1.6vh;
+    margin-left: 0.5vh;
+}
+
+.container .car-cards .car-card .car-shortinfo .carhealth p.healthtext span {
+    font-weight: bold;
+}
+
+.container .car-cards .car-card .car-info {
+    margin-top: 2.5vh;
+}
+
+.container .car-cards .car-card .car-info p.carinfotitle {
+    color: white;
+    font-weight: bold;
+    font-size: 1.4vh;
+    line-height: 1.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .car-cards .car-card .car-info .info {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5vhvh;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1.3vh;
+    white-space: nowrap;
+}
+
+.container .car-cards .car-card .car-info .info span {
+    width: 100%;
+    height: 0.11vh;
+    margin: 1.5vh;
+    background-color: #56607d;
+}
+
+.container .car-cards .car-card .car-frame .parkVehIn {
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    margin-top: 6.5vh;
+    margin-left: 18vh;
+    border-radius: 0.3vh;
+}
+
+.container .car-cards .car-card .car-frame .parkVehIn img {
+    width: 1.85vh;
+    height: 1.842vh;
+}
+
+.container .car-cards .car-card .car-frame .parkVehIn span {
+    background: #001F30;
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.3vh;
+    padding-right: 0.3vh;
+    width: auto;
+    height: 1.836266258607498vh;
+}
+
+.owl-stage {
+    display: flex;
+}
+
+.owl-prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 10vh;
+    color: #0DAAFF;
+    filter: drop-shadow(0vh 0vh 0.6vh #0DAAFF);
+    margin: 1vh;
+}
+
+.owl-next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 10vh;
+    color: #0DAAFF;
+    filter: drop-shadow(0vh 0vh 0.6vh #0DAAFF);
+    margin: 1vh;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.parked {
+    padding-left: 10vh;
+    padding-right: 10vh;
+    width: 102.5vh;
+    max-width: 102.5vh;
+    height: 42.25vh;
+}
+
+.parkIn {
+    padding-left: 10vh;
+    padding-right: 10vh;
+    width: 102.5vh;
+    max-width: 102.5vh;
+    height: 42.25vh;
+}

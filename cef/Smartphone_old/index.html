@@ -1,0 +1,1450 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <title>Cloud Smartphone</title>
+</head>
+
+<body>
+
+    <div id="iphone">
+        <div class="face">
+            <div class="forelock">
+                <div class="speaker"></div>
+                <div class="camera">
+                    <div class="camera-dot"></div>
+                </div>
+            </div>
+            <div class="screen wallpaper">
+
+                <ul class="notifications">
+
+                </ul>
+
+                <div class="status-bar">
+                    <div class="bar">
+                        <div class="call-bar" style="display: none;" onclick="ShowScreen('incall')">00:00</div>
+                        <div class="time">20:50</div>
+                        <div class="status-icons">
+                            <div class="icon service-icon" data-state="4">
+                                <i class="fontawesomeicon fa-solid fa-wifi"></i>
+                            </div>
+                            <div class="icon battery-icon" data-battery-percent="100">
+                                <i class="fontawesomeicon fa-solid fa-battery-full"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="homescreen" class="app homescreen page" style="display: none;" data-animation="animation-none">
+                    <div class="container">
+
+                        <div class="apps"></div>
+
+                    </div>
+                    <div class="dock">
+                        <ul class="dock-apps">
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div id="phone" class="app phone page" style="display: none;">
+                    <div class="container">
+                        <div class="number-wrapper">
+                            <div id="phone-number-value" class="number"></div>
+                        </div>
+                        <div class="add-number">
+                            <div class="title" onclick="AddContactFormNumberField()">Zu Kontakten hinzufügen</div>
+                        </div>
+                        <div class="keypad">
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="1">
+                                <div class="digit">1</div>
+                                <div class="chars"></div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="2">
+                                <div class="digit">2</div>
+                                <div class="chars">ABC</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="3">
+                                <div class="digit">3</div>
+                                <div class="chars">DEF</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="4">
+                                <div class="digit">4</div>
+                                <div class="chars">GHI</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="5">
+                                <div class="digit">5</div>
+                                <div class="chars">JKL</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="6">
+                                <div class="digit">6</div>
+                                <div class="chars">MNO</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="7">
+                                <div class="digit">7</div>
+                                <div class="chars">PQRS</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="8">
+                                <div class="digit">8</div>
+                                <div class="chars">TUV</div>
+                            </div>
+                            <div class="key" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="9">
+                                <div class="digit">9</div>
+                                <div class="chars">WXYZ</div>
+                            </div>
+                            <div class="key asterisk" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="star">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.967 15.131">
+                                        <path d="M12.95 12.291l1.018-1.846-5.348-2.859 5.348-2.88-1.018-1.866-5.15 3.346.241-6.186h-2.115l.239 6.186-5.127-3.346-1.038 1.866 5.368 2.88-5.368 2.88 1.038 1.825 5.128-3.306-.239 6.146h2.114l-.241-6.126z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="key zero" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="0">
+                                <div class="digit">0</div>
+                                <div class="chars">+</div>
+                            </div>
+                            <div class="key hashtag" onclick="OnActionClicked(this)" data-action="add-phone-input-number" data-number="hashtag">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+                                        <path d="M5.385 3.462h4.615v-3.462h1.923v3.462h3.077v1.923h-3.077v4.615h3.077v1.923h-3.077v3.077h-1.923v-3.077h-4.615v3.077h-1.923v-3.077h-3.462v-1.923h3.462v-4.615h-3.462v-1.923h3.462v-3.462h1.923zm0 1.923v4.615h4.615v-4.615z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="key inactive"></div>
+                            <div class="key call" onclick="OnActionClicked(this)" data-action="phone-try-call">
+                                <div class="icon">
+                                    <img style="width: 100%; height: 100%;" src="../utils/img/smartphone/icons/phone_icon.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="key backspace" onclick="OnActionClicked(this)" data-action="remove-phone-input-number">
+                                <div class="icon">
+                                    <img style="width: 100%; height: 100%;" src="../utils/img/smartphone/icons/backspace.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navigation">
+                        <ul class="navigation-tabs">
+                            <li class="tab" onclick="OnAppClick(this)" data-page="favorites">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
+                                        <path d="M16.5 19a.819.819 0 0 1-.462-.141l-5.538-3.759-5.538 3.759a.828.828 0 0 1-.928 0 .729.729 0 0 1-.289-.835l2.065-6.154-5.487-3.831a.729.729 0 0 1-.285-.839.771.771 0 0 1 .749-.5h6.813l2.148-6.186a.807.807 0 0 1 1.5 0l2.152 6.192h6.814a.771.771 0 0 1 .749.5.73.73 0 0 1-.284.837l-5.488 3.828 2.065 6.154a.729.729 0 0 1-.289.835.821.821 0 0 1-.467.14"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Favoriten</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="callhistory">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+                                        <path d="M10.26 10.26v-7.22a.381.381 0 0 0-.38-.38h-.38a.381.381 0 0 0-.38.38v6.84h-4.56a.381.381 0 0 0-.38.38v.38a.381.381 0 0 0 .38.38h5.32a.381.381 0 0 0 .38-.38zm-.76-10.26a9.5 9.5 0 1 1-9.5 9.5 9.5 9.5 0 0 1 9.5-9.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Verlauf</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="contacts">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 17">
+                                        <path d="M9.191 16.998c.354-2.2 1.205-2.671 1.839-3.022 1.278-.707 2.612-.45 3.677-1.322a2.114 2.114 0 0 0 .71-1.63 4.965 4.965 0 0 1-2.5-.971.511.511 0 0 1-.166-.5l.59-2.583a3.183 3.183 0 0 0 .082-.721v-2.091c0-2.266.919-3.211 1.654-3.211a2.609 2.609 0 0 1 1.1.189l.549-.282a1.545 1.545 0 0 1 .388-.142c3.391-.7 3.568 3.6 3.514 5.267a3.2 3.2 0 0 0 .229 1.3l.876 2.186a.509.509 0 0 1-.18.612 6.63 6.63 0 0 1-2.776.954 2.108 2.108 0 0 0 .709 1.625c1.065.872 2.4.615 3.677 1.322.634.351 1.485.826 1.839 3.022zm-9.191 0c.378-2.2.735-3.022 1.966-3.778 1.314-.806 2.795-.45 3.933-1.322a1.823 1.823 0 0 0 .7-1.156c-.8-.788-.695-2.215-1.449-3.378v-.006a.948.948 0 0 1-.368-.749v-.756a.956.956 0 0 1 .258-.653c-.039-.669-.074-1.3-.074-1.614a3.494 3.494 0 1 1 6.985 0c0 .312-.035.945-.074 1.614a.956.956 0 0 1 .257.653v.756a.947.947 0 0 1-.367.749v.006c-.25 1.158-.5 2.579-1.451 3.367a1.825 1.825 0 0 0 .7 1.166 3 3 0 0 0 .711.4 5.67 5.67 0 0 0-1.3.513c-.987.546-2.075 1.348-2.5 3.97l-.035.216z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Kontakte</div>
+                            </li>
+                            <li class="tab active">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M13.124 15.563a2.438 2.438 0 1 1 2.438 2.437 2.438 2.438 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.437-2.437zm-6.562 0a2.438 2.438 0 1 1 2.437 2.437 2.438 2.438 0 0 1-2.436-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.436-2.437zm-6.561 0a2.438 2.438 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.437-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.438 2.438 2.438 0 0 1-2.439-2.438zm-6.561 0a2.437 2.437 0 1 1 2.437 2.438 2.437 2.437 0 0 1-2.437-2.438zm-6.562 0a2.438 2.438 0 1 1 2.437 2.438 2.438 2.438 0 0 1-2.437-2.438z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Tastenfeld</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="callhistory" class="app contacts page" style="display: none;">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control inactive"></div>
+                            <div class="control switcher">
+                                <div class="switch-buttons">
+                                    <button id="callhistory-all" onclick="OnActionClicked(this)" data-action="phone-switch-callhistory" data-toggle="false" class="active">Alles</button>
+                                    <button id="callhistory-missed" onclick="OnActionClicked(this)" data-action="phone-switch-callhistory" data-toggle="true">Verpasst</button>
+                                </div>
+                            </div>
+                            <div onclick="OnActionClicked(this)" data-action="show-popup-clear-callhistory" class="control inactive">Bearbeiten</div>
+
+                        </div>
+                        <div class="title-bar">
+                            <div class="title">Anrufliste</div>
+                        </div>
+                        <div id="callhistory-wrapper" class="workspace">
+
+                        </div>
+                        <div class="edit-message">
+                            <p class="top-title">Anrufliste leeren?</p>
+                            <div class="title">Deine Arnufliste wird gelöscht und hat somit wieder platz für neue anrufe.</div>
+                            <button onclick="OnActionClicked(this)" data-action="clear-call-history">Löschen</button>
+                            <button onclick="OnActionClicked(this)" data-action="hide-popup">Abbrechen</button>
+                        </div>
+                    </div>
+
+                    <div class="navigation">
+                        <ul class="navigation-tabs">
+                            <li class="tab" onclick="OnAppClick(this)" data-page="favorites">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
+                                        <path d="M16.5 19a.819.819 0 0 1-.462-.141l-5.538-3.759-5.538 3.759a.828.828 0 0 1-.928 0 .729.729 0 0 1-.289-.835l2.065-6.154-5.487-3.831a.729.729 0 0 1-.285-.839.771.771 0 0 1 .749-.5h6.813l2.148-6.186a.807.807 0 0 1 1.5 0l2.152 6.192h6.814a.771.771 0 0 1 .749.5.73.73 0 0 1-.284.837l-5.488 3.828 2.065 6.154a.729.729 0 0 1-.289.835.821.821 0 0 1-.467.14"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Favoriten</div>
+                            </li>
+                            <li class="tab active">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+                                        <path d="M10.26 10.26v-7.22a.381.381 0 0 0-.38-.38h-.38a.381.381 0 0 0-.38.38v6.84h-4.56a.381.381 0 0 0-.38.38v.38a.381.381 0 0 0 .38.38h5.32a.381.381 0 0 0 .38-.38zm-.76-10.26a9.5 9.5 0 1 1-9.5 9.5 9.5 9.5 0 0 1 9.5-9.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Verlauf</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="contacts">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 17">
+                                        <path d="M9.191 16.998c.354-2.2 1.205-2.671 1.839-3.022 1.278-.707 2.612-.45 3.677-1.322a2.114 2.114 0 0 0 .71-1.63 4.965 4.965 0 0 1-2.5-.971.511.511 0 0 1-.166-.5l.59-2.583a3.183 3.183 0 0 0 .082-.721v-2.091c0-2.266.919-3.211 1.654-3.211a2.609 2.609 0 0 1 1.1.189l.549-.282a1.545 1.545 0 0 1 .388-.142c3.391-.7 3.568 3.6 3.514 5.267a3.2 3.2 0 0 0 .229 1.3l.876 2.186a.509.509 0 0 1-.18.612 6.63 6.63 0 0 1-2.776.954 2.108 2.108 0 0 0 .709 1.625c1.065.872 2.4.615 3.677 1.322.634.351 1.485.826 1.839 3.022zm-9.191 0c.378-2.2.735-3.022 1.966-3.778 1.314-.806 2.795-.45 3.933-1.322a1.823 1.823 0 0 0 .7-1.156c-.8-.788-.695-2.215-1.449-3.378v-.006a.948.948 0 0 1-.368-.749v-.756a.956.956 0 0 1 .258-.653c-.039-.669-.074-1.3-.074-1.614a3.494 3.494 0 1 1 6.985 0c0 .312-.035.945-.074 1.614a.956.956 0 0 1 .257.653v.756a.947.947 0 0 1-.367.749v.006c-.25 1.158-.5 2.579-1.451 3.367a1.825 1.825 0 0 0 .7 1.166 3 3 0 0 0 .711.4 5.67 5.67 0 0 0-1.3.513c-.987.546-2.075 1.348-2.5 3.97l-.035.216z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Kontakte</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="phone">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M13.124 15.563a2.438 2.438 0 1 1 2.438 2.437 2.438 2.438 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.437-2.437zm-6.562 0a2.438 2.438 0 1 1 2.437 2.437 2.438 2.438 0 0 1-2.436-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.436-2.437zm-6.561 0a2.438 2.438 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.437-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.438 2.438 2.438 0 0 1-2.439-2.438zm-6.561 0a2.437 2.437 0 1 1 2.437 2.438 2.437 2.437 0 0 1-2.437-2.438zm-6.562 0a2.438 2.438 0 1 1 2.437 2.438 2.438 2.438 0 0 1-2.437-2.438z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Tastenfeld</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outgoingcall" class="app callscreen page" style="display: none;">
+                    <div class="container">
+                        <div class="call-header">
+                            <div class="caller">Luis Johsnon</div>
+                            <div class="call-type">Wählt...</div>
+                        </div>
+                        <div class="control-buttons" style="justify-content: center !important;">
+                            <div class="button decline" data-desc="Auflegen" onclick="OnActionClicked(this)" data-action="decline-call">
+                                <div class="icon">
+                                    <img src="../utils/img/smartphone/icons/phone_icon.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="IncommingCall" class="app callscreen page" style="display: none;">
+                    <div class="container">
+                        <div class="call-header">
+                            <div class="caller">Luis Johsnon</div>
+                            <div class="call-type">Eingehender Anruf...</div>
+                        </div>
+                        <div class="control-buttons">
+                            <div class="button decline" data-desc="Ablehnen" onclick="OnActionClicked(this)" data-action="decline-call">
+                                <div class="icon">
+                                    <img src="../utils/img/smartphone/icons/phone_icon.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="button accept" data-desc="Annehmen" onclick="OnActionClicked(this)" data-action="accept-call">
+                                <div class="icon">
+                                    <img src="../utils/img/smartphone/icons/phone_icon.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="incall" class="app callscreen active page" style="display: none;">
+                    <div class="container">
+                        <div class="call-header">
+                            <div class="caller">555 555</div>
+                            <div class="call-type">Luis Johnson</div>
+                            <div class="call-time">00:00:00</div>
+                        </div>
+                        <div class="control-buttons">
+                            <div class="keypad">
+
+                                <div id="mute" class="button active" data-desc="Stummschalten">
+                                    <div class="icon microphone-icon active" onclick="ToggleCurrentCallMute(true)">
+                                        <i class="fas fa-microphone"></i>
+                                    </div>
+                                </div>
+
+                                <div id="unmute" class="button active" data-desc="Stummschalten aufheben" style="display: none;">
+                                    <div class="icon microphone-icon active" onclick="ToggleCurrentCallMute(false)">
+                                        <i class="fas fa-microphone-slash"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="button decline" onclick="OnActionClicked(this)" data-action="decline-call">
+                                <div class="icon">
+                                    <img src="../utils/img/smartphone/icons/phone_icon.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contacts" class="app contacts page" style="display: none;">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control inactive"></div>
+                            <div class="title">Kontakte</div>
+                            <div class="control add">
+                                <div class="icon" onclick="OnAppClick(this)" data-page="addcontact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M8 0h2v18h-2zM0 8h18v2h-18z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-bar">
+                            <div class="input-group">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+                                        <path d="M4.337 7.885a3.549 3.549 0 1 0-3.548-3.549 3.548 3.548 0 0 0 3.548 3.549zm2.701-.155a4.337 4.337 0 1 1 .693-.693.502.502 0 0 1 .123.091l3.011 3.011a.513.513 0 0 1-.725.725l-3.011-3.011a.502.502 0 0 1-.091-.123z"/>
+                                    </svg>
+                                </div>
+                                <input id="search-contact" type="text" placeholder="Suche" oninput="OnSortableContactsWithLetter(this.value)">
+                            </div>
+                        </div>
+                        <div id="contacts-wrapper-list" class="workspace">
+
+                            <div class="contacts-group" id="contacts-block-output" style="display: none;">
+                                <div id="sortable-value" class="title"></div>
+                                <div id="contacts-wrapper-output"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="navigation">
+                        <ul class="navigation-tabs">
+                            <li class="tab" onclick="OnAppClick(this)" data-page="favorites">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
+                                        <path d="M16.5 19a.819.819 0 0 1-.462-.141l-5.538-3.759-5.538 3.759a.828.828 0 0 1-.928 0 .729.729 0 0 1-.289-.835l2.065-6.154-5.487-3.831a.729.729 0 0 1-.285-.839.771.771 0 0 1 .749-.5h6.813l2.148-6.186a.807.807 0 0 1 1.5 0l2.152 6.192h6.814a.771.771 0 0 1 .749.5.73.73 0 0 1-.284.837l-5.488 3.828 2.065 6.154a.729.729 0 0 1-.289.835.821.821 0 0 1-.467.14"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Favoriten</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="callhistory">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+                                        <path d="M10.26 10.26v-7.22a.381.381 0 0 0-.38-.38h-.38a.381.381 0 0 0-.38.38v6.84h-4.56a.381.381 0 0 0-.38.38v.38a.381.381 0 0 0 .38.38h5.32a.381.381 0 0 0 .38-.38zm-.76-10.26a9.5 9.5 0 1 1-9.5 9.5 9.5 9.5 0 0 1 9.5-9.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Verlauf</div>
+                            </li>
+                            <li class="tab active">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 17">
+                                        <path d="M9.191 16.998c.354-2.2 1.205-2.671 1.839-3.022 1.278-.707 2.612-.45 3.677-1.322a2.114 2.114 0 0 0 .71-1.63 4.965 4.965 0 0 1-2.5-.971.511.511 0 0 1-.166-.5l.59-2.583a3.183 3.183 0 0 0 .082-.721v-2.091c0-2.266.919-3.211 1.654-3.211a2.609 2.609 0 0 1 1.1.189l.549-.282a1.545 1.545 0 0 1 .388-.142c3.391-.7 3.568 3.6 3.514 5.267a3.2 3.2 0 0 0 .229 1.3l.876 2.186a.509.509 0 0 1-.18.612 6.63 6.63 0 0 1-2.776.954 2.108 2.108 0 0 0 .709 1.625c1.065.872 2.4.615 3.677 1.322.634.351 1.485.826 1.839 3.022zm-9.191 0c.378-2.2.735-3.022 1.966-3.778 1.314-.806 2.795-.45 3.933-1.322a1.823 1.823 0 0 0 .7-1.156c-.8-.788-.695-2.215-1.449-3.378v-.006a.948.948 0 0 1-.368-.749v-.756a.956.956 0 0 1 .258-.653c-.039-.669-.074-1.3-.074-1.614a3.494 3.494 0 1 1 6.985 0c0 .312-.035.945-.074 1.614a.956.956 0 0 1 .257.653v.756a.947.947 0 0 1-.367.749v.006c-.25 1.158-.5 2.579-1.451 3.367a1.825 1.825 0 0 0 .7 1.166 3 3 0 0 0 .711.4 5.67 5.67 0 0 0-1.3.513c-.987.546-2.075 1.348-2.5 3.97l-.035.216z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Kontakte</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="phone">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M13.124 15.563a2.438 2.438 0 1 1 2.438 2.437 2.438 2.438 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.437-2.437zm-6.562 0a2.438 2.438 0 1 1 2.437 2.437 2.438 2.438 0 0 1-2.436-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.436-2.437zm-6.561 0a2.438 2.438 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.437-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.438 2.438 2.438 0 0 1-2.439-2.438zm-6.561 0a2.437 2.437 0 1 1 2.437 2.438 2.437 2.437 0 0 1-2.437-2.438zm-6.562 0a2.438 2.438 0 1 1 2.437 2.438 2.438 2.438 0 0 1-2.437-2.438z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Tastenfeld</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="addcontact" class="app new-contact page" style="display: none;" data-animation="animation-side-to-right">
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control" onclick="OnAppClick(this)" data-page="contacts">Abbrechen</div>
+                            <div class="title">Neuer Kontakt</div>
+                            <div class="control" onclick="AddNewContact()">Fertig</div>
+                        </div>
+                        <div class="workspace">
+                            <div class="basic-info">
+                                <div class="icon">
+                                    <i class="fad fa-user-circle"></i>
+                                    <div class="title">Foto hinzufügen</div>
+                                </div>
+                                <div class="rows">
+                                    <div class="row"><input type="text" id="Vorname" placeholder="Vorname" onpaste="return false"></div>
+                                    <div class="row"><input type="text" id="Nachname" placeholder="Nachname" onpaste="return false"></div>
+                                    <div class="row"><input type="number" id="Telefonnummer" placeholder="Telefonnummer" onkeypress="return (event.charCode>= 48 && event.charCode <= 57) " onpaste="return false"></div>
+                                </div>
+                            </div>
+                            <div class="additional-info">
+                                <div class="rows">
+                                    <div class="row">
+                                        <div class="action" id="addnewcontact" onclick="ToggleCreateNewContactMarkAsFavorite(this)" data-toggle="false">
+                                            <div class="plus icon">
+                                                <div class="plus"></div>
+                                                <div class="plus"></div>
+                                            </div>
+                                            <div class="minus icon" style="display: none;">
+                                                <div class="minus"></div>
+                                            </div>
+                                        </div>
+                                        <div class="title">Als Favoriten hinzufügen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="contact-information" class="app contacts page" style="display: none;">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 17">
+                                        <path d="M9.619,2.1A1.214,1.214,0,0,0,9.66.378,1.229,1.229,0,0,0,7.929.336Q.371,7.61.351,7.631a1.254,1.254,0,0,0,.04,1.78l7.537,7.251a1.229,1.229,0,0,0,1.732-.039A1.214,1.214,0,0,0,9.622,14.9L3.373,8.786a.4.4,0,0,1,0-.57Z"/>
+                                    </svg>
+                                </div>
+                                <div onclick="OnAppClick(this)" data-page="contacts" class="title">Kontakte</div>
+                            </div>
+                            <div onclick="OnAppClick(this)" data-page="contact-edit" class="control">Bearbeiten</div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="basic-info">
+                                <div id="contact-icon-value" class="icon">L</div>
+                                <div id="contact-name-value" class="name-wrapper">Luis Johnson</div>
+                            </div>
+                            <div class="controls">
+                                <button onclick="OnActionClicked(this)" id="contact-button-sendmessage" data-action="contact-create-message-chat">
+                                    <div class="icon-wrapper" style="background-color: #057bfa00;">
+                                        <i style="color: #057bfa; font-size: 2vh;" class="fontawesomeicon fas fa-comment"></i>
+                                    </div>
+                                    <div class="title">Nachricht</div>
+                                </button>
+                                <button onclick="OnActionClicked(this)" data-action="try-phone-call-from-contact">
+                                    <div class="icon-wrapper" style="background-color: #057bfa00;">
+                                        <i style="color: #057bfa; font-size: 2vh;" class="fontawesomeicon fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="title">Anrufen</div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="workspace" style="overflow: hidden;">
+                            <div class="info-row">
+                                <div id="contact-number-plain" class="title">Telefonnummer</div>
+                                <div id="contact-number-value" class="value">555 759 467</div>
+                            </div>
+                            <div class="info-row clickable">
+                                <div onclick="OnActionClicked(this)" data-action="contact-toggle-fav" id="contact-button-favorite" class="button">Als Favoriten sichern</div>
+                                <div onclick="OnActionClicked(this)" data-action="contact-toggle-block" id="contact-button-block" class="button">Blockieren</div>
+                            </div>
+                            <div class="info-row clickable">
+                                <div onclick="OnActionClicked(this)" data-action="contact-delete" id="contact-button-delete" class="button">Löschen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact-edit" class="app contacts page" style="display: none;">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div onclick="OnAppClick(this)" data-page="contact-information" class="title">Abbrechen</div>
+                            </div>
+                            <div onclick="EditContactInfo()" class="control">Feritg</div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="basic-info">
+                                <div id="contact-edit-icon-value" class="icon">L</div>
+                                <div id="contact-edit-name-value" class="name-wrapper">Luis Johnson</div>
+                            </div>
+                        </div>
+                        <div class="workspace" style="overflow: hidden;">
+                            <div class="info-row">
+                                <div id="contact-number-plain" class="title" style="color: #838383;">Vorname</div>
+                                <input id="contact-firstname-value" class="value" placeholder="Vornamen eingeben!" type="text" style="color: #fff; font-size: 1.35vh;">
+                            </div>
+                            <div class="info-row">
+                                <div id="contact-number-plain" class="title" style="color: #838383;">Nachname</div>
+                                <input id="contact-secname-value" class="value" placeholder="Nachname eingeben!" type="text" style="color: #fff; font-size: 1.35vh;">
+                            </div>
+                            <div class="info-row">
+                                <div id="contact-number-plain" class="title" style="color: #838383;">Telefonnummer</div>
+                                <input id="contact-phonenumber-value" class="value" placeholder="Telefonnummer eingeben!" type="number" onkeypress="return (event.charCode>= 48 && event.charCode <= 57) " onpaste="return false" style="color: #fff; font-size: 1.35vh;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="favorites" class="app contacts page" style="display: none;">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control inactive"></div>
+                            <div class="title">Favoriten</div>
+                            <div class="control inactive"></div>
+
+                        </div>
+                        <div id="contacts-wrapper-list-favorites" class="workspace">
+
+
+                        </div>
+                    </div>
+
+                    <div class="navigation">
+                        <ul class="navigation-tabs">
+                            <li class="tab active" onclick="OnAppClick(this)" data-page="favorites">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
+                                        <path d="M16.5 19a.819.819 0 0 1-.462-.141l-5.538-3.759-5.538 3.759a.828.828 0 0 1-.928 0 .729.729 0 0 1-.289-.835l2.065-6.154-5.487-3.831a.729.729 0 0 1-.285-.839.771.771 0 0 1 .749-.5h6.813l2.148-6.186a.807.807 0 0 1 1.5 0l2.152 6.192h6.814a.771.771 0 0 1 .749.5.73.73 0 0 1-.284.837l-5.488 3.828 2.065 6.154a.729.729 0 0 1-.289.835.821.821 0 0 1-.467.14"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Favoriten</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="callhistory">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+                                        <path d="M10.26 10.26v-7.22a.381.381 0 0 0-.38-.38h-.38a.381.381 0 0 0-.38.38v6.84h-4.56a.381.381 0 0 0-.38.38v.38a.381.381 0 0 0 .38.38h5.32a.381.381 0 0 0 .38-.38zm-.76-10.26a9.5 9.5 0 1 1-9.5 9.5 9.5 9.5 0 0 1 9.5-9.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Verlauf</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="contacts">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 17">
+                                        <path d="M9.191 16.998c.354-2.2 1.205-2.671 1.839-3.022 1.278-.707 2.612-.45 3.677-1.322a2.114 2.114 0 0 0 .71-1.63 4.965 4.965 0 0 1-2.5-.971.511.511 0 0 1-.166-.5l.59-2.583a3.183 3.183 0 0 0 .082-.721v-2.091c0-2.266.919-3.211 1.654-3.211a2.609 2.609 0 0 1 1.1.189l.549-.282a1.545 1.545 0 0 1 .388-.142c3.391-.7 3.568 3.6 3.514 5.267a3.2 3.2 0 0 0 .229 1.3l.876 2.186a.509.509 0 0 1-.18.612 6.63 6.63 0 0 1-2.776.954 2.108 2.108 0 0 0 .709 1.625c1.065.872 2.4.615 3.677 1.322.634.351 1.485.826 1.839 3.022zm-9.191 0c.378-2.2.735-3.022 1.966-3.778 1.314-.806 2.795-.45 3.933-1.322a1.823 1.823 0 0 0 .7-1.156c-.8-.788-.695-2.215-1.449-3.378v-.006a.948.948 0 0 1-.368-.749v-.756a.956.956 0 0 1 .258-.653c-.039-.669-.074-1.3-.074-1.614a3.494 3.494 0 1 1 6.985 0c0 .312-.035.945-.074 1.614a.956.956 0 0 1 .257.653v.756a.947.947 0 0 1-.367.749v.006c-.25 1.158-.5 2.579-1.451 3.367a1.825 1.825 0 0 0 .7 1.166 3 3 0 0 0 .711.4 5.67 5.67 0 0 0-1.3.513c-.987.546-2.075 1.348-2.5 3.97l-.035.216z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Kontakte</div>
+                            </li>
+                            <li class="tab" onclick="OnAppClick(this)" data-page="phone">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M13.124 15.563a2.438 2.438 0 1 1 2.438 2.437 2.438 2.438 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.437-2.437zm-6.562 0a2.438 2.438 0 1 1 2.437 2.437 2.438 2.438 0 0 1-2.436-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.437 2.437 2.437 0 0 1-2.438-2.437zm-6.561 0a2.437 2.437 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.436-2.437zm-6.561 0a2.438 2.438 0 1 1 2.437 2.437 2.437 2.437 0 0 1-2.437-2.437zm13.124-6.563a2.438 2.438 0 1 1 2.438 2.438 2.438 2.438 0 0 1-2.439-2.438zm-6.561 0a2.437 2.437 0 1 1 2.437 2.438 2.437 2.437 0 0 1-2.437-2.438zm-6.562 0a2.438 2.438 0 1 1 2.437 2.438 2.438 2.438 0 0 1-2.437-2.438z"/>
+                                    </svg>
+                                </div>
+                                <div class="title">Tastenfeld</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="settings" class="app settings page" style="display: none;" data-animation="animation-side-to-left">
+
+                    <div class="container">
+                        <div class="title-bar">
+                            <div class="title">Einstellungen</div>
+                        </div>
+                        <div class="workspace">
+
+                            <div class="rows">
+
+                                <div class="profile">
+                                    <div class="player-img">
+                                        <img src="../utils/img/smartphone/men.png">
+                                    </div>
+                                    <div class="player-info">
+                                        <div class="player-name">{ name }</div>
+                                        <div class="info-array">Profilansicht...</div>
+                                    </div>
+                                    <div class="player-information-button" onclick="OnAppClick(this)" data-page="profil">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="space"></div>
+
+                                <div class="row first">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/flymode.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Flugmodus</div>
+                                        <div class="switch-control">
+                                            <input type="checkbox" id="flymodeCheckbox">
+                                            <label for="flymodeCheckbox"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/sleep.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Stumschalten</div>
+                                        <div class="switch-control">
+                                            <input type="checkbox" id="muteCheckbox">
+                                            <label for="muteCheckbox"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/sleep.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Nummer Unterdrücken</div>
+                                        <div class="switch-control">
+                                            <input type="checkbox" id="unknownnumber">
+                                            <label for="unknownnumber"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/sound.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Töne</div>
+                                        <div class="arrow-control" onclick="OnAppClick(this)" data-page="sounds">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row last">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/wallpaper.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Hintergründe</div>
+                                        <div class="arrow-control" onclick="OnAppClick(this)" data-page="gallery">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="profil" class="app contacts page" style="display: none;" data-animation="animation-side-to-right">
+
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 17">
+                                        <path d="M9.619,2.1A1.214,1.214,0,0,0,9.66.378,1.229,1.229,0,0,0,7.929.336Q.371,7.61.351,7.631a1.254,1.254,0,0,0,.04,1.78l7.537,7.251a1.229,1.229,0,0,0,1.732-.039A1.214,1.214,0,0,0,9.622,14.9L3.373,8.786a.4.4,0,0,1,0-.57Z"/>
+                                    </svg>
+                                </div>
+                                <div onclick="OnAppClick(this)" data-page="settings" class="title">Einstellungen</div>
+                            </div>
+                        </div>
+
+                        <div class="workspace" style="overflow: hidden;">
+
+                            <div class="player-img">
+                                <img src="../utils/img/smartphone/men.png">
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Vorname<span class="value" id="profile-firstname">{ firstname }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Nachname<span class="value" id="profile-secname">{ secondname }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Geburtsdatum<span class="value" id="profile-birth">{ birthdate }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Herkunft<span class="value" id="profile-country">{ country }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Familienstand<span class="value" id="profle-maritalstatus">{ maritalstatus }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Telefonnummer<span class="value" id="profile-phonenumber">{ phonenumber }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Visumsstufe<span class="value" id="profile-visalevel">{ visalevel }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Beruf<span class="value" id="profile-job">{ job }</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title">Wohnsitz<span class="value" id="profile-house">{ house }</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="gallery" class="app gallery page" style="display: none;" data-animation="animation-side-to-right">
+
+                    <div class="container" style="overflow: auto !important; ">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 17">
+                                        <path d="M9.619,2.1A1.214,1.214,0,0,0,9.66.378,1.229,1.229,0,0,0,7.929.336Q.371,7.61.351,7.631a1.254,1.254,0,0,0,.04,1.78l7.537,7.251a1.229,1.229,0,0,0,1.732-.039A1.214,1.214,0,0,0,9.622,14.9L3.373,8.786a.4.4,0,0,1,0-.57Z"/>
+                                    </svg>
+                                </div>
+                                <div onclick="OnAppClick(this)" data-page="settings" class="title">Einstellungen</div>
+                            </div>
+                        </div>
+
+                        <div class="workspace-wrapper">
+
+                            <div class="category">
+                                <div class="header">
+                                    <p>Standart</p>
+                                </div>
+                                <div class="wrapper">
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="2">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/2.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="3">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/3.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="4">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/4.png);"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <div class="header">
+                                    <p>Basic</p>
+                                </div>
+                                <div class="wrapper">
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="1">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/1.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="2">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/2.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="3">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/3.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="4">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/4.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="5">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/5.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="6">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/6.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="7">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/7.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="8">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/8.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="9">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/9.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="10">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/10.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="11">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/11.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="12">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/12.png);"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <div class="header">
+                                    <p>Basic</p>
+                                </div>
+                                <div class="wrapper">
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="8">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/8.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="9">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/9.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="10">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/10.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="11">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/11.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="12">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/12.png);"></div>
+                                    </div>
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="13">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/13.png);"></div>
+                                    </div>
+
+
+                                    <div class="row" onclick="ChangeBackground(this)" data-img="14">
+                                        <i id="active" class="fas fa-star"></i>
+                                        <i id="nonactive" class="far fa-star"></i>
+                                        <div class="image" style="background-image: url(../utils/img/smartphone/backgrounds/14.png);"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="sounds" class="app sounds page" style="display: none;" data-animation="animation-side-to-right">
+
+                    <div class="container" style="overflow: auto !important; ">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 17">
+                                        <path d="M9.619,2.1A1.214,1.214,0,0,0,9.66.378,1.229,1.229,0,0,0,7.929.336Q.371,7.61.351,7.631a1.254,1.254,0,0,0,.04,1.78l7.537,7.251a1.229,1.229,0,0,0,1.732-.039A1.214,1.214,0,0,0,9.622,14.9L3.373,8.786a.4.4,0,0,1,0-.57Z"/>
+                                    </svg>
+                                </div>
+                                <div onclick="OnAppClick(this)" data-page="settings" class="title">Einstellungen</div>
+                            </div>
+                        </div>
+                        <div class="workspace-wrapper">
+
+                            <div class="category" id="message">
+                                <div class="header">
+                                    <p>Eingehende Nachricht</p>
+                                </div>
+                                <div class="sound-wrapper">
+
+                                    <div class="sound-row" data-sound="1">
+                                        <p>Boop</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="1" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="1" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="2">
+                                        <p>Meep Meep</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="2" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="2" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="3">
+                                        <p>Deding</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="3" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="3" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="4">
+                                        <p>Triangel</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="4" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="4" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="5">
+                                        <p>Pling</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="5" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="5" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="6">
+                                        <p>Ding</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="6" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="6" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="7">
+                                        <p>Düdüdü</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="7" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="7" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="8">
+                                        <p>Boing</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="8" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="8" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="9">
+                                        <p>Pikachu</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="9" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="9" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="10">
+                                        <p>Plop</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeMessageAudio(this)" data-audio="message" data-sound="10" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="message" data-sound="10" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="category" id="calling">
+                                <div class="header">
+                                    <p>Eingehender Anruf</p>
+                                </div>
+                                <div class="sound-wrapper">
+
+                                    <div class="sound-row" data-sound="1">
+                                        <p>Rington 1</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeCallingAudio(this)" data-audio="calling" data-sound="1" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="calling" data-sound="1" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="2">
+                                        <p>Rington 2</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeCallingAudio(this)" data-audio="calling" data-sound="2" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="calling" data-sound="2" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="3">
+                                        <p>Rington 3</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeCallingAudio(this)" data-audio="calling" data-sound="3" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="calling" data-sound="3" class="fas fa-headphones-alt"></i>
+                                    </div>
+
+                                    <div class="sound-row" data-sound="4">
+                                        <p>Rington 4</p>
+                                        <i id="star-fav" class="fas fa-star"></i>
+                                        <i onclick="ChangeCallingAudio(this)" data-audio="calling" data-sound="4" id="star-no-fav" class="far fa-star"></i>
+                                        <i onclick="PlayAudio(this)" data-audio="calling" data-sound="4" class="fas fa-headphones-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="messanger" class="app messages page" style="display: none;" data-animation="animation-side-to-up">
+                    <div class="container">
+                        <div class="control-bar">
+                            <div class="control" onclick="OnAppClick(this)" data-page="homescreen">Zurück</div>
+                            <div class="control" id="editChatMessages" onclick="ToggleEditChats(this)" data-action="finish">Bearbeiten</div>
+                        </div>
+
+                        <div class="title-bar">
+                            <div class="title">Chats</div>
+                        </div>
+
+                        <div class="search-bar">
+                            <div class="input-group">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+                                        <path d="M4.337 7.885a3.549 3.549 0 1 0-3.548-3.549 3.548 3.548 0 0 0 3.548 3.549zm2.701-.155a4.337 4.337 0 1 1 .693-.693.502.502 0 0 1 .123.091l3.011 3.011a.513.513 0 0 1-.725.725l-3.011-3.011a.502.502 0 0 1-.091-.123z"/>
+                                    </svg>
+                                </div>
+                                <input id="search" type="text" placeholder="Suche" oninput="OnSortableMessangerChatsWithLetter(this.value)">
+                            </div>
+                        </div>
+
+                        <div class="workspace" id="messagener-chats" style="padding-bottom: 2vh;">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="messanger-chat" class="app messages page" style="display: none;">
+                    <div class="container" style="max-height: 46.5vh !important;">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="counter" onclick="OnAppClick(this)" data-page="messanger">Zurück</div>
+                            </div>
+                            <div class="title">{ name }</div>
+                            <div class="control inactive"></div>
+                        </div>
+                        <div id="messamger-chat-list" class="workspace chat">
+
+                        </div>
+                    </div>
+                    <div class="app-input">
+                        <div class="camera-button" onclick="SendChatMessageAtClick(2)">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="SMS">
+                            <button class="send" onclick="SendChatMessageAtClick(1)">
+                                <div class="icon">
+                                    <img src="../utils/img/smartphone/icons/arrow.svg" alt="">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="radio" class="app settings page" style="display: none;" data-animation="animation-side-to-up">
+
+                    <div class="container">
+                        <div class="title-bar">
+                            <div class="title">Funk</div>
+                        </div>
+                        <div class="workspace">
+
+                            <div class="rows">
+                                <div class="profile" style="flex-wrap: wrap;">
+                                    <input id="radio-freq-input" type="number" placeholder="Gebe eine Frequenz ein..." onkeypress="return (event.charCode>= 48 && event.charCode <= 57)" onpaste="return false">
+                                    <button id="radio-freq-join" onclick="ConnectToRadio(true)">Verbinden</button>
+                                </div>
+
+                                <div class="space"></div>
+
+                                <div class="current-connection">
+                                    <div class="title-header">
+                                        <p style="color: #818181;">Aktuelle Verbindung: <span style="color: red;"> Nicht Verbunden</span></p>
+                                    </div>
+                                    <div class="content" style="display: none;">
+                                        <div class="line mark">Status:<span id="radio-state" style="color: red;"> Private</span></div>
+                                        <div class="line">Name:<span id="radio-name"> FIB 01</span></div>
+                                        <div class="line mark">Frequenz:<span id="radio-freq"> 977.4</span></div>
+                                        <div class="line">Mitglieder:<span id="radio-members"> 30</span></div>
+                                        <div class="line mark">Maximale Slots:<span id="radio-maxslots"> 60</span></div>
+
+                                        <div class="down-header">
+                                            <button onclick="ConnectToRadio(false)">Trennen</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="space"></div>
+
+                                <div class="row first">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/flymode.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Dauersenden</div>
+                                        <div class="switch-control">
+                                            <input type="checkbox" id="radio-perm-talk">
+                                            <label for="radio-perm-talk"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row last">
+                                    <div class="icon">
+                                        <img src="../utils/img/smartphone/icons/settings/flymode.svg" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Push to Talk</div>
+                                        <div class="switch-control">
+                                            <input type="checkbox" id="radio-push-talk">
+                                            <label for="radio-push-talk"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="lifeinvader" class="app lifeinvader page" style="display: none;" data-animation="animation-side-to-up">
+                    <div class="container" style="max-height: 49vh !important;">
+                        <div class="control-bar">
+                            <div class="control back">
+                                <div class="counter" onclick="OnAppClick(this)" data-page="homescreen">Zurück</div>
+                            </div>
+                            <div class="title">Lifeinvader</div>
+                            <div class="control inactive"></div>
+                        </div>
+                        <div id="lifeinvader-wrapper" class="workspace" style="padding: 1vh;">
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                            <div class="lifeinvader-message-wrapper">
+                                <p class="header">Nachricht:</p>
+                                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo perspiciatis molestiae deleniti dolor officia tempore pariatur nostrum eos vero, earum hic suscipit cumque. Laudantium maiores doloribus sapiente
+                                    reprehenderit deserunt!</p>
+                                <div class="footer">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <i class="fa-regular fa-phone-flip"></i>
+                                    <p>Tel: 555 222 333</p>
+                                    <p>4.2.2022, 09:25:09</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="faction" class="app settings page" style="overflow: auto; display: none;" data-animation="animation-side-to-up">
+                    <div class="container">
+                        <div class="title-bar">
+                            <div class="title"></div>
+                        </div>
+                        <div class="workspace">
+
+                            <div class="rows">
+
+                                <div class="profile">
+                                    <div class="player-img">
+                                        <img src="../utils/img/fractionLogos/3.png">
+                                    </div>
+                                    <div class="player-info">
+                                        <div class="player-name">Federal Investigati...</div>
+                                        <div class="info-array">12 Mitglieder Online...</div>
+                                    </div>
+                                </div>
+
+                                <div class="members" style="padding-top: 1.5vh;">
+
+                                    <div class="line first rank-row" rank="12" style="display: none;">Rang 12</div>
+                                    <div class="list" rank="12" style="display: none;"></div>
+                                    <div class="space" rank="12" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="11" style="display: none;">Rang 11</div>
+                                    <div class="list" rank="11" style="display: none;"></div>
+                                    <div class="space" rank="11" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="10" style="display: none;">Rang 10</div>
+                                    <div class="list" rank="10" style="display: none;"></div>
+                                    <div class="space" rank="10" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="9" style="display: none;">Rang 9</div>
+                                    <div class="list" rank="9" style="display: none;"></div>
+                                    <div class="space" rank="9" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="8" style="display: none;">Rang 8</div>
+                                    <div class="list" rank="8" style="display: none;"></div>
+                                    <div class="space" rank="8" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="7" style="display: none;">Rang 7</div>
+                                    <div class="list" rank="7" style="display: none;"></div>
+                                    <div class="space" rank="7" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="6" style="display: none;">Rang 6</div>
+                                    <div class="list" rank="6" style="display: none;"></div>
+                                    <div class="space" rank="6" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="5" style="display: none;">Rang 5</div>
+                                    <div class="list" rank="5" style="display: none;"></div>
+                                    <div class="space" rank="5" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="4" style="display: none;">Rang 4</div>
+                                    <div class="list" rank="4" style="display: none;"></div>
+                                    <div class="space" rank="4" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="3" style="display: none;">Rang 3</div>
+                                    <div class="list" rank="3" style="display: none;"></div>
+                                    <div class="space" rank="3" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="2" style="display: none;">Rang 2</div>
+                                    <div class="list" rank="2" style="display: none;"></div>
+                                    <div class="space" rank="2" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="1" style="display: none;">Rang 1</div>
+                                    <div class="list" rank="1" style="display: none;"></div>
+                                    <div class="space" rank="1" style="display: none;"></div>
+
+                                    <div class="line first rank-row" rank="0" style="display: none;">Rang 0</div>
+                                    <div class="list" rank="0" style="display: none;"></div>
+                                    <div class="space" rank="0" style="display: none;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="navigator" class="app navigator page" style="display: none;" data-animation="animation-side-to-up">
+
+                    <div class="container">
+                        <div class="title-bar">
+                            <div class="title">Standorte</div>
+                            <div class="control add">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                                        <path d="M8 0h2v18h-2zM0 8h18v2h-18z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-bar">
+                            <div class="input-group">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+                                        <path d="M4.337 7.885a3.549 3.549 0 1 0-3.548-3.549 3.548 3.548 0 0 0 3.548 3.549zm2.701-.155a4.337 4.337 0 1 1 .693-.693.502.502 0 0 1 .123.091l3.011 3.011a.513.513 0 0 1-.725.725l-3.011-3.011a.502.502 0 0 1-.091-.123z"/>
+                                    </svg>
+                                </div>
+                                <input oninput="OnSearchNavigation()" id="navsearch" type="text" placeholder="Suche">
+                            </div>
+                        </div>
+                        <div class="navigator-bar-wrapper">
+                            <div class="navigator-bar">
+                                <ul class="navs">
+                                    <li class="nav active" data-category="1" onclick="LoadNavigation(1)">Garagen</li>
+                                    <li class="nav" data-category="2" onclick="LoadNavigation(2)">Kleiderläden</li>
+                                    <li class="nav" data-category="3" onclick="LoadNavigation(3)">Friseureläden</li>
+                                    <li class="nav" data-category="4" onclick="LoadNavigation(4)">Autohäuser</li>
+                                    <li class="nav" data-category="5" onclick="LoadNavigation(5)">Einkaufsläden</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="workspace" style="height: 37vh;">
+
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Blaine County. Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Downtown Los Santos Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Alamo Sea Kleiderladen</div>
+                                    <div class="distance">2.2 км</div>
+                                    <div class="mark-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                                            <circle cx="13" cy="13" r="13"/>
+                                            <path d="M12.999 5.978a5.092 5.092 0 0 0-5.086 5.086c0 3.481 4.552 8.59 4.746 8.806a.458.458 0 0 0 .682 0c.194-.216 4.746-5.326 4.746-8.806a5.092 5.092 0 0 0-5.088-5.086zm0 7.646a2.559 2.559 0 1 1 2.559-2.559 2.562 2.562 0 0 1-2.559 2.559z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Grapeseed Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Little Seoul Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Los Santos Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Mount Chiliad Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Rockford Hills Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Grapeseed Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Little Seoul Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Los Santos Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Mount Chiliad Kleiderladen</div>
+                                </div>
+                            </div>
+                            <div class="navigator-item-wrapper">
+                                <div class="navigator-item">
+                                    <div class="title">Rockford Hills Kleiderladen</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-button-zone">
+                    <div onclick="OnAppClick(this)" data-page="homescreen" class="home-button-wrapper">
+                        <div class="home-button"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="../utils/js/fas.js"></script>
+<script src="../utils/libs/jquery.js"></script>
+<script src="./javascript/modles/models.js"></script>
+<script src="./javascript/handler.js"></script>
+<script src="./javascript/functions.js"></script>
+
+</html>

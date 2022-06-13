@@ -1,0 +1,539 @@
+@font-face {
+    font-family: "ubuntu";
+    src: url('../../utils/fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('../../utils/fonts/Ubuntu-Medium.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    box-sizing: border-box;
+    font-family: 'ubuntu';
+}
+
+.ps-close {
+    position: absolute;
+    top: 1%;
+    right: .5%;
+    height: 5vh;
+    width: 5vh;
+    border: none;
+    outline: none;
+    border-radius: .3vw;
+    background: rgba(255, 255, 255, 0.19);
+    transition: all 0.15s ease-in-out;
+}
+
+.ps-close > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4vw;
+    color: white;
+}
+
+.ps-close:active {
+    opacity: .8;
+}
+
+body {
+    background-image: url(../../utils/img/backgrounds/bg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body .header {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .header .information {
+    position: relative;
+    width: 60vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+body .header .information .char {
+    position: relative;
+    width: 30vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+body .header .information .char .char-image {
+    position: relative;
+    width: 5.5vh;
+    height: 5.5vh;
+    background-image: url(../../utils/img/inventory/char.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body .header .information .char .char-data {
+    position: relative;
+    width: 20vh;
+    padding-left: 1vh;
+}
+
+body .header .information .char .char-data .char-name {
+    font-family: "ubuntu-m";
+    font-size: 1.6vh;
+    color: white;
+    padding-bottom: 0.3vh;
+}
+
+body .header .information .char .char-data .char-money {
+    font-family: "ubuntu-m";
+    color: #77dd28;
+    font-size: 1.2vh;
+}
+
+body .header .selection {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .header .selection button {
+    position: relative;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    color: white;
+    background: transparent;
+    height: 4.5vh;
+    width: 15vh;
+    font-size: 1.75vh;
+    font-family: "ubuntu-m";
+    border-radius: 0.75vh;
+    margin: 1vh;
+    transition: opacity 250ms;
+}
+
+body .header .selection button.active {
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+body .content {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+body .footer {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+}
+
+.content .container.clothing {
+    width: 23vh;
+}
+
+.content .container {
+    position: relative;
+    width: 37vh;
+    height: 50vh;
+    margin: 2.5vh;
+}
+
+.content .container .header {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5vh;
+    justify-content: flex-start;
+    background: #0000;
+}
+
+.content .container .slots {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    align-content: flex-start;
+    padding: 1vh 0vh;
+    max-height: 36vh;
+    min-height: 36vh;
+}
+
+
+/* .content .container .slots::after {
+    content: attr(data-text);
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.356);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vh;
+} */
+
+.content .container .footer {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+}
+
+.content .container .header .icon {
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75vh;
+    margin-right: 1vh;
+}
+
+.content .container .header .icon i {
+    color: #fff;
+    font-size: 1.75vh;
+}
+
+.content .container .header .title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.content .container .header .title h1 {
+    color: white;
+    font-family: "ubuntu-m";
+    font-size: 1.6vh;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.content .container .header .title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2vh;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.content .container .slots .slot {
+    position: relative;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.25vh;
+    width: 6vh;
+    height: 6vh;
+    margin: 0.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ ::-webkit-scrollbar {
+    background: rgba(56, 86, 130, 0.17);
+    border: 0.07651109410864575vh solid rgba(255, 255, 255, 0.04);
+    width: 0.612088752869166vh;
+    border-radius: 0.22953328232593725vh;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background-color: #0DAAFF;
+    border-radius: 0.22953328232593725vh;
+}
+
+ :-webkit-scrollbar-track {
+    background: rgba(56, 86, 130, 0.17);
+    border: 0.07651109410864575vh solid rgba(255, 255, 255, 0.04);
+    border-radius: 0.22953328232593725vh;
+}
+
+.content .container .footer .progress-bar {
+    position: relative;
+    width: 95%;
+    height: 1vh;
+    background: #0daaff61;
+    border-radius: 10vh;
+    margin-top: 1vh;
+}
+
+.content .container .footer .progress-bar div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #0DAAFF;
+    border-radius: 10vh;
+    margin-top: 1vh;
+    transition: width 0.5s;
+}
+
+.content .container .footer .container-information {
+    position: relative;
+    width: 95%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25vh;
+    padding-top: 0.75vh;
+}
+
+.content .container .footer .container-information p {
+    color: #fff;
+}
+
+.content .container.clothing .clothing {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    grid-gap: 0.8vh 1.6vh;
+    margin-left: 4vh;
+    padding-top: 1.5vh;
+}
+
+.content .container.clothing .clothing .cloth {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.25vh;
+    width: 6vh;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 250ms;
+    transition: filter 250ms;
+    margin: 0.1vh;
+}
+
+.content .container.clothing .clothing .cloth:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0vh 0vh 1.5vh white);
+}
+
+.content .container.clothing .clothing .cloth img {
+    width: auto;
+    height: 2.5vh;
+    opacity: .6;
+}
+
+.content .container.clothing .clothing .cloth.large {
+    grid-column: auto / span 2;
+    width: 13vh;
+}
+
+.content .container.clothing .clothing .cloth.long {
+    grid-row: auto / span 2;
+    height: 13vh;
+}
+
+.content .container.clothing .interaction {
+    position: relative;
+    width: 20vh;
+    height: 25vh;
+    margin: 0.5vh;
+    margin-top: 1.5vh;
+}
+
+.content .container.clothing .interaction-header {
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+    border-radius: 0.75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .container.clothing .interaction-header .infomation {
+    display: flex;
+    align-items: center;
+}
+
+.content .container.clothing .interaction-header .infomation .item-amount {
+    width: 3.5vh;
+    height: 3vh;
+    border-radius: 0.5vh;
+    border: none;
+    outline: none;
+    margin-left: 1.5vh;
+    box-shadow: inset 0 0 3px #000000;
+    background: #f7f7f7;
+    padding: 0.5vh;
+    text-align: center;
+    font-family: 'ubuntu';
+    font-size: 1.5vh;
+    color: #1c1c1c;
+}
+
+.content .container.clothing .interaction-header .infomation .item-amount::-webkit-outer-spin-button,
+.content .container.clothing .interaction-header .infomation .item-amount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.content .container.clothing .interaction-header .infomation p {
+    color: #fff;
+    width: 9vh;
+    background: #ff000000;
+    font-size: 1.25vh;
+    padding-left: 1vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.content .container.clothing .interaction-header .infomation .item-description {}
+
+.content .container.clothing .interaction-header .interaction-item {
+    width: 4vh;
+    height: 4vh;
+    margin-right: 1.25vh;
+}
+
+.content .container.clothing .interaction-btns {
+    margin-top: 1vh;
+    border-radius: 0.75vh;
+    overflow: hidden;
+}
+
+.content .container.clothing .interaction-btns .btn-element {
+    position: relative;
+    width: 100%;
+    height: 4vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 0.1vh solid #ffffff0f;
+}
+
+.content .container.clothing .interaction-btns .btn-element:last-child() {
+    border-bottom: 0vh
+}
+
+.content .container.clothing .interaction-btns .btn-element i {
+    padding-left: 1vh;
+    font-size: 1.5vh;
+    opacity: 0.5;
+}
+
+.content .container.clothing .interaction-btns .btn-element p {
+    padding-left: 1vh;
+    font-size: 1.5vh;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.content .container.clothing .interaction-btns .btn-element p:hover {
+    color: #fff;
+    text-shadow: 0 0 20px white;
+    font-family: 'ubuntu-m';
+}
+
+.content .container .slots .key {
+    position: relative;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.25vh;
+    width: 6vh;
+    height: 6vh;
+    margin: 0.5vh;
+}
+
+.item {
+    width: 6vh;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+}
+
+.item .icon {
+    position: relative;
+    width: 5vh;
+    height: 5vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0.5vh;
+}
+
+.item::after {
+    content: attr(data-count);
+    position: absolute;
+    bottom: -0.5vh;
+    width: auto;
+    height: 1.5vh;
+    padding: 0 1vh;
+    background: #0DAAFF;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+    border-radius: 0.5vh;
+    text-align: center;
+    color: #fff;
+    font-family: 'ubuntu';
+    font-size: 1.05vh;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1.75vh;
+}
+
+.content .container.clothing .weapons {
+    position: relative;
+    width: 100%;
+    height: 20.5vh;
+    margin: 1vh 0vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.content .container.clothing .weapons::-webkit-scrollbar {
+    width: 0;
+}
+
+.content .container.clothing .weapons .weapon-wrapper {
+    position: relative;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.25vh;
+    width: 6vh;
+    height: 6vh;
+    margin: 0.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

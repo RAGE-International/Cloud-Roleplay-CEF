@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./betterslider.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous"></script>
+    <script src="../utils/libs/jquery.js"></script>
+    <script src="../utils/libs/betterslider.js"></script>
+    <title>Cloud | Tattooshop</title>
+</head>
+
+<body>
+    <div class="container">
+        <div onclick="closeTattooshop()" class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="tattoo-positions">
+            <div class="top">
+                <i class="fa-solid fa-tags"></i>
+                <div class="text">
+                    <p class="title">Vinewood Tattooshop</p>
+                    <p class="description">Verpasse dir ein einzigartiges Tattoo</p>
+                </div>
+            </div>
+            <div class="position-list">
+                <div onclick="SwitchCategory(1, this)" class="position">
+                    <img class="position-image" src="./img/head.png" alt="">
+                    <p class="position-name">Kopf</p>
+                </div>
+                <div onclick="SwitchCategory(2, this)" class="position">
+                    <img class="position-image" src="./img/hair.png" alt="">
+                    <p class="position-name">Haartattoo</p>
+                </div>
+                <div onclick="SwitchCategory(3, this)" class="position">
+                    <img class="position-image" src="./img/body.png" alt="">
+                    <p class="position-name">Oberkörper</p>
+                </div>
+                <div onclick="SwitchCategory(4, this)" class="position">
+                    <img class="position-image" src="./img/body.png" alt="">
+                    <p class="position-name">Rücken</p>
+                </div>
+                <div onclick="SwitchCategory(5, this)" class="position">
+                    <img class="position-image" src="./img/arm.png" alt="">
+                    <p class="position-name">Linker Arm</p>
+                </div>
+                <div onclick="SwitchCategory(6, this)" class="position">
+                    <img style="transform: scaleX(-1);" class="position-image" src="./img/arm.png" alt="">
+                    <p class="position-name">Rechter Arm</p>
+                </div>
+                <div onclick="SwitchCategory(7, this)" class="position">
+                    <img class="position-image" src="./img/leg.png" alt="">
+                    <p class="position-name">Linkes Bein</p>
+                </div>
+                <div onclick="SwitchCategory(8, this)" class="position">
+                    <img style="transform: scaleX(-1);" class="position-image" src="./img/leg.png" alt="">
+                    <p class="position-name">Rechtes Bein</p>
+                </div>
+            </div>
+        </div>
+        <div class="middle-bottom">
+            <div class="slider-box">
+                <div class="slider-module-slider" id="slider-rotation"></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="tattoo-selector">
+                <div class="tattoo-list">
+                    <!-- <div class="tattoo-item">
+                        <div class="text">
+                            <p class="tattoo-name">Schnurrbart</p>
+                            <p class="tattoo-price">2.000$</p>
+                        </div>
+                        <img class="tattoo-image" src="./img/placeholder1.png" alt="">
+                    </div>
+                    <div class="tattoo-item">
+                        <div class="text">
+                            <p class="tattoo-name">Testament</p>
+                            <p class="tattoo-price">10.000$</p>
+                        </div>
+                        <img class="tattoo-image" src="./img/placeholder2.png" alt="">
+                    </div>
+                    <div class="tattoo-item">
+                        <div class="text">
+                            <p class="tattoo-name">Slogan</p>
+                            <p class="tattoo-price">500$</p>
+                        </div>
+                        <img class="tattoo-image" src="./img/placeholder3.png" alt="">
+                    </div>
+                    <div class="tattoo-item">
+                        <div class="text">
+                            <p class="tattoo-name">Schnurrbart</p>
+                            <p class="tattoo-price">2.000$</p>
+                        </div>
+                        <img class="tattoo-image" src="./img/placeholder1.png" alt="">
+                    </div>
+                    <div class="tattoo-item">
+                        <div class="text">
+                            <p class="tattoo-name">Testament</p>
+                            <p class="tattoo-price">10.000$</p>
+                        </div>
+                        <img class="tattoo-image" src="./img/placeholder2.png" alt="">
+                    </div> -->
+                </div>
+                <div class="buy-info">
+                    <p class="title">Ausgewählt</p>
+                    <p class="tattoo-name">Name:<span class="line"></span><span id="buy-tattoo-name"></span>
+                    </p>
+                    <p class="tattoo-price">Preis:<span class="line"></span><span id="buy-tattoo-price"></span>
+                    </p>
+                    <button onclick="BuyTattooItem()">Anwenden</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let currentSelectedCategory = null;
+    let currentSelectedCategoryId = null;
+    let currentSelectedItem = null;
+    let currentSelectedItemId = null;
+    let items = [];
+
+    var slider = document.getElementById('slider-rotation');
+    noUiSlider.create(slider, {
+        start: [0],
+        connect: [true, false],
+        step: 1,
+        range: {
+            'min': 0,
+            'max': 360
+        }
+    });
+
+    function CloseTattooshop() {
+        mp.trigger('Client:DestoryTattooshop');
+    }
+
+    const LoadItems = (data) => {
+        if (data == null || data == undefined || data == "") {
+            return;
+        }
+
+        data = JSON.parse(data);
+        items = [];
+
+        data.forEach(element => {
+            if (items.find(x => x.id == element.id)) {
+                return;
+            }
+
+            items.push({
+                id: element.id,
+                categoryId: element.categoryId,
+                name: element.name,
+                price: element.price,
+                hash: element.hash,
+                overlay: element.overlay
+            });
+        });
+    };
+
+    const SwitchCategory = (id, elem) => {
+        if (currentSelectedCategory != null) {
+            currentSelectedCategory.setAttribute('id', '');
+        }
+
+        currentSelectedCategory = elem;
+        currentSelectedCategoryId = id;
+        elem.setAttribute('id', 'active');
+
+        switch (id) {
+            case 1:
+                mp.events.call("client:setcamflag", 1);
+                break;
+            case 2:
+                mp.events.call("client:setcamflag", 2);
+                break;
+            case 3:
+                mp.events.call("client:setcamflag", 0);
+                break;
+            case 4:
+                mp.events.call("client:setcamflag", 5);
+                break;
+            case 5:
+                mp.events.call("client:setcamflag", 0);
+                break;
+            case 6:
+                mp.events.call("client:setcamflag", 0);
+                break;
+            case 7:
+                mp.events.call("client:setcamflag", 6);
+                break;
+            case 8:
+                mp.events.call("client:setcamflag", 6);
+                break;
+            default: break;
+        }
+
+
+        var nameElem = document.getElementById('buy-tattoo-name');
+        var priceElem = document.getElementById('buy-tattoo-price');
+
+        nameElem.innerText = ``;
+        priceElem.innerText = ``;
+
+        currentSelectedItem = null;
+        currentSelectedItemId = null;
+
+        let categoryItems = items.find(x => x.categoryId == id);
+        if (categoryItems == null || categoryItems == undefined || categoryItems == "") {
+            RemoveAllChildNodes(document.querySelector('.tattoo-list'));
+            return;
+        }
+
+        RemoveAllChildNodes(document.querySelector('.tattoo-list'));
+
+        Array(categoryItems).forEach(element => {
+            document.querySelector('.tattoo-list').innerHTML += `
+                <div class="tattoo-item" data-id="${element.id}" onclick="SelectItem(this)">
+                    <div class="text">
+                        <p class="tattoo-name">${element.name}</p>
+                        <p class="tattoo-price">${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}$</p>
+                    </div>
+                    <img class="tattoo-image" src="./img/placeholder2.png" alt="">
+                </div>
+            `;
+        });
+
+        UpdateSelected();
+    };
+
+    const RemoveAllChildNodes = (parent) => {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    };
+
+    const UpdateSelected = () => {
+        if (currentSelectedItem == null || currentSelectedItem == undefined || currentSelectedItem == "") {
+            return;
+        }
+
+        var nameElem = document.getElementById('buy-tattoo-name');
+        var priceElem = document.getElementById('buy-tattoo-price');
+
+        if (nameElem == null || nameElem == undefined || priceElem == null || priceElem == undefined) {
+            return;
+        }
+
+        if (items.find(x => x.id == currentSelectedItemId)) {
+            nameElem.innerText = `${items.find(x => x.id == currentSelectedItemId).name}`;
+            priceElem.innerText = `${items.find(x => x.id == currentSelectedItemId).price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}$`;
+        }
+    };
+
+    const SelectItem = (element) => {
+        if (currentSelectedItem != null) {
+            currentSelectedItem.setAttribute('id', '');
+        }
+
+        currentSelectedItem = element;
+        currentSelectedItemId = element.getAttribute('data-id');
+        element.setAttribute('id', 'active');
+
+        UpdateSelected();
+
+        mp.trigger("Client:Tattoo:TryTattoo", items.find(x => x.id == currentSelectedItemId).overlay, items.find(x => x.id == currentSelectedItemId).hash)
+    };
+
+    const BuyTattooItem = () => {
+        var hash = items.find(x => x.id == currentSelectedItemId).hash;
+        var itemId = currentSelectedItemId;
+
+        if (hash == null || hash == undefined || itemId == null || itemId == undefined || itemId < 1 || currentSelectedCategoryId == null || currentSelectedItemId == null) {
+            return;
+        }
+
+        mp.trigger("Client:Tattoo:BuyTattoo", hash, itemId)
+    }
+</script>
+
+</html>

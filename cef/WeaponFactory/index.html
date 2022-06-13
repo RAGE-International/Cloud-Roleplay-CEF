@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/09afae0a51.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <button onclick="CloseMenu()" class="ps-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="categories" id="categories">
+            <div class="cat-head">
+                <h1 class="cat-offset">Waffenfabrik</h1>
+                <h2 class="cat-offset">Wähle deine bestimmte Kategorie aus</h2>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cont-head">
+                <h1 id="title1">Sturmgewehr Herstellung</h1>
+                <h2>Herstellbare Sturmgewehre.</h2>
+            </div>
+            <div class="weapons" id="weapons"></div>
+
+            <div class="cont-head ammo-offset">
+                <h1>Munitionsherstellung</h1>
+                <h2>Wähle deine Munition aus.</h2>
+            </div>
+            <div class="ammo" id="ammo"></div>
+        </div>
+
+        <div class="manufactor">
+            <div class="production-cost">
+                <div class="man-head">
+                    <h1>Produktionskosten</h1>
+                    <h2>Deine Gegenstände die du brauchst.</h2>
+                </div>
+
+                <div class="proditems">
+                    <div class="weapons" id="components"></div>
+                </div>
+            </div>
+
+            <div class="arrow">
+                <div class="circle">
+                    <img src="./img/arrow.svg">
+                </div>
+            </div>
+
+            <div class="production">
+                <div class="man-head man-head2">
+                    <h1>Ausgewählte Waffe</h1>
+                    <h2>Waffeninformation:</h2>
+                </div>
+
+                <div class="weapon">
+                    <div class="cat-name" id="manu-name">Specialcaribe MK2</div>
+                    <img id="manu-img" src="./img/weapons/weapon_specialcarbine_mk2.png">
+                </div>
+                <div class="amount">
+                    1x
+                </div>
+                <div class="time">
+                    <img src="./img/time.svg">
+                    <h1 id="manu-time">70 min</h1>
+                </div>
+                <button class="prodweapon" onclick="OrderWeapon()">Waffe Herstellen</button>
+            </div>
+        </div>
+
+        <div class="finished">
+            <div class="finished-inner">
+                <div class="fish-head" style="float: left;">
+                    <h1>In Produktion</h1>
+                    <h2>Aktuelle Gegenstände in Produktion.</h2>
+                    <div class="time" id="time" style="display: none;">
+                        <img src="./img/time.svg">
+                        <h1 id="timetime">70 min</h1>
+                    </div>
+                </div>
+                <div class="weapons finishedweapons" id="orders"></div>
+    
+                <div class="fish-head fish-head2">
+                    <h1 style="width: 100%;">Abgeschlossene Produktion</h1>
+                    <h2>Hole deine hergestellte Ware ab.</h2>
+                </div>
+                <div class="ammo finishedammo" id="finishedorders"></div>
+
+                <button onclick="TakeItem()">Produkt Abholen</button>
+                <button onclick="TakeAllItems()">Alles Abholen</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>

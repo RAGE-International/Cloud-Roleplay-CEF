@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous"></script>
+    <script src="../utils/libs/jquery.js"></script>
+    <script src="./scripts/gauge.min.js"></script>
+    <script src="./scripts/interaction-menu.js"></script>
+    <title>Cloud | HUD2</title>
+</head>
+
+<body>
+    <div style="display: none;" class="dialogues">
+        <div style="display: none;" id="dialog" class="dialog">
+            <p class="title"></p>
+            <p class="message"></p>
+            <div class="buttons">
+
+            </div>
+        </div>
+        <div style="display: none;" id="dialog-input" class="dialog dialog-input">
+            <p class="title"></p>
+            <p class="message"></p>
+            <input onpaste="return false;" ondrop="return false" autocomplete="off" id="number-input" type="text">
+            <div class="buttons">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="top-left">
+            <div id="chat" class="ui_element">
+
+            </div>
+            <div style="display: none;" class="gangwar">
+                <p class="time"></p>
+                <div class="team-box first-team">
+                    <p class="team-name"></p>
+                    <div class="line"></div>
+                </div>
+                <p class="points"><span class="first-team-points"></span> - <span class="second-team-points"></span></p>
+                <div class="team-box second-team">
+                    <div class="line"></div>
+                    <p class="team-name"></p>
+                </div>
+            </div>
+        </div>
+        <div class="top-middle">
+            <div class="global-notifys">
+
+            </div>
+        </div>
+        <div class="top-right">
+            <!-- <img class="logo" src="../utils/img/logos/logo.png" alt=""> -->
+            <div class="info-holder">
+                <p class="id">ID: <span id="id"></span></p>
+                <div class="time">
+                    <i class="fa-solid fa-clock"></i>
+                    <p class="clock">14:15</p>
+                    <p class="date">27.01.2022</p>
+                </div>
+                <img src="../utils/img/logos/cloud512.png" alt="">
+            </div>
+            <div class="money-holder">
+                <p class="money"></p>
+                <i class="fa-solid fa-circle-dollar"></i>
+            </div>
+            <div class="weapon-holder">
+                <p class="ammo"><span id="clip"></span>/<span id="ammo"></span></p>
+                <img src="./img/bullet.png" alt="">
+            </div>
+        </div>
+        <div class="middle-left">
+
+        </div>
+        <div class="middle">
+            <div class="interaction-menu"></div>
+        </div>
+        <div class="middle-right">
+            <div style="display: none;" class="native-container">
+                <div class="top">
+                    <i class="fa-regular fa-list-ul"></i>
+                    <div class="text">
+                        <p class="title"></p>
+                        <p class="description"></p>
+                    </div>
+                </div>
+                <input style="display: none;" class="search-native" placeholder="Suchen..." type="text"
+                    oninput="search()">
+                <ul class="list">
+
+                </ul>
+            </div>
+            <div class="info">
+                <div class="box food">
+                    <i class="fa-solid fa-burger-cheese"></i>
+                    <div class="range-holder">
+                        <span class="range"></span>
+                        <span class="range"></span>
+                        <span class="range"></span>
+                    </div>
+                </div>
+                <div class="box drink">
+                    <i class="fa-solid fa-cup-straw"></i>
+                    <div class="range-holder">
+                        <span class="range"></span>
+                        <span class="range"></span>
+                        <span class="range"></span>
+                    </div>
+                </div>
+                <div class="box microphone">
+                    <i class="fa-solid fa-microphone"></i>
+                    <div class="range-holder">
+                        <span class="range"></span>
+                        <span class="range"></span>
+                        <span class="range"></span>
+                    </div>
+                </div>
+                <div style="height: 4.5vh;" class="box radio">
+                    <i class="fa-solid fa-walkie-talkie"></i>
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom-left">
+            <div class="notifys">
+
+            </div>
+            <!-- <div class="minimap"></div> -->
+        </div>
+        <div class="bottom-middle">
+            <div class="progress-container">
+                <div style="display: none;" class="progressbar">
+                    <p class="progress-text">0%</p>
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-right">
+            <div style="display: none;" class="speedometer">
+                <div id="gauge-speed" class="gauge-speed-container"></div>
+                <p class="currentkilometers"></p>
+                <div class="infos">
+                    <p class="kmh">KM/H</p>
+                    <div class="line"></div>
+                    <div class="car-info">
+                        <i id="engine" class="fa-solid fa-engine"></i>
+                        <i id="lock" class="fa-solid fa-key"></i>
+                    </div>
+                </div>
+                <i id="fuel-icon" class="fa-solid fa-gas-pump"></i>
+                <div id="gauge-fuel" class="gauge-fuel-container"></div>
+            </div>
+            <div class="ausweise">
+                <div style="display: none;" class="ausweis personalausweis">
+                    <div class="left">
+                        <div class="border">
+                            <p class="nation">SA</p>
+                        </div>
+                        <div class="id-image"></div>
+                        <div class="sign">
+                            <p class="number">5.</p>
+                            <p class="signature">Sebastian Young</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p class="title">PERSONALAUSWEIS<span style="font-family: bold;">SAN ANDREAS</span></p>
+                        <div class="content">
+                            <div class="info">
+                                <p class="number">1.</p>
+                                <p class="info-entry">Name<span id="second-name">Young</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">2.</p>
+                                <p class="info-entry">Vorname<span id="first-name">Sebastian</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">3.</p>
+                                <p class="info-entry">Ausstellungsdatum<span id="create-date"
+                                        style="margin-top: -0.2vh;">11.05.2022</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">4.</p>
+                                <p class="info-entry">Geburtsdatum<span id="birthday"
+                                        style="margin-top: -0.2vh;">27.05.2001</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color: #7cd1ff; display: none;" class="ausweis dienstausweis">
+                    <div class="left">
+                        <div class="border">
+                            <p class="nation">SA</p>
+                        </div>
+                        <div class="id-image"></div>
+                        <div class="sign">
+                            <p class="number">5.</p>
+                            <p class="signature">Sebastian Young</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p class="title">DIENSTAUSWEIS<span style="font-family: bold;">SAN ANDREAS</span></p>
+                        <div class="content">
+                            <div class="info">
+                                <p class="number">1.</p>
+                                <p class="info-entry">Name<span id="second-name">Young</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">2.</p>
+                                <p class="info-entry">Vorname<span id="first-name">Sebastian</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">3.</p>
+                                <p class="info-entry">Behörde<span id="authority" style="margin-top: -0.2vh;">Los Santos
+                                        Fire Department</span></p>
+                            </div>
+                            <div class="info">
+                                <p class="number">4.</p>
+                                <p class="info-entry">Rang<span id="rank" style="margin-top: -0.2vh;">12</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: none;" class="ausweis lizenzbuch">
+                    <img class="barcode" src="./img/barcode.png" alt="">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>Vorhanden</th>
+                            <th></th>
+                            <th>Vorhanden</th>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-car"></i></td>
+                            <td id="pkw"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                            <td><i class="fa-solid fa-motorcycle"></i></td>
+                            <td id="motorrad"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-truck"></i></td>
+                            <td id="lkw"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                            <td><i class="fa-solid fa-sailboat"></i></td>
+                            <td id="boot"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-helicopter"></i></td>
+                            <td id="heli"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                            <td><i class="fa-solid fa-plane"></i></td>
+                            <td id="flugzeug"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-briefcase-medical"></i></td>
+                            <td id="ehk"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                            <td><i class="fa-solid fa-gun"></i></td>
+                            <td id="waffenschein"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-bus-simple"></i></td>
+                            <td id="pbs"><i style="display: none;" class="fa-solid fa-check"></i></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function FixMessages(left, bottom, width) {
+        // $('.bottom-left').css('left', `${left}vh`)
+        $('.bottom-left').css('bottom', `${bottom}vh`)
+        $('.bottom-left .notifys').css('width', `${width}vh`)
+    }
+
+    function playerNotify(title, message, time, type, adminNotify) {
+        if (type == "alert") {
+            var typeChecked = "bell"
+        } else if (type == "warning") {
+            var typeChecked = "triangle-exclamation"
+        } else if (type == "error") {
+            var typeChecked = "do-not-enter"
+        } else if (type == "success") {
+            var typeChecked = "check"
+        } else if (type == "money") {
+            var typeChecked = "circle-dollar"
+        } else if (type == "house") {
+            var typeChecked = "house"
+        } else if (type == "car") {
+            var typeChecked = "car"
+        }
+        else {
+            console.log('Falscher Benachrichtigungstyp!')
+            return
+        }
+
+        let element = $(
+            `
+            <div class="notify">
+                <div class="icon-area">
+                    <i class="fa-solid fa-${typeChecked}"></i>
+                </div>
+                <div class="text">
+                    <p class="title">${title}</p>
+                    <p class="message">${message}</p>
+                </div>
+            </div>
+            `
+        )
+        $(".bottom-left .notifys").append(element);
+        element.hide()
+        element.animate({
+            left: "0",
+            duration: 100,
+            opacity: "show",
+        })
+        var height = $(element).height()
+        var iconarea = $(element).find(".icon-area")
+        $(iconarea).css("height", height)
+        if (adminNotify == true) {
+            $(iconarea).css("background-color", "#7E1C1C")
+        } else {
+
+        }
+        const audio = new Audio("./img/notify.mp3")
+        audio.play()
+        audio.volume = 0.025
+
+        setTimeout(() => {
+            element.animate({
+                left: "-30vh",
+                duration: 100,
+                opacity: "hide",
+            })
+            setTimeout(() => {
+                element.remove()
+            }, 350)
+        }, time)
+    }
+
+    function globalNotify(title, message, time) {
+        let element = $(
+            `
+            <div class="global-notify">
+                <div class="icon-bg">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="text">
+                    <p class="title">${title}</p>
+                    <p class="message">${message}</p>
+                </div>
+            </div>
+            `
+        )
+        $(".top-middle .global-notifys").append(element);
+        element.hide()
+        element.animate({
+            left: "0",
+            duration: 100,
+            opacity: "show",
+        })
+
+        setTimeout(() => {
+            element.animate({
+                left: "30vh",
+                duration: 100,
+                opacity: "hide",
+            })
+            setTimeout(() => {
+                element.remove()
+            }, 350)
+        }, time * 1000)
+    }
+
+    function setenginestate(state) {
+        if (state == "true") {
+            $('#engine').css("color", "#77dd28")
+        } else {
+            $('#engine').css("color", "red")
+        }
+    }
+
+    function setvehiclelockstate(state) {
+        if (state != "true") {
+            $('#lock').css("color", "#77dd28")
+        } else {
+            $('#lock').css("color", "red")
+        }
+    }
+
+    let currentspeed = 0
+    let currentfuel = 0
+    let currentmaxspeed = 1
+
+    let speedoshowed = false;
+    function showspeedometer(kilometers, fuel, maxspeed) {
+        if (speedoshowed == false) {
+            speedoshowed = true
+            $('.speedometer').fadeIn(250)
+        }
+        $('.currentkilometers').html(kilometers)
+        currentfuel = fuel
+        currentmaxspeed = maxspeed
+    }
+
+    function updateSpeed(speed) {
+        currentspeed = speed
+    }
+
+    function hidespeedometer() {
+        if (speedoshowed == true) {
+            speedoshowed = false
+            $('.speedometer').fadeOut(250)
+        }
+    }
+
+    var myGauge = Gauge(document.getElementById("gauge-speed"), {
+        dialRadius: 48,
+        dialStartAngle: 90,
+        dialEndAngle: 0,
+        value: 0,
+        max: 0,
+        min: 0,
+        valueDialClass: "value",
+        valueClass: "value-text",
+        dialClass: "dial",
+        gaugeClass: "gauge-svg-container",
+        showValue: true,
+    });
+
+    var fuel = Gauge(document.getElementById("gauge-fuel"), {
+        dialRadius: 48,
+        dialStartAngle: 286,
+        dialEndAngle: -16,
+        value: 0,
+        max: 100,
+        min: 0,
+        valueDialClass: "value",
+        valueClass: "value-text",
+        dialClass: "dial",
+        gaugeClass: "gauge-speed-container",
+        showValue: false,
+    });
+
+    setInterval(() => {
+        myGauge.setMaxValue(currentmaxspeed)
+        myGauge.setValue(currentspeed)
+        $("#gauge-speed .text-container .value-text").html(currentspeed)
+        fuel.setValue(currentfuel)
+    }, 10);
+
+    function SplitString(raw, split) {
+        return raw.split(split);
+    }
+
+    let isIdCardActive = false
+    let isAuthenticationCardActive = false
+    let isLicenceCardActive = false
+
+    // '[{"Name":"Max_Mustermann","EntryDate":"11.05.2022","BirthDate":"11.05.2022"}]'
+    function toggleIdCard(rawJson) {
+        if (isIdCardActive == true) {
+            return
+        } else {
+            isIdCardActive = true
+            let data = JSON.parse(rawJson)
+            let first_name = SplitString(data.map(x => x.Name)[0], '_')[0]
+            let second_name = SplitString(data.map(x => x.Name)[0], '_')[1]
+            let birthday = data.map(x => x.BirthDate)[0]
+            let createdate = data.map(x => x.EntryDate)[0]
+            let idcard = $(".ausweise .personalausweis")
+            $(".ausweise .personalausweis #first-name").text(first_name)
+            $(".ausweise .personalausweis #second-name").text(second_name)
+            $(".ausweise .personalausweis #birthday").text(birthday)
+            $(".ausweise .personalausweis #create-date").text(createdate)
+            $(".ausweise .personalausweis .signature").text(first_name + " " + second_name)
+            idcard.show(0)
+            idcard.animate({
+                right: "0vh",
+                duration: 600,
+                opacity: "show",
+            })
+            setTimeout(() => {
+                idcard.animate({
+                    right: "-40vh",
+                    duration: 600,
+                    opacity: "hide",
+                })
+                setTimeout(() => {
+                    idcard.hide(0)
+                    isIdCardActive = false
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    // '[{"Name":"Max_Mustermann","Authority":"Los Santos Police Department","Rank":"12"}]'
+    function toggleAuthenticationCard(rawJson) {
+        if (isAuthenticationCardActive == true) {
+            return
+        } else {
+            isAuthenticationCardActive = true
+            let data = JSON.parse(rawJson)
+            let first_name = SplitString(data.map(x => x.Name)[0], '_')[0]
+            let second_name = SplitString(data.map(x => x.Name)[0], '_')[1]
+            let authority = data.map(x => x.Authority)[0]
+            let rank = data.map(x => x.Rank)[0]
+            let authenticationCard = $(".ausweise .dienstausweis")
+            $(".ausweise .dienstausweis #first-name").text(first_name)
+            $(".ausweise .dienstausweis #second-name").text(second_name)
+            $(".ausweise .dienstausweis #authority").text(authority)
+            $(".ausweise .dienstausweis #rank").text(rank)
+            $(".ausweise .dienstausweis .signature").text(first_name + " " + second_name)
+            authenticationCard.show(0)
+            authenticationCard.animate({
+                right: "0vh",
+                duration: 600,
+                opacity: "show",
+            })
+            setTimeout(() => {
+                authenticationCard.animate({
+                    right: "-40vh",
+                    duration: 600,
+                    opacity: "hide",
+                })
+                setTimeout(() => {
+                    authenticationCard.hide(0)
+                    isAuthenticationCardActive = false
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    // '[{"Name":"Max_Mustermann","Licenses":{"PKW":true,"LKW":false,"Motorrad":false,"Boot":false,"Heli":false,"Flugzeug":false,"EHK":false,"Waffenschein":false,"PBS":false}}]'
+    function toggleLicenceCard(rawJson) {
+        if (isLicenceCardActive == true) {
+            return
+        } else {
+            isLicenceCardActive = true
+            let data = JSON.parse(rawJson)
+            let licences = data.map(x => x.Licenses)[0]
+            let licencecard = $(".ausweise .lizenzbuch")
+            if (licences.PKW == true) {
+                $(".ausweise .lizenzbuch #pkw i").show(0)
+            }
+            if (licences.Waffenschein == true) {
+                $(".ausweise .lizenzbuch #waffenschein i").show(0)
+            }
+            if (licences.LKW == true) {
+                $(".ausweise .lizenzbuch #lkw i").show(0)
+            }
+            if (licences.Motorrad == true) {
+                $(".ausweise .lizenzbuch #motorrad i").show(0)
+            }
+            if (licences.Boot == true) {
+                $(".ausweise .lizenzbuch #boot i").show(0)
+            }
+            if (licences.Heli == true) {
+                $(".ausweise .lizenzbuch #heli i").show(0)
+            }
+            if (licences.Flugzeug == true) {
+                $(".ausweise .lizenzbuch #flugzeug i").show(0)
+            }
+            if (licences.EHK == true) {
+                $(".ausweise .lizenzbuch #ehk i").show(0)
+            }
+            if (licences.PBS == true) {
+                $(".ausweise .lizenzbuch #pbs i").show(0)
+            }
+            licencecard.show(0)
+            licencecard.animate({
+                right: "0vh",
+                duration: 600,
+                opacity: "show",
+            })
+
+            setTimeout(() => {
+                licencecard.animate({
+                    right: "-40vh",
+                    duration: 600,
+                    opacity: "hide",
+                })
+                setTimeout(() => {
+                    licencecard.hide(0)
+                    isLicenceCardActive = false
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    setInterval(() => {
+        let currentDate = new Date()
+        $('.clock').text(`${zeros(currentDate.getHours())}:${zeros(currentDate.getMinutes())}`)
+        $('.date').text(new Date().getDate() + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear())
+    }, 1000)
+
+    function zeros(i) {
+        if (i < 10) {
+            return "0" + i
+        } else {
+            return i
+        }
+    }
+
+    function InitHud(playerId) {
+        $('.info-holder .id #id').text(playerId)
+    }
+
+    function setMoney(money) {
+        $('.money-holder .money').text(money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
+    }
+
+    function setHungerLevel(level) {
+        var childs = $('.food .range-holder').children()
+
+        switch (level) {
+            case "1":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).removeAttr('id', 'active')
+                $(childs[2]).removeAttr('id', 'active')
+                break;
+            case "2":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).attr('id', 'active')
+                $(childs[2]).removeAttr('id', 'active')
+                break;
+            case "3":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).attr('id', 'active')
+                $(childs[2]).attr('id', 'active')
+                break;
+            default: break;
+        }
+    }
+
+    function setThirstLevel(level) {
+        var childs = $('.drink .range-holder').children()
+
+        switch (level) {
+            case "1":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).removeAttr('id', 'active')
+                $(childs[2]).removeAttr('id', 'active')
+                break;
+            case "2":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).attr('id', 'active')
+                $(childs[2]).removeAttr('id', 'active')
+                break;
+            case "3":
+                $(childs[0]).attr('id', 'active')
+                $(childs[1]).attr('id', 'active')
+                $(childs[2]).attr('id', 'active')
+                break;
+            default: break;
+        }
+    }
+
+    function ToggleWeaponAmmoHud(state) {
+        if (state) {
+            $('.weapon-holder').css('display', 'flex')
+        } else {
+            $('.weapon-holder').css('display', 'none')
+        }
+    }
+
+    function UpdateWeaponAmmoAtHud(clip, ammo) {
+        $('.weapon-holder #clip').text(clip)
+        $('.weapon-holder #ammo').text(ammo)
+    }
+
+    // '[{"title":"Testdialog","discription":"Test123","buttons":[{"name":"Abbrechen","eventname":"","arguments":""},{"name":"Bestätigen","eventname":"","arguments":""}]}]'
+    function toggleDialogWindow(rawJson) {
+        let data = JSON.parse(rawJson)
+        let buttons = data.map(x => x.buttons)[0]
+        let title = data.map(x => x.title)[0]
+        let discription = data.map(x => x.discription)[0]
+        buttons.forEach(x => {
+            if (x.name == "Abbrechen") {
+                $(".dialogues #dialog .buttons").append(`<button onclick="dialogAction('${x.eventname}', ${x.arguments})" id="cancel-dialog" class="cancel-dialog">${x.name}</button>`)
+            }
+            if (x.name == "Bestätigen") {
+                $(".dialogues #dialog .buttons").append(`<button onclick="dialogAction('${x.eventname}', ${x.arguments})" id="accept-dialog" class="accept-dialog">${x.name}</button>`)
+            }
+        });
+        $(".dialogues").fadeIn(250)
+        $(".dialogues #dialog").fadeIn(250)
+        $(".dialogues #dialog .title").html(title)
+        $(".dialogues #dialog .message").html(discription)
+    }
+
+    // '[{"title":"Testdialog","discription":"Test123","buttons":[{"name":"Abbrechen","eventname":"","arguments":""},{"name":"Bestätigen","eventname":"","value":"","arguments":""}]}]'
+    function toggleDialogInputWindow(rawJson) {
+        let data = JSON.parse(rawJson)
+        let buttons = data.map(x => x.buttons)[0]
+        let title = data.map(x => x.title)[0]
+        let discription = data.map(x => x.discription)[0]
+        buttons.forEach(x => {
+            if (x.name == "Abbrechen") {
+                $(".dialogues #dialog-input .buttons").append(`<button onclick="dialogAction('${x.eventname}', ${x.arguments})" id="cancel-dialog-input" class="cancel-dialog">${x.name}</button>`)
+            }
+            if (x.name == "Bestätigen") {
+                $(".dialogues #dialog-input .buttons").append(`<button onclick="dialogActionInput('${x.eventname}', ${x.arguments})" id="accept-dialog-input" class="accept-dialog">${x.name}</button>`)
+            }
+        });
+        $(".dialogues").fadeIn(250)
+        $(".dialogues #dialog-input").fadeIn(250)
+        $(".dialogues #dialog-input .title").html(title)
+        $(".dialogues #dialog-input .message").html(discription)
+    }
+
+    function dialogAction(eventname, ...arguments) {
+        mp.trigger('Client:Dialog:Call:Event', eventname, ...arguments);
+    }
+
+    function dialogActionInput(eventname, ...arguments) {
+        mp.trigger('Client:DialogInput:Call:Event', eventname, $('.dialogues #dialog-input input').val(), ...arguments);
+    }
+
+    function closeDialogWindow() {
+        $(".dialogues").fadeOut(250)
+        $(".dialogues #dialog").fadeOut(250)
+        $(".dialogues #dialog-input").fadeOut(250)
+        $(".dialogues #dialog-input input").val("")
+        $(".dialogues #dialog .buttons").html("")
+        $(".dialogues #dialog-input .buttons").html("")
+    }
+
+    $('.dialogues #dialog-input input').attr('maxLength', '7').keypress(limit);
+    function limit(e) {
+        if (e.keyCode == 8) { return true; }
+        return this.value.length < $(this).attr("maxLength");
+    }
+
+    var blockedKeys = [
+        "-",
+        "+",
+        "e",
+        ",",
+    ];
+    document.getElementById("number-input").addEventListener("keydown", function (e) {
+        if (blockedKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Native Menu
+
+    class NativeMenu {
+        constructor(json) {
+            const data = JSON.parse(json)
+            this.Title = data.Title;
+            this.Description = data.Description;
+            this.Items = data.Items;
+            this.SearchBar = data.SearchBar;
+        }
+    }
+
+    class NativeItem {
+        constructor(name, eventName, args) {
+            this.Name = name;
+            this.EventName = eventName;
+            this.Arguments = args;
+        }
+    }
+
+    let nativeMenu = null;
+
+    let Keys = {
+        ARROW_DOWN: 40,
+        ARROW_UP: 38,
+        ENTER: 13,
+        BACK: 8,
+        ESC: 27,
+    };
+
+    let Data = {
+        selected: 1,
+        count: 0,
+    }
+
+    function loadNativeMenu(items) {
+        Data.count = 0
+        Data.selected = 1
+        $('.middle-right .native-container .title').html(nativeMenu.Title);
+        $('.middle-right .native-container .description').html(nativeMenu.Description);
+        $('.middle-right .native-container .list').html('')
+        if (nativeMenu.SearchBar == true) {
+            document.getElementsByClassName('search-native')[0].style.display = 'block'
+            mp.trigger('Client:ShowCursor');
+        } else {
+            document.getElementsByClassName('search-native')[0].style.display = 'none'
+        }
+
+        for (const x of items) {
+            Data.count++;
+            let element_html = ` 
+        <li class="list-item ${Data.count == Data.selected ? 'active' : ''}" item-id="${Data.count}" event-name="${x.EventName}" event-args="${JSON.stringify(x.Arguments)}" tabIndex="-1">
+            ${x.Name}
+        </li>
+        `;
+            $('.middle-right .native-container .list').append(element_html)
+        }
+
+        setTimeout(() => {
+            updateSelected();
+        }, 150);
+    }
+
+    function updateSelected() {
+        let items = $('.middle-right .native-container .list').children()
+        items.each((index, elem) => {
+            $(elem).removeClass('active');
+            if ($(elem).attr('item-id') == Data.selected) {
+                $(elem).addClass('active');
+
+            }
+        });
+    }
+    let nativeMenuOpened = false
+    function openNativeMenu(menu) {
+        if (nativeMenuOpened == false) {
+            nativeMenu = new NativeMenu(menu)
+            if (nativeMenu != null) {
+                loadNativeMenu(nativeMenu.Items);
+                showNativeMenu();
+            }
+            nativeMenuOpened = true
+        } else {
+            return
+        }
+
+    }
+
+    function showNativeMenu() {
+        $('.middle-right .native-container').fadeIn(250);
+    }
+
+    function hideNativeMenu() {
+        $('.middle-right .native-container').fadeOut(250);
+        $('.middle-right .native-container .list').html("")
+        setTimeout(() => {
+            nativeMenuOpened = false
+        }, 250);
+
+    }
+
+    // openNativeMenu('{"Title":"AdminMenu","Description":"Das ist ein Test Menu","Items":[{"Name":"Dienst Betreten","EventName":"Server:Aduty:Enter","Arguments":[1,2]},{"Name":"Dienst Verlassen","EventName":"Server:Aduty:Leave","Arguments":[3,4]},{"Name":"Dienst Verlassen","EventName":"Server:Aduty:Leave","Arguments":[3,4]},{"Name":"Dienst Verlassen","EventName":"Server:Aduty:Leave","Arguments":[3,4]},{"Name":"Dienst Verlassen","EventName":"Server:Aduty:Leave","Arguments":[3,4]},{"Name":"Dienst Verlassen","EventName":"Server:Aduty:Leave","Arguments":[3,4]}],"SearchBar":true}')
+
+    function search() {
+        let search = document.getElementsByClassName('search-native')[0].value.toLowerCase()
+        console.log(search)
+
+        loadNativeMenu(nativeMenu.Items.filter(x => x.Name.toLowerCase().includes(search)))
+    }
+
+    $("body").keydown(function (event) {
+        if ($(".middle-right .native-container .search-native").is(":focus"))
+            return
+
+        let key = event.which;
+        let items = $('.middle-right .native-container .list').children()
+        console.log(key);
+
+        switch (key) {
+            case Keys.ARROW_DOWN:
+                if (Data.selected < Data.count) {
+                    Data.selected = Data.selected + 1;
+                    items.each((index, elem) => {
+                        $(elem).removeClass('active');
+                        if ($(elem).attr('item-id') == Data.selected) {
+                            $(elem).addClass('active');
+                            $(elem)[0].scrollIntoView();
+
+                        }
+                    });
+                } else {
+                    Data.selected = 1;
+                    items.each((index, elem) => {
+                        $(elem).removeClass('active');
+                        if ($(elem).attr('item-id') == Data.selected) {
+                            $(elem).addClass('active');
+                            $(elem)[0].scrollIntoView();
+                        }
+                    });
+                }
+
+                break;
+
+            case Keys.ARROW_UP:
+                if (Data.selected > 1) {
+                    Data.selected = Data.selected - 1;
+                    items.each((index, elem) => {
+                        $(elem).removeClass('active');
+                        if ($(elem).attr('item-id') == Data.selected) {
+                            $(elem).addClass('active');
+                            $(elem)[0].scrollIntoView();
+
+                        }
+                    });
+                } else {
+                    Data.selected = Data.count;
+                    items.each((index, elem) => {
+                        $(elem).removeClass('active');
+                        if ($(elem).attr('item-id') == Data.selected) {
+                            $(elem).addClass('active');
+                            $(elem)[0].scrollIntoView();
+
+                        }
+                    });
+                }
+                break;
+
+            case Keys.ENTER:
+                items.each((index, elem) => {
+                    if ($(elem).attr('item-id') == Data.selected) {
+
+                        let eventName = $(elem).attr('event-name');
+                        let eventArgs = JSON.parse($(elem).attr('event-args'))
+
+                        if (eventName && eventArgs) {
+                            console.log(eventName);
+                            console.log(eventArgs);
+
+                            mp.trigger('Client:NativeMenu:CallEvent', eventName, ...eventArgs);
+                        }
+                    }
+                });
+                break;
+            case Keys.BACK:
+                hideNativeMenu();
+                setTimeout(() => {
+                    mp.trigger("Client:NativeMenu:Destory");
+                }, 250);
+                break;
+            case Keys.ESC:
+                hideNativeMenu();
+                setTimeout(() => {
+                    mp.trigger("Client:NativeMenu:Destory");
+                }, 250);
+                break;
+        }
+    });
+
+    // Chatinput
+
+    let chat = {
+        size: 0,
+        container: null,
+        input: null,
+        enabled: false,
+        active: true
+    };
+
+    function enableChatInput(enable) {
+        if (chat.active == false &&
+            enable == true)
+            return;
+
+        if (enable != (chat.input != null)) {
+            mp.invoke("focus", enable);
+            mp.invoke("setTypingInChatState", enable);
+
+            if (enable) {
+                // chat.input = $("#chat").append('<div><input id="chat-input" type="text" placeholder="Text eingeben" autocomplete="off" spellcheck="false"><i onclick="PushChatInput()" class="fa-solid fa-arrow-right"></i></div>').children(":last");
+                chat.input = $('#chat').append(`
+                <div class="chat-input">
+                    <input placeholder="/command" type="text">
+                    <div class="send"><i onclick="PushChatInput()" class="fa-solid fa-angle-right"></i></div>
+                </div>`).children(":last");
+                chat.input.children("input").focus();
+            } else {
+                chat.input.fadeOut('fast', function () {
+                    chat.input.remove();
+                    chat.input = null;
+                });
+            }
+        }
+    }
+
+    let idx = 0;
+
+    var chatAPI = {
+        push: (text) => {
+            chat.container.prepend("<li>" + text + "</li>");
+
+            chat.size++;
+
+            if (chat.size >= 50) {
+                chat.container.children(":last").remove();
+            }
+        },
+
+        clear: () => {
+            chat.container.html("");
+        },
+
+        activate: (toggle) => {
+            if (toggle == false &&
+                (chat.input != null))
+                enableChatInput(false);
+
+            chat.active = toggle;
+        },
+
+        show: (toggle) => {
+            if (toggle == false &&
+                (chat.input != null))
+                enableChatInput(false);
+
+            if (toggle)
+                $("#chat").show();
+            else
+                $("#chat").hide();
+
+            chat.active = toggle;
+        }
+    };
+
+    if (mp.events) {
+        let api = { "chat:push": chatAPI.push, "chat:clear": chatAPI.clear, "chat:activate": chatAPI.activate, "chat:show": chatAPI.show };
+
+        for (let fn in api) {
+            mp.events.add(fn, api[fn]);
+        }
+    }
+
+    $(document).ready(function () {
+        chat.container = $("#chat ul#chat_messages");
+
+        $(".ui_element").show();
+
+        $("body").keydown(function (event) {
+
+            if (event.which == 84 && chat.input == null &&
+                chat.active == true) {
+                enableChatInput(true);
+                event.preventDefault();
+            } else if (event.which == 13 && chat.input != null) {
+                let value = chat.input.children("input").val();
+                if (value.length > 0 || value.length <= 256) {
+                    if (value[0] == "/") {
+                        value = value.substr(1);
+
+                        if (value.length > 0)
+                            mp.invoke("command", value);
+                    } else {
+                        mp.invoke("chatMessage", value);
+                    }
+                }
+                enableChatInput(false);
+            }
+        });
+    });
+
+    function PushChatInput() {
+        let value = chat.input.children("input").val();
+
+        if (value.length > 0 || value.length <= 256) {
+            if (value[0] == "/") {
+                value = value.substr(1);
+
+                if (value.length > 0)
+                    mp.invoke("command", value);
+            } else {
+                mp.invoke("chatMessage", value);
+            }
+        }
+        enableChatInput(false);
+    }
+
+    // Gangwar 
+
+    function setTeams(firstTeamName, firstTeamColor, firstTeamFontColor, secondTeamName, secondTeamColor, secondTeamFontColor, duration) {
+        $(".first-team .team-name").html(firstTeamName);
+        $(".first-team .team-name").css("color", firstTeamFontColor);
+
+        $(".second-team .team-name").html(secondTeamName);
+        $(".second-team .team-name").css("color", secondTeamFontColor);
+
+        $(".first-team-points").html(0);
+        $(".first-team-points").css("color", firstTeamFontColor);
+
+        $(".second-team-points").html(0);
+        $(".second-team-points").css("color", secondTeamFontColor);
+
+        $(".first-team .line").css("background-color", firstTeamColor);
+        $(".second-team .line").css("background-color", secondTeamColor);
+
+        startTimer(duration);
+        $(".top-left .gangwar").fadeIn(250);
+    }
+
+    function updatePoints(firstTeamPoints, secondTeamPoints) {
+        $(".first-team-points").html(firstTeamPoints);
+        $(".second-team-points").html(secondTeamPoints);
+    }
+
+    function startTimer(duration) {
+        let min = parseInt(duration / 60);
+        let sec = parseInt(duration % 60);
+
+        element = document.querySelector('.gangwar .time');
+        element.textContent = `${paddedFormat(min)}:${paddedFormat(sec)}`;
+
+        startCountDown(--duration, element);
+    }
+
+    function paddedFormat(num) {
+        return num < 10 ? "0" + num : num;
+    }
+
+    function startCountDown(duration, element) {
+
+        let secondsRemaining = duration;
+        let min = 0;
+        let sec = 0;
+
+        let countInterval = setInterval(function () {
+
+            min = parseInt(secondsRemaining / 60);
+            sec = parseInt(secondsRemaining % 60);
+
+            element.textContent = `${paddedFormat(min)}:${paddedFormat(sec)}`;
+
+            secondsRemaining = secondsRemaining - 1;
+            if (secondsRemaining < 0) {
+                clearInterval(countInterval)
+            }
+
+        }, 1000);
+    }
+
+    function hideGangwar() {
+        $(".top-left .gangwar").fadeOut(250);
+    }
+
+    // Progressbar
+
+    function startProgress(time) {
+        let isProgressRunning = false
+
+        if (isProgressRunning == false) {
+            isProgressRunning = true
+            $(".progress").width(0)
+            $(".progressbar").fadeIn(250)
+            $(".progress").animate({"width": "100%"}, time * 1000)
+            let interval = setInterval(() => {
+                let percent = $(".progress").width() / $('.progress').parent().width() * 100
+                $(".progress-text").html(percent.toFixed() + '%')
+            }, 10);
+            setTimeout(() => {
+                // Event was passiert wenn Progressbar bei 100% ist
+                $(".progressbar").fadeOut(250)
+                clearInterval(interval)
+            }, time * 1000 + 1000);
+
+            setTimeout(() => {
+                isProgressRunning = false
+            }, time * 1000 + 350);
+        }
+    }
+</script>
+
+</html>

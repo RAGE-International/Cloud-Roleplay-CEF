@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <i class="fa-solid fa-circle-xmark" onclick="closeUi()"></i>
+            <div>
+                <img src="./styles/logo.png">
+                <div style="margin-left: 1.65vh; font-family: 'ubuntu'; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+                    <p style="font-size: 3.15vh;"><span style="font-family: 'ubuntu-m' !important; font-weight: bold;">Life</span><span>invader</span></p>
+                    <br>
+                    <p style="font-size: 1vh; margin-bottom: 0.9vh;">Schalte deine personalisierte Werbung!</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p style="margin-top: 2.25vh;">Deine Telefonnummer</p>
+            <input id="number" type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" placeholder="Telefonnummer..." style="margin-top: 1vh; width: 100%; height: 4.2vh; padding: 1vh; border: none; outline: none; background: #19171D; border-radius: 0.4vh; color: white; font-size: 1.4vh;">
+            <p style="margin-top: 2.25vh;">Kategorie</p>
+            <button class="active" onclick="selectCategory(this, 1)" style="color: rgba(255, 255, 255, 0.4); background-color: #19171D; border-radius: 0.4vh; outline: none; border: none; font-size: 1.6vh; margin-top: 1vh; height: 4.2vh; width: 14vh; margin-right: 1vh;">Verkaufen</button>
+            <button class="" onclick="selectCategory(this, 2)" style="color: rgba(255, 255, 255, 0.4); background-color: #19171D; border-radius: 0.4vh; outline: none; border: none; font-size: 1.6vh; margin-top: 1vh; height: 4.2vh; width: 14vh;">Suche</button>
+            <p style="margin-top: 2.25vh;">Dein Werbetext</p>
+            <textarea id="textarea" placeholder="Werbetext..." style="margin-top: 1vh; width: 100%; height: 14.2vh; resize: none; color: white;background-color: #19171D; border-radius: 0.4vh; outline: none; border: none; font-size: 1.4vh; font-family: 'ubuntu'; padding: 1vh; margin-top: 1vh;"></textarea>
+            <p style="margin-top: 0.9vh;">Kosten pro Buchstabe: <span style="color: #00ff47;">5$</span></p>
+            <button onclick="sendAd()" style="font-size: 1.8vh; font-family: 'ubuntu-m'; color: white; background-color: #0DAAFF; box-shadow: 0px 0px 0.9vh #0DAAFF; overflow: visible; margin-top: 0.25vh; height: 6.2vh; width: 100%; outline: none; border: none; border-radius: 0.4vh;">Bezahlen</button>
+        </div>
+    </div>
+</body>
+<script src="./javascript/functions.js"></script>
+<script src="../utils/js/fas.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    let currentCost = 5;
+    let currentType = 1;
+
+    function calculateAdPrice() {
+        return $('#textarea').val().length * currentCost;
+    }
+
+    function selectCategory(element, type) {
+        $(element).each(function(index) {
+            $("button").removeClass("active");
+        })
+        $(element).addClass("active");
+        currentType = type;
+    }
+
+    function closeUi() {
+        mp.trigger("Client:DestroyLifeinvader");
+    }
+
+    function sendAd() {
+
+        let content = $('#textarea').val();
+        let price = calculateAdPrice();
+        let phonenumber = $('#number').val();
+
+        if (phonenumber.length <= 0) phonenumber = 0;
+
+        mp.trigger("Client:Lifeinvader:SubmitPost", content, phonenumber, price, currentType);
+    }
+</script>
+
+</html>

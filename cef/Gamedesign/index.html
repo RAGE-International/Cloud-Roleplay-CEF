@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous"></script>
+    <script src="../utils/libs/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="title">Gamedesign Tool</h1>
+        <p class="nav"><span onclick="switchPage('pos')">Position</span> | <span onclick="switchPage('farming')">Verarbeiter</span> | <span onclick="switchPage('gasstation')">TankStelle</span></p>
+        <hr>
+
+        <div class="page pos">
+            <p class="input-title">JSON</p>
+            <input id="inputone" type="text" readonly="readonly">
+            <p style="margin-top: 1.5vh;" class="input-title">JSON Rotation</p>
+            <input id="inputtwo" type="text" readonly="readonly">
+            <p style="margin-top: 1.5vh;" class="input-title">new Vector</p>
+            <input id="inputthree" type="text" readonly="readonly">
+            <p style="margin-top: 1.5vh;" class="input-title">Position Object</p>
+            <input id="inputfour" type="text" readonly="readonly">
+            <button onclick="getinfos()" id="plsdontmoveme">Get</button>
+        </div>
+
+        <div class="page farming" style="display: none;">
+            <p class="input-title">Name</p>
+            <input id="tw1" type="text">
+            <p style="margin-top: 1vh;" class="input-title">Model</p>
+            <input id="tw2" type="text">
+            <p style="margin-top: 1vh;" class="input-title">FarmingTool</p>
+            <input id="tw3" type="text">
+            <p style="margin-top: 1vh;" class="input-title">Item</p>
+            <input id="tw4" type="text">
+            <p style="margin-top: 1vh;" class="input-title">ItemStack</p>
+            <input id="tw5" type="text">
+            <p style="margin-top: 1vh;" class="input-title">MinCount</p>
+            <input id="tw6" type="text">
+            <p style="margin-top: 1vh;" class="input-title">MaxCount</p>
+            <input id="tw7" type="text">
+            <p style="margin-top: 1vh;" class="input-title">FarmingDuration</p>
+            <input id="tw8" type="text">
+            <p style="margin-top: 1vh;" class="input-title">FarmingAnimationDict</p>
+            <input id="tw9" type="text">
+            <p style="margin-top: 1vh;" class="input-title">FarmingAnimationName</p>
+            <input id="tw10" type="text">
+            <p style="margin-top: 1vh;" class="input-title">FarmingAnimationFlag</p>
+            <input id="tw11" type="text">
+            <button onclick="sendInfoToClient()" id="plsdontmoveme">Get</button>
+        </div>
+
+        <div class="page gasstation" style="display: none;">
+
+
+            <div class="window">
+                <div class="header">Tankstelle</div>
+
+                <p style="margin-top: 1vh;" class="input-title">Name</p>
+                <input id="gasstation-name" placeholder="Der Name für die Tankstelle." type="text">
+                <p style="margin-top: 1vh;" class="input-title">PedName</p>
+                <input id="gasstation-pedname" placeholder="Das Ped wird an deine aktuelle Position erstellt." type="text">
+                <button onclick="createGasStation()">Erstellen</button>
+
+            </div>
+
+            <div class="window">
+                <div class="header">Positionen</div>
+                <p style="margin-top: 1vh;" class="input-title">Tankstellen ID</p>
+                <input id="gasstation-id-one" placeholder="Die Id der zuvor angelegten Tankstelle." type="number">
+                <button onclick="addGasStationFillPos()">Hinzufügen</button>
+
+            </div>
+
+            <div class="window">
+                <div class="header">Angebote</div>
+                <p style="margin-top: 1vh;" class="input-title">Tankstellen ID</p>
+                <input id="gasstation-id-sec" placeholder="Die Id der zuvor angelegten Tankstelle." type="number">
+                <p style="margin-top: 1vh;" class="input-title">Treibstoff Typ (1 - Benzin | 2 - Diesel | 3 - Elektro | 4 - Kerosin)</p>
+                <input id="gasstation-fueltype" placeholder="Der Treibstoff Typ, welcher in der Tankstelle vorhanden sein soll." type="number">
+                <p style="margin-top: 1vh;" class="input-title">Preis pro Liter</p>
+                <input id="gasstation-fuelprice" placeholder="Der Preis für den Treibstoff pro Liter." type="number">
+                <button onclick="addGasStationOffer()">Hinzufügen</button>
+
+            </div>
+
+        </div>
+
+        <div class="page vehimages" style="display: none;">
+            <button onclick="startCaptureVehicleImages()">Starten</button>
+        </div>
+
+    </div>
+</body>
+<script src="../utils/libs/jquery.js"></script>
+<script src="../utils/libs/jqueryui.js"></script>
+<script>
+    function sendInfoToClient() {
+        mp.trigger("Client:FarmTool:Create", $('#tw1').val(), $('#tw2').val(), $('#tw3').val(), $('#tw4').val(), $('#tw5').val(), $('#tw6').val(), $('#tw7').val(), $('#tw8').val(), $('#tw9').val(), $('#tw10').val(), $('#tw11').val())
+    }
+
+    function createGasStation() {
+        mp.trigger("Client:GasStation:Create", $("#gasstation-name").val(), $("#gasstation-pedname").val())
+    }
+
+    function addGasStationFillPos() {
+        mp.trigger("Client:GasStation:AddFillPos", $("#gasstation-id-one").val())
+    }
+
+    function addGasStationOffer() {
+        mp.trigger("Client:GasStation:AddOffer", $("#gasstation-id-sec").val(), $("#gasstation-fueltype").val(), $("#gasstation-fuelprice").val())
+    }
+
+    function switchPage(elemName) {
+        $('.page').each((index, elem) => {
+            $(elem).hide()
+        });
+        $(`.page.${elemName}`).show();
+    }
+
+    function setinfo(title, one, two, three, four) {
+        $('#title').text("Gamedesign Tool | " + title)
+        $('#inputone').val(one)
+        $('#inputtwo').val(four)
+        $('#inputthree').val(two)
+        $('#inputfour').val(three)
+    }
+
+    function getinfos() {
+        mp.trigger("setstats")
+    }
+
+    $(".container").draggable();
+</script>
+
+</html>

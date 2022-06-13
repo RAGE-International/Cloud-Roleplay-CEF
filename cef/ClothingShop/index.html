@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="../utils/libs/betterslider.css">
+    <script src="../utils/libs/jquery.js"></script>
+    <script src="../utils/js/fas.js"></script>
+    <script src="../utils/libs/betterslider.js"></script>
+
+    <title>ClothingShop</title>
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+        <div class="main-wrapper-inner">
+
+            <!-- hat-area start -->
+            <div class="hat-area">
+                <div class="hat-area-inner">
+                    <div class="hat-area-inner2" onmouseenter="CloseIconHover(false)" onmouseleave="CloseIconHover(true)" onclick="CloseClothingShop()">
+                        <i id="shirt" class="fa-solid fa-shirt"></i>
+                        <i id="close" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div>
+                        <h2>Kleidungsladen</h2>
+                        <p>Personalisiere dein Outfit.</p>
+                    </div>
+                </div>
+                <div class="hat-area-inner3">
+                    <div class="hat-item">
+                        <div class="hat-item-inner" data="hats" onclick="OnSelectionClick(this, 0, true)">
+                            <div class="image" style="background-image: url(./images/02.png); opacity: 0.3;"></div>
+                            <p>Hüte</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 1, true)">
+                            <div class="image" style="background-image: url(./images/15.png); opacity: 0.3; background-size: 4vh;"></div>
+                            <p>Brillen</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 7, false)">
+                            <div class="image" style="background-image: url(./images/03.png);"></div>
+                            <p>Ketten</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 5, false)">
+                            <div class="image" style="background-image: url(./images/04.png);"></div>
+                            <p>Rucksäcke</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 11, false)">
+                            <div class="image" style="background-image: url(./images/05.png);"></div>
+                            <p>Oberteile</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 4, false)">
+                            <div class="image" style="background-image: url(./images/06.png);"></div>
+                            <p>Hosen</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 3, false)">
+                            <div class="image" style="background-image: url(./images/07.png);"></div>
+                            <p>Körper</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 2, true)">
+                            <div class="image" style="background-image: url(./images/08.png);"></div>
+                            <p>Ohrringe</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 1, false)">
+                            <div class="image" style="background-image: url(./images/09.png);"></div>
+                            <p>Masken</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 8, false)">
+                            <div class="image" style="background-image: url(./images/10.png);"></div>
+                            <p>Unterteile</p>
+                        </div>
+
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 6, true)">
+                            <div class="image" style="background-image: url(./images/12.png);"></div>
+                            <p>Uhren</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick( this,6, false)">
+                            <div class="image" style="background-image: url(./images/13.png);"></div>
+                            <p>Schuhe</p>
+                        </div>
+                        <div class="hat-item2-color-inner2" style="display: none;">
+                            <h3>Farb/-Styleauswahl</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Farbe/-Style</p>
+                                <div class="for-line"></div>
+                                <p class="color-selection-colornumber">1</p>
+                            </div>
+                            <div class="hat-item2-inner4-slider">
+                                <div class="slider-module-slider" id="slider-color-selection"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hat-item2">
+                        <div class="hat-item2-inner">
+
+                        </div>
+                        <div class="hat-item2-inner2">
+                            <h3>Ausgewählt</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Name</p>
+                                <div class="for-line"></div>
+                                <p class="clothing-info-name">Black Low Beanie</p>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Preis</p>
+                                <div class="for-line2"></div>
+                                <h2 class="clothing-info-price">50 <span>$</span></h2>
+                            </div>
+                            <a href="#" onclick="BuyCurrentClothingItem()">Bezahlen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="player-rotation-box">
+        <div class="slider-module-slider" id="slider-player-rotation"></div>
+    </div>
+
+    <div class="player-animations-box">
+        <button onclick="PlayerPlayAnimation()"></button>
+    </div>
+
+    <script src="./scripts/functions.js"></script>
+</body>
+<script>
+</script>
+
+</html>

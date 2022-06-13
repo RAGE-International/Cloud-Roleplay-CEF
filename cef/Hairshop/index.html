@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+    <script src="../utils/js/fas.js"></script>
+    <script src="../utils/libs/jquery.js"></script>
+</head>
+<body>
+    <main class="main-wrapper">
+        <div class="main-wrapper-inner">
+
+            <div class="hat-area">
+                <div class="hat-area-inner">
+                    <div class="hat-area-inner2" onmouseenter="CloseIconHover(false)" onmouseleave="CloseIconHover(true)" onclick="closehairshop()">
+                        <img id="scissor" src="images/17.png">
+                        <i id="close" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div>
+                        <h2>Friseurladen </h2>
+                        <p>Ändere deine Haare, Bart oder deine Augenbrauen.</p>
+                    </div>
+                </div>
+                <div class="hat-area-inner4">
+                    <div class="hat-item3">
+                        <div id="haircategory" class="hat-item-inner active" onclick="switchCategory(1)">
+                            <img src="images/18.png" alt="" />
+                            <p>Haare</p>
+                        </div>
+                        <div id="eyebrowscategory" class="hat-item-inner" onclick="switchCategory(2)">
+                            <img src="images/19.png" alt="" />
+                            <p>Augenbrauen</p>
+                        </div>
+                        <div id="beardcategory" class="hat-item-inner" onclick="switchCategory(3)">
+                            <img src="images/20.png" alt="" />
+                            <p>Bart</p>
+                        </div>
+                    </div>
+                    <div class="hat-item4">
+                        <div id="hair">
+                            <div class="hat-item2-inner">
+
+                            </div>
+                        </div>
+                        <div id="eyebrowns" style="display: none;">
+                            <div class="hat-item2-inner">
+                                <div class="character-item-inner2 character-item-inner10">
+                                    <h3>Style</h3>
+                                    <span></span>
+                                </div>
+                                <div class="character-item-inner3">
+                                    <img onclick="sub6()" id="sub6" src="./images/02.png" alt="" onclick="ClickItem(2, -1)">
+                                    <p><span id="typpe-2">-1</span>/<span id="eyebrowsmax">-1</span></p>
+                                    <img onclick="add6()" id="add6" src="./images/03.png" alt="" onclick="ClickItem(2, 1)">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="beard" style="display: none;">
+                            <div class="hat-item2-inner">
+                                <div class="character-item-inner2 character-item-inner10">
+                                    <h3>Style</h3>
+                                    <span></span>
+                                </div>
+                                <div class="character-item-inner3">
+                                    <img onclick="sub6()" id="sub6" src="./images/02.png" alt="" onclick="ClickItem(3, -1)">
+                                    <p><span id="typpe-3">-1</span>/<span id="beardsmax">-1</span></p>
+                                    <img onclick="add6()" id="add6" src="./images/03.png" alt="" onclick="ClickItem(3, 1)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hat-item4-inner" id="colors1">
+                            <h4>Farbe</h4>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="hat-item4-inner" id="colors2">
+                            <h4>Farbe</h4>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="hat-item2-inner2">
+                            <h3>Ausgewählt</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Namen</p>
+                                <div class="for-line"></div>
+                                <p>Kurzer Haarschnitt</p>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Preis</p>
+                                <img src="images/16.png" alt="" />
+                                <div class="for-line2"></div>
+                                <h2>100 <span>$</span></h2>
+                            </div>
+                            <a onclick="BuyClicked()">Bezahlen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+<script>
+    let itemId = null
+    let currentSelctedType = null
+    let currentSelectedStyle = null
+    let currentColor = -1
+
+    function LoadHairShop(gender, hairJson) {
+        var parsedjson = JSON.parse(hairJson)
+        let eyebrows = 0
+        let beards = 0
+        parsedjson.forEach(x => {
+            if (gender == "true" && x.Is_Women == true) {
+                switch (x.Type) {
+                    case 1:
+                        var element = $(
+                            `
+                    <div onclick="ItemClicked(1, ${x.Style}, ${x.Is_Women}, ${x.Id})"><img src="../Charcreator/images/female_hair/Clothing_F_2_${x.Style}.png"/></div>
+                    `
+                        )
+                        $("#hair .hat-item2-inner").append(element);
+                        break;
+                    case 2:
+                        eyebrows++
+                        break
+                    case 3:
+                        beards++
+                        break
+                }
+            } else {
+                switch (x.Type) {
+                    case 1:
+                        var element = $(
+                            `
+                    <div onclick="ItemClicked(1, ${x.Style}, ${x.Is_Women}, ${x.Id})"><img src="../Charcreator/images/male_hair/Clothing_M_2_${x.Style}.png"/></div>
+                    `
+                        )
+                        $("#hair .hat-item2-inner").append(element);
+                        break;
+                    case 2:
+                        eyebrows++
+                        break
+                    case 3:
+                        beards++
+                        break
+                }
+            }
+        });
+
+        document.getElementById('eyebrowsmax').innerText = eyebrows
+        document.getElementById('beardsmax').innerText = beards
+    }
+
+    function ClickItem(type, offset) {
+        const el = document.getElementById('typpe-'+type)
+        const oldVal = parseInt(el.innerText)
+        const newVal = oldVal + offset
+        document.getElementById('typpe-'+type).innerText = newVal
+        itemId = -1
+        currentSelctedType = type
+        currentSelectedStyle = newVal
+        mp.trigger('Client:HairShop:TryStyle', currentSelctedType, currentSelectedStyle, currentColor, false)
+    }
+
+    const ItemClicked = (type, style, isWomen, id) => {
+        itemId = id
+        currentSelctedType = type
+        currentSelectedStyle = style
+        mp.trigger('Client:HairShop:TryStyle', type, style, currentColor, isWomen)
+    };
+
+    const BuyClicked = () => {
+        mp.trigger('Client:HairShop:BuyStyle', itemId, currentSelctedType, currentSelectedStyle, currentColor)
+    };
+
+    function switchCategory(category) {
+        switch (category) {
+            case 1:
+                $('#hair').css('display', 'block')
+                $('#eyebrowns').css('display', 'none')
+                $('#beard').css('display', 'none')
+                document.querySelector('.hat-item-inner').classList.remove('active')
+                $('#haircategory').attr("class", "hat-item-inner active")
+                $('#eyebrowscategory').attr("class", "hat-item-inner")
+                $('#beardcategory').attr("class", "hat-item-inner")
+                break;
+            case 2:
+                $('#eyebrowns').css('display', 'block')
+                $('#beard').css('display', 'none')
+                $('#hair').css('display', 'none')
+                document.querySelector('.hat-item-inner').classList.remove('active')
+                $('#eyebrowscategory').attr("class", "hat-item-inner active")
+                $('#haircategory').attr("class", "hat-item-inner")
+                $('#beardcategory').attr("class", "hat-item-inner")
+                break;
+            case 3:
+                $('#beard').css('display', 'block')
+                $('#hair').css('display', 'none')
+                $('#eyebrowns').css('display', 'none')
+                document.querySelector('.hat-item-inner').classList.remove('active')
+                $('#beardcategory').attr("class", "hat-item-inner active")
+                $('#haircategory').attr("class", "hat-item-inner")
+                $('#eyebrowscategory').attr("class", "hat-item-inner")
+                break;
+        }
+    }
+
+    function closehairshop() {
+        mp.trigger("Client:DestroyHairShop")
+    }
+
+    function CloseIconHover(state) {
+        if (state) {
+            $('.hat-area-inner2 #close').css('display', 'none')
+            $('.hat-area-inner2 #scissor').fadeIn(100)
+        } else {
+            $('.hat-area-inner2 #scissor').css('display', 'none')
+            $('.hat-area-inner2 #close').fadeIn(100)
+        }
+    }
+
+    function SelectColor(id) {
+        currentColor = id
+        mp.trigger('Client:HairShop:TryStyle', currentSelctedType, currentSelectedStyle, currentColor, false)
+    }
+</script>

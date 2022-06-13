@@ -1,0 +1,300 @@
+    @font-face {
+        font-family: "ubuntu";
+        src: url('../../utils/fonts/Ubuntu.ttf');
+    }
+    
+    @font-face {
+        font-family: "ubuntu-m";
+        src: url('../../utils/fonts/Ubuntu-Medium.ttf');
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-drag: none;
+        font-family: "ubuntu";
+    }
+    
+    body {
+        /* background-image: url('../../utils/img/edit-backgrounds/8.png');
+        background-size: cover;
+        background-repeat: no-repeat; */
+        min-height: 100vh;
+    }
+    
+    .icon-bg {
+        width: 4vh;
+        height: 4vh;
+        background: #0DAAFF;
+        box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+        border-radius: 0.5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    i {
+        color: white;
+        font-size: 2vh;
+    }
+    
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.25);
+    }
+    
+    .container .head {
+        display: flex;
+    }
+    
+    .container .head .supermarket {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.54);
+        width: 33vh;
+        height: 8vh;
+        border-radius: 0.7vh;
+        margin-right: 1vh;
+    }
+    
+    .container .head .supermarket .supermarket-info p.title {
+        color: white;
+        font-weight: bold;
+        font-size: 1.6vh;
+        padding-bottom: 0.3vh;
+    }
+    
+    .container .head .supermarket .supermarket-info p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1vh;
+    }
+    
+    .container .head .main .items {
+        margin-top: 1vh;
+        margin-right: 1vh;
+        width: auto;
+        height: 33vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .container .head .main .items .item-frame {
+        flex: 0 0 calc(20% - 0.7vh);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), rgba(0, 0, 0, 0.25);
+        border: 0.1vh solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        border-radius: 0.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5.625095638867636vh;
+        position: relative;
+        width: 0vh;
+    }
+    
+    .container .head .main .items .item-frame img {
+        width: 3.3vh;
+        height: auto;
+    }
+    
+    .container .head .main .items .item-frame span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #77dd28;
+        font-size: 1vh;
+        margin-top: 0.2vh;
+        margin-left: 0.2vh;
+        margin-right: 0.2vh;
+    }
+    
+    .container .head .shopping-cart .cart-info {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.54);
+        width: 21.5vh;
+        height: 8vh;
+        border-radius: 0.7vh;
+        margin-bottom: 1vh;
+    }
+    
+    .container .head .shopping-cart .cart-info p.title {
+        color: white;
+        font-weight: bold;
+        font-size: 1.6vh;
+        padding-bottom: 0.3vh;
+        white-space: nowrap;
+    }
+    
+    .container .head .shopping-cart .cart-info p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1vh;
+        white-space: nowrap;
+    }
+    
+    .container .head .shopping-cart .cart {
+        display: flex;
+        background: rgba(0, 0, 0, 0.54);
+        width: auto;
+        height: 32.2vh;
+        border-radius: 0.7vh;
+        min-width: 21.5vh;
+    }
+    
+    .container .head .shopping-cart .cart ul {
+        overflow: auto;
+        width: 100%;
+        margin: 1.5vh;
+    }
+    
+    .container .head .shopping-cart .cart li {
+        display: flex;
+        margin-bottom: 1vh;
+    }
+    
+    .container .head .shopping-cart .cart li p {
+        font-size: 1.1vh;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .container .head .shopping-cart .cart .item-cart {
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+        border: 0.1vh solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        border-radius: 0.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6vh;
+        height: 6vh;
+    }
+    
+    .container .head .shopping-cart .cart .item-cart img {
+        width: 3.5vh;
+        height: auto;
+    }
+    
+    .container .head .shopping-cart .cart .item-info {
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+        border: 0.1vh solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        border-radius: 0.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6vh;
+        height: 3vh;
+        /* margin-top: 3vh;
+    margin-left: 1vh; */
+    }
+    
+    .container .head .shopping-cart .cart .item-info i {
+        font-size: 1.1vh;
+        color: grey;
+        line-height: 3vh;
+    }
+    
+    .container .head .shopping-cart .cart .item-info input {
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
+        width: 3vh;
+        background: transparent;
+        text-align: center;
+        color: #77dd28;
+        font-size: 1.2vh;
+    }
+    
+    .container .head .shopping-cart .price {
+        margin-top: 0.8vh;
+        margin-bottom: 1vh;
+        font-size: 1.4vh;
+        font-family: "ubuntu-m";
+        color: #77dd28;
+        text-align: right;
+    }
+    
+    .container .head .shopping-cart .price span {
+        font-family: "ubuntu-m";
+    }
+    
+    .container .head .shopping-cart .buy {
+        width: 21.5vh;
+        height: 4vh;
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5vh;
+        background: #0DAAFF;
+        box-shadow: 0vh 0vh 0.9vh #0DAAFF;
+        color: white;
+        font-size: 1.2vh;
+        font-family: "ubuntu-m";
+    }
+    
+     ::-webkit-scrollbar {
+        background: rgba(56, 86, 130, 0.17);
+        border: 0.07651109410864575vh solid rgba(255, 255, 255, 0.04);
+        width: 0.612088752869166vh;
+        border-radius: 0.22953328232593725vh;
+    }
+    /* background of the scrollbar except button or resizer */
+    
+     ::-webkit-scrollbar-track {
+        background: rgba(56, 86, 130, 0.17);
+        border: 0.07651109410864575vh solid rgba(255, 255, 255, 0.04);
+        border-radius: 0.22953328232593725vh;
+    }
+    /* scrollbar itself */
+    
+     ::-webkit-scrollbar-thumb {
+        background-color: #0DAAFF;
+        border-radius: 0.22953328232593725vh;
+    }
+    
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    .container .shopping-cart .cart .item-shop-cart-item {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-left: 1vh;
+        color: white;
+        font-size: 1.2vh;
+        justify-content: flex-end;
+    }
+    
+    .container .shopping-cart .cart .item-shop-cart-item p {
+        margin-bottom: 1vh;
+    }
+    
+    .container .shopping-cart .cart .item-shop-cart-item input {
+        font-size: 1.5vh;
+    }
+    
+    .delete-shoppingcard-item {
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+        border: 0.1vh solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        border-radius: 0.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3vh;
+        height: 3vh;
+        top: 3vh;
+        position: relative;
+        left: 0.5vh;
+    }

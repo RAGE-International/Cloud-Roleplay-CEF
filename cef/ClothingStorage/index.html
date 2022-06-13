@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="../utils/libs/betterslider.css">
+    <script src="../utils/libs/jquery.js"></script>
+    <script src="../utils/js/fas.js"></script>
+    <script src="../utils/libs/betterslider.js"></script>
+
+    <title>ClothingShop</title>
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+        <div class="main-wrapper-inner">
+
+            <!-- hat-area start -->
+            <div class="hat-area">
+                <div class="hat-area-inner">
+                    <div class="hat-area-inner2" onmouseenter="CloseIconHover(false)"
+                        onmouseleave="CloseIconHover(true)" onclick="CloseClothingStorage()">
+                        <i id="shirt" class="fa-solid fa-shirt"></i>
+                        <i id="close" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div>
+                        <h2>Kleidungsschrank</h2>
+                        <p>Personalisiere dein Outfit.</p>
+                    </div>
+                </div>
+                <div class="hat-area-inner3">
+                    <div class="hat-item">
+                        <div class="hat-item-inner active" onclick="OnSelectionClick(this, 0, true)">
+                            <div class="image" style="background-image: url(./images/02.png); opacity: 0.3;"></div>
+                            <p>Hüte</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 1, true)">
+                            <div class="image"
+                                style="background-image: url(./images/15.png); opacity: 0.3; background-size: 4vh;">
+                            </div>
+                            <p>Brillen</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 7, false)">
+                            <div class="image" style="background-image: url(./images/03.png);"></div>
+                            <p>Ketten</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 5, false)">
+                            <div class="image" style="background-image: url(./images/04.png);"></div>
+                            <p>Rucksäcke</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 11, false)">
+                            <div class="image" style="background-image: url(./images/05.png);"></div>
+                            <p>Oberteile</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 4, false)">
+                            <div class="image" style="background-image: url(./images/06.png);"></div>
+                            <p>Hosen</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 3, false)">
+                            <div class="image" style="background-image: url(./images/07.png);"></div>
+                            <p>Körper</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 2, true)">
+                            <div class="image" style="background-image: url(./images/08.png);"></div>
+                            <p>Ohrringe</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 1, false)">
+                            <div class="image" style="background-image: url(./images/09.png);"></div>
+                            <p>Masken</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 8, false)">
+                            <div class="image" style="background-image: url(./images/10.png);"></div>
+                            <p>Unterteile</p>
+                        </div>
+
+                        <div class="hat-item-inner" onclick="OnSelectionClick(this, 6, true)">
+                            <div class="image" style="background-image: url(./images/12.png);"></div>
+                            <p>Uhren</p>
+                        </div>
+                        <div class="hat-item-inner" onclick="OnSelectionClick( this,6, false)">
+                            <div class="image" style="background-image: url(./images/13.png);"></div>
+                            <p>Schuhe</p>
+                        </div>
+                        <div class="hat-item2-color-inner2" style="display: none;">
+                            <h3>Farb/-Styleauswahl</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Farbe/-Style</p>
+                                <div class="for-line"></div>
+                                <p class="color-selection-colornumber">1</p>
+                            </div>
+                            <div class="hat-item2-inner4-slider">
+                                <div class="slider-module-slider" id="slider-color-selection"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hat-item2">
+                        <div class="hat-item2-inner">
+
+                        </div>
+                        <div class="hat-item2-inner2">
+                            <h3>Ausgewählt</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Name</p>
+                                <div class="for-line"></div>
+                                <p class="clothing-info-name">Keine Auswahl</p>
+                            </div>
+                            <a onclick="selectClothing();">Anziehen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="player-rotation-box">
+        <div class="slider-module-slider" id="slider-player-rotation"></div>
+    </div>
+
+    <div class="player-animations-box">
+        <button onclick="PlayerPlayAnimation()"></button>
+    </div>
+
+</body>
+
+<script>
+    let selectedComponentId = null,
+        selectedDrawable = null,
+        selectedTexture = null,
+        selectedIsAccessories = null,
+        ClothingArray = [],
+        IsWatchAnim = false,
+        IsPlayAnim = false;
+    let LetMpDefined = false;
+    let ClothingMaxColors = 0;
+
+    function SetMpDefinde() {
+        LetMpDefined = true;
+    }
+
+    //loadClothingStorage('[{"Name":"Basecap schlicht","ComponentId":0,"Drawable":63,"Textures":[2,6,1],"Is_Accessories":true},{"Name":"Basecap SecuroServ","ComponentId":0,"Drawable":65,"Textures":[1],"Is_Accessories":true},{"Name":"Gestreifte Hose","ComponentId":4,"Drawable":29,"Textures":[2],"Is_Accessories":false},{"Name":"Jogginghose eng","ComponentId":4,"Drawable":26,"Textures":[8],"Is_Accessories":false},{"Name":"Stoff Jeans locker","ComponentId":4,"Drawable":23,"Textures":[9],"Is_Accessories":false},{"Name":"Stoff Jeans eng","ComponentId":4,"Drawable":22,"Textures":[6],"Is_Accessories":false},{"Name":"Dämonen Maske","ComponentId":1,"Drawable":7,"Textures":[2],"Is_Accessories":false},{"Name":"Katzen Maske","ComponentId":1,"Drawable":17,"Textures":[1],"Is_Accessories":false},{"Name":"-","ComponentId":1,"Drawable":27,"Textures":[0],"Is_Accessories":false},{"Name":"Zombie Maske","ComponentId":1,"Drawable":39,"Textures":[1],"Is_Accessories":false},{"Name":"Papiertüte ","ComponentId":1,"Drawable":49,"Textures":[19],"Is_Accessories":false},{"Name":"Roter Dämon Maske","ComponentId":1,"Drawable":63,"Textures":[1],"Is_Accessories":false},{"Name":"Weihnachtsoma ","ComponentId":1,"Drawable":86,"Textures":[0],"Is_Accessories":false},{"Name":"Schlichte kurze Hose","ComponentId":4,"Drawable":132,"Textures":[1],"Is_Accessories":false}]')
+
+    function loadClothingStorage(rawjson) {
+        let json = JSON.parse(rawjson);
+        ClothingArray = json
+
+        const clothes = ClothingArray.filter(x => x.ComponentId == 0 && x.Is_Accessories == true);
+
+        for (let i = 0; i < clothes.length; i++) {
+            $('.hat-item2-inner').append(`
+        <div class="hat-item-elem" onclick="OnItemClick(this)" Name="${clothes[i].Name}" ComponentId="${clothes[i].ComponentId}" Drawable="${clothes[i].Drawable}" Textures="[${clothes[i].Textures}]" Is_Accessories="${clothes[i].Is_Accessories}">${clothes[i].Name}</div>
+        `)
+        }
+    }
+
+    function OnSelectionClick(element, selection_id, is_accessories) {
+        $('.hat-item2-color-inner2').css('display', 'none')
+        $(".hat-item-inner").each(function (index) {
+            $(this).removeClass("active")
+        });
+        $(element).addClass("active");
+        LoadAllCategoryItems(selection_id, is_accessories)
+        mp.trigger("Client:ClothingStorage:SelectCategory", selection_id, is_accessories)
+    }
+
+    function OnItemClick(element) {
+        $(".hat-item-elem").each(function (index) {
+            $(this).removeClass("active")
+        });
+        $(element).addClass("active");
+        selectedComponentId = $(element).attr('ComponentId')
+        selectedDrawable = $(element).attr('Drawable')
+        selectedTexture = $(element).attr('Textures')
+        selectedIsAccessories = $(element).attr('Is_Accessories')
+        let textureArray = null
+        textureArray = selectedTexture.replace('[', '').replace(']', '').split(',')
+
+        $(".clothing-info-name").html($(element).attr('Name'))
+        if (textureArray.length <= 1) {
+            $('.hat-item2-color-inner2').css('display', 'none')
+            SetClothingMaxTexture(1);
+        }
+        else {
+            $('.hat-item2-color-inner2').css('display', 'block')
+            $('.hat-item2-color-inner2').fadeIn();
+            SetClothingMaxTexture(textureArray.length - 1)
+        }
+
+        let numberText = $('.color-selection-colornumber').text();
+        let number = numberText.replace('/', ' ');
+        let currentVal = 0;
+
+        if (textureArray[number[0]--] < 0) currentVal = 0
+        else currentVal = textureArray[number[0]--]
+
+        mp.trigger("Client:ClothesStorage:TryClothes", selectedComponentId, selectedDrawable, currentVal, (selectedIsAccessories === 'true'))
+    }
+
+    function LoadAllCategoryItems(component_id, is_accessories) {
+        $(".hat-item2-inner").html("");
+        $(".clothing-info-name").html("Keine Auswahl")
+        setTimeout(() => {
+            const clothes = ClothingArray.filter(x => x.ComponentId == component_id && x.Is_Accessories == is_accessories);
+            for (let i = 0; i < clothes.length; i++) {
+                $(".hat-item2-inner").append(`
+            <div class="hat-item-elem" onclick="OnItemClick(this)" Name="${clothes[i].Name}" ComponentId="${clothes[i].ComponentId}" Drawable="${clothes[i].Drawable}" Textures="[${clothes[i].Textures}]" Is_Accessories="${clothes[i].Is_Accessories}">${clothes[i].Name}</div>
+        `).fadeIn(500);
+            }
+        }, 1);
+    }
+
+    config = {
+        start: [0],
+        connect: [true, false],
+        step: 1,
+        range: {
+            'min': 0,
+            'max': 20
+        }
+    };
+
+    function SetClothingMaxTexture(maxtexture) {
+        ClothingMaxColors = maxtexture;
+        config.range = { 'min': 0, 'max': ClothingMaxColors };
+        slider_color_selection.noUiSlider.updateOptions(config);
+        $('.color-selection-colornumber').text(`${0}/${ClothingMaxColors}`)
+    }
+
+    function CloseIconHover(state) {
+        if (state) {
+            $('.hat-area-inner2 #close').css('display', 'none')
+            $('.hat-area-inner2 #shirt').fadeIn(100)
+        } else {
+            $('.hat-area-inner2 #shirt').css('display', 'none')
+            $('.hat-area-inner2 #close').fadeIn(100)
+        }
+    }
+
+    function CloseClothingStorage() {
+        mp.trigger("Client:ClothesStorage:Destroy")
+    }
+
+    function selectClothing() {
+        let textureArray = selectedTexture.replace('[', '').replace(']', '').split(',')
+        let numberText = $('.color-selection-colornumber').text();
+        let number = numberText.replace('/', ' ');
+        let currentVal = 0;
+
+        if (textureArray[number[0]--] < 0) currentVal = 0
+        else currentVal = textureArray[number[0]--]
+
+        if (selectedComponentId != null && selectedDrawable != null && selectedTexture != null && selectedIsAccessories != null) {
+            mp.trigger("Client:ClothingStorage:SetClothes", parseInt(selectedComponentId), parseInt(selectedDrawable), parseInt(currentVal), (selectedIsAccessories === 'true'))
+        }
+    }
+
+    function PlayerPlayAnimation() {
+        IsPlayAnim = !IsPlayAnim;
+        mp.trigger('Client:ClothingStorage:PlayAnimation', IsPlayAnim, "anim@heists@ornate_bank@chat_manager", "average_clothes");
+    }
+
+    function PlayWatchAnimation(state) {
+        IsWatchAnim = state;
+        mp.trigger('Client:ClothingStorage:PlayAnimation', IsWatchAnim, "anim@random@shop_clothes@watches", "idle_e");
+    }
+
+    var slider_color_selection = document.getElementById('slider-color-selection');
+    var slider_player_rotation = document.getElementById('slider-player-rotation');
+
+    noUiSlider.create(slider_color_selection, {
+        start: [0],
+        connect: [true, false],
+        step: 1,
+        range: {
+            'min': 0,
+            'max': 20
+        }
+    });
+
+    noUiSlider.create(slider_player_rotation, {
+        start: [0],
+        connect: [true, false],
+        step: 1,
+        range: {
+            'min': 0,
+            'max': 360
+        }
+    });
+
+    slider_color_selection.noUiSlider.on('update', function (values, handle) {
+        $('.color-selection-colornumber').text(`${parseInt(values[0])}/${ClothingMaxColors}`)
+        if (LetMpDefined) {
+            ClothingTexture = parseInt(values[0]);
+            mp.trigger("Client:ClothesStorage:TryClothes", selectedComponentId, selectedDrawable, values[0], (selectedIsAccessories === 'true'));
+        }
+    });
+
+    slider_player_rotation.noUiSlider.on('update', function (values, handle) {
+        mp.trigger('Client:ClothingStorage:Rotation', parseFloat(values[0]));
+    });
+</script>
+
+</html>

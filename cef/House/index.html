@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./fas.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="house-info" id="houseInfo"></div>
+
+        <div class="renter-overview" id="overview">
+            <div class="title">
+                <div class="renter-title">Übersicht der Mieter</div>
+                <div class="renter-text"><span id="renter-info-text"></span> derzeitige Mieter</div>
+            </div>
+            <div class="content-title">
+                <div class="text">Vorname</div>
+                <div class="text">Nachname</div>
+                <div class="text">Mietpreis</div>
+            </div>
+            <div class="content" id="content"></div>
+            <button onclick="CloseOverview()">Schließen</button>
+        </div>
+
+        <div class="renter-options" id="renter-overview" style="display: none;">
+            <div id="renter-blur"></div>
+            <div class="menu">
+                <div class="title">Information vom Bewohner</div>
+                <div class="info">
+                    <div class="info-box">
+                        <div class="info-title">Vorname</div>
+                        <div class="info-text" id="sfirstname">Max</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-title">Nachname</div>
+                        <div class="info-text" id="slastname">Mustermann</div>
+                    </div>
+                </div>
+                <div class="rent-info">
+                    <div class="rent-info-title">Mietpreis</div>
+                    <div class="rent-info-box">
+                        <div class="rent-info-current-price">
+                            <div class="rent-info-current">$</div>
+                            <input id="sprice" value="150">
+                            <div class="rent-info-icon"><i class="fa-solid fa-circle-dollar"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="button" onclick="KickRenter()" style="background-color: transparent; font-family: 'ubuntu';">
+                        Rauswerfen
+                    </div>
+                    <div class="button" onclick="SaveRenter()">
+                        Speichern
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="garage" id="garage">
+            <div class="garage-overview" id="garage1">
+                <div class="title">
+                    <div class="garage-title">Eingeparkte Fahrzeuge</div>
+                </div>
+                <div class="content-title">
+                    <div class="text">Fahrzeugname</div>
+                    <div class="text">Fahrzeugnotiz</div>
+                    <div class="text">Fahrzeug-ID</div>
+                </div>
+                <div class="content" id="garageparkedcontent"></div>
+                <button onclick="TakeVehicle()">Ausparken</button>
+            </div>
+
+            <div class="garage-overview" id="garage2">
+                <div class="title">
+                    <div class="garage-title">Ausgeparkte Fahrzeuge</div>
+                </div>
+                <div class="content-title">
+                    <div class="text">Fahrzeugname</div>
+                    <div class="text">Fahrzeugnotiz</div>
+                    <div class="text">Fahrzeug-ID</div>
+                </div>
+                <div class="content" id="garagenotparkedcontent"></div>
+                <button onclick="ParkVehicle()">Einparken</button>
+            </div>
+
+            <button class="garage-close" onclick="CloseGarage()">Garage schließen</button>
+        </div>
+    </div>
+</body>
+
+<script src="./javascript/functions.js"></script>
+<script src="./jquery.js"></script>
+<script src="javascript/app.js"></script>
+
+</html>

@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Cloud | Waffenfabrik</title>
+</head>
+
+<body style="display: none;">
+    <div class="container">
+        <div class="produce">
+            <div class="producecost">
+                <div class="text">
+                    <p class="title">Benötigte Gegenstände</p>
+                    <p class="description">Die benötigten Gegenstände für die Herstellung.</p>
+                </div>
+                <div class="items">
+                    <div id="items_list" style="display: flex; flex-direction: row; max-width: 23.25vh; flex-wrap: wrap; justify-content: center;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="circle" onclick="closeui();">
+                <div class="circle1">
+                    <div class="icon-bg"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="text">
+                    <p class="title">Produkt</p>
+                    <p class="description">Ergebnis der Produktion.</p>
+                </div>
+                <div class="result">
+
+                </div>
+            </div>
+        </div>
+        <div class="car-category">
+            <span id="spacer-bar"></span>
+            <div class="vehicles">
+                <div class="text">
+                    <p class="title">Deine Fahrzeuge</p>
+                    <p class="description">Wähle ein Fahrzeug aus, um die Materialien zu entnehmen.</p>
+                </div>
+                <div class="vehicle-flex">
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="../utils/js/fas.js"></script>
+
+<script>    
+    function loadVerarbeiter(rawjson){
+        $('body').fadeIn(750);
+        let json = JSON.parse(rawjson)
+
+        for (let i = 0; i < json.Items.length; i++) {
+
+            $('#items_list').append(`
+            <div class="item">
+                <span>${json.Items[i].Amount}x</span>
+                <img src="../utils/img/items/${json.Items[i].ItemImage}.png">
+            </div>
+            `)
+        }
+
+        $('.result').append(`
+        <div class="weapon">
+                <span>${json.ProcessedItemName}</span>
+                <img src="../utils/img/items/${json.ProcessedItemImage}.png">
+            </div>
+            <div class="result-info">
+                <div class="amount">
+                    <i class="fa-solid fa-hammer"></i>
+                    <p>${json.ProcessedItemCount}x</p>
+                </div>
+                <div class="time">
+                    <i class="fa-solid fa-alarm-clock"></i>
+                    <p>${(json.ProcessedItemTime / 60)} min</p>
+                </div>
+            </div>
+            <p id="start" onclick="callClientProcessProcessorSpot('${json.ProcessorId}', '0')">${json.ProcessedItemName} herstellen</p>
+        `)
+
+        if(json.Vehicles.length <= 0){
+            $('.car-category').hide();
+        } else {
+            for (let i = 0; i < json.Vehicles.length; i++) {
+            $('.vehicle-flex').append(`
+            <div class="vehicle-box">
+                <div class="vehicle-box-inner">
+                    <img src="../utils/img/carimages/${json.Vehicles[i].VehicleName}.png">
+                    <p class="title">${json.Vehicles[i].VehicleName}</p>
+                    <p class="numberplate">${json.Vehicles[i].VehicleNumberplate}</p>
+                </div>
+                <button onclick="callClientProcessProcessorSpot('${json.ProcessorId}', '${json.Vehicles[i].VehicleId}')">Fahrzeug auswählen</button>
+            </div>
+            `)
+        }
+        }
+    }
+
+    function callClientProcessProcessorSpot(processorId, vehicleId) {
+        mp.trigger('Client:Farming:ProcessProcessorSpot', processorId, vehicleId);
+    }
+
+    function closeui(){
+        $('body').fadeOut(750)
+        setTimeout(() => {
+            mp.trigger('Client:Farming:ProcessorSpotDestory');
+        }, 750);
+    }
+</script>
+</html>

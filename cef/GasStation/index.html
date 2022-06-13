@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous "></script>
+    <script src="../utils/libs/jquery.js"></script>
+</head>
+
+<body>
+
+    <div class="gas-station">
+
+        <div class="close-btn" onclick="GasStationClose()">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="header">
+            <div class="title">
+                <div class="logo"></div>
+                <h1>Los Santos Oil</h1>
+            </div>
+            <p>Befülle dein Fahrzeug mit Diesel/Benzin,<br> Kerosin oder mit Elektrostrom!</p>
+        </div>
+
+        <div class="content">
+
+        </div>
+
+        <div class="footer">
+
+            <div class="progress-header">
+                <p><span><i class="fas fa-raindrops"></i><span>Fahrzeugtank</span></span><span style="color: #0daaff; margin-right: 1vh;" class="current_vehicle_added_fuel">00.00 <span style="color: #fff;" class="current_vehicle_max_fuel">/ 00.00L</span></p>
+                <div class="progress-bar">
+                    <div class="added_vehicle_fuel" style="width: 0%;"></div>
+                    <div class="current_vehicle_fuel" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="interactions">
+
+                <div class="interactions-header">
+                    <p><i id="dollar-logo" class="fas fa-dollar-sign"></i><span style="font-family: 'ubuntu-m'; font-size: 1.5vh;">Betrag</span></p>
+                    <p><i id="drop-logo" class="fas fa-raindrops"></i><span style="font-family: 'ubuntu-m'; font-size: 1.5vh;">Anzahl</span></p>
+                </div>
+
+                <div class="btn-wrapper">
+                    <div class="btn display">
+                        <span id="price">0.00 $</span>
+                        <span id="liter">00.00 L</span>
+                    </div>
+                    <div class="btn active" onclick="StartTask(100)" style="width: 15vh;">Nachfüllen</div>
+                    <div class="btn" onclick="StartTask(50)">50% Tanken</div>
+                    <div class="btn" onclick="PayGas()">Bezahlen</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    class GasStation {
+        constructor(...args) {
+            this.Id = args[0];
+            this.Name = args[1];
+            this.Position = args[2];
+            this.Information = args[3];
+        }
+    }
+
+    class GasStationInformation {
+        constructor(...args) {
+            this.CollectedMoney = args[0];
+            this.FillPostions = args[1];
+            this.Offers = args[2];
+            this.Owner = args[3];
+        }
+    }
+
+    class GasStationOffers {
+        constructor(...args) {
+            this.Current_Capacity = args[0];
+            this.Max_Capacity = args[1];
+            this.Price = args[2];
+            this.Type = args[3];
+        }
+    }
+
+    class GasStationFuelType {
+        constructor(...args) {
+            this.Type = args[0];
+            this.Name = args[1];
+            this.ShortName = args[2];
+        }
+    }
+
+    class SelectedVehicle {
+        constructor(...args) {
+            this.VehicleId = args[0];
+            this.Fuel_Type = args[1];
+            this.Current_Fuel_Capacity = args[2];
+            this.Max_Fuel_Capacity = args[3];
+        }
+    }
+
+    class GasStationStorage {
+        constructor(...args) {
+            this.SelectFuelType = args[0];
+            this.AddedFuel = args[1];
+            this.MaxFuel = args[2];
+            this.Price = args[3];
+        }
+    }
+
+    let gasStation = null;
+    let selectedVehicle = null;
+    let selectedOffer = new GasStationStorage(-1, 0, 0, 0);
+
+    let fuelTypes = [
+        new GasStationFuelType(1, "Benzin", "E5"),
+        new GasStationFuelType(2, "Diesel", "B7"),
+        new GasStationFuelType(3, "Elektro", "EV"),
+        new GasStationFuelType(4, "Kerosin", "K4"),
+    ];
+
+    let isTaskActive = false;
+    let updateUntil = 0;
+
+    //let tst = '{"VehicleId":1,"Fuel_Type":2,"Current_Fuel_Capacity":13,"Max_Fuel_Capacity":60}';
+    //let testString = '{"Id":1,"Name":"default","Position":{"x":-531.28,"y":-1220.9647,"z":18.458853},"Information":{"Owner":0,"CollectedMoney":0,"Offers":[{"Type":1,"Price":7,"Current_Capacity":500,"Max_Capacity":10000},{"Type":2,"Price":7,"Current_Capacity":500,"Max_Capacity":10000},{"Type":3,"Price":10,"Current_Capacity":10,"Max_Capacity":10000},{"Type":4,"Price":7,"Current_Capacity":500,"Max_Capacity":10000}],"FillPostions":[{"x":-532.7891,"y":-1214.0432,"z":18.19101},{"x":-530.014,"y":-1215.2595,"z":18.188505},{"x":-525.51685,"y":-1217.5028,"z":18.19324},{"x":-522.8265,"y":-1218.7155,"z":18.191858}]}}';
+
+    //ShowGasStation(testString, tst);
+
+    function ShowGasStation(GasStationJson, SelectedVehicleJson) {
+        gasStation = new GasStation(JSON.parse(GasStationJson).Id, JSON.parse(GasStationJson).Name, JSON.parse(GasStationJson).Position, JSON.parse(GasStationJson).Information);
+        selectedVehicle = new SelectedVehicle(JSON.parse(SelectedVehicleJson).VehicleId, JSON.parse(SelectedVehicleJson).Fuel_Type, JSON.parse(SelectedVehicleJson).Current_Fuel_Capacity, JSON.parse(SelectedVehicleJson).Max_Fuel_Capacity);
+
+        $('.content').html("");
+
+        for (const x of gasStation.Information.Offers) {
+
+            let logo_element = null;
+
+            switch (x.Type) {
+                case 1:
+                    logo_element = `<div class="logo" style="background-image: url(../utils/img/gasstation/ron01.svg); background-size: 7.5vh;"></div>`;
+                    break;
+                case 2:
+                    logo_element = `<div class="logo" style="background-image: url(../utils/img/gasstation/xero.svg); background-size: 13.5vh; background-position-y: 6vh;"></div>`;
+                    break;
+                case 3:
+                    logo_element = `<div class="logo" style="background-image: url(../utils/img/gasstation/coil.svg);"></div>`;
+
+                    break;
+                case 4:
+                    logo_element = `<div class="logo" style="background-image: url(../utils/img/gasstation/global.svg);"></div>`;
+                    break;
+                default:
+                    break;
+            }
+
+            const offer_element = `
+                <div class="module" id="${x.Type}" onclick="SelectFuelType(this)">
+                    ${logo_element}
+                    <h1 class="text">${fuelTypes.find(t => t.Type == x.Type).ShortName}</h1>
+                    <p class="text">${fuelTypes.find(t => t.Type == x.Type).Name}</p>
+                    <h2 class="text">${formatMoney(x.Price)} $</h2>
+                </div>
+            `;
+
+            $(".content").append(offer_element);
+        }
+
+        UpdateGasStation();
+    }
+
+    function StartTask(value) {
+
+        if (selectedOffer != null) {
+            if (selectedOffer.AddedFuel == selectedOffer.MaxFuel) return;
+
+            let fuelModel = gasStation.Information.Offers.find(x => x.Type == selectedOffer.SelectFuelType)
+            if (fuelModel.Current_Capacity <= 0) return;
+
+            isTaskActive = !isTaskActive
+            updateUntil = value;
+        }
+    }
+
+    function SelectFuelType(element) {
+        if (element == null) return;
+
+        let gasStationOffer = gasStation.Information.Offers.find(x => x.Type == element.id)
+        if (gasStationOffer == null) return;
+
+        if (selectedOffer != null) {
+            if (selectedOffer.SelectFuelType != gasStationOffer.Type && selectedOffer.AddedFuel > 0) {
+                //when player has already other fuel type inside tank and select other will be buggy!
+                return;
+            }
+        }
+
+        $('.module').each(function(index, e) {
+            $(e).removeClass('active');
+        });
+
+        $(element).addClass('active');
+        selectedOffer.SelectFuelType = gasStationOffer.Type;
+        selectedOffer.MaxFuel = selectedVehicle.Max_Fuel_Capacity - selectedVehicle.Current_Fuel_Capacity;
+
+        $('.interactions').fadeIn(150);
+    }
+
+    function PayGas() {
+        let gasStationId = gasStation.Id;
+        let vehicleId = selectedVehicle.VehicleId;
+        let selectedFuelType = selectedOffer.SelectFuelType;
+        let addedFuel = selectedOffer.AddedFuel;
+        let price = selectedOffer.Price;
+
+        if (isTaskActive) return;
+
+        if (price > 0 && addedFuel > 0 && selectedFuelType != null && vehicleId != -1 && gasStationId != -1) {
+            mp.trigger('Client:GasStation:PayGas', gasStationId, vehicleId, selectedFuelType, addedFuel, price)
+        }
+        mp.trigger('Client:Destroy:GasStation');
+    }
+
+    function getProzentOfValue(prozentwert, grundwert) {
+        return ((prozentwert / grundwert) * 100).toFixed(0);
+    }
+
+    function formatMoney(n) {
+        return n.toFixed(2).replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+        });
+    }
+
+    function formatLiter(n) {
+        return (n < 10 ? '0' : '') + n.toFixed(2).replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "." + c : c;
+        });
+    }
+
+    function UpdateGasStation() {
+
+        let vehicleProzTank = getProzentOfValue(selectedVehicle.Current_Fuel_Capacity, selectedVehicle.Max_Fuel_Capacity);
+        $('.current_vehicle_added_fuel').html(`${formatLiter(selectedVehicle.Current_Fuel_Capacity)} <span style="color: #fff;">/ ${formatLiter(selectedVehicle.Max_Fuel_Capacity)}L</span>`)
+        $('.current_vehicle_fuel').css('width', `${vehicleProzTank}%`);
+
+        if (selectedOffer != null) {
+            $('.added_vehicle_fuel').css('width', `${getProzentOfValue(selectedOffer.AddedFuel, selectedOffer.MaxFuel)}%`);
+            $('#price').text(`${formatMoney(selectedOffer.Price)} $`)
+            $('#liter').text(`${formatLiter(selectedOffer.AddedFuel)} L`)
+        }
+    }
+
+
+    setInterval(() => {
+        if (isTaskActive && selectedOffer != null) {
+
+            let fuelModel = gasStation.Information.Offers.find(x => x.Type == selectedOffer.SelectFuelType);
+            let updateAmount = 1; // <= do not change !!!
+
+            if (updateUntil <= getProzentOfValue(selectedOffer.AddedFuel, selectedOffer.MaxFuel)) {
+                return;
+            }
+
+            if ((fuelModel.Current_Capacity - updateAmount) <= 0) {
+                isTaskActive = !isTaskActive;
+            }
+
+            if ((selectedOffer.AddedFuel + updateAmount) >= selectedOffer.MaxFuel) {
+                isTaskActive = !isTaskActive;
+            }
+
+            fuelModel.Current_Capacity -= updateAmount;
+            selectedOffer.AddedFuel += updateAmount;
+            selectedOffer.Price += fuelModel.Price;
+
+            UpdateGasStation();
+        }
+    }, 175);
+
+    function GasStationClose() {
+        mp.trigger("Client:Destroy:GasStation");
+    }
+</script>
+
+</html>

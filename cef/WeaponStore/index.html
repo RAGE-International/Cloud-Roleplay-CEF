@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../utils/libs/betterslider.css">
+    <script src="../utils/js/fas.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../utils/libs/betterslider.js"></script>
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+        <div class="main-wrapper-inner">
+            <div class="hat-area">
+                <div class="hat-area-inner">
+                    <div class="hat-area-inner2" onmouseenter="CloseIconHover(false)" onmouseleave="CloseIconHover(true)" onclick="CloseWeaponStore()">
+                        <i id="gun" class="fa-solid fa-gun"></i>
+                        <i id="close" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div>
+                        <h2>Waffenladen</h2>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+                <div class="hat-area-inner3">
+                    <div class="hat-item5">
+                        <div class="hat-item-inner active" CategoryId="1" onclick="SelectCategory(this)">
+                            <img src="images/23.png" />
+                            <p>Nahkampf</p>
+                        </div>
+                        <div class="hat-item-inner" CategoryId="2" onclick="SelectCategory(this)">
+                            <img src="images/24.png" />
+                            <p>Handfeuerwaffen</p>
+                        </div>
+                        <div class="hat-item-inner" CategoryId="3" onclick="SelectCategory(this)">
+                            <img src="images/25.png" />
+                            <p>Munnition</p>
+                        </div>
+                        <div class="hat-item-inner" CategoryId="4" onclick="SelectCategory(this)">
+                            <img src="images/26.png" />
+                            <p>Extras</p>
+                        </div>
+                        <div class="hat-item-inner" CategoryId="5" onclick="SelectCategory(this)">
+                            <img src="images/26.png" />
+                            <p>Verkauf</p>
+                        </div>
+                        <div class="hat-item2-color-inner2" style="display: none;">
+                            <h3 class="uislider-title">Anzahlauswahl</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Anzahl</p>
+                                <div class="for-line"></div>
+                                <p class="color-selection-colornumber">1</p>
+                            </div>
+                            <div class="hat-item2-inner4-slider">
+                                <div class="slider-module-slider" id="slider-amount-selection"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hat-item6">
+                        <div class="hat-item2-inner5">
+
+                        </div>
+                        <div class="hat-item2-inner2 hat-item2-inner20">
+                            <h3>Ausgewählt</h3>
+                            <div class="hat-item2-inner3">
+                                <p>Name</p>
+                                <div class="for-line"></div>
+                                <h2 style="color: #0DAAFF;" class="item-name">Keine Auswahl</h2>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Schaden</p>
+                                <div class="for-line2"></div>
+                                <p>-</p>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Feuerrate</p>
+                                <div class="for-line3"></div>
+                                <p>-</p>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Reichweite</p>
+                                <div class="for-line4"></div>
+                                <p>-</p>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <h2 style="color: rgba(255, 255, 255, 0.6);"> </h2>
+                                <div class="for-line5"></div>
+                                <h2 style="color: #fff"></h2>
+                            </div>
+                            <div class="hat-item2-inner3">
+                                <p>Preis</p>
+                                <div class="for-line6"></div>
+                                <h2 class="item-price">Keine Auswahl</h2>
+                            </div>
+                            <a style="color: white;" onclick="buyItem();" class="buyButton">Kaufen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    let json = null,
+        ItemAmount = 1,
+        selectedItemId = null,
+        ItemPrice = -1;
+
+    // LoadWeaponStore('[{"Id":1,"AmmunationId":1,"Category":2, "ItemAmount":10, "ItemImage":"appistol","ItemId":1,"ItemPrice":1000,"Status":1},{"Id":2,"AmmunationId":1,"Category":4, "ItemAmount":100, "ItemImage":"pumpshotgun","ItemId":32,"ItemPrice":456,"Status":1},{"Id":3,"AmmunationId":1,"Category":5, "ItemAmount":1032, "ItemImage":"smg_mk2", "ItemId":23,"ItemPrice":1234,"Status":2}]')
+
+    function LoadWeaponStore(rawjson) {
+        json = JSON.parse(rawjson)
+
+        const weapon = json.filter(x => x.Category == 1)
+
+        for (let i = 0; i < weapon.length; i++) {
+            $('.hat-item2-inner5').append(`
+				<div class="hat-item2-inner4" ItemPrice="${weapon[i].ItemPrice}" ItemId="${weapon[i].ItemId}" ItemAmount="${weapon[i].ItemAmount}" ItemImage="${weapon[i].ItemImage}" onclick="SelectWeapon(this)">
+					<div>
+						<span><img src="images/27.png"/></span>
+						<h2>${weapon[i].ItemPrice.toLocaleString('de-DE')}</h2>
+					</div>									
+					<img class="shop-item-image" src="../utils/img/weaponimg/weapon_${weapon[i].ItemImage}.png"/>
+				</div>
+				`)
+        }
+    }
+
+    function SelectCategory(element) {
+        $(".hat-item-inner").each(function(index) {
+            $(this).removeClass("active")
+        });
+        $(element).addClass("active");
+
+        const weapon = json.filter(x => x.Category == $(element).attr("CategoryId"))
+
+        $(".hat-item2-inner5").html("");
+
+        if ($(element).attr("CategoryId") == 5) {
+            setTimeout(() => {
+                for (let i = 0; i < weapon.length; i++) {
+                    $('.hat-item2-inner5').append(`
+						<div class="hat-item2-inner4" ItemPrice="${weapon[i].ItemPrice}" ItemId="${weapon[i].ItemId}" ItemAmount="${weapon[i].ItemAmount}" ItemImage="${weapon[i].ItemImage}" onclick="SelectWeapon(this)">
+							<div>
+								<span><img src="images/27.png"/></span>
+								<h2>${weapon[i].ItemPrice.toLocaleString('de-DE')}</h2>
+							</div>									
+							<img class="shop-item-image" src="../utils/img/weaponimg/weapon_${weapon[i].ItemImage}.png"/>
+						</div>
+						`)
+                }
+                $('.buyButton').text("Verkaufen")
+                $('.buyButton').attr("onclick", "sellItem()")
+            }, 1);
+        } else {
+            setTimeout(() => {
+                for (let i = 0; i < weapon.length; i++) {
+                    $('.hat-item2-inner5').append(`
+				<div class="hat-item2-inner4" ItemPrice="${weapon[i].ItemPrice}" ItemId="${weapon[i].ItemId}" ItemAmount="${weapon[i].ItemAmount}" ItemImage="${weapon[i].ItemImage}" onclick="SelectWeapon(this)">
+					<div>
+						<span><img src="images/27.png"/></span>
+						<h2>${weapon[i].ItemPrice.toLocaleString('de-DE')}</h2>
+					</div>									
+					<img class="shop-item-image" src="../utils/img/weaponimg/weapon_${weapon[i].ItemImage}.png"/>
+				</div>
+				`)
+                    $('.buyButton').text("Kaufen")
+                    $('.buyButton').attr("onclick", "buyItem()")
+                }
+            }, 1);
+        }
+        selectedItemId = null;
+        $(".item-price").text(`Keine Auswahl`)
+        $(".item-name").text(`Keine Auswahl`)
+        $('.hat-item2-color-inner2').hide()
+    }
+
+    var slider_amount_value = document.getElementById('slider-amount-selection');
+
+    noUiSlider.create(slider_amount_value, {
+        start: [1],
+        connect: [true, false],
+        step: 1,
+        range: {
+            'min': 1,
+            'max': 2
+        }
+    });
+
+    slider_amount_value.noUiSlider.on('update', function(values, handle) {
+        if (selectedItemId != null) {
+
+            const CurrentItem = json.find(x => x.ItemId == selectedItemId)
+
+            ItemAmount = parseInt(values[0])
+            $(".item-price").text(`${parseInt(CurrentItem.ItemPrice * ItemAmount).toLocaleString("de-DE")} $`)
+            $('.color-selection-colornumber').text(`${parseInt(values[0])} / ${CurrentItem.ItemAmount}`)
+        }
+    });
+
+    function SelectWeapon(element) {
+        $(".hat-item2-inner4").each(function(index) {
+            $(this).removeClass("active")
+        });
+        $(element).addClass("active");
+
+        $(".item-price").text(`${$(element).attr("ItemPrice") * ItemAmount} $`)
+        $(".item-name").text(`${$(element).attr("ItemImage").replace(/_/g, " ").toUpperCase()}`)
+        selectedItemId = $(element).attr("ItemId");
+        ItemPrice = $(element).attr("ItemPrice");
+
+        const CurrentItem = json.find(x => x.ItemId == selectedItemId);
+
+        $('.hat-item2-color-inner2').show()
+
+        slider_amount_value.noUiSlider.set(1);
+
+        slider_amount_value.noUiSlider.updateOptions({
+            range: {
+                'min': 1,
+                'max': CurrentItem.ItemAmount
+            }
+        });
+    }
+
+    function buyItem() {
+        if (selectedItemId != null) {
+            mp.trigger("Client:Ammunation:BuyItem", selectedItemId, ItemAmount, ItemPrice)
+        }
+    }
+
+    function sellItem() {
+        if (selectedItemId != null) {
+            mp.trigger("Client:Ammunation:SellItem", selectedItemId, ItemAmount, ItemPrice)
+        }
+    }
+
+    function CloseIconHover(state) {
+        if (state) {
+            $('.hat-area-inner2 #close').css('display', 'none')
+            $('.hat-area-inner2 #gun').fadeIn(100)
+        } else {
+            $('.hat-area-inner2 #gun').css('display', 'none')
+            $('.hat-area-inner2 #close').fadeIn(100)
+        }
+    }
+
+    function CloseWeaponStore() {
+        mp.trigger("Client:Ammunation:Destroy")
+    }
+</script>
+
+</html>

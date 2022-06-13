@@ -1,0 +1,608 @@
+@import url('http://fonts.cdnfonts.com/css/pf-dindisplay-pro');
+
+/* Disable Arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+    width: .25vw;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: .25vw;
+    background: gray;
+}
+   
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: .25vw;
+    transition: all 0.25s ease-in-out;
+}
+
+* {
+    color: white;
+    font-family: 'PF DinDisplay Pro';
+    font-style: normal;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+}
+
+.all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.paintball-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(img/backgroundPaintball.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.paintball-close {
+    position: absolute;
+    top: 1%;
+    right: .5%;
+    height: 3.6vw;
+    width: 3.6vw;
+    border: none;
+    outline: none;
+    border-radius: .3vw;
+    background: rgba(255, 255, 255, 0.19);
+    transition: all 0.15s ease-in-out;
+}
+
+.paintball-close > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4vw;
+    color: white;
+}
+
+.paintball-close:active {
+    opacity: .8;
+}
+
+.paintball-content {
+    position: absolute;
+    top: 9%;
+    left: 7%;
+    height: 82%;
+    width: 67.5%;
+}
+
+.paintball-arenabody {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50.5%;
+}
+
+.paintball-arenatitle {
+    position: relative;
+    left: 1%;
+    width: 99%;
+    color: white;
+    font-size: 1.9vw;
+}
+
+.paintball-arenainfo {
+    position: relative;
+    left: 1%;
+    width: 99%;
+    font-size: .85vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+
+.paintball-arenacontainer {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 87.5%;
+    width: 100%;
+    overflow-y: visible;
+}
+
+.paintball-arenacontent {
+    position: relative;
+    float: left;
+    margin-top: 2.5%;
+    margin-bottom: 1%;
+    margin-left: .75%;
+    margin-right: 2.25%;
+    height: 12.2vw;
+    width: 15.7vw;
+    border-radius: .5vw;
+    box-shadow: 0 0 .3vw rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 35%), url(img/backgroundPaintball.png);
+}
+
+.paintball-contentinfo {
+    position: relative;
+    margin-top: 8%;
+    margin-left: 8%;
+    font-size: 3.2vw;
+}
+
+.paintball-contentinfo > span {
+    font-size: 1.2vw;
+}
+
+.paintball-contentplayers {
+    position: relative;
+    float: left;
+    text-align: right;
+    left: 0%;
+    font-size: .7vw;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+.paintball-contentbutton {
+    position: absolute;
+    bottom: 8.75%;
+    right: 8.25%;
+    border: none;
+    outline: none;
+    border-radius: .3vw;
+    height: 2.4vw;
+    width: 9.75vw;
+    color: white;
+    font-size: .8vw;
+    font-weight: 600;
+    background-color: #E6CB33;
+    transition: all 0.15s ease-in-out;
+}
+
+.paintball-contentbutton:active {
+    opacity: .8;
+}
+
+.paintball-infobody {
+    position: relative;
+    float: left;
+    margin-left: 3%;
+    height: 100%;
+    width: 22%;
+}
+
+.paintball-infotitle {
+    position: relative;
+    left: 2%;
+    width: 98%;
+    margin-top: 30%;
+    color: white;
+    font-size: 1.3vw;
+}
+
+.paintball-infospan {
+    position: relative;
+    left: 2%;
+    width: 98%;
+    margin-bottom: 15%;
+    font-size: .85vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+
+.paintball-infolabel {
+    position: relative;
+    margin-left: 7%;
+    font-size: .7vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+
+.paintball-infoinput {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 2.4%;
+    margin-bottom: 5%;
+    height: 2.5vw;
+    width: 95%;
+    border-radius: .25vw;
+    font-style: normal;
+    font-weight: 400;
+    font-size: .7vw;
+    color: rgba(255, 255, 255, .4);
+    background: rgba(0, 0, 0, 0.31);
+}
+
+.paintball-infomap {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2.4%;
+    margin-bottom: 3%;
+    height: 7.15vw;
+    width: 95%;
+    border-radius: .5vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.paintball-infoarrow {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.2vw;
+    width: 1.2vw;
+    border-top-right-radius: .3vw;
+    border-bottom-right-radius: .3vw;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.paintball-infoarrow2 {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.2vw;
+    width: 1.2vw;
+    border-top-left-radius: .3vw;
+    border-bottom-left-radius: .3vw;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.icon-arrow:active {
+    transition: all 0.15s ease-in-out;
+    opacity: .8;
+}
+
+.icon-arrow > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .6vw;
+    color: rgba(255, 255, 255, .6);
+    opacity: .9;
+}
+
+.paintball-infomaps {
+    position: absolute;
+    bottom: 16%;
+    left: 12%;
+    font-size: 1.4vw;
+    color: #E6CB33;
+}
+
+.paintball-infomaps > span {
+    font-size: 1vw;
+    margin-left: 0.3vw;
+}
+
+.paintball-infobutton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    margin-top: 6%;
+    height: 2.5vw;
+    width: 95%;
+    border-radius: .25vw;
+    font-style: normal;
+    font-weight: 600;
+    font-size: .75vw;
+    color: rgba(255, 255, 255, .9);
+    background: #0DAAFF;
+    transition: all 0.15s ease-in-out;
+}
+
+.paintball-infobutton:active {
+    opacity: .9;
+}
+
+.paintball-weaponbody {
+    position: relative;
+    float: left;
+    margin-left: .75%;
+    height: 100%;
+    width: 23%;
+}
+
+.paintball-weapontitle {
+    position: relative;
+    margin-top: 59.6%;
+    margin-left: 7%;
+    font-size: .7vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+
+.paintball-weaponlist {
+    position: relative;
+    text-align: left;
+    height: 44.5%;
+    width: 100%;
+    margin-top: 1%;
+    overflow-y: auto;
+    margin-left: 5%;
+}
+
+.paintball-weaponcontent {
+    position: relative;
+    display: inline-block;
+    margin-top: 1.5%;
+    margin-left: 1.5%;
+    height: 3.75vw;
+    width: 45%;
+    border-radius: .3vw;
+    background: rgba(0, 0, 0, 0.31);
+    border: .1vw solid rgba(0, 0, 0, 0.07);
+    transition: all 0.15s ease-in-out;
+}
+
+.paintball-weaponcontent-active {
+    background: #0DAAFF;
+    border: .1vw solid rgba(13, 73, 8, 0.11);
+}
+
+.paintball-weaponimg {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    height: 2.4vw;
+    width: 2.6vw;
+}
+
+.paintball-weaponname {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    font-size: .6vw;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .8);
+    width: 85%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: .9;
+}
+
+.entry-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(4, 8, 17, 0.77);
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.entry-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20.6vw;
+    width: 15.8vw;
+    border-radius: .35vw;
+    box-shadow: 0 0 .4vw rgba(9, 22, 35, 0.84);
+}
+
+.entry-header {
+    position: relative;
+    height: 33%;
+    width: 101%;
+    background: linear-gradient(179.92deg, rgba(0, 133, 255, 0.82) -328.85%, #011528 101.17%);
+    background-image: url(img/entryHeader.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.entry-title {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 14%;
+    font-size: 1.2vw;
+}
+
+.entry-title > span {
+    color: #FFDE33;
+}
+
+.entry-info {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    font-size: .9vw;
+    font-weight: 400;
+    color: #FFFFFF;
+    opacity: .6;
+}
+
+.entry-close {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    height: 1.1vw;
+    width: 1.1vw;
+    border: none;
+    outline: none;
+    border-radius: .3vw;
+    background: rgba(255, 255, 255, 0.19);
+    transition: all 0.15s ease-in-out;
+}
+
+.entry-close > i {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    font-size: .65vw;
+}
+
+.entry-close:active {
+    opacity: .8;
+}
+
+.entry-content {
+    position: relative;
+    text-align: center;
+    height: 68%;
+    width: 101%;
+    border-bottom-right-radius: .35vw;
+    border-bottom-left-radius: .35vw;
+    margin-top: -1%;
+    background: rgba(9, 22, 35, 0.84);
+}
+
+.entry-map {
+    position: relative;
+    display: inline-block;
+    margin-top: 10%;
+    font-size: .7vw;
+    margin-right: 8%;
+    font-weight: 500;
+    letter-spacing: 0.02vw;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+}
+
+.entry-map > span {
+    color: white;
+    font-size: .9vw;
+}
+
+.entry-inputlabel {
+    position: relative;
+    text-align: left;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8%;
+    font-size: .7vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: .9;
+    width: 68%;
+}
+
+.entry-inputlabel > span {
+    color: #FF0000;
+}
+
+.entry-input {
+    position: relative;
+    border: none;
+    outline: none;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 2.4%;
+    height: 2.5vw;
+    width: 70%;
+    border-radius: .25vw;
+    font-style: normal;
+    font-weight: 400;
+    font-size: .7vw;
+    color: rgba(255, 255, 255, .9);
+    background: rgba(0, 0, 0, 0.31);
+}
+
+.entry-button {
+    position: relative;
+    border: none;
+    outline: none;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 6%;
+    height: 2.5vw;
+    width: 70%;
+    border-radius: .25vw;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .75vw;
+    color: rgba(255, 255, 255, .9);
+    background: #0DAAFF;
+    transition: all 0.15s ease-in-out;
+}
+
+.entry-button:active {
+    opacity: .8;
+}
+
+.weaponcheckbox {
+    position: absolute;
+    top: 0.5vh;
+    right: 0.5vh;
+    width: 1.7vh;
+    height: 1.7vh;
+    display: none;
+    animation: fadein 100ms linear forwards;
+    opacity: 0;
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+    }
+}
+
+.lobbydot {
+    width: 1vh;
+    height: 1vh;
+    background: #78DE28;
+    border-radius: 50vh;
+    border: 0.5vh solid rgba(91, 177, 79, 0.19);
+    background-clip: padding-box;
+    float: right;
+    margin-top: 0.37vh;
+    margin-right: 0.5vh;
+}
+
+.paintball-players {
+    width: 6vh;
+    height: 5vh;
+    margin-top: 13%;
+    margin-left: 8%;
+}
+
+.paintball-players > span {
+    position: relative;
+    color: white;
+    font-size: .9vw;
+    float: right;
+    margin-right: 0.5vh;
+    margin-top: 0.1vh;
+}

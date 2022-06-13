@@ -1,0 +1,75 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/09afae0a51.js" crossorigin="anonymous"></script>
+    <title>Cloud Paintball</title>
+</head>
+<body>
+    
+    <div class="all">
+        <div class="gradient-color"></div>
+        <div class="paintball-body">
+            <button class="paintball-close" onclick="CloseMenu()"><i class="fas fa-times"></i></button>
+            <div class="paintball-content">
+
+                <div class="paintball-arenabody">
+                    <p class="paintball-arenatitle">Paintball</p>
+                    <p class="paintball-arenainfo">Wähle dir eine beliebige Arena aus <br>oder erstelle dir eine Eigene!</p>
+                    <div class="paintball-arenacontainer" id="paintball-lobbylist"></div>
+                </div>
+
+                <div class="paintball-infobody">
+                    <p class="paintball-infotitle">ARENA ERSTELLEN</p>
+                    <p class="paintball-infospan">Eigene Arena erstellen!</p>
+                    <p class="paintball-infolabel">Arena Namen</p>
+                    <input type="text" spellcheck="false" class="paintball-infoinput" id="lobbyname">
+                    <p class="paintball-infolabel">Passwort</p>
+                    <input type="password" spellcheck="false" class="paintball-infoinput" id="lobbypass">
+                    <p class="paintball-infolabel">Map</p>
+                    <div class="paintball-infomap" id="paintball-map" style="background-image: url(img/backgroundPaintball.png);">
+                        <p class="paintball-infomaps" id="paintball-index">#3 <span>MAP NAME</span></p>
+                        <div class="paintball-infoarrow icon-arrow" onclick="ChangeMap(-1)"><i class="fas fa-arrow-left"></i></div>
+                        <div class="paintball-infoarrow2 icon-arrow" onclick="ChangeMap(1)"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <p class="paintball-infolabel">Max. Spieler</p>
+                    <input type="number" spellcheck="false" class="paintball-infoinput" id="lobbymaxplayer">
+                    <p class="paintball-infolabel">Max. Spielerleben</p>
+                    <input type="number" spellcheck="false" class="paintball-infoinput" id="lobbymaxhp">
+                    <button class="paintball-infobutton" onclick="CreatePaintballLobby()">Erstellen</button>
+                </div>
+
+                <div class="paintball-weaponbody">
+                    <p class="paintball-weapontitle">Waffen</p>
+                    <div class="paintball-weaponlist" id="paintball-weaponlist">
+                        <!--<div class="paintball-weaponcontent" tabindex="1" onclick="SelectWeapon(this.innerText, this)">
+                            <img src="img/weapons/weapon_advancedrifle.png" class="paintball-weaponimg" alt="">
+                            <p class="paintball-weaponname">Advancedrifle</p>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="entry-body" id="entry">
+            <div class="entry-container">
+                <div class="entry-header">
+                    <p class="entry-title">BEITRETEN <span id="entry-arena-name">"ARENA"</span></p>
+                    <p class="entry-info">Ausgewählte Arena beitreten</p>
+                    <button class="entry-close" onclick="CloseEntryMenu()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="entry-content">
+                    <p class="entry-map">MAP <br><span id="entry-arena-map">MIRRORPARK</span></p>
+                    <p class="entry-map">PLAYERS <br><span id="entry-arena-players">2/10</span></p>
+                    <p class="entry-inputlabel">Passwort <span>*</span></p>
+                    <input type="password" spellcheck="false" class="entry-input" id="entry-pass">
+                    <button class="entry-button" id="entry-submit">Beitreten</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="app.js"></script>
+</html>

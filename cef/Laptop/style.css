@@ -1,0 +1,3497 @@
+@font-face {
+    font-family: "ubuntu";
+    src: url('./fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('./fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+    font-family: "sfpro";
+    src: url('./fonts/SFProDisplay-Regular.ttf');
+}
+
+@font-face {
+    font-family: "sfprobold";
+    src: url('./fonts/SFProDisplay-Bold.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: "sfpro";
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+input {
+    user-select: text;
+}
+
+textarea {
+    user-select: text;
+}
+
+.laptop {
+    background-image: url(./img/LaptopFrame.png);
+    background-size: 125vh;
+    background-position: 50% 50%;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.page {
+    display: none;
+}
+
+.homebtn {
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    width: 2vh;
+    height: 2vh;
+    z-index: 1;
+}
+
+.laptop .laptop-inner {
+    width: 98.15vh;
+    height: 61.775vh;
+    position: absolute;
+    left: 50%;
+    top: 47.9%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.25vh;
+}
+
+.laptop .laptop-inner .pages {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar {
+    position: relative;
+    width: 100%;
+    height: 7vh;
+    background-color: #141414;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.01vh solid rgba(255, 255, 255, 0.11);
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .logo {
+    display: flex;
+    margin-left: 3vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .logo img {
+    width: 2.25vh;
+    height: auto;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .logo p {
+    color: white;
+    font-family: 'sfprobold';
+    margin-left: 1vh;
+    font-size: 1.8vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar > .serach-bar {
+    width: 34.3vh;
+    height: 3.4vh;
+    border-radius: 0.5vh;
+    background-color: rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .serach-bar input {
+    height: 100%;
+    width: 25vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 1.5vh;
+    padding: 1.4vh;
+    font-family: 'sfpro';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .serach-bar i {
+    margin-left: 1.4vh;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 1.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .serach-bar button {
+    width: 6.4vh;
+    height: 2.4vh;
+    background-color: rgba(255, 255, 255, 0.08);
+    outline: none;
+    border: none;
+    border-radius: 0.5vh;
+    margin-right: 0.5vh;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 1.5vh;
+    font-family: 'sfpro';
+    transition: opacity 250ms;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail > .top-bar .serach-bar button {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content {
+    width: 100%;
+    height: 54.775vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar {
+    width: 20vh;
+    height: 100%;
+    background-color: #141414;
+    border-right: 0.01vh solid rgba(255, 255, 255, 0.11);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .send-button {
+    width: 16.7vh;
+    height: 4.4vh;
+    overflow: hidden;
+    border-radius: 0.5vh;
+    margin-top: 2.5vh;
+    background-image: url(./img/cmail/button-bg.png);
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .send-button i {
+    color: white;
+    font-size: 1.5vh;
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .send-button p {
+    color: white;
+    font-size: 1.5vh;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .button {
+    width: 16.7vh;
+    height: 4.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 1.5vh;
+    border-radius: 0.5vh;
+    transition: background-color 250ms, color 100ms;
+    margin-top: 0.25vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .button.active {
+    background-color: #262626;
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .button:hover {
+    background-color: #262626;
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .button i {
+    margin-right: 1vh;
+    margin-left: 2.7vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-buttons .button p {
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-profile {
+    width: 100%;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-profile .profile-info {
+    width: 100%;
+    height: 8vh;
+    border-top: 0.01vh solid rgba(255, 255, 255, 0.11);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-profile .profile-info .profile-info-img {
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-profile .profile-info .profile-info-text p.name {
+    font-size: 1.2vh;
+    color: white;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .side-bar .interaction-profile .profile-info .profile-info-text p.email {
+    font-size: 0.9vh;
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'sfpro';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main {
+    position: relative;
+    height: 100%;
+    width: 78.15vh;
+    background-color: #141414;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .buttons {
+    margin-left: 2.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .buttons .button {
+    display: flex;
+    align-items: center;
+    background-color: #262626;
+    width: 10vh;
+    padding: 1vh;
+    font-size: 1.2vh;
+    color: white;
+    border-radius: 0.5vh;
+    z-index: 2;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .buttons .button > i {
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner {
+    height: 46vh;
+    width: 73.15vh;
+    margin: 2.5vh;
+    margin-bottom: 1vh !important;
+    border-radius: 0.5vh;
+    background-color: #1B1A1A;
+    opacity: 0;
+    transform: translateY(5vh);
+    animation: mailanim 250ms ease forwards;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner-anim {
+    animation: mailanim 250ms ease forwards, mailanim-r 250ms ease forwards;
+}
+
+@keyframes mailanim {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mailanim-r {
+    100% {
+        opacity: 0;
+        transform: translateY(5vh);
+    }
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > textarea {
+    width: 69.15vh;
+    height: 30vh;
+    margin-top: 2vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .top-bar {
+    width: 100%;
+    height: 4.3vh;
+    border-radius: 0.5vh 0.5vh 0px 0px;
+    background-color: #262626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+    font-size: 1.2vh;
+    color: #C6CCD6;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info {
+    height: 7.5vh;
+    width: 100%;
+    border-bottom: 0.01vh solid rgba(255, 255, 255, 0.11);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info > .sender-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info > .sender-info > .sender-info-img {
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info > .sender-info > .sender-info-text > p.name {
+    font-size: 1.2vh;
+    color: white;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info > .sender-info > .sender-info-text > p.email {
+    font-size: 0.9vh;
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'sfpro';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-email-read .content-email-read-inner > .email-info > .sender-info-date > p {
+    font-size: 0.9vh;
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'sfpro';
+    margin-right: 2vh;
+    margin-top: 1.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner {
+    height: 50vh;
+    width: 73.15vh;
+    margin: 2.5vh;
+    border-radius: 0.5vh;
+    background-color: #1B1A1A;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner > .top-bar {
+    width: 100%;
+    height: 4.3vh;
+    border-radius: 0.5vh 0.5vh 0px 0px;
+    background-color: #262626;
+    display: flex;
+    align-items: center !important;
+    font-size: 1.2vh;
+    color: #C6CCD6;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner > .top-bar > input[type="checkbox"] {
+    margin-left: 2vh;
+    margin-right: 1vh;
+    width: 1.2vh;
+    height: 1.2vh;
+    border:none !important;
+    outline: none !important;
+    /* -webkit-appearance: none; */
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner {
+    overflow-y: scroll;
+    height: 45.7vh;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner > .loading {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    color: #3C3C3E;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item {
+    width: 100%;
+    height: 4vh;
+    border-bottom: 0.01vh solid rgba(255, 255, 255, 0.11);
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item > input[type="checkbox"] {
+    margin-left: 2vh;
+    margin-right: 1vh;
+    width: 1.2vh;
+    height: 1.2vh;
+    border: none !important;
+    outline: none !important;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item > i {
+    color: #3C3C3E;
+    font-size: 1.2vh;
+    transform: rotate(45deg);
+}
+
+.cmail-item-dings-container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+}
+
+.pinned {
+    color: #ffd700 !important;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item .cmail-item-dings-container > p.mail-sender {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'sfpro';
+    font-size: 1vh;
+    margin-left: 1.5vh;
+    min-width: 14vh;
+    max-width: 14vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item .cmail-item-dings-container > p.mail-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'sfpro';
+    font-size: 1vh;
+    width: 40vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .message-box-item .cmail-item-dings-container > p.mail-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'sfpro';
+    font-size: 1vh;
+    margin-left: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .unread .cmail-item-dings-container > p.mail-sender,
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .unread .cmail-item-dings-container > p.mail-date,
+.laptop .laptop-inner .pages .page#app-cmail .content .content-main .content-main-inner .message-box .message-box-inner .unread .cmail-item-dings-container > p.mail-title {
+    color: white !important;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 1vh;
+    height: 41.3vh;
+    width: 37.1vh;
+    background-color: rgb(29, 29, 29);
+    border-radius: 0.5vh 0.5vh 0 0;
+    transform: translateY(5vh);
+    opacity: 0;
+    animation: mailanim 250ms ease forwards;
+}
+
+.sendmail-closeanim {
+    animation: mailanim 250ms ease forwards, mailanim-r 250ms ease forwards !important;
+}
+
+@keyframes mailanim {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes mailanim-r {
+    100% {
+        transform: translateY(5vh);
+        opacity: 0;
+    }
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send p {
+    color: white;
+    font-family: 'sfprobold';
+    font-size: 1.4vh;
+    margin-left: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send i#MailTopBarArrow {
+    color: white;
+    font-size: 1.4vh;
+    margin-right: 2vh;
+    font-size: 2vh;
+}
+
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send > .top-bar {
+    width: 100%;
+    height: 4.3vh;
+    border-radius: 0.5vh 0.5vh 0px 0px;
+    background-color: #262626;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+    font-size: 1.2vh;
+    color: #C6CCD6;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box .send-box-inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box .send-box-inner .input-box {
+    background-color: rgba(38, 38, 38, 0.6);
+    width: 33.1vh;
+    height: 4.1vh;
+    margin-top: 1vh;
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box .send-box-inner .input-box > p.info {
+    font-size: 1.4vh;
+    font-family: 'sfpro';
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 !important;
+    margin-right: 1vh !important;
+}
+
+textarea {
+    resize: none;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box .send-box-inner .input-box > input {
+    font-size: 1.4vh;
+    font-family: 'sfpro';
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box > textarea {
+    width: 33.1vh;
+    height: 18vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: rgba(38, 38, 38, 0.6);
+    font-size: 1.4vh;
+    font-family: 'sfpro';
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 0.5vh;
+    padding: 1vh;
+    outline: none;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box > .buttons {
+    float: right;
+    display: flex;
+    margin-right: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box > .buttons > .button#mail-delete {
+    height: 3.1vh;
+    width: 3.1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(38, 38, 38, 0.6);
+    border-radius: 0.5vh;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5vh;
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-cmail .mail-send .send-box > .buttons > .button#send {
+    height: 3.1vh;
+    width: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/cmail/button-bg.png);
+    background-size: 100% 100%;
+    color: white;
+    font-size: 1.5vh;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-emergency {
+    width: 100%;
+    height: 100%;
+    background-color: #1C1111;
+    background-image: url(./img/emergency/bg.png);
+    background-size: 100% 100%;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > p.title {
+    font-family: 'sfprobold';
+    font-size: 2.4vh;
+    background: conic-gradient(from 180deg at 50% 50%, #F58E6E 0deg, #EC7960 88.12deg, #EC6060 131.25deg, #FB7070 176.25deg, #F56363 249.37deg, #D55C41 300deg, #FAAA7E 339.37deg, #F58E6E 360deg), #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-top: 2.9vh;
+    text-align: center;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .header {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.9vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .header > .header-item {
+    width: 25vh;
+    height: 6.3vh;
+    background-color: #442222;
+    border-radius: 2.4vh 0.3vh;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .header > .header-item > p {
+    font-size: 1.6vh;
+    font-family: 'sfprobold';
+    color: white;
+    margin-left: 3.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.9vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list {
+    width: 25vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 46vh;
+    scrollbar-width: none;
+    border-radius: 0.75vh 0.75vh 0 0;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item {
+    width: 100%;
+    height: auto;
+    padding: 2vh;
+    margin-bottom: 1vh;
+    background-color: #130C0C;
+    border-radius: 0.75vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-left > p.name {
+    font-size: 1.6vh;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-left > p.number {
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    margin-top: 0.5vh;
+    color: rgba(255, 255, 255, 0.60);
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-right {
+    width: fit-content;
+    height: 3.6vh;
+    padding-inline: 1vh;
+    background-color: rgba(38, 38, 38, 0.54);
+    border-radius: 1.7vh 0.7vh 1.7vh 0.7vh;
+    display: flex;
+    align-items: center;
+    transition: filter 200ms, background-color 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-right.red:hover {
+    filter: drop-shadow(0px 0px 1vh #442222) !important;
+    background-color: #442222 !important;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-right.orange:hover {
+    filter: drop-shadow(0px 0px 1vh #d8792c);
+    background-color: #d8792c;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-right:hover {
+    filter: drop-shadow(0px 0px 1vh #64AD42);
+    background-color: #64AD42;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .header > .header-right > p {
+    font-size: 1.3vh;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .content > p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.3vh;
+    margin-top: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .footer > .footer-left > p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .footer > .footer-right {
+    width: 3.5vh;
+    height: 3.5vh;
+    background-color: rgba(38, 38, 38, 0.54);
+    border-radius: 1.7vh 0.7vh 1.7vh 0.7vh;
+    font-size: 1.55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .footer > .footer-right:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .bottom-footer {
+    border-top: 0.1vh solid rgba(255, 255, 255, 0.04);
+    height: auto;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .bottom-footer > .bottom-footer-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .bottom-footer > .bottom-footer-content > p.name {
+    font-size: 1.6vh;
+    font-family: 'sfprobold';
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .bottom-footer > .bottom-footer-content > p.status {
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    margin-top: 0.5vh;
+    color: rgba(255, 255, 255, 0.60);
+}
+
+.laptop .laptop-inner .pages .page#app-emergency > .emergency-content > .emergency-content-item-list > .emergency-content-item > .bottom-footer > p.time {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1vh;
+    margin-top: 1.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police {
+    width: 100%;
+    height: 100%;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .header {
+    width: 100%;
+    height: 7.5vh;
+    background-color: #152A48;
+    background-image: url(./img/police-app/header-bg.png);
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .header > .logo {
+    width: 5vh;
+    height: 5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .header > .logo > img {
+    width: 100%;
+    height: 100%;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .header-items {
+    display: flex;
+    justify-content: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .header-items > .header-item {
+    height: 4.2vh;
+    width: 13.8vh;
+    border-radius: 0 0 0.5vh 0.5vh;
+    background-color: #152744;
+    margin-inline: 0.25vh;
+    color: rgba(255, 255, 255, 0.60);
+    transition: background-color 200ms, color 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .header-items > .header-item:hover {
+    background-color: #1C417E;
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .header-items > .header-item.active {
+    background-color: #1C417E;
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .header-items > .header-item > p {
+    font-size: 1.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content {
+    width: 100%;
+    height: 54.275vh;
+    background-color: #101B2E;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.policepage {
+    overflow-x: visible;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-bar {
+    width: 56.4vh;
+    height: 4.8vh;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    border-radius: 0.5vh;
+    margin-top: 3.5vh;
+    padding-inline: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-bar > i {
+    color: #2774F3;
+    font-size: 1.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-bar > input {
+    background-color: transparent;
+    color: white;
+    height: 3.2vh;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4vh;
+    padding-inline: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-bar > button {
+    outline: none;
+    border: none;
+    font-size: 1.2vh;
+    background-color: #2774F3;
+    color: white;
+    height: 3.2vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    padding-inline: 1vh;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-bar > button:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result {
+    display: flex;
+    flex-direction: column;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    max-height: 34.5vh;
+    overflow-x: clip;
+    border-radius: 0.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item {
+    width: 56.4vh;
+    height: 4.8vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item > .id {
+    width: 3.2vh;
+    height: 3.2vh;
+    min-width: 3.2vh;
+    background: #1C417E;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    margin-left: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'sfpro';
+    font-size: 1.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item > .name {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 2vh;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item > .birth-day {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item > .sex {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item > .information {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 10.35vh;
+    max-width: 10.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item.wanted {
+    background-color: #391E24;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item.wanted > .id {
+    background-color: #7E1C1C;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-items > .search-result-item.wanted > .information {
+    color: #FF4B4B;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2vh;
+    font-family: 'sfpros';
+    display: flex;
+    margin-top: 1.5vh;
+    margin-bottom: 0.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-title > .name {
+    margin-left: 2vh;
+    margin-left: 6.2vh;
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-title > .birth-day {
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerSearch > .search-result > .search-result-title > .sex {
+    min-width: 13.6vh;
+}
+
+/* Vehicle Search */
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-bar {
+    width: 56.4vh;
+    height: 4.8vh;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    border-radius: 0.5vh;
+    margin-top: 3.5vh;
+    padding-inline: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-bar > i {
+    color: #2774F3;
+    font-size: 1.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-bar > input {
+    background-color: transparent;
+    color: white;
+    height: 3.2vh;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4vh;
+    padding-inline: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-bar > button {
+    outline: none;
+    border: none;
+    font-size: 1.2vh;
+    background-color: #2774F3;
+    color: white;
+    height: 3.2vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    padding-inline: 1vh;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-bar > button:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result {
+    display: flex;
+    flex-direction: column;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    max-height: 34.5vh;
+    overflow-x: clip;
+    border-radius: 0.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item {
+    width: 56.4vh;
+    height: 4.8vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item > .id {
+    width: 3.2vh;
+    height: 3.2vh;
+    min-width: 3.2vh;
+    background: #1C417E;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    margin-left: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'sfpro';
+    font-size: 1.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item > .car-name {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 2vh;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item > .car-id {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item > .car-plate {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item > .car-status {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 10.35vh;
+    max-width: 10.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2vh;
+    font-family: 'sfpros';
+    display: flex;
+    margin-top: 1.5vh;
+    margin-bottom: 0.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-title > .car-name {
+    margin-left: 2vh;
+    margin-left: 6.2vh;
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-title > .car-id {
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-title > .car-plate {
+    min-width: 13.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.wanted {
+    background-color: #391E24;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.wanted > .id {
+    background-color: #7E1C1C;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.wanted > .car-status {
+    color: #FF4B4B;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.stolen {
+    background-color: #39361E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.stolen > .id {
+    background-color: #D3BA34;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleSearch > .search-result > .search-result-items > .search-result-item.stolen > .car-status {
+    color: #D3BA34;
+}
+
+/* Wanteds */
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-bar {
+    width: 56.4vh;
+    height: 4.8vh;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    border-radius: 0.5vh;
+    margin-top: 3.5vh;
+    padding-inline: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-bar > i {
+    color: #2774F3;
+    font-size: 1.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-bar > input {
+    background-color: transparent;
+    color: white;
+    height: 3.2vh;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4vh;
+    padding-inline: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-bar > button {
+    outline: none;
+    border: none;
+    font-size: 1.2vh;
+    background-color: #2774F3;
+    color: white;
+    height: 3.2vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    padding-inline: 1vh;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-bar > button:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result {
+    display: flex;
+    flex-direction: column;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    max-height: 34.5vh;
+    overflow-x: clip;
+    border-radius: 0.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item {
+    width: 56.4vh;
+    height: 4.8vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item > .id {
+    width: 3.2vh;
+    height: 3.2vh;
+    min-width: 3.2vh;
+    background: #1C417E;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    margin-left: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'sfpro';
+    font-size: 1.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item > .name {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 2vh;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item > .birth-day {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item > .sex {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 13.35vh;
+    max-width: 13.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-items > .search-result-item > .wanteds {
+    color: white;
+    font-size: 1.4vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 10.35vh;
+    max-width: 10.35vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2vh;
+    font-family: 'sfpros';
+    display: flex;
+    margin-top: 1.5vh;
+    margin-bottom: 0.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-title > .name {
+    margin-left: 2vh;
+    margin-left: 6.2vh;
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-title > .birth-day {
+    min-width: 13.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-wantedPlayer > .search-result > .search-result-title > .sex {
+    min-width: 13.6vh;
+}
+
+/* Laws */
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content {
+    width: 56.4vh;
+    height: 39vh;
+    margin-top: 3.5vh;
+    /* background-color: red; */
+    border-radius: 0.5vh;
+    max-height: 39vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > p {
+    font-family: 'sfprobold';
+    font-size: 1.6vh;
+    color: white;
+    margin-bottom: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-left {
+    width: 19.3vh;
+    height: 100%;
+    border-radius: 0.5vh;
+    scrollbar-width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-left::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-left > .inner-left-item {
+    width: 100%;
+    height: 4.8vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 0.75vh;
+    transition: background-color 200ms;
+    display: flex;
+    align-items: center;
+    padding-inline: 2vh;
+    color: white;
+    font-size: 1.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-left > .inner-left-item:hover {
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-left > .inner-left-item.active {
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right {
+    width: 34.6vh;
+    height: 100%;
+    border-radius: 0.5vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right > .inner-right-item {
+    width: 100%;
+    height: auto;
+    background-color: #172237;
+    margin-bottom: 0.75vh;
+    border-radius: 0.5vh;
+    padding-bottom: 1.5vh;
+    transition: background-color 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right > .inner-right-item:hover {
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > .law-info {
+    width: auto;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+    padding-inline: 1vh;
+    background-color: rgba(28, 65, 126, 0.32);
+    border-radius: 0.5vh 0.5vh 0 0.5vh;
+    color: white;
+    float: right;
+    font-size: 1.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > p.title {
+    color: white;
+    font-size: 1.4vh;
+    font-family: 'sfprobold';
+    padding-inline: 2vh;
+    padding-top: 1.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-laws > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > p.text {
+    color: white;
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    padding-inline: 2vh;
+    margin-top: 0.75vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord {
+    width: 56.4vh;
+    height: 41vh;
+    margin-top: 1.5vh;
+    /* background-color: red; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .buttons {
+    display: flex;
+    justify-content: right;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .buttons > .button {
+    width: 11.8vh;
+    height: 3.2vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    color: white;
+    font-size: 1.2vh;
+    margin-left: 0.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms;
+    font-family: 'sfpro';
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .buttons > .button:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+    margin-top: 3vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information {
+    margin-top: 2.5vh;
+    display: flex;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information .img {
+    width: 8.2vh;
+    height: 8.2vh;
+    border-radius: 50%;
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information .player-information-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information .player-information-item > .item > p {
+    min-width: 13vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information .player-information-item > .item > p.title {
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .player-information .player-information-item > .item > p.content {
+    font-size: 1.4vh;
+    font-family: 'sfpro';
+    color: white;
+    margin-top: 0.25vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information {
+    margin-top: 2.5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left {
+    width: 26vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items {
+    margin-top: 1.5vh;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items > .license-item {
+    width: 4.5vh;
+    height: 4.5vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 1.2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms;
+    position: relative;
+}
+
+.licnese-icon {
+    width: 50%;
+    height: auto;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items > .license-item:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items > .license-item > i {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items > .license-item > i.active {
+    color: white;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-left > .license-items > .license-item > .dot {
+    width: 1vh;
+    height: 1vh;
+    background-color: #5BA936;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -0.4vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-right {
+    width: 26vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-right > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-right > textarea {
+    margin-top: 1.5vh;
+    height: 10.2vh;
+    width: 100%;
+    background: #172237;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    padding: 1vh;
+    color: white;
+    font-size: 1.4vh;
+    outline: none;
+    transition: opacity 200ms;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .personal-information > .personal-information-right > textarea:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .akten-carousell {
+    width: 100%;
+    height: 24.5vh;
+    margin-top: 1.5vh;
+    overflow: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0.6vh;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: .25vw;
+    background: gray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: .25vw;
+    transition: all 0.25s ease-in-out;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-playerRecord > .akten-carousell > .carousell-item {
+    display: inline-block;
+    width: 22.6vh;
+    height: 97%;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-right: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds {
+    width: 56.4vh;
+    height: 39vh;
+    margin-top: 3.5vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds > .buttons {
+    display: flex;
+    justify-content: right;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds > .buttons > .button {
+    width: 11.8vh;
+    height: 3.2vh;
+    border: 0.1vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    color: white;
+    font-size: 1.2vh;
+    margin-left: 0.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms;
+    font-family: 'sfpro';
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds > .buttons > .button:hover {
+    opacity: 0.8;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+    margin-top: 2.5vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#police-playerWanteds > p.title > span {
+    font-size: 1.6vh;
+    color: #3D7EEA;
+    font-family: 'sfprobold';
+    margin-top: 2.5vh;
+}
+
+.top-c {
+    width: 100%;
+    height: 3vh;
+}
+
+.top {
+    width: 50%;
+    height: 100%;
+    background: #1C417E;
+    border-radius: 0 0 0.7vh 0.7vh;
+    float: right;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.carousell-icon-top-duweißtbescheid {
+    height: 65%;
+    width: auto;
+    margin-left: 0.4vh;
+}
+
+.top h2 {
+    color: white;
+    font-size: 1vh;
+    font-weight: 300;
+    margin-left: 0.5vh;
+}
+
+.carousell-item .content {
+    width: 85%;
+    height: calc(100% - 3vh);
+    float: right;
+}
+
+.content .stat {
+    width: 100%;
+    height: 20%;
+}
+
+.content .stat:not(:last-child) {
+    margin-bottom: 1vh;
+}
+
+.stat h1 {
+    font-size: 1.3vh;
+    font-weight: 500;
+    color: white;
+    opacity: 0.6;
+}
+
+.stat h2 {
+    font-size: 1.3vh;
+    font-weight: 500;
+    color: white;
+    margin-top: 0.4vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview {
+    width: 56.4vh;
+    height: 39vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+    margin-top: 3vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .player-information {
+    margin-top: 2.5vh;
+    display: flex;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .player-information .player-information-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .player-information .player-information-item > .item > p {
+    min-width: 13vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .player-information .player-information-item > .item > p.title {
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .player-information .player-information-item > .item > p.content {
+    font-size: 1.4vh;
+    font-family: 'sfpro';
+    color: white;
+    margin-top: 0.25vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .personal-information {
+    margin-top: 2.5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .personal-information > .personal-information-left {
+    width: 26vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-vehicleOverview > .personal-information > .personal-information-left > p.title {
+    font-size: 1.6vh;
+    color: #FFFFFF;
+    font-family: 'sfprobold';
+}
+
+#policevehiclestatus-c {
+    width: 12vh;
+    height: 2vh;
+}
+
+#policevehiclestatus {
+    position: relative;
+    width: 12vh;
+    height: 4vh;
+    background: transparent;
+    border-radius: 0.5vh;
+    margin-top: 0.5vh;
+    border: 0.1vh solid #3d5886;
+    color: white;
+    font-size: 1.4vh;
+    text-align: left;
+    text-indent: 1vh;
+}
+
+#policestatus {
+    position: relative;
+    width: 12vh;
+    height: 4vh;
+    background: transparent;
+    border-radius: 0.5vh;
+    margin-top: 0.5vh;
+    border: 0.1vh solid #3d5886;
+    color: white;
+    font-size: 1.4vh;
+    text-align: left;
+    text-indent: 1vh;
+}
+
+.policevehiclestatusarrow {
+    position: absolute;
+    top: 50%;
+    right: 1vh;
+    transform: translateY(-50%);
+    font-size: 1vh;
+    transition: 200ms;
+    width: auto;
+    height: 1.3vh;
+}
+
+#policevehstatuslist {
+    width: 12vh;
+    height: fit-content;
+    background: #101b2e;
+    margin-top: 0.5vh;
+    animation: policevehstatusanim 200ms linear forwards;
+    opacity: 0;
+    transform: translateY(-1vh);
+    display: none;
+    z-index: 3;
+}
+
+#policestatuslist {
+    width: 12vh;
+    height: fit-content;
+    background: #101b2e;
+    margin-top: 0.5vh;
+    animation: policevehstatusanim 200ms linear forwards;
+    opacity: 0;
+    transform: translateY(-1vh);
+    display: none;
+    z-index: 3;
+}
+
+.policevehstatusitem {
+    color: white;
+    text-indent: 1vh;
+    font-size: 1.4vh;
+    width: 12vh;
+    height: 3vh;
+    padding-bottom: 0.7vh;
+    padding-top: 0.7vh;
+    background: transparent;
+    border-radius: 0.5vh 0.5vh 0 0;
+    border: 0.1vh solid #3d5886;
+    display: flex;
+    align-items: center;
+}
+
+.policestatusitem {
+    color: white;
+    text-indent: 1vh;
+    font-size: 1.4vh;
+    width: 12vh;
+    height: 3vh;
+    padding-bottom: 0.7vh;
+    padding-top: 0.7vh;
+    background: transparent;
+    border-radius: 0.5vh;
+    border: 0.1vh solid #3d5886;
+    display: flex;
+    align-items: center;
+}
+
+.policevehstatusitem:last-child {
+    border-radius: 0 0 0.5vh 0.5vh;
+    border-top: none;
+}
+
+@keyframes policevehstatusanim {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#app-home {
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/Wallpaper/1.jpg);
+    background-size: 115%;
+}
+
+.apps {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 10vh;
+    width: fit-content;
+    height: 6vh;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 1vh;
+    display: flex;
+    align-items: center;
+    padding-left: 0.8vh;
+    padding-right: 0.8vh;
+}
+
+.app {
+    width: 4vh;
+    height: 4vh;
+    float: left;
+    border-radius: 1vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app:not(:first-child) {
+    margin-left: 0.8vh;
+}
+
+#overviewapp {
+    background: conic-gradient(from 180deg at 50% 50%, #6EA4F5 0deg, #6098EC 88.12deg, #60A9EC 131.25deg, #708AFB 200.63deg, #637FF5 249.37deg, #418ED5 300deg, #7EA1FA 339.37deg, #6EA4F5 360deg);
+}
+
+#dispatchapp {
+    background: conic-gradient(from 180deg at 50% 50%, #F58E6E 0deg, #EC7960 88.12deg, #EC6060 131.25deg, #FB7070 176.25deg, #F56363 249.37deg, #D55C41 300deg, #FAAA7E 339.37deg, #F58E6E 360deg);
+}
+
+#policeapp {
+    background: radial-gradient(83.33% 83.33% at 50% 50%, #296EDE 0%, #251858 100%);
+}
+
+#mailapp {
+    background: #262626;
+}
+
+#factionapp {
+    background: radial-gradient(83.33% 83.33% at 50% 50%, #0b2e13 0%, #00ff47 100%);
+}
+
+#businessapp {
+    background: radial-gradient(83.33% 83.33% at 50% 50%, #c69500 0%, #F1C100 100%);
+}
+
+.app img,
+.app svg {
+    width: 50%;
+    height: 50%;
+}
+
+.app .pdapp {
+    width: 70%;
+    height: 70%;
+}
+
+.app i {
+    color: white;
+    font-size: 1.8vh;
+}
+
+.policeicon {
+    font-size: 1.9vh;
+}
+
+.headbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cloudlogo {
+    width: auto;
+    height: 80%;
+    margin-left: 1vh;
+}
+
+.headbarright {
+    width: 33vh;
+    height: 100%;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.headbaricon {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 1vh;
+}
+
+.headbarright h1 {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 1vh;
+    font-family: "ubuntu-m";
+    font-weight: 300;
+}
+
+.page {
+    opacity: 0;
+    transform: translateY(5vh);
+    animation: appslideup 300ms ease forwards;
+}
+
+#app-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-slideout {
+    animation: appslideup 300ms ease forwards, appslidedown 300ms ease forwards;
+}
+
+@keyframes appslideup {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes appslidedown {
+    100% {
+        opacity: 0;
+        transform: translateY(5vh);
+    }
+}
+
+#policeTab-AddCrimes {
+    overflow-y: scroll;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content {
+    position: relative;
+    width: 56.4vh;
+    height: 39vh;
+    margin-top: 3.5vh;
+    /* background-color: red; */
+    border-radius: 0.5vh;
+    max-height: 39vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > p {
+    font-family: 'sfprobold';
+    font-size: 1.6vh;
+    color: white;
+    margin-bottom: 2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > p > span {
+    font-family: 'sfprobold';
+    font-size: 1.6vh;
+    color: white;
+}
+
+#crimes-info,
+#crimes-info span {
+    font-size: 1.3vh !important;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner {
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-left {
+    width: 19.3vh;
+    height: 100%;
+    border-radius: 0.5vh;
+    scrollbar-width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-left::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-left > .inner-left-item {
+    width: 100%;
+    height: 4.8vh;
+    background-color: #172237;
+    border-radius: 0.5vh;
+    margin-bottom: 0.75vh;
+    transition: background-color 200ms;
+    display: flex;
+    align-items: center;
+    padding-inline: 2vh;
+    color: white;
+    font-size: 1.6vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-left > .inner-left-item:hover {
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-left > .inner-left-item.active {
+    background-color: #1C417E;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right {
+    width: 34.6vh;
+    height: 100%;
+    border-radius: 0.5vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right::-webkit-scrollbar {
+    width: 0;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right > .inner-right-item {
+    width: 100%;
+    height: auto;
+    background-color: #172237;
+    margin-bottom: 0.75vh;
+    border-radius: 0.5vh;
+    padding-bottom: 1.5vh;
+    transition: background-color 200ms;
+    position: relative;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > .law-info {
+    width: auto;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+    padding-inline: 1vh;
+    background-color: rgba(28, 65, 126, 0.32);
+    border-radius: 0.5vh 0.5vh 0 0.5vh;
+    color: white;
+    float: right;
+    font-size: 1.2vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > p.title {
+    color: white;
+    font-size: 1.4vh;
+    font-family: 'sfprobold';
+    padding-inline: 2vh;
+    padding-top: 1.5vh;
+    margin-left: 3vh;
+}
+
+.laptop .laptop-inner .pages .page#app-police > .content > .policepage#policeTab-AddCrimes > .laws-content > .laws-content-inner > .inner-right > .inner-right-item > p.text {
+    color: white;
+    font-size: 1.2vh;
+    font-family: 'sfpro';
+    padding-inline: 2vh;
+    margin-top: 0.75vh;
+    margin-left: 3vh;
+}
+
+.crimes-cb {
+    position: absolute;
+    top: 50%;
+    left: 1.5vh;
+    transform: translateY(-50%);
+    width: 2vh;
+    height: 2vh;
+    background: transparent;
+    border: 0.1vh solid #384662;
+}
+
+.cb-container {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 1.5vh;
+    transform: translateY(-50%);
+    width: 2vh;
+    height: 2vh;
+    cursor: pointer;
+    font-size: 2.1vh;
+    user-select: none;
+}
+
+.cb-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-radius: 0.2vh;
+    border: 0.3vh solid #384662;
+}
+
+.cb-container:hover input ~ .checkmark {
+    background: transparent;
+}
+
+.cb-container input:checked ~ .checkmark {
+    background-color: #3974D8;
+}
+
+.cb-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cb-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/checkmark.svg);
+    background-size: 100%;
+}
+
+.cb-container .btnicon {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/minus.svg);
+    background-size: 100%;
+    border: none;
+    overflow: visible;
+}
+
+.content-main-inner .cb-container {
+    position: relative;
+    width: 1.4vh;
+    height: 1.4vh;
+    font-size: 2.1vh;
+    user-select: none;
+    margin-top: -2.5vh;
+    margin-left: 0.3vh;
+    margin-right: 3vh;
+}
+
+.content-main-inner .cb-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.content-main-inner .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-radius: 0.2vh;
+    border: 0.3vh solid #3C3C3E;
+    transition: 200ms;
+}
+
+.content-main-inner .cb-container:hover input ~ .checkmark {
+    background: transparent;
+}
+
+.content-main-inner .cb-container input:checked ~ .checkmark {
+    background-color: white;
+    border-radius: 0.2vh;
+    border: 0.3vh solid white;
+}
+
+.content-main-inner .cb-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.content-main-inner .cb-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/checkmark2.svg);
+    background-size: 130%;
+    background-position: center;
+}
+
+.laws-content button {
+    position: absolute;
+    top: -1vh;
+    right: 0;
+    width: 15vh;
+    height: 4vh;
+    background: #5BA936;
+    border: none;
+    color: white;
+    border-radius: 0.4vh;
+    font-family: "ubuntu-m";
+}
+
+#app-settings {
+    width: 35vh;
+    height: 40vh;
+    margin-top: calc((61.775vh - 35vh) / 2 - 4vh);
+    margin-left: 1vh;
+    background: #0B1512;
+    border-radius: 1vh;
+    overflow: hidden;
+}
+
+.playerimage {
+    width: 4.5vh;
+    height: 4.5vh;
+    border-radius: 50vh;
+    background: #EF4040;
+    margin-top: 1vh;
+    margin-left: 3vh;
+    float: left;
+    background-image: url(./img/user.png);
+    background-size: 100%;
+}
+
+.space {
+    width: 100%;
+    height: 4.420vh;
+}
+
+#app-settings > h1 {
+    color: white;
+    margin-left: 3vh;
+    font-family: "ubuntu";
+    font-size: 2.3vh;
+    font-weight: 500;
+}
+
+.playerinfos {
+    width: 25vh;
+    height: 4.5vh;
+    float: left;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+.playerinfos > h1 {
+    color: white;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+.playerinfos > h2 {
+    color: #A0A6B1;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+#app-settings > button {
+    position: relative;
+    width: 30vh;
+    height: 5.5vh;
+    margin-left: 2.5vh;
+    background: #141D1A;
+    border: none;
+    border-radius: 0.6vh;
+    display: flex;
+    align-items: center;
+    font-size: 1.6vh;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1vh;
+}
+
+#app-settings > button > i {
+    font-size: 1.3vh;
+    margin-left: 1.3vh;
+    margin-right: 1.3vh;
+}
+
+.settingsbtnimg {
+    width: auto;
+    height: 30%;
+    margin-left: 1.3vh;
+    margin-right: 1.3vh;
+}
+
+#app-settings > button > .settingsarrow {
+    position: absolute;
+    top: 50%;
+    right: 1vh;
+    transform: translateY(-50%);
+    font-size: 1.3vh;
+}
+
+.pimmelring {
+    position: absolute;
+    top: 50%;
+    right: 1.82vh;
+    transform: translateY(-50%);
+    background: #5BA936;
+    width: 1.5vh;
+    height: 1.5vh;
+    border-radius: 50vh;
+}
+
+.settingsTab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    animation: settingsSlide 250ms ease forwards;
+    opacity: 0;
+    transform: translateX(-5vh);
+    background: #0B1512;
+}
+
+.settingsslideout {
+    animation: settingsSlide 250ms ease forwards, settingsSlideOut 250ms ease forwards;
+}
+
+@keyframes settingsSlide {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes settingsSlideOut {
+    100% {
+        opacity: 0;
+        transform: translateX(-5vh);
+    }
+}
+
+.volbox {
+    position: relative;
+    width: 30vh;
+    height: 7.5vh;
+    margin-left: 2.5vh;
+    background: #141D1A;
+    border: none;
+    border-radius: 0.6vh;
+    font-size: 1.6vh;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1vh;
+    margin-top: 1.5vh;
+}
+
+.volbox > h1 {
+    color: white;
+    margin-left: 1vh;
+    font-family: "ubuntu";
+    font-size: 1.4vh;
+    font-weight: 300;
+}
+
+#settingsTab-sounds > h1 {
+    color: white;
+    margin-left: 3vh;
+    font-family: "ubuntu";
+    font-size: 2.1vh;
+    font-weight: 500;
+}
+
+.space2 {
+    width: 100%;
+    height: 1vh;
+}
+
+.volbox i {
+    font-size: 1.6vh;
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    margin-top: 1.6vh;
+    float: left;
+}
+
+.sounditem {
+    position: relative;
+    width: 30vh;
+    height: 6vh;
+    margin-left: 2.5vh;
+    background: #141D1A;
+    border: none;
+    border-radius: 0.6vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.sounditem > h1 {
+    color: white;
+    font-size: 1.3vh;
+    font-weight: 300;
+    margin-left: 1vh;
+}
+
+.sounditem .settingsicon {
+    color: white;
+    margin-left: 1vh;
+}
+
+#settingsTab-backgrounds > h1 {
+    color: white;
+    margin-left: 3vh;
+    font-family: "ubuntu";
+    font-size: 2.1vh;
+    font-weight: 500;
+}
+
+.bgbox {
+    width: 85%;
+    height: 80%;
+    margin-left: 7.5%;
+    margin-top: 3%;
+    overflow-y: scroll;
+}
+
+.bgbox::-webkit-scrollbar {
+    display: none;
+}
+
+.bgitem {
+    position: relative;
+    width: 47.5%;
+    height: 20vh;
+    background: url(./img/Wallpaper/1.jpg);
+    background-position: center center;
+    background-size: 260%;
+    border-radius: 0.6vh;
+    float: left;
+    margin-top: 2vh;
+}
+
+.bgitem:nth-child(even) {
+    margin-left: 5%;
+}
+
+.bgitemactive {
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 2vh;
+    color: white;
+}
+
+.settingsclosebtn {
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 2vh;
+    color: #6D6C71;
+}
+
+#app-overview {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    background-size: 115%;
+    background-repeat: no-repeat;
+}
+
+.ovw-c {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 78vh;
+    height: 25vh;
+}
+
+.ovw-item {
+    position: relative;
+    width: 30vh;
+    height: 25vh;
+    background: linear-gradient(90deg, #152236 0%, rgba(16, 23, 35, 0.31) 100%);
+    border-radius: 3vh;
+    float: left;
+    box-shadow: 0px 0px 20px 1px #0000003b;
+    overflow: hidden;
+}
+
+.ovw-item:not(:nth-child(2)) {
+    margin-left: -6vh;
+}
+
+.ovw-item:nth-child(4) {
+    width: 25vh;
+}
+
+.ovw-header {
+    position: absolute;
+    top: -16vh;
+    left: 25%;
+    width: 50%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ovw-header h1 {
+    color: #6EA4F5;
+    font-family: "ubuntu-m";
+    font-size: 2.7vh;
+
+}
+
+.ovw-header h2 {
+    color: #767676;
+    font-size: 1.3vh;
+    font-weight: 300;
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.ovw-item h1 {
+    color: white;
+    font-size: 2.4vh;
+    margin-top: 3vh;
+    margin-left: 4vh;
+}
+
+.ovw-item h2 {
+    color: #767676;
+    font-size: 1.5vh;
+    font-weight: 300;
+    margin-top: 0.1vh;
+    margin-left: 4vh;
+}
+
+.ovw-item img {
+    width: auto;
+    height: 65%;
+}
+
+.accessovwtab {
+    position: absolute;
+    bottom: 2vh;
+    right: 7.5vh;
+    width: 4vh;
+    height: 4vh;
+    background: #4364EF;
+    border-radius: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessovwtab i {
+    color: white;
+    font-size: 2.18vh;
+}
+
+.ovw-vv-v-2,
+.ovw-vv-v-3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.ovwTab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    animation: ovwTabanim 250ms ease forwards;
+    opacity: 0;
+    transform: translateY(5vh);
+}
+
+@keyframes ovwTabanim {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ovwcont {
+    width: 70vh;
+    height: 58vh;
+    border-radius: 3vh 3vh 0 0;
+    overflow: hidden;
+    background: #152236b2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ovwhead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(180deg, #152236ab 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewtitle.jpg);
+    background-size: 100%;
+    background-position: center center;
+    flex-direction: column;
+}
+
+.ovwhead h1 {
+    color: white;
+    font-size: 2.4vh;
+}
+
+.ovwhead h2 {
+    color: #767676;
+    font-size: 1.5vh;
+    font-weight: 300;
+    margin-top: 0.2vh;
+    text-align: center;
+}
+
+.content-title {
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1vh;
+    margin-bottom: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin-top: 2vh;
+}
+
+.content-title .text {
+    width: 7vh;
+}
+
+.ovwcont .content {
+    width: 75%;
+    height: auto;
+    max-height: 15vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+.ovwcont .content::-webkit-scrollbar {
+    display: none;
+}
+
+.ovwcont .content .content-item {
+    position: relative;
+    width: 100%;
+    height: 4.5vh;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 0.5vh;
+    font-family: 'ubuntu';
+    font-size: 1.3vh;
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+.ovwcont .content .content-item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.ovwcont .content .content-item .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: conic-gradient(from 180deg at 50% 50%, #6EA4F5 0deg, #6098EC 88.12deg, #60A9EC 131.25deg, #708AFB 200.63deg, #637FF5 249.37deg, #418ED5 300deg, #7EA1FA 339.37deg, #6EA4F5 360deg);
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ovwcont .content .content-item .text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 8vh;
+    margin-left: 2vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.ovwcont .content .content-item .n2 {
+    margin-left: 5.2vh;
+}
+
+.ovwcont .content .content-item .n3 {
+    margin-left: 5vh;
+}
+
+.ovwcont .content .content-item .n4 {
+    margin-left: 5.2vh;
+}
+
+.ovwcont > h1 {
+    color: white;
+    font-size: 2.2vh;
+    float: left;
+}
+
+.ovwheaderdingsn {
+    align-self: flex-start;
+    margin-left: 10vh;
+    margin-top: 2vh;
+}
+
+.ovwcont .content .content-item .icon2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: white;
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ovwcont .content .content-item .icon2 i {
+    color: #6FA4F5;
+    font-size: 1.1vh;
+}
+
+.n11 {
+    margin-left: 1vh;
+}
+
+.n33 {
+    margin-left: 2.2vh !important;
+}
+
+.n44 {
+    margin-left: 2.2vh !important;
+}
+
+.n55 {
+    width: auto !important;
+    margin-left: 2.4vh !important;
+    overflow: visible;
+}
+
+/* FACTION OVERVIEW START */
+#app-faction {
+    width: 100%;
+    height: 100%;
+    background-size: 115%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    background-repeat: no-repeat;
+}
+
+#app-faction .overview {
+    width: 70vh;
+    height: 58vh;
+    border-radius: 3vh 3vh 0 0;
+    overflow: hidden;
+    background: #152236b2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#app-faction .faction-overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    animation: ovwTabanim 250ms ease forwards;
+    opacity: 0;
+    transform: translateY(5vh);
+}
+
+#app-faction .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(180deg, #152236ab 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewtitle.jpg);
+    background-size: 100%;
+    background-position: center center;
+    flex-direction: column;
+}
+
+#app-faction .head h1 {
+    color: white;
+    font-size: 2.4vh;
+}
+
+#app-faction .head h2 {
+    color: #767676;
+    font-size: 1.5vh;
+    font-weight: 300;
+    margin-top: 0.2vh;
+    text-align: center;
+}
+
+#app-faction .head .control {
+    position: absolute;
+    width: 71%;
+    height: 15vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding-right: 1%;
+    padding-bottom: 1%;
+}
+
+#app-faction .head .control button {
+    width: 11vh;
+    height: 3vh;
+    outline: none;
+    border: none;
+    background-color: #0944a8;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.4vh;
+    transition: 0.2s ease;
+}
+
+#app-faction .head .control button:hover {
+    background-color: #0F62EE;
+    color: white;
+}
+
+#app-faction .title {
+
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1vh;
+    margin-bottom: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin-top: 2vh;
+}
+
+#app-faction .title .text {
+    width: 7vh;
+}
+
+#app-faction .content {
+    width: 75%;
+    height: auto;
+    max-height: 15vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+#app-faction .content::-webkit-scrollbar {
+    display: none;
+}
+
+#app-faction .content .content-item {
+    position: relative;
+    width: 100%;
+    height: 4.5vh;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 0.5vh;
+    font-family: 'ubuntu';
+    font-size: 1.3vh;
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+#app-faction .content .content-item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+#app-faction .content .content-item .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: conic-gradient(from 180deg at 50% 50%, #6EA4F5 0deg, #6098EC 88.12deg, #60A9EC 131.25deg, #708AFB 200.63deg, #637FF5 249.37deg, #418ED5 300deg, #7EA1FA 339.37deg, #6EA4F5 360deg);
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-faction .content .content-item .text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 8vh;
+    margin-left: 2vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+#app-faction .content .content-item .text input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+#app-faction .content .content-item .n2 {
+    margin-left: 5.2vh;
+}
+
+#app-faction .content .content-item .n3 {
+    margin-left: 5vh;
+}
+
+#app-faction .content .content-item .n4 {
+    margin-left: 5.2vh;
+}
+
+#app-faction .content .content-item .n5 {
+    margin-left: 5vh;
+}
+
+#app-faction .content .content-item .icon2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: white;
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-faction .content .content-item .icon2 i {
+    color: #6FA4F5;
+    font-size: 1.1vh;
+}
+
+#app-faction .content .content-item .control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5vh;
+    height: 2vh;
+    width: 2vh;
+    background: white;
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-faction .content .content-item .control i {
+    color: #6FA4F5;
+    font-size: 1.1vh;
+}
+
+/* BUSINESS OVERVIEW START */
+#app-business {
+    width: 100%;
+    height: 100%;
+    background-size: 115%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    background-repeat: no-repeat;
+}
+
+#app-business .overview {
+    width: 70vh;
+    height: 58vh;
+    border-radius: 3vh 3vh 0 0;
+    overflow: hidden;
+    background: #152236b2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#app-business .business-overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #152236 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewbg.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    animation: ovwTabanim 250ms ease forwards;
+    opacity: 0;
+    transform: translateY(5vh);
+}
+
+#app-business .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(180deg, #152236ab 0%, rgba(8, 17, 30, 0.9) 100%), url(./img/overviewtitle.jpg);
+    background-size: 100%;
+    background-position: center center;
+    flex-direction: column;
+}
+
+#app-business .head h1 {
+    color: white;
+    font-size: 2.4vh;
+}
+
+#app-business .head h2 {
+    color: #767676;
+    font-size: 1.5vh;
+    font-weight: 300;
+    margin-top: 0.2vh;
+    text-align: center;
+}
+
+#app-business .head .control {
+    position: absolute;
+    width: 71%;
+    height: 15vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding-right: 1%;
+    padding-bottom: 1%;
+}
+
+#app-business .head .control button {
+    width: 11vh;
+    height: 3vh;
+    outline: none;
+    border: none;
+    background-color: #0944a8;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.4vh;
+    transition: 0.2s ease;
+}
+
+#app-business .head .control button:hover {
+    background-color: #0F62EE;
+    color: white;
+}
+
+#app-business .title {
+
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1vh;
+    margin-bottom: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin-top: 2vh;
+}
+
+#app-business .title .text {
+    width: 7vh;
+}
+
+#app-business .content {
+    width: 75%;
+    height: auto;
+    max-height: 15vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+#app-business .content::-webkit-scrollbar {
+    display: none;
+}
+
+#app-business .content .content-item {
+    position: relative;
+    width: 100%;
+    height: 4.5vh;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 0.5vh;
+    font-family: 'ubuntu';
+    font-size: 1.3vh;
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+#app-business .content .content-item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+#app-business .content .content-item .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: conic-gradient(from 180deg at 50% 50%, #6EA4F5 0deg, #6098EC 88.12deg, #60A9EC 131.25deg, #708AFB 200.63deg, #637FF5 249.37deg, #418ED5 300deg, #7EA1FA 339.37deg, #6EA4F5 360deg);
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-business .content .content-item .text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 8vh;
+    margin-left: 2vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+#app-business .content .content-item .text input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+#app-business .content .content-item .n2 {
+    margin-left: 5.2vh;
+}
+
+#app-business .content .content-item .n3 {
+    margin-left: 5vh;
+}
+
+#app-business .content .content-item .n4 {
+    margin-left: 5.2vh;
+}
+
+#app-business .content .content-item .n5 {
+    margin-left: 5vh;
+}
+
+#app-business .content .content-item .icon2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: white;
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-business .content .content-item .icon2 i {
+    color: #6FA4F5;
+    font-size: 1.1vh;
+}
+
+#app-business .content .content-item .control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5vh;
+    height: 2vh;
+    width: 2vh;
+    background: white;
+    border-radius: 50%;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-business .content .content-item .control i {
+    color: #6FA4F5;
+    font-size: 1.1vh;
+}

@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+
+    <!-- Title -->
+    <title>Welcome</title>
+
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../utils/libs/betterslider.css" />
+    <script src="../utils/libs/betterslider.js"></script>
+    <script src="../utils/js/fas.js" crossorigin="anonymous "></script>
+    <script src="../utils/libs/jquery.js"></script>
+
+</head>
+
+<body>
+
+    <!-- <main class="cam-wrapper">
+
+        <div class="cam-male">
+            <button onclick="setCameraView(2)"><img class="active" src="./images/Clothing_M_2_0.png"></button>
+            <button onclick="setCameraView(1)"><img src="./images/Clothing_M_3_1.png"></button>
+            <button onclick="setCameraView(6)"><img src="./images/Clothing_M_4_21.png"></button>
+            <button onclick="setCameraView(4)"><img src="./images/Clothing_M_6_34.png"></button>
+            <button onclick="setCameraView(0)"><img src="./images/Clothing_M_body.png"></button>
+        </div>
+        <div class="cam-female" style="display: none;">
+            <button onclick="setCameraView(2)"><img src="./images/Clothing_F_2_0.png"></button>
+            <button onclick="setCameraView(1)"><img src="./images/Clothing_F_3_15.png"></button>
+            <button onclick="setCameraView(6)"><img src="./images/Clothing_F_4_15.png"></button>
+            <button onclick="setCameraView(4)"><img src="./images/Clothing_F_6_35.png"></button>
+            <button onclick="setCameraView(0)"><img src="./images/Clothing_F_body.png"></button>
+        </div>
+    </main> -->
+
+    <main class="main-wrapper">
+        <div class="main-wrapper-inner">
+
+            <!-- header-area start -->
+            <header class="header-area">
+            </header>
+            <!-- header-area end -->
+
+            <!-- hat-area start -->
+            <div class="hat-area">
+                <div class="hat-area-inner">
+                    <div class="hat-area-inner2">
+                        <img src="./images/01.png" alt="" />
+                    </div>
+                    <div>
+                        <h2>Charakter Creator</h2>
+                        <p>Erstelle dir deinen eigenen Charakter.</p>
+                    </div>
+                </div>
+                <div class="character-item">
+
+                    <h2>Geschlecht</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2">
+                            <h3>Geschlecht</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="backGender()" src="./images/02.png" alt="" />
+                            <p><span id="gendername">Männlich</span></p>
+                            <img onclick="forwardGender()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+
+                    <h2>Charakter Eltern</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2">
+                            <h3>Vater</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="back()" src="./images/02.png" alt="" />
+                            <p><span id="fatherName">Benjamin</span></p>
+                            <img onclick="forward()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2">
+                            <h3>Mutter</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="back1()" src="./images/02.png" alt="" />
+                            <p><span id="motherName">Hannah</span></p>
+                            <img onclick="forward1()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Erbeigenschaften</h2>
+                    <div class="character-item-inner4">
+                        <h4>Ähnlichkeit</h4>
+                        <p>Verändere die Ähnlichkeit deiner Eltern.</p>
+                    </div>
+                    <div class="character-item-inner5">
+                        <p>Vater</p>
+                        <p>Mutter</p>
+                    </div>
+
+                    <div class="character-item-inner6">
+                        <img src="./images/04.png" alt="" />
+                        <div class="slider-sec-model-inner">
+                            <div id="slider_sim"></div>
+                        </div>
+                        <!-- <input type="range" min="0" max="100" value="50" id="slider_sim" onchange="updateData()"> -->
+                        <img src="./images/05.png" alt="" />
+                    </div>
+                    <div class="character-item-inner4">
+                        <h4>Hautfarbe</h4>
+                        <p>Verändere deine Hautfarbe.</p>
+                    </div>
+                    <div class="character-item-inner5">
+                        <p>Vater</p>
+                        <p>Mutter</p>
+                    </div>
+                    <div class="character-item-inner6">
+                        <img src="./images/04.png" alt="" />
+                        <div class="slider-sec-model-inner">
+                            <div id="slider_color"></div>
+                        </div>
+                        <!-- <input type="range" min="0" max="100" value="50" id="slider_color" onchange="updateData()"> -->
+                        <img src="./images/05.png" alt="" />
+                    </div>
+                    <h2>Augen</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub1()" id="sub1" src="./images/02.png" alt="" />
+                            <p><span id="value1">1</span>/31</p>
+                            <img onclick="add1()" id="add1" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Haare</h2>
+                    <div class="character-item-inner8">
+                        <p>Frisur</p>
+                        <span></span>
+                    </div>
+                    <div id="male_hairs" class="character-item-inner9">
+                        <div><img src="./images/male_hair/Clothing_M_2_0.png" alt="" onclick="setHairstyle(0)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_1.png" alt="" onclick="setHairstyle(1)" id="hair-img-1" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_2.png" alt="" onclick="setHairstyle(2)" id="hair-img-2" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_3.png" alt="" onclick="setHairstyle(3)" id="hair-img-3" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_4.png" alt="" onclick="setHairstyle(4)" id="hair-img-4" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_5.png" alt="" onclick="setHairstyle(5)" id="hair-img-5" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_6.png" alt="" onclick="setHairstyle(6)" id="hair-img-6" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_7.png" alt="" onclick="setHairstyle(7)" id="hair-img-7" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_8.png" alt="" onclick="setHairstyle(8)" id="hair-img-8" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_9.png" alt="" onclick="setHairstyle(9)" id="hair-img-9" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_10.png" alt="" onclick="setHairstyle(10)" id="hair-img-10" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_11.png" alt="" onclick="setHairstyle(11)" id="hair-img-11" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_12.png" alt="" onclick="setHairstyle(12)" id="hair-img-12" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_13.png" alt="" onclick="setHairstyle(13)" id="hair-img-13" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_14.png" alt="" onclick="setHairstyle(14)" id="hair-img-14" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_15.png" alt="" onclick="setHairstyle(15)" id="hair-img-15" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_16.png" alt="" onclick="setHairstyle(16)" id="hair-img-16" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_17.png" alt="" onclick="setHairstyle(17)" id="hair-img-17" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_18.png" alt="" onclick="setHairstyle(18)" id="hair-img-18" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_19.png" alt="" onclick="setHairstyle(19)" id="hair-img-19" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_20.png" alt="" onclick="setHairstyle(20)" id="hair-img-20" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_21.png" alt="" onclick="setHairstyle(21)" id="hair-img-21" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_22.png" alt="" onclick="setHairstyle(22)" id="hair-img-22" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_32.png" alt="" onclick="setHairstyle(32)" id="hair-img-32" class="img-hover" /></div>
+                        <div><img src="./images/male_hair/Clothing_M_2_34.png" alt="" onclick="setHairstyle(34)" id="hair-img-34" class="img-hover" /></div>
+                    </div>
+                    <div id="female_hairs" class="character-item-inner9" style="display: none;">
+                        <div><img src="./images/female_hair/Clothing_F_2_0.png" alt="" onclick="setHairstyle(0)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_1.png" alt="" onclick="setHairstyle(1)" id="hair-img-1" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_2.png" alt="" onclick="setHairstyle(2)" id="hair-img-2" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_3.png" alt="" onclick="setHairstyle(3)" id="hair-img-3" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_4.png" alt="" onclick="setHairstyle(4)" id="hair-img-4" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_5.png" alt="" onclick="setHairstyle(5)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_6.png" alt="" onclick="setHairstyle(6)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_7.png" alt="" onclick="setHairstyle(7)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_8.png" alt="" onclick="setHairstyle(8)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_9.png" alt="" onclick="setHairstyle(9)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_10.png" alt="" onclick="setHairstyle(10)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_11.png" alt="" onclick="setHairstyle(11)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_12.png" alt="" onclick="setHairstyle(12)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_13.png" alt="" onclick="setHairstyle(13)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_15.png" alt="" onclick="setHairstyle(15)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_16.png" alt="" onclick="setHairstyle(16)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_17.png" alt="" onclick="setHairstyle(17)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_18.png" alt="" onclick="setHairstyle(18)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_19.png" alt="" onclick="setHairstyle(19)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_20.png" alt="" onclick="setHairstyle(20)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_21.png" alt="" onclick="setHairstyle(21)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_22.png" alt="" onclick="setHairstyle(22)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_23.png" alt="" onclick="setHairstyle(23)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_25.png" alt="" onclick="setHairstyle(25)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_26.png" alt="" onclick="setHairstyle(26)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_27.png" alt="" onclick="setHairstyle(27)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_28.png" alt="" onclick="setHairstyle(28)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_29.png" alt="" onclick="setHairstyle(29)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_30.png" alt="" onclick="setHairstyle(30)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_31.png" alt="" onclick="setHairstyle(31)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_32.png" alt="" onclick="setHairstyle(32)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_33.png" alt="" onclick="setHairstyle(33)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_34.png" alt="" onclick="setHairstyle(34)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_35.png" alt="" onclick="setHairstyle(35)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_36.png" alt="" onclick="setHairstyle(36)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_37.png" alt="" onclick="setHairstyle(37)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_38.png" alt="" onclick="setHairstyle(38)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_40.png" alt="" onclick="setHairstyle(40)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_42.png" alt="" onclick="setHairstyle(42)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_76.png" alt="" onclick="setHairstyle(76)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_77.png" alt="" onclick="setHairstyle(77)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_78.png" alt="" onclick="setHairstyle(78)" id="hair-img-0" class="img-hover" /></div>
+                        <div><img src="./images/female_hair/Clothing_F_2_79.png" alt="" onclick="setHairstyle(79)" id="hair-img-0" class="img-hover" /></div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub2()" id="sub2" src="./images/02.png" alt="" />
+                            <p><span id="value2">1</span>/63</p>
+                            <img onclick="add2()" id="add2" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Highlight Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subh()" id="sub2" src="./images/02.png" alt="" />
+                            <p><span id="valueh">1</span>/63</p>
+                            <img onclick="addh()" id="add2" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Brust Behaarung</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subchesthair()" src="./images/02.png" alt="" />
+                            <p><span id="valuechesthair">1</span>/16</p>
+                            <img onclick="addchesthair()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Sichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subchesthairvisubility()" src="./images/02.png" alt="" />
+                            <p><span id="valuechesthair_strength">1</span>/10</p>
+                            <img onclick="addchesthairvisubility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subchesthaircolor()" src="./images/02.png" alt="" />
+                            <p><span id="valuechesthair_color">1</span>/63</p>
+                            <img onclick="addchesthaircolor()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe Highlight</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subchesthaircolorsec()" src="./images/02.png" alt="" />
+                            <p><span id="valuechesthair_color_sec">1</span>/63</p>
+                            <img onclick="addchesthaircolorsec()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Augenbrauen</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Augenbrauen</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub3()" id="sub3" src="./images/02.png" alt="" />
+                            <p><span id="value3">1</span>/33</p>
+                            <img onclick="add3()" id="add3" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner character-item-inner11">
+                        <div class="character-item-inner2">
+                            <h3>Augenbrauendicke</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub4()" id="sub4" src="./images/02.png" alt="" />
+                            <p><span id="value4">1</span>/10</p>
+                            <img onclick="add4()" id="add4" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub5()" id="sub5" src="./images/02.png" alt="" />
+                            <p><span id="value5">1</span>/50</p>
+                            <img onclick="add5()" id="add5" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Bart</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Bartstyle</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub6()" id="sub6" src="./images/02.png" alt="" />
+                            <p><span id="value6">1</span>/50</p>
+                            <img onclick="add6()" id="add6" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner character-item-inner11">
+                        <div class="character-item-inner2">
+                            <h3>Bartsichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub7()" id="sub7" src="./images/02.png" alt="" />
+                            <p><span id="value7">1</span>/10</p>
+                            <img onclick="add7()" id="add7" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sub8()" id="" src="./images/02.png" alt="" />
+                            <p><span id="value8">1</span>/63</p>
+                            <img onclick="add8()" id="add8" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Schönheitsfehler</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Arten</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subblemishes()" id="subblemishes" src="./images/02.png" alt="" />
+                            <p><span id="valueblemishes">1</span>/23</p>
+                            <img onclick="addblemishes()" id="addblemishes" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner character-item-inner11">
+                        <div class="character-item-inner2">
+                            <h3>Sichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subblemishesvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valueblemishesvisibility">1</span>/10</p>
+                            <img onclick="addblemishesvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Alterung</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Alter</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subageing()" src="./images/02.png" alt="" />
+                            <p><span id="valueageing">1</span>/14</p>
+                            <img onclick="addageing()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Altersichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subageingbvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valueageing_visibility">1</span>/10</p>
+                            <img onclick="addageingvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Makeup</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="submakeup()" src="./images/02.png" alt="" />
+                            <p><span id="valuemakeup">1</span>/74</p>
+                            <img onclick="addmakeup()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Sichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="submakeupvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valuemakeup_visibility">1</span>/10</p>
+                            <img onclick="addmakeupvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="submakeupcolor()" src="./images/02.png" alt="" />
+                            <p><span id="valuemakeup_color">1</span>/63</p>
+                            <img onclick="addmakeupcolor()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Lippenstift</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sublipstick()" src="./images/02.png" alt="" />
+                            <p><span id="valuelipstick">1</span>/9</p>
+                            <img onclick="addlipstick()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Sichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sublipstickvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valuelipstick_visibility">1</span>/10</p>
+                            <img onclick="addlipstickvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sublipstickcolor()" src="./images/02.png" alt="" />
+                            <p><span id="valuelipstick_color">1</span>/63</p>
+                            <img onclick="addlipstickcolor()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Detail Farbe</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="sublipstickcolorsec()" src="./images/02.png" alt="" />
+                            <p><span id="valuelipstick_color_sec">1</span>/63</p>
+                            <img onclick="addlipstickcolorsec()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Errötung</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subblush()" src="./images/02.png" alt="" />
+                            <p><span id="valueblush">1</span>/32</p>
+                            <img onclick="addblush()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Stärke</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subblushvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valueblush_strength">1</span>/10</p>
+                            <img onclick="addblushvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+
+                    <h2>Sonnenschaden</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subsundanage()" src="./images/02.png" alt="" />
+                            <p><span id="valuesundamage">1</span>/10</p>
+                            <img onclick="addsundanage()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Stärke</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subsundanagevisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valuesundamage_strength">1</span>/10</p>
+                            <img onclick="addsundanagevisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Muttermale</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Style</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="submoles()" src="./images/02.png" alt="" />
+                            <p><span id="valuemoles">1</span>/17</p>
+                            <img onclick="addmoles()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Stärke</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="submolesvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valuemoles_strength">1</span>/10</p>
+                            <img onclick="addmolesvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Hautunreinheiten</h2>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Arten</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subbodyblemishes()" src="./images/02.png" alt="" />
+                            <p><span id="valuebodyblemishes">1</span>/11</p>
+                            <img onclick="addbodyblemishes()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="character-item-inner">
+                        <div class="character-item-inner2 character-item-inner10">
+                            <h3>Sichtbarkeit</h3>
+                            <span></span>
+                        </div>
+                        <div class="character-item-inner3">
+                            <img onclick="subbodyblemishesvisibility()" src="./images/02.png" alt="" />
+                            <p><span id="valuebodyblemishes_strenght">1</span>/10</p>
+                            <img onclick="addbodyblemishessvisibility()" src="./images/03.png" alt="" />
+                        </div>
+                    </div>
+                    <h2>Gesicht</h2>
+                    <div class="character-item-slider">
+                        <p>Nasen Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="nose_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nasen Höhe</p>
+                        <div class="character-item-slider-inner">
+                            <div id="nose_height"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nasen Länge</p>
+                        <div class="character-item-slider-inner">
+                            <div id="nose_length"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nasenrücken</p>
+                        <div class="character-item-slider-inner">
+                            <div id="nose_bridge"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nasenspitze</p>
+                        <div class="character-item-slider-inner">
+                            <div id="nose_tip"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nasenrückenverschiebung</p>
+                        <div style="width: 75% !important;" class="character-item-slider-inner">
+                            <div id="nose_bridge_shift"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Augenbrauen Höhe</p>
+                        <div class="character-item-slider-inner">
+                            <div id="brow_height"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Augenbrauen Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="brow_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Wangenknochen Höhe</p>
+                        <div class="character-item-slider-inner">
+                            <div id="cheekbone_height"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Wangenknochen Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="cheekbone_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Wangen Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="cheeks_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Augendichte</p>
+                        <div class="character-item-slider-inner">
+                            <div id="eyes"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Lippengröße</p>
+                        <div class="character-item-slider-inner">
+                            <div id="lips"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kiefer Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="jaw_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kiefer Höhe</p>
+                        <div class="character-item-slider-inner">
+                            <div id="jaw_height"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kinnlänge</p>
+                        <div class="character-item-slider-inner">
+                            <div id="chin_length"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kinnposition</p>
+                        <div class="character-item-slider-inner">
+                            <div id="chin_position"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kinn Breite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="chin_width"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Kinnform</p>
+                        <div class="character-item-slider-inner">
+                            <div id="chin_shape"></div>
+                        </div>
+                    </div>
+
+                    <div class="character-item-slider">
+                        <p>Nackenbreite</p>
+                        <div class="character-item-slider-inner">
+                            <div id="neck_width"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="character-item-inner12">
+                    <a href="#" onclick="cancleChanges()">Abbrechen</a>
+                    <a href="#" onclick="saveData()">Fertig</a>
+                </div>
+            </div>
+            <!-- hat-area end -->
+        </div>
+        <div class="player-rotation-box">
+            <div class="slider-module-slider" id="slider-player-rotation"></div>
+        </div>
+    </main>
+</body>
+<script>
+    const father = [
+        father1 = {
+            id: 1,
+            char_id: 0,
+            name: "Benjamin",
+        },
+        father2 = {
+            id: 2,
+            char_id: 1,
+            name: "Daniel",
+        },
+        father3 = {
+            id: 3,
+            char_id: 2,
+            name: "Joshua",
+        },
+        father4 = {
+            id: 4,
+            char_id: 3,
+            name: "Noah",
+        },
+        father5 = {
+            id: 5,
+            char_id: 4,
+            name: "Andrew",
+        },
+        father6 = {
+            id: 6,
+            char_id: 5,
+            name: "Joan",
+        },
+        father7 = {
+            id: 7,
+            char_id: 6,
+            name: "Alex",
+        },
+        father8 = {
+            id: 8,
+            char_id: 7,
+            name: "Isaac",
+        },
+        father9 = {
+            id: 9,
+            char_id: 8,
+            name: "Evan",
+        },
+        father10 = {
+            id: 10,
+            char_id: 9,
+            name: "Ethan",
+        },
+        father11 = {
+            id: 11,
+            char_id: 10,
+            name: "Vincent",
+        },
+        father12 = {
+            id: 12,
+            char_id: 11,
+            name: "Angel",
+        },
+        father13 = {
+            id: 13,
+            char_id: 12,
+            name: "Diego",
+        },
+        father14 = {
+            id: 14,
+            char_id: 13,
+            name: "Adrian",
+        },
+        father15 = {
+            id: 15,
+            char_id: 14,
+            name: "Gabriel",
+        },
+        father16 = {
+            id: 16,
+            char_id: 15,
+            name: "Michael",
+        },
+        father17 = {
+            id: 17,
+            char_id: 16,
+            name: "Santiago",
+        },
+        father18 = {
+            id: 18,
+            char_id: 17,
+            name: "Kevin",
+        },
+        father19 = {
+            id: 19,
+            char_id: 18,
+            name: "Louis",
+        },
+        father20 = {
+            id: 20,
+            char_id: 19,
+            name: "Samuel",
+        },
+        father21 = {
+            id: 21,
+            char_id: 20,
+            name: "Anthony",
+        },
+        father22 = {
+            id: 22,
+            char_id: 42,
+            name: "John",
+        },
+        father23 = {
+            id: 23,
+            char_id: 43,
+            name: "Niko",
+        },
+        father24 = {
+            id: 24,
+            char_id: 44,
+            name: "Claude",
+        },
+    ];
+
+    const mother = [
+        mother1 = {
+            id: 1,
+            char_id: 21,
+            name: "Hannah",
+        },
+        mother2 = {
+            id: 2,
+            char_id: 22,
+            name: "Audrey",
+        },
+        mother3 = {
+            id: 3,
+            char_id: 23,
+            name: "Jasmine",
+        },
+        mother4 = {
+            id: 4,
+            char_id: 24,
+            name: "Giselle",
+        },
+        mother5 = {
+            id: 5,
+            char_id: 25,
+            name: "Amelia",
+        },
+        mother6 = {
+            id: 6,
+            char_id: 26,
+            name: "Isabella",
+        },
+        mother7 = {
+            id: 7,
+            char_id: 27,
+            name: "Zoe",
+        },
+        mother8 = {
+            id: 8,
+            char_id: 28,
+            name: "Ava",
+        },
+        mother9 = {
+            id: 9,
+            char_id: 29,
+            name: "Camilla",
+        },
+        mother10 = {
+            id: 10,
+            char_id: 30,
+            name: "Violet",
+        },
+        mother11 = {
+            id: 11,
+            char_id: 31,
+            name: "Sophia",
+        },
+        mother12 = {
+            id: 12,
+            char_id: 32,
+            name: "Eveline",
+        },
+        mother13 = {
+            id: 13,
+            char_id: 33,
+            name: "Nicole",
+        },
+        mother14 = {
+            id: 14,
+            char_id: 34,
+            name: "Ashley",
+        },
+        mother15 = {
+            id: 15,
+            char_id: 35,
+            name: "Grace",
+        },
+        mother16 = {
+            id: 16,
+            char_id: 36,
+            name: "Brianna",
+        },
+        mother17 = {
+            id: 17,
+            char_id: 37,
+            name: "Natalie",
+        },
+        mother18 = {
+            id: 18,
+            char_id: 38,
+            name: "Olivia",
+        },
+        mother19 = {
+            id: 19,
+            char_id: 39,
+            name: "Elizabeth",
+        },
+        mother20 = {
+            id: 20,
+            char_id: 40,
+            name: "Charlotte",
+        },
+        mother21 = {
+            id: 21,
+            char_id: 41,
+            name: "Emma",
+        },
+        mother22 = {
+            id: 22,
+            char_id: 45,
+            name: "Misty",
+        },
+    ];
+
+    const genders = [
+        gender1 = {
+            id: 1,
+            char_id: 1,
+            name: "Männlich",
+        },
+        gender2 = {
+            id: 2,
+            char_id: 0,
+            name: "Weiblich",
+        },
+    ];
+
+    let hairstyle = 0;
+
+    function cancleChanges() {
+        mp.trigger('Client:CharCreator:Leave', 0, "");
+    }
+
+    function saveData() {
+        mp.trigger(
+            "Client:CharCreator:Leave", 1,
+            JSON.stringify({
+                Id: 0,
+                SocialclubId: 0,
+                gender: genders.find(x => x.id === index2).char_id,
+                father: father.find(x => x.id === index).char_id,
+                mother: mother.find(x => x.id === index1).char_id,
+                similarity: slider_slider_sim.noUiSlider.get(),
+                skin_color: slider_slider_color.noUiSlider.get(),
+                eye_color: $('#value1').text(),
+                hairstyle: hairstyle,
+                hairstyle_color: $('#value2').text(),
+                hairstyle_color_highlight: $('#valueh').text(),
+                eyebrow: $('#value3').text(),
+                eyebrow_width: $('#value4').text(),
+                eyebrow_color: $('#value5').text(),
+                beard: $('#value6').text(),
+                beard_visibility: $('#value7').text(),
+                beard_color: $('#value8').text(),
+
+                blemishes: $('#valueblemishes').text(),
+                blemishes_visibility: $('#valueblemishesvisibility').text(),
+
+                ageing: $('#valueageing').text(),
+                ageing_visibility: $('#valueageing_visibility').text(),
+
+                makeup: $('#valuemakeup').text(),
+                makeup_visibility: $('#valuemakeup_visibility').text(),
+                makeup_color: $('#valuemakeup_color').text(),
+
+                blush: $('#valueblush').text(),
+                blush_strength: $('#valueblush_strength').text(),
+
+                sundamage: $('#valuesundamage').text(),
+                sundamage_strength: $('#valuesundamage_strength').text(),
+
+                lipstick: $('#valuelipstick').text(),
+                lipstick_visibility: $('#valuelipstick_visibility').text(),
+                lipstick_color: $('#valuelipstick_color').text(),
+                lipstick_color_sec: $('#valuelipstick_color_sec').text(),
+
+                moles: $('#valuemoles').text(),
+                moles_strength: $('#valuemoles_strength').text(),
+
+                chesthair: $('#valuechesthair').text(),
+                chesthair_strength: $('#valuechesthair_strength').text(),
+                chesthair_color: $('#valuechesthair_color').text(),
+                chesthair_color_sec: $('#valuechesthair_color_sec').text(),
+
+                bodyblemishes: $('#valuebodyblemishes').text(),
+                bodyblemishes_strenght: $('#valuebodyblemishes_strenght').text(),
+
+                nose_width: slider_nose_width.noUiSlider.get(),
+                nose_height: slider_nose_height.noUiSlider.get(),
+                nose_length: slider_nose_length.noUiSlider.get(),
+                nose_bridge: slider_nose_bridge.noUiSlider.get(),
+                nose_tip: slider_nose_tip.noUiSlider.get(),
+                nose_bridge_shift: slider_nose_bridge_shift.noUiSlider.get(),
+                brow_height: slider_brow_height.noUiSlider.get(),
+                brow_width: slider_brow_width.noUiSlider.get(),
+                cheekbone_height: slider_cheekbone_height.noUiSlider.get(),
+                cheekbone_width: slider_cheekbone_width.noUiSlider.get(),
+                cheeks_width: slider_cheeks_width.noUiSlider.get(),
+                eyes: slider_eyes.noUiSlider.get(),
+                lips: slider_lips.noUiSlider.get(),
+                jaw_width: slider_jaw_width.noUiSlider.get(),
+                jaw_height: slider_jaw_height.noUiSlider.get(),
+                chin_length: slider_chin_length.noUiSlider.get(),
+                chin_position: slider_chin_position.noUiSlider.get(),
+                chin_width: slider_chin_width.noUiSlider.get(),
+                chin_shape: slider_chin_shape.noUiSlider.get(),
+                neck_width: slider_neck_width.noUiSlider.get(),
+            })
+        );
+    }
+
+    function updateData() {
+        let character = {
+            Id: 0,
+            SocialclubId: 0,
+            father: father.find(x => x.id === index).char_id,
+            mother: mother.find(x => x.id === index1).char_id,
+            similarity: slider_slider_sim.noUiSlider.get(),
+            skin_color: slider_slider_color.noUiSlider.get(),
+            eye_color: $('#value1').text(),
+            hairstyle: hairstyle,
+            hairstyle_color: $('#value2').text(),
+            hairstyle_color_highlight: $('#valueh').text(),
+            eyebrow: $('#value3').text(),
+            eyebrow_width: $('#value4').text(),
+            eyebrow_color: $('#value5').text(),
+            beard: $('#value6').text(),
+            beard_visibility: $('#value7').text(),
+            beard_color: $('#value8').text(),
+
+            blemishes: $('#valueblemishes').text(),
+            blemishes_visibility: $('#valueblemishesvisibility').text(),
+
+            ageing: $('#valueageing').text(),
+            ageing_visibility: $('#valueageing_visibility').text(),
+
+            makeup: $('#valuemakeup').text(),
+            makeup_visibility: $('#valuemakeup_visibility').text(),
+            makeup_color: $('#valuemakeup_color').text(),
+
+            blush: $('#valueblush').text(),
+            blush_strength: $('#valueblush_strength').text(),
+
+            sundamage: $('#valuesundamage').text(),
+            sundamage_strength: $('#valuesundamage_strength').text(),
+
+            lipstick: $('#valuelipstick').text(),
+            lipstick_visibility: $('#valuelipstick_visibility').text(),
+            lipstick_color: $('#valuelipstick_color').text(),
+            lipstick_color_sec: $('#valuelipstick_color_sec').text(),
+
+            moles: $('#valuemoles').text(),
+            moles_strength: $('#valuemoles_strength').text(),
+
+            chesthair: $('#valuechesthair').text(),
+            chesthair_strength: $('#valuechesthair_strength').text(),
+            chesthair_color: $('#valuechesthair_color').text(),
+            chesthair_color_sec: $('#valuechesthair_color_sec').text(),
+
+            bodyblemishes: $('#valuebodyblemishes').text(),
+            bodyblemishes_strenght: $('#valuebodyblemishes_strenght').text(),
+
+            nose_width: slider_nose_width.noUiSlider.get(),
+            nose_height: slider_nose_height.noUiSlider.get(),
+            nose_length: slider_nose_length.noUiSlider.get(),
+            nose_bridge: slider_nose_bridge.noUiSlider.get(),
+            nose_tip: slider_nose_tip.noUiSlider.get(),
+            nose_bridge_shift: slider_nose_bridge_shift.noUiSlider.get(),
+            brow_height: slider_brow_height.noUiSlider.get(),
+            brow_width: slider_brow_width.noUiSlider.get(),
+            cheekbone_height: slider_cheekbone_height.noUiSlider.get(),
+            cheekbone_width: slider_cheekbone_width.noUiSlider.get(),
+            cheeks_width: slider_cheeks_width.noUiSlider.get(),
+            eyes: slider_eyes.noUiSlider.get(),
+            lips: slider_lips.noUiSlider.get(),
+            jaw_width: slider_jaw_width.noUiSlider.get(),
+            jaw_height: slider_jaw_height.noUiSlider.get(),
+            chin_length: slider_chin_length.noUiSlider.get(),
+            chin_position: slider_chin_position.noUiSlider.get(),
+            chin_width: slider_chin_width.noUiSlider.get(),
+            chin_shape: slider_chin_shape.noUiSlider.get(),
+            neck_width: slider_neck_width.noUiSlider.get(),
+        }
+        mp.trigger("Client:CharCreator:UpdateData", JSON.stringify(character));
+    }
+
+    function loadData(json) {
+        let char = JSON.parse(json);
+
+        index = father.find(x => x.char_id === char.father).id;
+        index1 = mother.find(x => x.char_id === char.mother).id;
+        index2 = genders.find(x => x.char_id == char.gender).id;
+
+        $('#fatherName').text(father.find(x => x.id === index).name);
+        $('#motherName').text(mother.find(x => x.id === index1).name);
+        $('#gendername').text(genders.find(x => x.id === index2).name);
+
+        slider_slider_sim.noUiSlider.set(parseFloat(char.similarity));
+        slider_slider_color.noUiSlider.set(parseFloat(char.skin_color))
+
+        $('#value1').text(char.eye_color);
+
+        hairstyle = char.hairstyle;
+        $('#value2').text(char.hairstyle_color);
+        $('#valueh').text(char.hairstyle_color_highlight)
+
+        switch (char.gender) {
+            case true:
+                $('#male_hairs').css('display', 'flex');
+                $('#female_hairs').css('display', 'none');
+                $('.cam-wrapper .cam-male').css('display', 'flex');
+                $('.cam-wrapper .cam-female').css('display', 'none');
+
+                break;
+            case false:
+                $('#male_hairs').css('display', 'flex');
+                $('#female_hairs').css('display', 'none');
+                $('.cam-wrapper .cam-male').css('display', 'none');
+                $('.cam-wrapper .cam-female').css('display', 'flex');
+                break;
+
+            default:
+                break;
+        }
+
+        $('#value3').text(char.eyebrow);
+        $('#value4').text(char.eyebrow_width);
+        $('#value5').text(char.eyebrow_color);
+
+        $('#value6').text(char.beard);
+        $('#value7').text(char.beard_visibility);
+        $('#value8').text(char.beard_color);
+
+        $('#valueblemishes').text(char.blemishes);
+        $('#valueblemishesvisibility').text(char.blemishes_visibility);
+        $('#valueageing').text(char.ageing)
+        $('#valueageing_visibility').text(char.ageing_visibility)
+        $('#valuemakeup').text(char.makeup)
+        $('#valuemakeup_visibility').text(char.makeup_visibility)
+        $('#valuemakeup_color').text(char.makeup_color)
+        $('#valueblush').text(char.blush)
+        $('#valueblush_strength').text(char.blush_strength)
+        $('#valuesundamage').text(char.sundamage)
+        $('#valuesundamage_strength').text(char.sundamage_strength)
+        $('#valuelipstick').text(char.lipstick)
+        $('#valuelipstick_visibility').text(char.lipstick_visibility)
+        $('#valuelipstick_color').text(char.lipstick_color)
+        $('#valuelipstick_color_sec').text(char.lipstick_color_sec)
+        $('#valuemoles').text(char.moles)
+        $('#valuemoles_strength').text(char.moles_strength)
+        $('#valuechesthair').text(char.chesthair)
+        $('#valuechesthair_strength').text(char.chesthair_strength)
+        $('#valuechesthair_color').text(char.chesthair_color)
+        $('#valuechesthair_color_sec').text(char.chesthair_color_sec)
+        $('#valuebodyblemishes').text(char.bodyblemishes)
+        $('#valuebodyblemishes_strenght').text(char.bodyblemishes_strenght)
+
+        slider_nose_width.noUiSlider.set(parseFloat(char.nose_width));
+        slider_nose_height.noUiSlider.set(parseFloat(char.nose_height));
+        slider_nose_length.noUiSlider.set(parseFloat(char.nose_length));
+        slider_nose_bridge.noUiSlider.set(parseFloat(char.nose_bridge));
+        slider_nose_tip.noUiSlider.set(parseFloat(char.nose_tip));
+        slider_nose_bridge_shift.noUiSlider.set(parseFloat(char.nose_bridge_shift));
+        slider_brow_height.noUiSlider.set(parseFloat(char.brow_height));
+        slider_brow_width.noUiSlider.set(parseFloat(char.brow_width));
+        slider_cheekbone_height.noUiSlider.set(parseFloat(char.cheekbone_height));
+        slider_cheekbone_width.noUiSlider.set(parseFloat(char.cheekbone_width));
+        slider_cheeks_width.noUiSlider.set(parseFloat(char.cheeks_width));
+        slider_eyes.noUiSlider.set(parseFloat(char.eyes));
+        slider_lips.noUiSlider.set(parseFloat(char.lips));
+        slider_jaw_width.noUiSlider.set(parseFloat(char.jaw_width));
+        slider_jaw_height.noUiSlider.set(parseFloat(char.jaw_height));
+        slider_chin_length.noUiSlider.set(parseFloat(char.chin_length));
+        slider_chin_position.noUiSlider.set(parseFloat(char.chin_position));
+        slider_chin_width.noUiSlider.set(parseFloat(char.chin_width));
+        slider_chin_shape.noUiSlider.set(parseFloat(char.chin_shape));
+        slider_neck_width.noUiSlider.set(parseFloat(char.neck_width));
+    }
+
+    function setPlayerSliderRotation(val) {
+        slider_player_rotation.noUiSlider.set(parseFloat(val))
+    }
+
+    function setCameraView(flag) {
+        mp.trigger("client:setcamflag", parseInt(flag));
+    }
+
+    function setHairstyle(hair) {
+        hairstyle = hair;
+        updateData();
+    }
+
+    function add1() {
+        let index = $("#value1").text();
+        if (index <= 30) {
+            index++;
+            $("#value1").text(index);
+        }
+        updateData();
+    }
+
+    function sub1() {
+        let index = $("#value1").text();
+        if (index > 1) {
+            index--;
+            $("#value1").text(index);
+        }
+        updateData();
+    }
+
+    function add2() {
+        let index = $("#value2").text();
+        if (index <= 62) {
+            index++;
+            $("#value2").text(index);
+        }
+        updateData();
+    }
+
+    function addh() {
+        let index = $("#valueh").text();
+        if (index <= 62) {
+            index++;
+            $("#valueh").text(index);
+        }
+        updateData();
+    }
+
+    function sub2() {
+        let index = $("#value2").text();
+        if (index > 1) {
+            index--;
+            $("#value2").text(index);
+        }
+        updateData();
+    }
+
+    function subh() {
+        let index = $("#valueh").text();
+        if (index > 1) {
+            index--;
+            $("#valueh").text(index);
+        }
+        updateData();
+    }
+
+    function add3() {
+        let index = $("#value3").text();
+        if (index <= 32) {
+            index++;
+            $("#value3").text(index);
+        }
+        updateData();
+    }
+
+    function sub3() {
+        let index = $("#value3").text();
+        if (index > 1) {
+            index--;
+            $("#value3").text(index);
+        }
+        updateData();
+    }
+
+    function add4() {
+        let index = $("#value4").text();
+        if (index <= 9) {
+            index++;
+            $("#value4").text(index);
+        }
+        updateData();
+    }
+
+    function sub4() {
+        let index = $("#value4").text();
+        if (index > 1) {
+            index--;
+            $("#value4").text(index);
+        }
+        updateData();
+    }
+
+    function add5() {
+        let index = $("#value5").text();
+        if (index <= 49) {
+            index++;
+            $("#value5").text(index);
+        }
+        updateData();
+    }
+
+    function sub5() {
+        let index = $("#value5").text();
+        if (index > 1) {
+            index--;
+            $("#value5").text(index);
+        }
+        updateData();
+    }
+
+    function add6() {
+        let index = $("#value6").text();
+        if (index <= 49) {
+            index++;
+            $("#value6").text(index);
+        }
+        updateData();
+    }
+
+    function sub6() {
+        let index = $("#value6").text();
+        if (index > 1) {
+            index--;
+            $("#value6").text(index);
+        }
+        updateData();
+    }
+
+    function add7() {
+        let index = $("#value7").text();
+        if (index <= 9) {
+            index++;
+            $("#value7").text(index);
+        }
+        updateData();
+    }
+
+    function sub7() {
+        let index = $("#value7").text();
+        if (index > 1) {
+            index--;
+            $("#value7").text(index);
+        }
+        updateData();
+    }
+
+    function add8() {
+        let index = $("#value8").text();
+        if (index <= 62) {
+            index++;
+            $("#value8").text(index);
+        }
+        updateData();
+    }
+
+
+    function submakeup() {
+        let index = $("#valuemakeup").text();
+        if (index > 1) {
+            index--;
+            $("#valuemakeup").text(index);
+        }
+        updateData();
+    }
+
+    function addmakeup() {
+        let index = $("#valuemakeup").text();
+        if (index < 74) {
+            index++;
+            $("#valuemakeup").text(index);
+        }
+        updateData();
+    }
+
+    function submakeupvisibility() {
+        let index = $("#valuemakeup_visibility").text();
+        if (index > 0) {
+            index--;
+            $("#valuemakeup_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addmakeupvisibility() {
+        let index = $("#valuemakeup_visibility").text();
+        if (index < 10) {
+            index++;
+            $("#valuemakeup_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addmakeupcolor() {
+        let index = $("#valuemakeup_color").text();
+        if (index < 63) {
+            index++;
+            $("#valuemakeup_color").text(index);
+        }
+        updateData();
+    }
+
+    function submakeupcolor() {
+        let index = $("#valuemakeup_color").text();
+        if (index > 0) {
+            index--;
+            $("#valuemakeup_color").text(index);
+        }
+        updateData();
+    }
+
+    function sub8() {
+        let index = $("#value8").text();
+        if (index > 1) {
+            index--;
+            $("#value8").text(index);
+        }
+        updateData();
+    }
+
+    function subageing() {
+        let index = $("#valueageing").text();
+        if (index > 1) {
+            index--;
+            $("#valueageing").text(index);
+        }
+        updateData();
+    }
+
+    function addageing() {
+        let index = $("#valueageing").text();
+        if (index < 14) {
+            index++;
+            $("#valueageing").text(index);
+        }
+        updateData();
+    }
+
+    function subageingbvisibility() {
+        let index = $("#valueageing_visibility").text();
+        if (index > 0) {
+            index--;
+            $("#valueageing_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addageingvisibility() {
+        let index = $("#valueageing_visibility").text();
+        if (index < 10) {
+            index++;
+            $("#valueageing_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addblemishes() {
+        let index = $("#valueblemishes").text();
+        if (index <= 23 - 1) {
+            index++;
+            $("#valueblemishes").text(index);
+        }
+        updateData();
+    }
+
+    function subblemishes() {
+        let index = $("#valueblemishes").text();
+        if (index > 1) {
+            index--;
+            $("#valueblemishes").text(index);
+        }
+        updateData();
+    }
+
+    function addblemishesvisibility() {
+        let index = $("#valueblemishesvisibility").text();
+        if (index <= 10 - 1) {
+            index++;
+            $("#valueblemishesvisibility").text(index);
+        }
+        updateData();
+    }
+
+    function subblemishesvisibility() {
+        let index = $("#valueblemishesvisibility").text();
+        if (index > 0) {
+            index--;
+            $("#valueblemishesvisibility").text(index);
+        }
+        updateData();
+    }
+
+    function sublipstick() {
+        let index = $("#valuelipstick").text();
+        if (index > 1) {
+            index--;
+            $("#valuelipstick").text(index);
+        }
+        updateData();
+    }
+
+    function addlipstick() {
+        let index = $("#valuelipstick").text();
+        if (index < 9) {
+            index++;
+            $("#valuelipstick").text(index);
+        }
+        updateData();
+    }
+
+    function sublipstickvisibility() {
+        let index = $("#valuelipstick_visibility").text();
+        if (index > 0) {
+            index--;
+            $("#valuelipstick_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addlipstickvisibility() {
+        let index = $("#valuelipstick_visibility").text();
+        if (index < 10) {
+            index++;
+            $("#valuelipstick_visibility").text(index);
+        }
+        updateData();
+    }
+
+    function addlipstickcolor() {
+        let index = $("#valuelipstick_color").text();
+        if (index < 63) {
+            index++;
+            $("#valuelipstick_color").text(index);
+        }
+        updateData();
+    }
+
+    function sublipstickcolor() {
+        let index = $("#valuelipstick_color").text();
+        if (index > 1) {
+            index--;
+            $("#valuelipstick_color").text(index);
+        }
+        updateData();
+    }
+
+    function addlipstickcolorsec() {
+        let index = $("#valuelipstick_color_sec").text();
+        if (index < 63) {
+            index++;
+            $("#valuelipstick_color_sec").text(index);
+        }
+        updateData();
+    }
+
+    function sublipstickcolorsec() {
+        let index = $("#valuelipstick_color_sec").text();
+        if (index > 1) {
+            index--;
+            $("#valuelipstick_color_sec").text(index);
+        }
+        updateData();
+    }
+
+    function subblush() {
+        let index = $("#valueblush").text();
+        if (index > 1) {
+            index--;
+            $("#valueblush").text(index);
+        }
+        updateData();
+    }
+
+    function addblush() {
+        let index = $("#valueblush").text();
+        if (index < 32) {
+            index++;
+            $("#valueblush").text(index);
+        }
+        updateData();
+    }
+
+    function addblushvisibility() {
+        let index = $("#valueblush_strength").text();
+        if (index < 10) {
+            index++;
+            $("#valueblush_strength").text(index);
+        }
+        updateData();
+    }
+
+    function subblushvisibility() {
+        let index = $("#valueblush_strength").text();
+        if (index > 0) {
+            index--;
+            $("#valueblush_strength").text(index);
+        }
+        updateData();
+    }
+
+    function subsundanage() {
+        let index = $("#valuesundamage").text();
+        if (index > 1) {
+            index--;
+            $("#valuesundamage").text(index);
+        }
+        updateData();
+    }
+
+    function addsundanage() {
+        let index = $("#valuesundamage").text();
+        if (index < 10) {
+            index++;
+            $("#valuesundamage").text(index);
+        }
+        updateData();
+    }
+
+    function addsundanagevisibility() {
+        let index = $("#valuesundamage_strength").text();
+        if (index < 10) {
+            index++;
+            $("#valuesundamage_strength").text(index);
+        }
+        updateData();
+    }
+
+    function subsundanagevisibility() {
+        let index = $("#valuesundamage_strength").text();
+        if (index > 1) {
+            index--;
+            $("#valuesundamage_strength").text(index);
+        }
+        updateData();
+    }
+
+    function submoles() {
+        let index = $("#valuemoles").text();
+        if (index > 1) {
+            index--;
+            $("#valuemoles").text(index);
+        }
+        updateData();
+    }
+
+    function addmoles() {
+        let index = $("#valuemoles").text();
+        if (index < 17) {
+            index++;
+            $("#valuemoles").text(index);
+        }
+        updateData();
+    }
+
+    function addmolesvisibility() {
+        let index = $("#valuemoles_strength").text();
+        if (index < 10) {
+            index++;
+            $("#valuemoles_strength").text(index);
+        }
+        updateData();
+    }
+
+    function submolesvisibility() {
+        let index = $("#valuemoles_strength").text();
+        if (index > 0) {
+            index--;
+            $("#valuemoles_strength").text(index);
+        }
+        updateData();
+    }
+
+    function subchesthair() {
+        let index = $("#valuechesthair").text();
+        if (index > 1) {
+            index--;
+            $("#valuechesthair").text(index);
+        }
+        updateData();
+    }
+
+    function addchesthair() {
+        let index = $("#valuechesthair").text();
+        if (index < 16) {
+            index++;
+            $("#valuechesthair").text(index);
+        }
+        updateData();
+    }
+
+    function addchesthairvisubility() {
+        let index = $("#valuechesthair_strength").text();
+        if (index < 10) {
+            index++;
+            $("#valuechesthair_strength").text(index);
+        }
+        updateData();
+    }
+
+    function subchesthairvisubility() {
+        let index = $("#valuechesthair_strength").text();
+        if (index > 0) {
+            index--;
+            $("#valuechesthair_strength").text(index);
+        }
+        updateData();
+    }
+
+    function addchesthaircolor() {
+        let index = $("#valuechesthair_color").text();
+        if (index < 63) {
+            index++;
+            $("#valuechesthair_color").text(index);
+        }
+        updateData();
+    }
+
+    function subchesthaircolor() {
+        let index = $("#valuechesthair_color").text();
+        if (index > 1) {
+            index--;
+            $("#valuechesthair_color").text(index);
+        }
+        updateData();
+    }
+
+    function addchesthaircolorsec() {
+        let index = $("#valuechesthair_color_sec").text();
+        if (index < 63) {
+            index++;
+            $("#valuechesthair_color_sec").text(index);
+        }
+        updateData();
+    }
+
+    function subchesthaircolorsec() {
+        let index = $("#valuechesthair_color_sec").text();
+        if (index > 0) {
+            index--;
+            $("#valuechesthair_color_sec").text(index);
+        }
+        updateData();
+    }
+
+    function subbodyblemishes() {
+        let index = $("#valuebodyblemishes").text();
+        if (index > 1) {
+            index--;
+            $("#valuebodyblemishes").text(index);
+        }
+        updateData();
+    }
+
+    function addbodyblemishes() {
+        let index = $("#valuebodyblemishes").text();
+        if (index < 11) {
+            index++;
+            $("#valuebodyblemishes").text(index);
+        }
+        updateData();
+    }
+
+    function subbodyblemishesvisibility() {
+        let index = $("#valuebodyblemishes_strenght").text();
+        if (index > 0) {
+            index--;
+            $("#valuebodyblemishes_strenght").text(index);
+        }
+        updateData();
+    }
+
+    function addbodyblemishessvisibility() {
+        let index = $("#valuebodyblemishes_strenght").text();
+        if (index < 10) {
+            index++;
+            $("#valuebodyblemishes_strenght").text(index);
+        }
+        updateData();
+    }
+
+    // Väter //
+
+
+    let index = 1;
+
+    function forward() {
+        if (index < 24) {
+            index++
+            let currentFather = father.find(x => x.id === index)
+            $('#fatherName').text(currentFather.name)
+            updateData();
+        }
+    }
+
+    function back() {
+        if (index > 1) {
+            index--
+            let currentFather = father.find(x => x.id === index)
+            $('#fatherName').text(currentFather.name)
+            updateData();
+        }
+    }
+
+    // Mütter //
+
+    let index1 = 2;
+
+    function forward1() {
+        if (index1 < 22) {
+            index1++
+            let currentMother = mother.find(x => x.id === index1)
+            $('#motherName').text(currentMother.name)
+            updateData();
+        }
+    }
+
+    function back1() {
+        if (index1 > 1) {
+            index1--
+            let currentMother = mother.find(x => x.id === index1)
+            $('#motherName').text(currentMother.name)
+            updateData();
+        }
+    }
+
+    // GENDER //
+
+    let index2 = 0
+
+    function forwardGender() {
+        if (index2 < 2) {
+            console.log(index2)
+            index2++
+            let currentGender = genders.find(x => x.id === index2)
+            $('#gendername').text(currentGender.name)
+            if (currentGender.char_id == 1) {
+                $('#female_hairs').css('display', 'none');
+                $('#male_hairs').css('display', 'flex');
+                $('.cam-wrapper .cam-male').css('display', 'flex');
+                $('.cam-wrapper .cam-female').css('display', 'none');
+            } else {
+                $('#female_hairs').css('display', 'flex');
+                $('#male_hairs').css('display', 'none');
+                $('.cam-wrapper .cam-male').css('display', 'none');
+                $('.cam-wrapper .cam-female').css('display', 'flex');
+            }
+            mp.trigger("Client:CharCreator:SwitchGender", currentGender.char_id);
+            setTimeout(() => {
+                updateData();
+            }, 150);
+        }
+    }
+
+    function backGender() {
+        if (index2 > 1) {
+            console.log(index2)
+            index2--
+            let currentGender = genders.find(x => x.id === index2)
+            $('#gendername').text(currentGender.name)
+            if (currentGender.char_id == 1) {
+                $('#female_hairs').css('display', 'none');
+                $('#male_hairs').css('display', 'flex');
+                $('.cam-wrapper .cam-male').css('display', 'flex');
+                $('.cam-wrapper .cam-female').css('display', 'none');
+            } else {
+                $('#female_hairs').css('display', 'flex');
+                $('#male_hairs').css('display', 'none');
+                $('.cam-wrapper .cam-male').css('display', 'none');
+                $('.cam-wrapper .cam-female').css('display', 'flex');
+            }
+            mp.trigger("Client:CharCreator:SwitchGender", currentGender.char_id);
+            setTimeout(() => {
+                updateData();
+            }, 150);
+        }
+    }
+
+    var slider_slider_sim = document.getElementById('slider_sim');
+    var slider_slider_color = document.getElementById('slider_color');
+
+    var slider_nose_width = document.getElementById('nose_width');
+    var slider_nose_height = document.getElementById('nose_height');
+    var slider_nose_length = document.getElementById('nose_length');
+    var slider_nose_bridge = document.getElementById('nose_bridge');
+    var slider_nose_tip = document.getElementById('nose_tip');
+    var slider_nose_bridge_shift = document.getElementById('nose_bridge_shift');
+    var slider_brow_height = document.getElementById('brow_height');
+    var slider_brow_width = document.getElementById('brow_width');
+    var slider_cheekbone_height = document.getElementById('cheekbone_height');
+    var slider_cheekbone_width = document.getElementById('cheekbone_width');
+    var slider_cheeks_width = document.getElementById('cheeks_width');
+    var slider_eyes = document.getElementById('eyes');
+    var slider_lips = document.getElementById('lips');
+    var slider_jaw_width = document.getElementById('jaw_width');
+    var slider_jaw_height = document.getElementById('jaw_height');
+    var slider_chin_length = document.getElementById('chin_length');
+    var slider_chin_position = document.getElementById('chin_position');
+    var slider_chin_width = document.getElementById('chin_width');
+    var slider_chin_shape = document.getElementById('chin_shape');
+    var slider_neck_width = document.getElementById('neck_width');
+
+    var slider_player_rotation = document.getElementById('slider-player-rotation');
+
+    noUiSlider.create(slider_player_rotation, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 360
+        }
+    });
+
+    noUiSlider.create(slider_slider_color, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+
+    noUiSlider.create(slider_slider_sim, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+
+    noUiSlider.create(slider_nose_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_nose_height, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_nose_length, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_nose_bridge, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_nose_tip, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_nose_bridge_shift, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_brow_height, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_brow_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_cheekbone_height, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_cheeks_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_eyes, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_lips, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_jaw_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_jaw_height, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_chin_length, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_chin_position, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_chin_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_chin_shape, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_neck_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+    noUiSlider.create(slider_cheekbone_width, {
+        start: [0],
+        connect: [true, false],
+        step: 0.1,
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    });
+
+    slider_nose_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_nose_height.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_nose_length.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_nose_bridge.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_nose_tip.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_nose_bridge_shift.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_brow_height.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_brow_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_cheekbone_height.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_cheekbone_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_cheeks_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_eyes.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_lips.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_jaw_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_jaw_height.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_chin_length.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_chin_position.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_chin_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_chin_shape.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_neck_width.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_slider_sim.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_slider_color.noUiSlider.on('update', function(values, handle) {
+        updateData();
+    });
+    slider_player_rotation.noUiSlider.on('update', function(values, handle) {
+        mp.events.call('client:setHeading', parseFloat(values[0]));
+    });
+</script>
+
+</html>

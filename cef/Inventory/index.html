@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+    <div class="header">
+
+        <!-- <div class="information">
+
+            <div class="char">
+                <div class="char-image"></div>
+                <div class="char-data">
+                    <p class="char-name">Luis Johnson</p>
+                    <p class="char-money">5000 $</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="selection">
+            <button class="switchInv active" onclick="switchToInvetory()">Inventar</button>
+            <button class="switchkeys " onclick="switchToKeys()">Schlüsselbund</button>
+        </div>
+
+        <div class="information">
+
+        </div> -->
+
+    </div>
+
+    <div class="content">
+
+        <div class="container clothing">
+            <div class="header" style="padding-left: 4vh;">
+                <div class="icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="title">
+                    <h1>Kleidung</h1>
+                    <p>Kleidungsstücke an/aus.</p>
+                </div>
+            </div>
+            <div class="clothing">
+                <div class="cloth large" onclick="setClothing(0, true)"><img src="../utils/img/inventory/hat.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(2, true)"><img src="../utils/img/inventory/ear.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(7, false)"><img src="../utils/img/inventory/chain.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(1, false)"><img src="../utils/img/inventory/mask.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(1, true)"><img src="../utils/img/inventory/backpack.png" alt=""></div>
+                <div class="cloth long" onclick="setClothing(11, false)"><img src="../utils/img/inventory/top.png" alt=""></div>
+                <div class="cloth large" onclick="setClothing(8, false)"><img src="../utils/img/inventory/shirt.png" alt=""></div>
+                <div class="cloth large" onclick="setClothing(4, false)"><img src="../utils/img/inventory/pants.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(6, true)"><img src="../utils/img/inventory/watch.png" alt=""></div>
+                <div class="cloth" onclick="setClothing(6, false)"><img src="../utils/img/inventory/shoe.png" alt=""></div>
+                <div class="cloth"><img src="../utils/img/inventory/gloves.png" alt=""></div>
+            </div>
+
+            <div class="interaction action" style="display: none;">
+
+                <div class="interaction-header">
+
+                    <div class="infomation">
+                        <input id="action-menu-input" class="item-amount" type="number" min="1" value="1" onkeypress="return (event.charCode>= 48 && event.charCode <= 57) " onpaste="return false">
+                        <p id="action-menu-item-name" class="item-name">Schutzweste<br>(Gegenstand)</p>
+                    </div>
+                    <img id="action-menu-item-image" class="interaction-item" src="../utils/img/items/Sichel.png">
+
+                </div>
+
+                <div class="interaction-btns">
+
+                    <div onclick="tryUseItem()" class="btn-element">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Benutzen</p>
+                    </div>
+
+                    <div onclick="tryGiveItem()" class="btn-element">
+                        <i class="fas fa-arrow-alt-circle-right"></i>
+                        <p>Geben</p>
+                    </div>
+
+                    <div onclick="tryThrowItem()" class="btn-element">
+                        <i class="fas fa-times-circle"></i>
+                        <p>Wegwerfen</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="interaction split" style="display: none;">
+
+                <div class="interaction-header">
+
+                    <div class="infomation">
+                        <input id="split-menu-input" class="item-amount" type="number" min="1" value="1" onkeypress="return (event.charCode>= 48 && event.charCode <= 57) " onpaste="return false">
+                        <p id="split-menu-item-name" class="item-name">{ item-name }<br>(Gegenstand)</p>
+                    </div>
+                    <img id="split-menu-item-image" class="interaction-item" src="../utils/img/items/Dünger.png">
+
+                </div>
+
+                <div class="interaction-btns">
+
+                    <div onclick="applyTrySplitItem()" class="btn-element">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Bestätigen</p>
+                    </div>
+
+                    <div onclick="cancelTrySplitItem()" class="btn-element">
+                        <i class="fas fa-times-circle"></i>
+                        <p>Abbrechen</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container" id="inventory">
+            <div class="header">
+                <div class="icon" onclick="removeBackpack()">
+                    <i class="fas fa-backpack"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-gun"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div class="title" style="    width: 19vh">
+                    <h1>Inventar</h1>
+                    <p>Deine Gegenstände die du dabei hast.</p>
+                </div>
+            </div>
+            <div class="slots" style="overflow: hidden;">
+                <!-- <div class="slot">
+                    <div class="item" data-count="15x">
+                        <img class="icon" src="../utils/img/items/test.png">
+                    </div>
+                </div> -->
+            </div>
+            <div class="footer">
+                <div class="progress-bar">
+                    <div id="inventory-progressbar" style="width: 0%;"></div>
+                </div>
+                <div class="container-information">
+                    <p id="inventory-progressbar-bar-weight">0 Kg</p>
+                    <p>Gewicht</p>
+                    <p id="inventory-progressbar-bar-max-weight">0 Kg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="backpack" style="display: none;">
+            <div class="header">
+                <div class="icon">
+                    <i class="fas fa-backpack"></i>
+                </div>
+                <div class="title">
+                    <h1>Rucksack</h1>
+                    <p>Deine Gegenstände in deinem Rucksack.</p>
+                </div>
+            </div>
+
+            <div class="slots" style="overflow: hidden;">
+
+            </div>
+            <div class="footer">
+                <div class="progress-bar">
+                    <div id="backpack-progressbar" style="width: 0%;"></div>
+                </div>
+                <div class="container-information">
+                    <p id="backpack-progressbar-bar-weight">0 Kg</p>
+                    <p>Gewicht</p>
+                    <p id="backpack-progressbar-bar-max-weight">0 Kg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="trunk" style="display: none;">
+            <div class="header">
+                <div class="icon">
+                    <i class="fas fa-truck-container"></i>
+                </div>
+                <div class="title">
+                    <h1>Kofferraum</h1>
+                    <p>Alle Gegenstände die im Fahrzeuge sind.</p>
+                </div>
+            </div>
+            <div class="slots">
+
+            </div>
+            <div class="footer">
+                <div class="progress-bar">
+                    <div id="trunk-progressbar" style="width: 0%;"></div>
+                </div>
+                <div class="container-information">
+                    <p id="trunk-progressbar-bar-weight">0 kg</p>
+                    <p>Gewicht</p>
+                    <p id="trunk-progressbar-bar-max-weight">0 kg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="storage" style="display: none;">
+            <div class="header">
+                <div class="icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div class="title">
+                    <h1>Largerraum</h1>
+                    <p>Gegenstände im Lagerraum</p>
+                </div>
+            </div>
+            <div class="slots">
+
+            </div>
+            <div class="footer">
+                <div class="progress-bar">
+                    <div id="storage-progressbar" style="width: 0%;"></div>
+                </div>
+                <div class="container-information">
+                    <p id="storage-progressbar-bar-weight">0 Kg</p>
+                    <p>Gewicht</p>
+                    <p id="storage-progressbar-bar-max-weight">0 Kg</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+</body>
+<script src="../utils/js/fas.js"></script>
+<script src="../utils/libs/jquery.js"></script>
+<script src="../utils/libs/jqueryui.js"></script>
+<script src="./javascript/functions.js"></script>
+
+
+<script>
+    function toggleInventory() {
+        if (arguments[0]) $('#inventory').css('display', 'block')
+        if (!arguments[0]) $('#inventory').css('display', 'none')
+    }
+
+    function toggleBackpack() {
+        if (arguments[0]) $('#backpack').css('display', 'block')
+        if (!arguments[0]) $('#backpack').css('display', 'none')
+    }
+
+    function toggleTrunk() {
+        if (arguments[0]) $('#trunk').css('display', 'block')
+        if (!arguments[0]) $('#trunk').css('display', 'none')
+    }
+
+    function toggleStorage() {
+        if (arguments[0]) $('#storage').css('display', 'block')
+        if (!arguments[0]) $('#storage').css('display', 'none')
+    }
+
+    function toggleKey() {
+        if (arguments[0]) $('#keys').css('display', 'block')
+        if (!arguments[0]) $('#keys').css('display', 'none')
+    }
+
+    function toggleActionMenu() {
+        if (arguments[0]) $('.interaction.action').fadeIn(150);
+        if (!arguments[0]) $('.interaction.action').fadeOut(100);
+    }
+
+    function toggleSplitMenu() {
+        if (arguments[0]) $('.interaction.split').fadeIn(150);
+        if (!arguments[0]) $('.interaction.split').fadeOut(100);
+    }
+
+    function clearAllContainers() {
+
+        document.querySelectorAll('.slots').forEach(x => {
+            x.innerHTML = "";
+        });
+
+        // $('.slots').each((index, element) => {
+        //     $(element).html("");
+        // });
+    }
+
+    async function setCharakterName() {
+        if (typeof(arguments[0]) == "string") {
+            $('.char-name').text(arguments[0].replace('_', ' '));
+        }
+    }
+
+    async function setCharakterMoney() {
+        if (typeof(arguments[0]) == "number") {
+            $('.char-money').text(`${formatMoney(arguments[0])} $`);
+        }
+    }
+
+    function formatMoney(n) {
+        return n.toFixed(2).replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "." + c : c;
+        });
+    }
+
+    function switchToKeys() {
+        $('.switchInv').removeClass('active');
+        $('.switchkeys').addClass('active');
+        toggleKey(true);
+    }
+
+    function switchToInvetory() {
+        $('.switchInv').addClass('active');
+        $('.switchkeys').removeClass('active');
+        toggleKey(false);
+    }
+
+    function setClothing(component, isAccessories) {
+        mp.trigger("Client:Clothing:SetPlayerClothing", component, isAccessories);
+    }
+
+    function removeBackpack() {
+        mp.trigger('Client:Inventory:RemoveBackpack');
+    }
+
+    let stringTest = '[{"ContainerID":1,"MaxSlots":25,"MaxWeight":25000,"CurrentWeight":605,"Slots":[{"SlotID":0,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":1,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":45},{"SlotID":2,"Item":null,"ItemCount":0},{"SlotID":3,"Item":null,"ItemCount":0},{"SlotID":4,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":20},{"SlotID":5,"Item":null,"ItemCount":0},{"SlotID":6,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":10},{"SlotID":7,"Item":null,"ItemCount":0},{"SlotID":8,"Item":null,"ItemCount":0},{"SlotID":9,"Item":null,"ItemCount":0},{"SlotID":10,"Item":null,"ItemCount":0},{"SlotID":11,"Item":null,"ItemCount":0},{"SlotID":12,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":10},{"SlotID":13,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":5},{"SlotID":14,"Item":null,"ItemCount":0},{"SlotID":15,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":5},{"SlotID":16,"Item":null,"ItemCount":0},{"SlotID":17,"Item":null,"ItemCount":0},{"SlotID":18,"Item":null,"ItemCount":0},{"SlotID":19,"Item":null,"ItemCount":0},{"SlotID":20,"Item":null,"ItemCount":0},{"SlotID":21,"Item":{"Id":4,"Name":"Kokainblatt","Weight":1,"MaxCount":50,"Image":"Kokainblatt","Is_Weapon":false,"Type":99,"ItemScript":""},"ItemCount":10},{"SlotID":22,"Item":null,"ItemCount":0},{"SlotID":23,"Item":null,"ItemCount":0},{"SlotID":24,"Item":null,"ItemCount":0}],"ExternalContainerID":0,"ExternalContainerType":0}]';
+    let stringOnlyInv = '[{"ContainerID":1,"MaxSlots":25,"MaxWeight":25000,"CurrentWeight":3000,"Slots":[{"SlotID":0,"Item":null,"ItemCount":0},{"SlotID":1,"Item":null,"ItemCount":0},{"SlotID":2,"Item":null,"ItemCount":0},{"SlotID":3,"Item":null,"ItemCount":0},{"SlotID":4,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":5,"Item":null,"ItemCount":0},{"SlotID":6,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":7,"Item":null,"ItemCount":0},{"SlotID":8,"Item":null,"ItemCount":0},{"SlotID":9,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":10,"Item":null,"ItemCount":0},{"SlotID":11,"Item":null,"ItemCount":0},{"SlotID":12,"Item":null,"ItemCount":0},{"SlotID":13,"Item":null,"ItemCount":0},{"SlotID":14,"Item":null,"ItemCount":0},{"SlotID":15,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":16,"Item":null,"ItemCount":0},{"SlotID":17,"Item":null,"ItemCount":0},{"SlotID":18,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":19,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":20,"Item":null,"ItemCount":0},{"SlotID":21,"Item":null,"ItemCount":0},{"SlotID":22,"Item":null,"ItemCount":0},{"SlotID":23,"Item":null,"ItemCount":0},{"SlotID":24,"Item":null,"ItemCount":0}],"ExternalContainerID":0,"ExternalContainerType":0}]';
+    let stringWithMore = '[{"ContainerID":1,"MaxSlots":25,"MaxWeight":25000,"CurrentWeight":3000,"Slots":[{"SlotID":0,"Item":null,"ItemCount":0},{"SlotID":1,"Item":null,"ItemCount":0},{"SlotID":2,"Item":null,"ItemCount":0},{"SlotID":3,"Item":null,"ItemCount":0},{"SlotID":4,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":5,"Item":null,"ItemCount":0},{"SlotID":6,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":7,"Item":null,"ItemCount":0},{"SlotID":8,"Item":null,"ItemCount":0},{"SlotID":9,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":10,"Item":null,"ItemCount":0},{"SlotID":11,"Item":null,"ItemCount":0},{"SlotID":12,"Item":null,"ItemCount":0},{"SlotID":13,"Item":null,"ItemCount":0},{"SlotID":14,"Item":null,"ItemCount":0},{"SlotID":15,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":16,"Item":null,"ItemCount":0},{"SlotID":17,"Item":null,"ItemCount":0},{"SlotID":18,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":19,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":20,"Item":null,"ItemCount":0},{"SlotID":21,"Item":null,"ItemCount":0},{"SlotID":22,"Item":null,"ItemCount":0},{"SlotID":23,"Item":null,"ItemCount":0},{"SlotID":24,"Item":null,"ItemCount":0}],"ExternalContainerID":0,"ExternalContainerType":0},{"ContainerID":2,"MaxSlots":17,"MaxWeight":100000,"CurrentWeight":0,"Slots":[{"SlotID":0,"Item":{"Id":3,"Name":"RucksackAdmin","Weight":500,"MaxCount":1,"Image":"Rucksack_Admin","Is_Weapon":false,"Type":7,"ItemScript":""},"ItemCount":0},{"SlotID":1,"Item":null,"ItemCount":0},{"SlotID":2,"Item":null,"ItemCount":0},{"SlotID":3,"Item":null,"ItemCount":0},{"SlotID":4,"Item":null,"ItemCount":0},{"SlotID":5,"Item":null,"ItemCount":0},{"SlotID":6,"Item":null,"ItemCount":0},{"SlotID":7,"Item":null,"ItemCount":0},{"SlotID":8,"Item":null,"ItemCount":0},{"SlotID":9,"Item":null,"ItemCount":0},{"SlotID":10,"Item":null,"ItemCount":0},{"SlotID":11,"Item":null,"ItemCount":0},{"SlotID":12,"Item":null,"ItemCount":0},{"SlotID":13,"Item":null,"ItemCount":0},{"SlotID":14,"Item":null,"ItemCount":0},{"SlotID":15,"Item":null,"ItemCount":0},{"SlotID":16,"Item":null,"ItemCount":0}],"ExternalContainerID":0,"ExternalContainerType":0},{"ContainerID":4,"MaxSlots":8,"MaxWeight":100000,"CurrentWeight":1000,"Slots":[{"SlotID":0,"Item":{"Id":3,"Name":"RucksackAdmin","Weight":500,"MaxCount":1,"Image":"Rucksack_Admin","Is_Weapon":false,"Type":7,"ItemScript":""},"ItemCount":1},{"SlotID":1,"Item":null,"ItemCount":0},{"SlotID":2,"Item":null,"ItemCount":0},{"SlotID":3,"Item":{"Id":2,"Name":"MiniMP","Weight":500,"MaxCount":1,"Image":"minimp","Is_Weapon":true,"Type":4,"ItemScript":"minismg"},"ItemCount":1},{"SlotID":4,"Item":null,"ItemCount":0},{"SlotID":5,"Item":null,"ItemCount":0},{"SlotID":6,"Item":null,"ItemCount":0},{"SlotID":7,"Item":null,"ItemCount":0}],"ExternalContainerID":0,"ExternalContainerType":0}]';
+
+    // showInventory('Luis_Johnson', 7000000, stringTest);
+
+    async function showInventory(char_name, char_money, container_string) {
+        if (typeof(char_name) == "string" || typeof(char_money) == "number" || typeof(container_string) == "string") {
+
+            await setCharakterName(char_name);
+            await setCharakterMoney(char_money);
+            await memory.loadAll(container_string)
+        }
+    }
+
+    async function RefreshJQueryDrops() {
+        $(".slot").droppable({
+            drop: function(event, ui) {
+
+                (async() => {
+                    let old_container = await memory.getContainer(ui.draggable.attr('data-containerId'));;
+                    let new_container = await memory.getContainer($(this).attr('data-containerId'));;
+                    let old_slot = await memory.getContainerSlot(old_container, ui.draggable.attr('data-slotId'));
+                    let new_slot = await memory.getContainerSlot(new_container, $(this).attr('data-slotId'));
+
+                    if ((old_container == null || old_container == undefined) ||
+                        (new_container == null || new_container == undefined) ||
+                        (old_slot == null || old_slot == undefined) ||
+                        (new_slot == null || new_slot == undefined)) return;
+
+                    if (old_slot == new_slot) return;
+
+                    if (event.button == 0) { /*move*/
+
+                        await memory.tryMoveItem(this, ui.draggable, old_container, new_container, old_slot, new_slot).then((value) => {
+                            if (value) memory.updateContainerWeights();
+                        });
+
+                    } else if (event.button == 2 && old_slot.ItemCount > 1) { /*split*/
+
+                        await memory.setSelectedItem(old_slot.Item, old_slot, old_container, new_slot, new_container).then((value) => {
+                            if (value) toggleSplitMenu(true);
+                        });
+                    }
+                })();
+            },
+        });
+    }
+
+    //jquey events
+
+    let isMouseDown = false;
+
+    $("body").mousedown(function() {
+        isMouseDown = true;
+    });
+
+    $("body").mouseup(function() {
+        isMouseDown = false;
+    });
+
+    $(document).ready(function() {
+        $.extend($.ui.draggable.prototype, {
+
+            _mouseDown: function(event) {
+
+                if (isMouseDown) return;
+
+                if (event.button === 0 || event.button === 2) {
+
+                    (this._mouseStarted && this._mouseUp(event));
+
+                    this._mouseDownEvent = event;
+
+                    var that = this,
+                        btnIsLeft = (event.type === 'mousedown'),
+                        elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName ? $(event.target).closest(this.options.cancel).length : false);
+                    if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
+                        return true;
+                    }
+
+                    this.mouseDelayMet = !this.options.delay;
+                    if (!this.mouseDelayMet) {
+                        this._mouseDelayTimer = setTimeout(function() {
+                            that.mouseDelayMet = true;
+                        }, this.options.delay);
+                    }
+
+                    if (this._mouseDistanceMet(event) && this._mouseDelayMet(event)) {
+                        this._mouseStarted = (this._mouseStart(event) !== false);
+                        if (!this._mouseStarted) {
+                            event.preventDefault();
+                            return true;
+                        }
+                    }
+
+                    if (true === $.data(event.target, this.widgetName + ".preventClickEvent")) {
+                        $.removeData(event.target, this.widgetName + ".preventClickEvent");
+                    }
+
+                    this._mouseMoveDelegate = function(event) {
+                        return that._mouseMove(event);
+                    };
+                    this._mouseUpDelegate = function(event) {
+                        return that._mouseUp(event);
+                    };
+                    $(document)
+                        .bind("mousemove." + this.widgetName, this._mouseMoveDelegate)
+                        .bind("mouseup." + this.widgetName, this._mouseUpDelegate);
+
+                    event.preventDefault();
+
+                    mouseHandled = true;
+                    return true;
+                }
+            }
+        });
+    });
+</script>
+
+</html>

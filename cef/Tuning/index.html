@@ -1,0 +1,51 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/09afae0a51.js" crossorigin="anonymous"></script>
+    <title>Cloud Tuning</title>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="all">
+    <div class="gradient-color"></div>
+    <div class="shop-body">
+        <div class="shop-button" tabindex="1">
+            <i class="fas fa-shopping-basket"></i>
+            <div class="shop-value"></div>
+        </div>
+        <div class="shop-container">
+            <div class="shop-list"></div>
+            <p class="shop-price">Preis für alle Teile: <span id="shopping-price">2500 $</span></p>
+            <button class="shop-buy" onclick="BuyItems()">Tuningteile kaufen</button>
+        </div>
+    </div>
+    <div class="esc-body" onclick="mp.trigger('Client:Tuning:DeleteBrowser')">
+        <button class="esc-button">ESC</button>
+        <p class="esc-text">Drücken um <br>zu <span>verlassen</span></p>
+    </div>
+    <div class="category-body">
+        <img src="img/lsc.png" alt="">
+        <p class="category-title">Los Santos Customs</p>
+        <p class="category-info">Los Santos Customs ist eine Werkstatt für Fahrzeuganpassungen und Reparaturen.</p>
+        <hr>
+        <p class="category-listtitle">Kategorien</p>
+        <div class="category-list" id="category-list"></div>
+    </div>
+    <div class="tuning-body">
+        <p class="tuning-categoryname" id="selected-cat"><span id="tuning-catName">Spoiler</span> <span
+                id="tuning-currentSelected">2</span>/<span id="tuning-maxSelected">3</span></p>
+        <div class="tuning-selector">
+            <div class="tuning-arrows" onclick="SwitchItem('left')"><i class="fas fa-arrow-left"></i></div>
+            <div class="tuning-arrows arrow-right" onclick="SwitchItem('right')"><i class="fas fa-arrow-right"></i>
+            </div>
+            <p id="selected-name">Low Level Spoiler</p>
+        </div>
+        <p class="tuning-price" id="selected-price">2500 $</p>
+        <button class="tuning-button" id="tune-button">Modifizierung einbauen</button>
+    </div>
+</div>
+</body>
+</html>

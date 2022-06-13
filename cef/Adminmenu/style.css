@@ -1,0 +1,1905 @@
+@font-face {
+    font-family: "regular";
+    src: url('../utils/fonts/SFProDisplay-Regular.ttf');
+}
+
+@font-face {
+    font-family: "medium";
+    src: url('../utils//fonts/SFProDisplay-Medium.ttf');
+}
+
+@font-face {
+    font-family: "semi-bold";
+    src: url('../utils//fonts/SFProDisplay-Semibold.ttf');
+}
+
+@font-face {
+    font-family: "bold";
+    src: url('../utils//fonts/SFProDisplay-Bold.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: "regular";
+    list-style: none;
+}
+
+body {
+    background-image: url("../../utils/img/edit-backgrounds/16.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 124vh;
+    border-radius: 1vh;
+    height: 70vh;
+    background: rgb(27,27,27);
+    background: linear-gradient(125deg, rgba(27,27,27,1) 0%, rgba(0,0,0,1) 100%);
+    display: flex;
+    align-items: center;
+}
+
+.container .side-bar {
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 100%;
+    width: 27.5vh;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.container .side-bar img.logo {
+    width: 7.5vh;
+    margin-top: 1vh;
+}
+
+.container .side-bar p.title {
+    text-align: center;
+    color: white;
+    font-family: "semi-bold";
+    font-size: 1.7vh;
+    margin-bottom: 2vh;
+}
+
+.container .side-bar .menus {
+    width: 100%;
+}
+
+.container .side-bar .menus .menu {
+    display: flex;
+    align-items: center;
+    width: 27vh;
+    height: 5vh;
+    font-size: 1.2vh;
+    transition: 250ms;
+}
+
+.container .side-bar .menus .menu:hover {
+    width: 27.5vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.container .side-bar .menus #active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-right: 0.5vh solid #0daaffc4;
+}
+
+.container .side-bar .menus #active:hover {
+    width: 27vh;
+}
+
+.container .side-bar .menus #active i {
+    color: white;
+}
+
+.container .side-bar .menus #active p.menu-name {
+    color: white;
+    font-family: "medium";
+}
+
+.container .side-bar .menus .menu i {
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 2vh;
+    margin-right: 1vh;
+    font-size: 1.5vh;
+    margin-top: 0.1vh;
+    width: 2vh;
+}
+
+.container .side-bar .menus .menu p.menu-name {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.container .content {
+    margin-left: 4vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1vh;
+    overflow: hidden;
+}
+
+.container .content .dashboard {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .dashboard .welcome-back {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+}
+
+.container .content .dashboard .welcome-back i {
+    color: #0daaffc4;
+    filter: drop-shadow(0vh 0vh 0.5vh #0daaffc4);
+    transform: rotate(45deg);
+    margin-right: 1vh;
+}
+
+.container .content .dashboard .welcome-back span {
+    color: white;
+}
+
+.container .content .dashboard .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.container .content .dashboard .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 98%;
+    margin-left: -0.5vh;
+}
+
+.container .content .dashboard .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.container .content .dashboard .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .dashboard .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .dashboard .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .dashboard .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 98%;
+    margin-left: -0.5vh;
+}
+
+.container .content .dashboard button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .dashboard button:hover {
+    color: white;
+}
+
+.container .content .dashboard button i {
+    margin-right: 0.5vh;
+}
+
+.container .content .player-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .player-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .player-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .player-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .player-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .player-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .player-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .player-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .player-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .player-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .player-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .player-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .player-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .player-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .player-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .player-list table tr.player-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .player-list table tr.player-entry:hover td {
+    color: white;
+}
+
+.container .content .player-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .player-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .player-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .player-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .player-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .player-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .player-list .player-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .player-list .player-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .player-list .player-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .player-list .player-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .player-list .player-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .player-list .player-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .player-list .player-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .player-list .player-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .player-list .player-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .player-list .player-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .player-list .player-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .player-list .player-info-container button:hover {
+    color: white;
+}
+
+.container .content .player-list .player-info-container button i {
+    margin-right: 0.5vh;
+}
+
+/*VEHICLE LIST*/
+
+.container .content .vehicle-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .vehicle-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .vehicle-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .vehicle-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .vehicle-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .vehicle-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .vehicle-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .vehicle-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .vehicle-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .vehicle-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .vehicle-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .vehicle-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .vehicle-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .vehicle-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .vehicle-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .vehicle-list table tr.vehicle-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .vehicle-list table tr.vehicle-entry:hover td {
+    color: white;
+}
+
+.container .content .vehicle-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .vehicle-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .vehicle-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .vehicle-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .vehicle-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .vehicle-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .vehicle-list .vehicle-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .vehicle-list .vehicle-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .vehicle-list .vehicle-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .vehicle-list .vehicle-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .vehicle-list .vehicle-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .vehicle-list .vehicle-info-container button:hover {
+    color: white;
+}
+
+.container .content .vehicle-list .vehicle-info-container button i {
+    margin-right: 0.5vh;
+}
+
+/*HOUSE LIST*/
+
+.container .content .house-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .house-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .house-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .house-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .house-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .house-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .house-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .house-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .house-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .house-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .house-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .house-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .house-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .house-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .house-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .house-list table tr.house-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .house-list table tr.house-entry:hover td {
+    color: white;
+}
+
+.container .content .house-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .house-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .house-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .house-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .house-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .house-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .house-list .house-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .house-list .house-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .house-list .house-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .house-list .house-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .house-list .house-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .house-list .house-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .house-list .house-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .house-list .house-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .house-list .house-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .house-list .house-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .house-list .house-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .house-list .house-info-container button:hover {
+    color: white;
+}
+
+.container .content .house-list .house-info-container button i {
+    margin-right: 0.5vh;
+}
+
+/*STORAGE LIST*/
+
+.container .content .storage-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .storage-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .storage-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .storage-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .storage-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .storage-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .storage-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .storage-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .storage-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .storage-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .storage-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .storage-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .storage-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .storage-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .storage-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .storage-list table tr.storage-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .storage-list table tr.storage-entry:hover td {
+    color: white;
+}
+
+.container .content .storage-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .storage-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .storage-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .storage-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .storage-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .storage-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .storage-list .storage-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .storage-list .storage-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .storage-list .storage-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .storage-list .storage-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .storage-list .storage-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .storage-list .storage-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .storage-list .storage-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .storage-list .storage-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .storage-list .storage-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .storage-list .storage-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .storage-list .storage-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .storage-list .storage-info-container button:hover {
+    color: white;
+}
+
+.container .content .storage-list .storage-info-container button i {
+    margin-right: 0.5vh;
+}
+
+/*FACTION LIST*/
+
+.container .content .faction-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .faction-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .faction-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .faction-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .faction-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .faction-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .faction-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .faction-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .faction-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .faction-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .faction-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .faction-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .faction-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .faction-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .faction-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .faction-list table tr.faction-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .faction-list table tr.faction-entry:hover td {
+    color: white;
+}
+
+.container .content .faction-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .faction-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .faction-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .faction-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .faction-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .faction-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .faction-list .faction-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .faction-list .faction-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .faction-list .faction-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .faction-list .faction-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .faction-list .faction-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .faction-list .faction-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .faction-list .faction-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .faction-list .faction-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .faction-list .faction-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .faction-list .faction-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .faction-list .faction-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 21vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .faction-list .faction-info-container button:hover {
+    color: white;
+}
+
+.container .content .faction-list .faction-info-container button i {
+    margin-right: 0.5vh;
+}
+
+/*TEAM LIST*/
+
+.container .content .team-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .team-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .team-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .team-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .team-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .team-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .team-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .team-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .team-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .team-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .team-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .team-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .team-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .team-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .team-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .team-list table tr.player-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .team-list table tr.player-entry:hover td {
+    color: white;
+}
+
+.container .content .team-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .team-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .team-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .team-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .team-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .team-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .team-chat {
+
+}
+
+.container .content .team-chat p.area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+    margin-bottom: 1.5vh;
+}
+
+.container .content .team-chat .chat-container {
+    width: 87vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    background-image: url("./img/chat-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 45vh;
+    border-radius: 1vh;
+    display: flex;
+    position: relative;
+}
+
+.container .content .team-chat .chat-container .chat-menu {
+    width: 22.5vh;
+    height: 100%;
+}
+
+.container .content .team-chat .chat-container .chat-menu p.chat-title {
+    color: white;
+    font-size: 1.4vh;
+    font-family: "medium";
+    padding-top: 2vh;
+    padding: 2vh;
+}
+
+.container .content .team-chat .chat-container .chat-menu .chat-title i {
+    margin-right: 0.75vh;
+}
+
+.container .content .team-chat .chat-container .line {
+    width: 0.2vh;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .team-chat .chat-container .chat-history {
+    width: 58vh;
+    min-height: 35vh;
+    max-height: 35vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    padding-right: 1vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container .content .team-chat .chat-container .chat-history::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .team-chat .chat-container .chat-history::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .team-chat .chat-container .chat-history::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message i {
+    color: white;
+    font-size: 2.5vh;
+    margin-top: 0.1vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message .text {
+    margin-left: 1vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message .text p.name {
+    color: white;
+    font-family: "medium";
+    font-size: 1.3vh;
+    margin-bottom: 0.3vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message .text p.name span {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.1vh;
+    margin-left: 0.5vh;
+}
+
+.container .content .team-chat .chat-container .chat-history .message .text p.message-text {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+}
+
+.container .content .team-chat .chat-container input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    margin-left: 2vh;
+    width: 51vh;
+    padding-left: 2vh;
+    padding-right: 6vh;
+    height: 4vh;
+    position: absolute;
+    bottom: 2vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    font-size: 1.2vh;
+    background-image: url("./img/send.png");
+    background-size: 2vh;
+    background-position: 96%;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.container .content .team-chat .chat-container input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/*LOG LISTE*/
+
+
+.container .content .log-list {
+    position: relative;
+    z-index: 1;
+}
+
+.container .content .log-list .top {
+    width: 87vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+}
+
+.container .content .log-list .area-title {
+    color: white;
+    font-size: 1.7vh;
+    font-family: "semi-bold";
+}
+
+.container .content .log-list .top input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    height: 2.5vh;
+    width: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.2vh;
+    font-size: 1.1vh;
+    background-image: url("./img/search.png");
+    background-repeat: no-repeat;
+    background-size: 1.2vh;
+    background-position: 1vh;
+    color: white;
+}
+
+.container .content .log-list .top input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.container .content .log-list .table-scroll {
+    overflow-y: scroll;
+    max-height: 36vh;
+    padding-right: 1.5vh;
+}
+
+.container .content .log-list .table-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .log-list .table-scroll::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .log-list .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .log-list table {
+    width: 87vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .log-list table tr.placeholder {
+    height: 1vh;
+}
+
+.container .content .log-list table th {
+    font-weight: 100;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 3vh;
+    font-size: 1.3vh;
+    font-family: "medium";
+}
+
+.container .content .log-list table td, th {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.container .content .log-list table td {
+    padding: 1.5vh;
+    font-size: 1.3vh;
+    transition: 250ms;
+}
+
+.container .content .log-list table tr {
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container .content .log-list table tr.log-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.container .content .log-list table tr.log-entry:hover td {
+    color: white;
+}
+
+.container .content .log-list table td.online-holder {
+    width: 0.8vh;
+}
+
+.container .content .log-list table td.icon {
+    width: 0.8vh;
+}
+
+.container .content .log-list table td.icon i {
+    font-size: 2.5vh;
+}
+
+.container .content .log-list table td .online-state {
+    width: 0.65vh;
+    border-radius: 50%;
+    height: 0.65vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container .content .log-list table td #online {
+    background-color: #67A125;
+    filter: drop-shadow(0vh 0vh 0.25vh #67A125);
+}
+
+.container .content .log-list table td #offline {
+    background-color: #D51600;
+    filter: drop-shadow(0vh 0vh 0.25vh #D51600);
+}
+
+.container .content .log-list .log-info-container {
+    width: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .content .log-list .log-info-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4vh;
+}
+
+.container .content .log-list .log-info-container::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vh;
+}
+
+.container .content .log-list .log-info-container::-webkit-scrollbar-thumb {
+    background-color: #0daaffc4;
+    border-radius: 0.5vh;
+}
+
+.container .content .log-list .log-info-container .box-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45vh;
+    margin-left: -0.5vh;
+    flex-shrink: 0;
+}
+
+.container .content .log-list .log-info-container .box-area .box {
+    width: 21vh;
+    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.container .content .log-list .log-info-container .box-area .box i {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    font-size: 1.3vh;
+}
+
+.container .content .log-list .log-info-container .box-area .box p.box-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.container .content .log-list .log-info-container .box-area .box p.box-content {
+    color: white;
+    font-size: 1.3vh;
+    margin-left: 3vh;
+    font-family: "semi-bold";
+}
+
+.container .content .log-list .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 87vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .log-list .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 20vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .log-list button:hover {
+    color: white;
+}
+
+.container .content .log-list button i {
+    margin-right: 0.5vh;
+}
+
+.container .content .log-list .log-info-container .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 87vh;
+    margin-left: -0.5vh;
+}
+
+.container .content .log-list .log-info-container .button-area button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    width: 20vh;
+    height: 3.75vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2vh;
+    transition: color 250ms;
+    cursor: pointer;
+    margin: 0.5vh;
+}
+
+.container .content .log-list .log-info-container button:hover {
+    color: white;
+}
+
+.container .content .log-list .log-info-container button i {
+    margin-right: 0.5vh;
+}

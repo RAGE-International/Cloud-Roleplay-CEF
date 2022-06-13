@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="shop-window">
+        <div class="head-logo-box">
+            <img src="./img/logo.png">
+            <i onclick="closeMenu()" class="fas fa-times"></i>
+        </div>
+        <div class="head-interaction-box">
+            <div class="head-box head-box1">
+                <h1>24/7 Supermarket</h1>
+                <h2>Du hast Hunger oder Durst? Dann erwerbe dir Getränke, Süßigkeiten oder was zum Essen!</h2>
+            </div>
+            <div class="pandas-penis"></div>
+            <div class="head-box head-box2">
+                <div class="cart-box">
+                    <div class="amount-circ">
+                        <h3 id="cart-amount">0</h3>
+                    </div>
+                    <i class="fas fa-shopping-basket cart-img"></i>
+                </div>
+                <div class="head-box2-info">
+                    <h2>Du hast <span style="color: F67F20;" id="cart-quantity">0</span> Gegenstände im Einkaufswagen.</h2>
+                    <h3>Gesamt <span style="color: #F67F20;">$<span id="cart-cost">0</span></span>
+                    </h3>
+                </div>
+                <img src="./img/arrow.svg" class="arrow" onclick="openCartMenu()">
+            </div>
+        </div>
+        <div class="items" id="items"></div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-menu blur">
+            <div class="cart-exit-wrapper">
+                <i class="fas fa-times cart-exit" onclick="closeCartMenu()"></i>
+            </div>
+            <div class="cart-head-wrapper">
+                <div class="cart-box cartbox2">
+                    <div class="amount-circ">
+                        <h3 id="cart-head-amount">0</h3>
+                    </div>
+                    <i class="fas fa-shopping-basket cart-img"></i>
+                </div>
+                <h2>Einkaufswagen</h2>
+            </div>
+            <div class="cart-items" id="cart-items">
+
+            </div>
+            <button onclick="buyItems()">Bezahlen $<span id="cart-money">75</span> für Gegenstände</button>
+        </div>
+    </div>
+</body>
+<script src="../utils/js/fas.js"></script>
+<script src="./js/app.js"></script>
+
+</html>

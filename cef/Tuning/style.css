@@ -1,0 +1,606 @@
+@import url('http://fonts.cdnfonts.com/css/pf-dindisplay-pro');
+
+* {
+    color: white;
+    font-family: 'PF DinDisplay Pro';
+    font-style: normal;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+}
+
+.all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.gradient-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(264.14deg, rgba(15, 8, 61, 0.3408) 4.18%, rgba(0, 0, 0, 0) 52.23%), linear-gradient(90deg, rgba(15, 8, 61, 0.4272) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.shop-body {
+    position: absolute;
+    top: 13%;
+    right: 6%;
+    height: 72%;
+    width: 9.35%;
+}
+
+.shop-container {
+    padding-bottom: 3%;
+    width: 100%;
+}
+
+.shop-button {
+    position: relative;
+    float: right;
+    top: 0%;
+    right: 3%;
+    margin: 0;
+    padding: 0;
+    margin-top: 6%;
+    margin-bottom: 4%;
+    height: 2.2vw;
+    width: 2.2vw;
+    border: none;
+    outline: none;
+    border-radius: .5vw;
+    background-color: #4B61FF;
+    box-shadow: 0 0 .3vw #4B61FF;
+    color: green;
+    overflow: visible;
+    transition: all 0.15s ease-in-out;
+    opacity: .9;
+}
+
+.shop-button:focus {
+    background-color: white;
+    box-shadow: 0 0 .3vw white;
+    opacity: 1;
+}
+
+.shop-button > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .9vw;
+    color: rgb(24, 24, 24);
+}
+
+.shop-value {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 0;
+    margin-top: -20%;
+    margin-right: -14%;
+    height: 1.2vw;
+    width: 1.2vw;
+    line-height: 1.2vw;
+    border-radius: 50%;
+    background-color: #4B61FF;
+    box-shadow: 0 0 .3vw #4B61FF;
+    color: white;
+    font-weight: 400;
+    font-size: .8vw;
+}
+
+.shop-price {
+    position: relative;
+    text-align: right;
+    right: 2%;
+    width: 98%;
+    font-size: .65vw;
+    font-weight: 400;
+    opacity: .9;
+}
+
+.shop-price > span {
+    color: #78DE28;
+    font-size: .7vw;
+    font-weight: 500;
+}
+
+.shop-buy {
+    position: relative;
+    margin-top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    border-radius: .5vw;
+    height: 2.5vw;
+    width: 95%;
+    font-size: .75vw;
+    background-color: #4B61FF;
+    box-shadow: 0 0 .3vw #4B61FF;
+    transition: all 0.15s ease-in-out;
+}
+
+.shop-buy:active {
+    opacity: .8;
+}
+
+.shop-list {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 81%;
+    margin-bottom: 5%;
+    overflow-y: auto;
+}
+
+.shop-list::-webkit-scrollbar {
+    width: .25vw;
+}
+
+.shop-list::-webkit-scrollbar-track {
+    border-radius: .4rem;
+    background: gray;
+}
+   
+.shop-list::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: .4rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.shop-content {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2%;
+    height: 3vw;
+    width: 95%;
+    border-radius: .3vw;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.shop-remove {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    height: 1vw;
+    width: 1vw;
+    border-radius: .1vw;
+    background: rgba(255, 255, 255, 0.19);
+    transition: all 0.1s ease-in-out;
+}
+
+.shop-remove:active {
+    opacity: .6;
+}
+
+.shop-remove > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: .7vw;
+}
+
+.shop-itemname {
+    position: relative;
+    text-align: left;
+    left: 30%;
+    transform: translateX(-30%);
+    margin-top: 2%;
+    color: gray;
+    font-size: .7vw;
+    font-weight: 500;
+    width: 65%;
+}
+
+.shop-itemprice {
+    position: relative;
+    text-align: right;
+    top: 15%;
+    left: 25%;
+    transform: translateX(-25%);
+    margin-top: .5%;
+    color: #78DE28;
+    font-size: .75vw;
+    font-weight: 600;
+    width: 65%;
+}
+
+.esc-body {
+    position: absolute;
+    top: 4%;
+    left: 6%;
+    height: 2.2vw;
+    width: 10vw;
+}
+
+.esc-button {
+    position: relative;
+    float: left;
+    height: 2.2vw;
+    width: 2.2vw;
+    border: none;
+    outline: none;
+    border-radius: .5vw;
+    color: #FFDE33;
+    font-size: .7vw;
+    font-weight: 600;
+    background: rgba(91, 84, 151, 0.42);
+}
+
+.esc-text {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+    margin-left: 8%;
+    font-size: .8vw;
+    font-weight: 550;
+    letter-spacing: 0.02vw;
+}
+
+.esc-text > span{
+    color: #FFDE33;
+    font-weight: 550;
+}
+
+.category-body {
+    position: absolute;
+    top: 12%;
+    left: 5.5%;
+    height: 70%;
+    width: 13%;
+}
+
+.category-body > img {
+    position: relative;
+    left: 0;
+    margin-left: -5%;
+    height: 6vw;
+}
+
+.category-title {
+    position: relative;
+    left: 4.5%;
+    margin-top: 3%;
+    font-size: 1.2vw;
+    color: white;
+    font-weight: 700;
+    opacity: .9;
+}
+
+.category-info {
+    position: relative;
+    left: 4.5%;
+    margin-top: 2%;
+    font-size: .7vw;
+    color: #9E9E9E;
+    font-weight: 400;
+    opacity: .9;
+    width: 85%;
+}
+
+.category-body > hr {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    margin-top: 2.75%;
+    border: none;
+    border-bottom: solid .1vw rgba(255, 255, 255, 0.25);
+}
+
+.category-listtitle {
+    position: relative;
+    left: 4.5%;
+    margin-top: 7.5%;
+    font-style: 700;
+    font-size: 1vw;
+    opacity: .9;
+}
+
+.category-list {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    height: 62.25%;
+    margin-top: 6.75%;
+    overflow-y: auto;
+    direction: rtl;
+}
+
+.category-list::-webkit-scrollbar {
+    width: .25vw;
+}
+
+.category-list::-webkit-scrollbar-track {
+    border-radius: .4rem;
+    background: gray;
+}
+   
+.category-list::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: .4rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.category-content {
+    position: relative;
+    float: right;
+    height: 42px;
+    height: 2.4vw;
+    width: 98%;
+    margin-top: 1%;
+    margin-bottom: 5.25%;
+}
+
+.category-button {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    margin-left: 5%;
+    height: 2.2vw;
+    width: 2.2vw;
+    border-radius: .4vw;
+    background: rgba(91, 84, 151, 0.42);
+    transition: all 0.15s ease-in-out;
+}
+
+.category-button:focus {
+    background: #4B61FF;
+    box-shadow: 0 0 .3vw #4B61FF;
+}
+
+.category-button > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: .9vw;
+}
+
+.category-button > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1.5vw;
+    width: 1.5vw;
+}
+
+.category-itemname {
+    position: relative;
+    text-align: left;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: 600;
+    font-size: .7vw;
+    color: white;
+    width: 65%;
+}
+
+.category-itemname > span {
+    color: #5B5497;
+}
+
+.tuning-body {
+    position: absolute;
+    bottom: 8%;
+    left: 52.5%;
+    transform: translateX(-52.5%);
+    height: fit-content;
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.tuning-button {
+    position: relative;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.5%;
+    height: 3.2vw;
+    width: 13vw;
+    border: none;
+    outline: none;
+    border-radius: .3vw;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: .8vw;
+    font-weight: 700;
+    background: rgba(91, 84, 151, 0.47);
+    transition: all 0.15s ease-in-out;
+}
+
+.tuning-button:active {
+    opacity: .8;
+}
+
+.tuning-price {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 3%;
+    font-size: 1.3vw;
+    color: #78DE28;
+    opacity: .9;
+}
+
+.tuning-selector {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2vw;
+    width: 70%;
+}
+
+.tuning-arrows {
+    position: relative;
+    float: left;
+    height: 2vw;
+    width: 2vw;
+    border-radius: .3vw;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.15s ease-in-out;
+}
+
+.arrow-right {
+    float: right;
+}
+
+.tuning-arrows:active {
+    color: black;
+    background-color: #b49600;
+    opacity: .8;
+}
+
+.tuning-arrows > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .8vw;
+}
+
+.tuning-selector > p {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    color: #9E9E9E;
+    font-weight: 600;
+    font-size: .9vw;
+    opacity: .9;
+}
+
+.tuning-categoryname {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    color: #9E9E9E;
+    font-weight: 600;
+    font-size: 1.3vw;
+    opacity: .9;
+}
+
+.tuning-wheelbody {
+    position: relative;
+    text-align: center;
+    top: 0;
+    margin-bottom: 1%;
+    height: auto;
+    width: 100%;
+}
+
+.tuning-wheelbody > li {
+    position: relative;
+    display: inline-block;
+    padding-left: .5%;
+    padding-right: .5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-bottom: solid .1vw transparent;
+    height: 1.8vw;
+    line-height: 1.8vw;
+    color: #9E9E9E;
+    font-weight: 400;
+    font-size: .65vw;
+}
+
+.tuning-wheelbody > li:focus {
+    border-bottom: solid .1vw #FFDE33;
+    color: #FFDE33;
+    font-weight: 400;
+    font-size: .65vw;
+}
+
+.tuning-colorbody {
+    position: relative;
+    text-align: center;
+    top: 0;
+    margin-bottom: 1%;
+    height: auto;
+    width: 100%;
+}
+
+.tuning-color {
+    position: relative;
+    display: inline-block;
+    margin-left: .5%;
+    margin-right: .5%;
+    height: 1.2vw;
+    width: 1.2vw;
+    border: solid .2vw transparent;
+    border-radius: .3vw;
+    transition: all 0.15s ease-in-out;
+}
+
+.tuning-color:focus {
+    border: solid .2vw white;
+}
+
+.tuning-color:nth-child(1) {
+    background-color: #A65AC2;
+}
+
+.tuning-color:nth-child(2) {
+    background-color: #12FA02;
+}
+
+.tuning-color:nth-child(3) {
+    background-color: #835EBC;
+}
+
+.tuning-color:nth-child(4) {
+    background-color: #FAB39A;
+}
+
+.tuning-color:nth-child(5) {
+    background-color: #C608CF;
+}
+
+.tuning-color:nth-child(6) {
+    background-color: #67161D;
+}
+
+.tuning-color:nth-child(7) {
+    background-color: #E99FB1;
+}
+
+.tuning-color:nth-child(8) {
+    background-color: #64DE68;
+}
+
+.tuning-color:nth-child(9) {
+    background-color: #0F62EE;
+}
+
+.tuning-color:nth-child(10) {
+    background-color: #E734E9;
+}
+
+.tuning-color:nth-child(11) {
+    background-color: #A16F93;
+}

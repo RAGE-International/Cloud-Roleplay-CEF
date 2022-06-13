@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eject</title>
+</head>
+<body>
+<div class="container">
+    <div class="close" onclick="mp.trigger('Client:Eject:Delete');">
+        X
+    </div>
+    <div class="main">
+
+    </div>
+</div>
+</body>
+<style>
+
+    @font-face {
+        font-family: 'PFDinDisplayPro-Regular';
+        src: url('../utils/fonts/SFProDisplay-Regular.ttf');
+    }
+
+    * {
+        font-family: 'PFDinDisplayPro-Regular';
+        font-size: 1.48vh;
+        font-weight: 400;
+        background: rgba(0, 0, 0, 0);
+        color: #333333;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close {
+        position: absolute;
+        top: 3vh;
+        right: 3vh;
+    }
+
+    .main {
+        width: 50%;
+        height: 50%;
+    }
+</style>
+<script>
+    const LoadOccupants = (count) => {
+        document.querySelector('.main').innerHTML = ` `;
+
+        for (let i=0;i<=count;i++) {
+            document.querySelector('.main').innerHTML += `
+                <button onclick="EjectSeat(i);">
+                    Seat ${i}
+                </button>
+            `;
+        }
+    };
+
+    const EjectSeat = (id) => {
+        mp.trigger("Client:Eject:Seat", id);
+    };
+</script>
+</html>

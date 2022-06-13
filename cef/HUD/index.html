@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous "></script>
+    <script src="../utils/libs/jquery.js"></script>
+    <title>Cloud | HUD</title>
+</head>
+
+<body onload="$('body').fadeIn(5000)">
+    <div class="container">
+        <!-- <img class="minimap" src="./06.png" alt=""> -->
+        <div class="top-left">
+
+        </div>
+        <div class="top-middle">
+
+        </div>
+        <div class="top-right">
+            <img class="logo" src="../utils/img/logos/logo.png" alt="">
+            <div class="clock">
+                <p id="clock">00:00</p>
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="date">
+                <p id="date">00.0.0000</p>
+            </div>
+            <div class="money">
+                <p id="money">0</p>
+                <i class="fa-solid fa-circle-dollar"></i>
+            </div>
+            <div class="weapon-ammo">
+                <p class="clip">0<span style="color: white;">/</span><span class="ammo">0</span></p>
+                <img class="ammo-img" src="./img/ammo.png">
+            </div>
+            <div class="countMoney">
+                <p style="display: none;" id="countMoney">+ <span style="color: white;"></span> $</p>
+            </div>
+        </div>
+        <div class="left-middle">
+
+        </div>
+        <div class="bottom-left">
+            <div class="bg drink">
+                <i class="fa-solid fa-cup-straw"></i>
+                <div class="fix">
+                    <span class="drink5"></span>
+                    <span class="drink4"></span>
+                    <span class="drink3"></span>
+                    <span class="drink2"></span>
+                    <span class="drink1"></span>
+                </div>
+            </div>
+            <div class="bg clear">
+
+            </div>
+            <div class="bg food">
+                <i class="fa-solid fa-burger-cheese"></i>
+                <div class="fix">
+                    <span class="food5"></span>
+                    <span class="food4"></span>
+                    <span class="food3"></span>
+                    <span class="food2"></span>
+                    <span class="food1"></span>
+                </div>
+            </div>
+            <div class="bg clear">
+
+            </div>
+            <div class="bg voice">
+                <div id="voice-icon">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+                <div class="fix">
+                    <span class="mic3"></span>
+                    <span class="mic2"></span>
+                    <span id="active" class="mic1"></span>
+                </div>
+            </div>
+
+            <div class="bg radio" style="opacity: 0;">
+                <div id="radio-icon">
+                    <i class="fa-solid fa-headphones-simple"></i>
+                </div>
+                <div class="fix">
+                    <span class="radio active"></span>
+                    <span class="radio active"></span>
+                    <span class="radio active"></span>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-middle">
+            <div class="progressbar">
+                <p id="text">0%</p>
+                <div class="progress" id="progress">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-right" style="display: none;">
+            <div class="fix">
+                <div class="speedometer">
+                    <div class="kmh">
+                        <p><span id="currentspeed">175</span> km/h</p>
+                    </div>
+                    <div class="odometer">
+                        <p><span id="currenkilometers"></span></p>
+                    </div>
+                </div>
+                <div class="vehicle-info">
+                    <i id="engine" class="fa-solid fa-engine"></i>
+                    <i id="lock" class="fa-solid fa-lock-keyhole"></i>
+                </div>
+            </div>
+            <div class="tank">
+                <div class="tankbar">
+                    <div class="tankprogress"></div>
+                </div>
+                <i class="fa-solid fa-gas-pump"></i>
+            </div>
+        </div>
+        <div class="middle">
+
+            <div class="confirmation">
+                <div class="confirmation-header">
+                    <div class="confirmation-header-inner">
+                        <i style="font-size: 1.8vh; color: white;" class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="confirmation-header-inner-text">
+                        <h2>Test</h2>
+                        <p>Das ist ein Test.</p>
+                    </div>
+                </div>
+                <div class="confirmation-content">
+
+                </div>
+            </div>
+
+            <div class="container-give-money">
+                <div class="container-give-money-header">
+                    <div class="contaienr-give-money-inner">
+                        <i style="font-size: 1.8vh; color: white;" class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="container-give-money-inner-text">
+                        <h2>Geld geben</h2>
+                        <p>Gebe deinen gewünschten Betrag ein.</p>
+                    </div>
+                </div>
+                <div class="container-give-money-content">
+                    <input class="container-give-money-input" type="number" placeholder="Betrag" onpaste="return false;" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
+                    <button onclick="acceptMoneyInputValue()">Geben</button>
+                    <button onclick="toggleMoneyInput(false)">Abbrechen</button>
+                </div>
+            </div>
+
+            <div class="interaction-menu"></div>
+
+        </div>
+        <div class="right-middle">
+
+            <div class="ausweis">
+                <img class="logo" src="./img/CITY.png" alt="">
+                <div class="barcode">
+                    <div style="margin-bottom: 0.3vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe big"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.4vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe big"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe middlesize"></div>
+                    <div class="stripe small"></div>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p class="usa">STATE OF SAN ANDREAS</p>
+                        <p>LOS SANTOS CITIZEN SHIP</p>
+                    </div>
+                    <div class="personal-info">
+                        <div class="name-info">
+                            <div class="lastname">
+                                <p class="term">Name</p>
+                                <p id="secondname">Akami</p>
+                            </div>
+                            <div class="firstname">
+                                <p class="term">Vorname</p>
+                                <p id="firstname">Luis</p>
+                            </div>
+                            <div class="sign">
+                                <p class="term">Unterschrift des Inhaber/In</p>
+                                <p id="signature" class="signature">Akami</p>
+                            </div>
+                        </div>
+                        <div class="date-info">
+                            <div class="birthday">
+                                <p class="term">Geburtstag</p>
+                                <p id="birthdate">27.05.2001</p>
+                            </div>
+                            <div class="firstname">
+                                <p class="term">Ausstellungsdatum</p>
+                                <p id="createdate">28.11.2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ausweisnummer">
+                        <p>423859040337</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dienstausweis">
+                <img class="logo" src="./img/factions/LSMC.png" alt="">
+                <div class="barcode">
+                    <div style="margin-bottom: 0.3vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe big"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.4vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe middlesize"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe big"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.2vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.3vh;" class="stripe small"></div>
+                    <div style="margin-bottom: 0.1vh;" class="stripe middlesize"></div>
+                    <div class="stripe small"></div>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p class="usa">STATE OF SAN ANDREAS</p>
+                        <p>AUTHENTICATION CARD</p>
+                    </div>
+                    <div class="personal-info">
+                        <div class="name-info">
+                            <div class="lastname">
+                                <p class="term">Name</p>
+                                <p id="firstname">Akami</p>
+                            </div>
+                            <div class="firstname">
+                                <p class="term">Vorname</p>
+                                <p id="secondname">Luis</p>
+                            </div>
+                            <div class="sign">
+                                <p class="term">Unterschrift des Beamten/In</p>
+                                <p class="signature">Akami</p>
+                            </div>
+                        </div>
+                        <div class="authority-info">
+                            <div class="authority">
+                                <p class="term">Behörde</p>
+                                <p id="authority">LSMC</p>
+                            </div>
+                            <div class="rank">
+                                <p class="term">Dienstgrad</p>
+                                <p class="rankname">Ärztlicher Direktor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="licenses">
+
+                <img class="logo" src="./img/CITY.png" alt="">
+
+                <div class="header">
+                    <p class="usa">STATE OF SAN ANDREAS</p>
+                    <p>LICENSES CARD</p>
+                </div>
+
+                <div class="content">
+
+                </div>
+                <div class="footer">
+
+                    <div class="sign">
+                        <p class="term" style="text-transform: unset;">Unterschrift des Inhaber/In</p>
+                        <p id="signature" class="signature">Akami</p>
+                    </div>
+
+                    <div class="barcode">
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe big"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe big"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe middlesize"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe small"></div>
+                        <div class="stripe big"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./scripts/interaction-menu.js"></script>
+<script src="./scripts/dialog-menu.js"></script>
+
+<script>
+    function SplitString(raw, split) {
+        return raw.split(split);
+    }
+
+    let IsIdCardActive = false;
+    let IsAuthentificationCardActive = false;
+    let isLicenceCardAcive = false;
+
+    //toggleLicenceCard('{"Name":"Diego_HS","Licenses":{"PKW":false,"LKW":false,"Motorrad":false,"Boot":false,"Heli":false,"Flugzeug":false,"EHK":false,"Waffenschein":false}}');
+
+    function toggleLicenceCard(rawJson) {
+        if (isLicenceCardAcive) return;
+        isLicenceCardAcive = true;
+        let data = JSON.parse(rawJson);
+        let first_name = SplitString(data.Name, '_')[0];
+        let second_name = SplitString(data.Name, '_')[1];
+        let licences = data.Licenses
+
+        $(".container .licenses .content").html("");
+
+        $('.licenses .footer .sign .signature').text(second_name);
+
+        for (const x in licences) {
+
+            let element = `
+                    <div class="licence-model">
+                        <p class="title">${x}</p>
+                        <p class="state">${licences[x] != false ? "Vorhanden": "Nicht Vorhanden"}</p>
+                    </div>
+             `;
+            $(".container .licenses .content").append(element);
+        }
+        $('.licenses').css('display', 'block');
+        $(".licenses").animate({
+            right: "-5vh",
+        }, 1000, function() {
+            setTimeout(() => {
+                $(".licenses").animate({
+                    right: "-40vh",
+                }, 1000, function() {
+                    isLicenceCardAcive = false;
+                    $('.licenses').css('display', 'none');
+                });
+            }, 3750);
+        });
+    }
+
+    function toggleAuthentificationCard(rawJson) {
+        if (IsAuthentificationCardActive) return;
+        IsAuthentificationCardActive = true;
+        let data = JSON.parse(rawJson);
+        let first_name = SplitString(data.PlayerName, '_')[0];
+        let second_name = SplitString(data.PlayerName, '_')[1];
+        let authority = data.Authority;
+        let rank = data.Rank;
+        $('.dienstausweis .lastname #firstname').text(first_name)
+        $('.dienstausweis .firstname #secondname').text(second_name)
+        $('.dienstausweis .authority-info #authority').text(authority)
+        $('.dienstausweis .authority-info .rankname').text(rank)
+        $('.dienstausweis .sign .signature').text(second_name)
+        $('.dienstausweis .logo').attr("src", `img/factions/${authority.toUpperCase()}.png`);
+        $('.dienstausweis').css('display', 'block');
+
+        $(".dienstausweis").animate({
+            right: "-5vh",
+        }, 1000, function() {
+            setTimeout(() => {
+                $(".dienstausweis").animate({
+                    right: "-40vh",
+                }, 1000, function() {
+                    IsAuthentificationCardActive = false;
+                    $('.dienstausweis').css('display', 'none');
+                });
+            }, 3750);
+        });
+    }
+
+    function toggleIdCard(rawJson) {
+        if (IsIdCardActive) return;
+        IsIdCardActive = true;
+        let data = JSON.parse(rawJson);
+        let first_name = SplitString(data.Name, '_')[0];
+        let second_name = SplitString(data.Name, '_')[1];
+        let birthdate = data.BirthDate;
+        let createdate = data.EntryDate;
+        let IdCardNumber = data.Number;
+        $('.ausweis .firstname #firstname').text(second_name)
+        $('.ausweis .lastname #secondname').text(first_name);
+        $('.ausweis .sign #signature').text(second_name);
+        $('.ausweis .date-info #birthdate').text(birthdate)
+        $('.ausweis .date-info #createdate').text(createdate)
+        $('.ausweis .ausweisnummer').text(IdCardNumber)
+        $('.ausweis').css('display', 'block');
+        $(".ausweis").animate({
+            right: "-5vh",
+        }, 1000, function() {
+            setTimeout(() => {
+                $(".ausweis").animate({
+                    right: "-40vh",
+                }, 1000, function() {
+                    IsIdCardActive = false;
+                    $('.ausweis').css('display', 'none');
+                });
+            }, 3750);
+        });
+    };
+
+    $(document).ready(function() {
+        $("input[type=number]").on("focus", function() {
+            $(this).on("keydown", function(event) {
+                if (event.keyCode === 38 || event.keyCode === 40) {
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+
+    function toggleMoneyInput(toggle) {
+        if (toggle) {
+            $('.container-give-money').fadeIn(250);
+            $('.container-give-money-input').val("");
+        } else {
+            $('.container-give-money').fadeOut(250);
+            $('.container-give-money-input').val("");
+        }
+    }
+
+    function acceptMoneyInputValue() {
+        let value = $('.container-give-money-input').val();
+        if (value.length && value >= 1) {
+            console.log(value);
+            toggleMoneyInput(false);
+        }
+    }
+
+    let speedoshowed = false;
+
+    function setenginestate(state) {
+        if (state == "true") {
+            $('#engine').css("color", "#77dd28")
+        } else {
+            $('#engine').css("color", "red")
+        }
+    }
+
+    function setvehiclelockstate(state) {
+        if (state != "true") {
+            $('#lock').css("color", "#77dd28")
+        } else {
+            $('#lock').css("color", "red")
+        }
+    }
+
+    function showspeedometer(speed, kilometers, fuel) {
+        if (speedoshowed == false) {
+            speedoshowed = true
+            $('.bottom-right').fadeIn(250)
+        }
+
+        $('#currentspeed').html(speed)
+        $('#currenkilometers').html(kilometers)
+        $('.tankprogress').css("width", fuel + "%")
+    }
+
+    function hidespeedometer() {
+        if (speedoshowed == true) {
+            speedoshowed = false
+            $('.bottom-right').fadeOut(250)
+        }
+    }
+
+    function FixMessages(left, bottom) {
+        $('.left-middle').css('left', `${left}vh`)
+        $('.left-middle').css('bottom', `${bottom}vh`)
+    }
+
+    function FixMiniMap(left, top) {
+        $('.bottom-left').css('left', `${left}vh`)
+        $('.bottom-left').css('top', `${top}vh`)
+    }
+
+
+    $(document).ready(() => {
+        showClock()
+    })
+
+    function showClock() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+
+        if (s.toString().length == 1) {
+            s = "0" + s
+        }
+
+        if (m.toString().length == 1) {
+            m = "0" + m
+        }
+
+        var time = h + ":" + m;
+        document.getElementById("clock").innerText = time;
+        document.getElementById("clock").textContent = time;
+
+        $('#date').text(date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear())
+    }
+    setInterval(() => {
+        showClock()
+    }, 1000)
+
+    let moneybefore = 0;
+
+    function addMoney(money) {
+        $('#countMoney').html(`+ <span style="color: white;">${money.toLocaleString('de-DE')}</span> $`).fadeIn(250)
+        moneybefore = moneybefore + money
+        if (moneybefore < 0) {
+            moneybefore = 0
+        }
+        $("#money").text(`${moneybefore.toLocaleString('de-DE')}`)
+        setTimeout(() => {
+            $('#countMoney').fadeOut(250);
+        }, 2000);
+    }
+
+    function removeMoney(money) {
+        $('#countMoney').html(`<span style="color: red;">- <span style="color: white;">${money.toLocaleString('de-DE')}</span> $</span>`).fadeIn(250)
+        moneybefore = moneybefore - money
+        if (moneybefore < 0) {
+            moneybefore = 0
+        }
+        $("#money").text(`${moneybefore.toLocaleString('de-DE')}`)
+        setTimeout(() => {
+            $('#countMoney').fadeOut(250);
+        }, 2000);
+    }
+
+    function showRadio(toggle) {
+        let element = $(document).find('.bg.radio')
+        if (toggle) $(element).css('opacity', '1');
+        else $(element).css('opacity', '0');
+    }
+
+    function setRadioState(state) {
+        let element = $(document).find('.bg.radio')
+        let allFills = $(element).find('span');
+        if (state == true) {
+            $(allFills).each(function(index) {
+                $(this).addClass("active")
+            });
+        } else {
+            $(allFills).each(function(index) {
+                $(this).removeClass("active")
+            });
+        }
+    }
+
+    function setVoiceState(state) {
+        let element = $(document).find('#voice-icon')
+        switch (state) {
+            case 0:
+                $(".mic1").attr("id", "active")
+                $(".mic2").attr("id", "")
+                $(".mic3").attr("id", "")
+                $(element).html(`<i class="fa-solid fa-microphone"></i>`)
+                break;
+            case 1:
+                $(".mic1").attr("id", "active")
+                $(".mic2").attr("id", "active")
+                $(".mic3").attr("id", "")
+                $(element).html(`<i class="fa-solid fa-microphone"></i>`)
+                break;
+            case 2:
+                $(".mic1").attr("id", "active")
+                $(".mic2").attr("id", "active")
+                $(".mic3").attr("id", "active")
+                $(element).html(`<i class="fa-solid fa-microphone"></i>`)
+                break;
+            case 3:
+                $(element).html(`<i class="fa-solid fa-microphone-slash"></i>`)
+                break;
+        }
+    }
+
+    function setDrink(drink) {
+        switch (drink) {
+            case 0:
+                $(".drink1").attr("id", "")
+                $(".drink2").attr("id", "")
+                $(".drink3").attr("id", "")
+                $(".drink4").attr("id", "")
+                $(".drink5").attr("id", "")
+                break;
+            case 1:
+                $(".drink1").attr("id", "active")
+                $(".drink2").attr("id", "")
+                $(".drink3").attr("id", "")
+                $(".drink4").attr("id", "")
+                $(".drink5").attr("id", "")
+                break;
+            case 2:
+                $(".drink1").attr("id", "active")
+                $(".drink2").attr("id", "active")
+                $(".drink3").attr("id", "")
+                $(".drink4").attr("id", "")
+                $(".drink5").attr("id", "")
+                break;
+            case 3:
+                $(".drink1").attr("id", "active")
+                $(".drink2").attr("id", "active")
+                $(".drink3").attr("id", "active")
+                $(".drink4").attr("id", "")
+                $(".drink5").attr("id", "")
+                break;
+            case 4:
+                $(".drink1").attr("id", "active")
+                $(".drink2").attr("id", "active")
+                $(".drink3").attr("id", "active")
+                $(".drink4").attr("id", "active")
+                $(".drink5").attr("id", "")
+                break;
+            case 5:
+                $(".drink1").attr("id", "active")
+                $(".drink2").attr("id", "active")
+                $(".drink3").attr("id", "active")
+                $(".drink4").attr("id", "active")
+                $(".drink5").attr("id", "active")
+                break;
+        }
+    }
+
+    function setFood(food) {
+        switch (food) {
+            case 0:
+                $(".food1").attr("id", "")
+                $(".food2").attr("id", "")
+                $(".food3").attr("id", "")
+                $(".food4").attr("id", "")
+                $(".food5").attr("id", "")
+                break;
+            case 1:
+                $(".food1").attr("id", "active")
+                $(".food2").attr("id", "")
+                $(".food3").attr("id", "")
+                $(".food4").attr("id", "")
+                $(".food5").attr("id", "")
+                break;
+            case 2:
+                $(".food1").attr("id", "active")
+                $(".food2").attr("id", "active")
+                $(".food3").attr("id", "")
+                $(".food4").attr("id", "")
+                $(".food5").attr("id", "")
+                break;
+            case 3:
+                $(".food1").attr("id", "active")
+                $(".food2").attr("id", "active")
+                $(".food3").attr("id", "active")
+                $(".food4").attr("id", "")
+                $(".food5").attr("id", "")
+                break;
+            case 4:
+                $(".food1").attr("id", "active")
+                $(".food2").attr("id", "active")
+                $(".food3").attr("id", "active")
+                $(".food4").attr("id", "active")
+                $(".food5").attr("id", "")
+                break;
+            case 5:
+                $(".food1").attr("id", "active")
+                $(".food2").attr("id", "active")
+                $(".food3").attr("id", "active")
+                $(".food4").attr("id", "active")
+                $(".food5").attr("id", "active")
+                break;
+        }
+    }
+
+    function globalNotify(title, message, time, type, r, g, b) {
+        let element = $(
+            `
+            <li class="global-notify-element">
+                <div class="global-notify" style="background: rgb(${r},${g},${b}); background: linear-gradient(90deg, rgba(${r},${g},${b},0.2) 0%, rgba(${r},${g},${b},0) 100%); border: 0.1vh solid rgba(${r},${g},${b},0.1);">
+                    <div class="icon-bg" style="background: rgb(${r},${g},${b}); box-shadow: 0vh 0vh 0.9vh rgb(${r},${g},${b});">
+                        <i class="fas ${type}" style="line-height: 3vh;"></i>
+                    </div>
+                    <div style="margin-left: 2vh; margin-right: 1.5vh;">
+                        <h1>${title}</h1>
+                        <p>${message}</p>
+                    </div>
+                </div>
+            </li>
+            `
+        )
+        $(".top-middle").append(element);
+        element.hide();
+        element.fadeIn(250)
+
+        setTimeout(() => {
+            element.fadeOut(250)
+            setTimeout(() => {
+                element.remove()
+            }, 350)
+        }, time)
+    }
+
+    function playerNotify(title, message, time, type, r, g, b) {
+        let element = $(
+            `
+            <div class="notify">
+                <div class="icon-bg" style="background: rgb(${r},${g},${b}); box-shadow: 0vh 0vh 0.9vh rgb(${r},${g},${b});">
+                    <i class="fas ${type}" style="line-height: 3vh;"></i>
+                </div>
+                <div style="margin-left: 2vh; margin-right: 0vh;">
+                    <h1>${title}</h1>
+                    <p>${message}</p>
+                </div>
+            </div>
+            `
+        )
+        $(".left-middle").append(element);
+        element.hide();
+        element.fadeIn(250)
+
+        setTimeout(() => {
+            element.fadeOut(250)
+            setTimeout(() => {
+                element.remove()
+            }, 350)
+        }, time)
+    }
+
+    var i = 0;
+
+    function progressbar(time) {
+        $(".progressbar").fadeIn(250);
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("progress");
+            var width = 1;
+            var id = setInterval(frame, time)
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                    elem.style.width = 0 + "%";
+                    document.getElementById("text").innerHTML = '' + width + '%';
+                    $(".progressbar").fadeOut(250);
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    document.getElementById("text").innerHTML = '' + width + '%';
+                }
+            }
+        }
+    }
+
+    function ToggleHudElements(position, toggle) {
+        switch (position) {
+            case "Left":
+                if (toggle) {
+                    $('.top-left').css('display', 'block')
+                    $('.bottom-left').css('display', 'block')
+                    $('.left-middle').css('display', 'block')
+                } else {
+                    $('.top-left').css('display', 'none')
+                    $('.bottom-left').css('display', 'none')
+                    $('.left-middle').css('display', 'none')
+                }
+                break;
+            case "Right":
+                if (toggle) {
+                    $('.right-left').css('display', 'block')
+                    $('.bottom-right').css('display', 'block')
+                    $('.right-middle').css('display', 'block')
+                } else {
+                    $('.right-left').css('display', 'none')
+                    $('.bottom-right').css('display', 'none')
+                    $('.right-middle').css('display', 'none')
+                }
+                break;
+            case "Full":
+                if (toggle) {
+                    $('.container').css('display', 'block')
+                } else {
+                    $('.container').css('display', 'none')
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    function ToggleWeaponAmmoHud(toggle) {
+        if (toggle) {
+            $('.container .top-right .weapon-ammo').css('display', 'flex')
+        } else {
+            $('.container .top-right .weapon-ammo').css('display', 'none')
+        }
+    }
+
+    function UpdateWeaponAmmoAtHud(clip, ammo) {
+        let _element = `                
+        <p class="clip">${clip}<span style="color: white;">/</span><span class="ammo">${ammo}</span></p>
+        <img class="ammo-img" src="./img/ammo.png">`;
+        $('.container .top-right .weapon-ammo').html(_element);
+    }
+</script>
+
+</html>

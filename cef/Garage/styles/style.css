@@ -1,0 +1,315 @@
+    @font-face {
+        font-family: "ubuntu";
+        src: url('../../utils/fonts/Ubuntu.ttf');
+    }
+    
+    @font-face {
+        font-family: "ubuntu-m";
+        src: url('../../utils/fonts/Ubuntu-Medium.ttf');
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'ubuntu';
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    
+     ::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    body {
+        /* background-image: url(../../utils/img/edit-backgrounds/15.png); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    
+    .container {
+        position: absolute;
+        width: auto;
+        height: 50vh;
+        left: 12.75vh;
+        top: 16.75vh;
+        min-width: 40vh;
+    }
+    
+    .container .header {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 1.5vh;
+        overflow: hidden;
+        background: #1B97F0;
+    }
+    
+    .container .header .gradiant {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(68.66deg, #1B97F0 7.7%, rgba(27, 151, 240, 0) 103.05%), url(../../utils/img/garage/bg.png), #1B97F0;
+        opacity: 0.25;
+        background-size: cover;
+    }
+    
+    .container .header .close {
+        position: relative;
+        width: 100%;
+        height: 2.5vh;
+    }
+    
+    .container .header .close i {
+        position: relative;
+        width: 2vh;
+        height: 2vh;
+        background: #ffffff2e;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        margin: 0.5vh;
+        border-radius: 0.5vh;
+        font-size: 1vh;
+    }
+    
+    .container .header .title {
+        position: relative;
+        color: #fff;
+        font-size: 2.25vh;
+        font-family: 'ubuntu-m';
+        padding: 0 2.5vh;
+        margin-bottom: 0.5vh;
+    }
+    
+    .container .header .information {
+        position: relative;
+        width: 100%;
+        height: 5vh;
+        padding: 0 2.5vh;
+        display: flex;
+    }
+    
+    .container .header .information .module {
+        position: relative;
+        width: auto;
+        height: 3vh;
+        border-right: 0.1vh solid #fff;
+        margin-right: 1vh;
+        padding-right: 1vh;
+    }
+    
+    .container .header .information .module:last-child {
+        border-right: 0vh solid #fff;
+        margin-right: 0vh;
+    }
+    
+    .container .header .information .module .first-title {
+        position: relative;
+        width: auto;
+        color: #FFDE33;
+        font-family: 'ubuntu-m';
+        font-size: 1.5vh;
+    }
+    
+    .container .header .information .module .sec-title {
+        position: relative;
+        width: auto;
+        color: #fff;
+        font-size: 1.25vh;
+    }
+    
+    .container .header .interaction {
+        position: relative;
+        width: 100%;
+        height: 3vh;
+        padding: 0 2.5vh;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container .header .interaction button {
+        position: relative;
+        width: 45%;
+        height: 3vh;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.34);
+        color: #fff;
+        border-top-left-radius: 0.5vh;
+        border-top-right-radius: 0.5vh;
+        margin: 0 0.15vh;
+        font-size: 1.25vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container .header .interaction button.active {
+        background: #78DE28;
+    }
+    
+    .container .header .search {
+        position: relative;
+        width: 100%;
+        height: 3.5vh;
+        background: #3EA2EB;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .container .header .search i {
+        position: relative;
+        color: #FFDE33;
+        font-size: 1.5vh;
+        padding: 1vh;
+        margin-left: 2vh;
+    }
+    
+    .container .header .search input {
+        position: relative;
+        width: 100%;
+        height: 3vh;
+        background: none;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 1.25vh;
+        padding-right: 2vh;
+    }
+    
+    .container .header .search input::placeholder {
+        opacity: 0.8;
+        color: #fff;
+    }
+    
+    .container .content {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 47vh;
+        margin-top: 1.5vh;
+        overflow: auto;
+    }
+    
+    .container .content .wrapper {
+        margin-top: 1vh;
+    }
+    
+    .container .content .wrapper:first-child {
+        margin-top: 0vh;
+    }
+    
+    .container .content .wrapper .model {
+        position: relative;
+        width: 100%;
+        height: 7vh;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 1.5vh;
+        padding: 1.5vh;
+        display: flex;
+        align-items: center;
+        transition: background-color 250ms;
+    }
+    
+    .container .content .wrapper .model .number {
+        position: relative;
+        width: 4vh;
+        height: 4vh;
+        background-color: #ffffff;
+        box-shadow: 0vh 0vh 0.5vh #ffffff;
+        color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1vh;
+        font-family: 'ubuntu-m';
+        font-size: 1.5vh;
+        transition: background-color, box-shadow 250ms;
+    }
+    
+    .container .content .wrapper .model .information {
+        position: relative;
+        width: 22vh;
+        height: 4vh;
+        margin-left: 1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    
+    .container .content .wrapper .model .information .name {
+        color: rgb(255, 255, 255);
+        font-size: 1.5vh;
+        padding-bottom: 0.25vh;
+    }
+    
+    .container .content .wrapper .model .information .plate {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.25vh;
+    }
+    
+    .container .content .wrapper .model button {
+        position: relative;
+        width: 10vh;
+        height: 3.5vh;
+        background: #78de28;
+        color: #fff;
+        border-radius: 0.75vh;
+        border: none;
+        outline: none;
+        font-size: 1.25vh;
+    }
+    
+    .container .content .wrapper .informations {
+        position: relative;
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        display: none;
+    }
+    
+    .container .content .wrapper .informations .info:last-child {
+        border-radius: 0 0 1.5vh 1.5vh;
+    }
+    
+    .container .content .wrapper .informations .info {
+        position: relative;
+        width: 100%;
+        height: 4vh;
+        background: rgba(255, 255, 255, 0.15);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5vh;
+    }
+    
+    .container .content .wrapper .informations .info:nth-child(even) {
+        background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .container .content .wrapper .informations .info .title {
+        position: relative;
+        color: rgb(255 255 255 / 80%);
+        font-size: 1.5vh;
+    }
+    
+    .container .content .wrapper .informations .info .value {
+        position: relative;
+        font-size: 1.5vh;
+        font-family: 'ubuntu-m';
+        color: rgb(255 255 255);
+    }

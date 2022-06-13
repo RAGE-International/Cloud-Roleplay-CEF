@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@font-face {
+    font-family: "ubuntu";
+    src: url('../../utils/fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('../../utils/fonts/Ubuntu-Medium.ttf');
+}
+
+body {
+    background-image: url(../../utils/img/backgrounds/bg2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'ubuntu';
+    color: #fff;
+}
+
+.gas-station .close-btn {
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    background: #0daaff;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+    margin-left: 88vh;
+    border-radius: 0.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25vh;
+}
+
+.gas-station {
+    position: absolute;
+    width: 95vh;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gas-station .header {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4.5vh;
+}
+
+.gas-station .header .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'ubuntu-m';
+}
+
+.gas-station .header .title .logo {
+    width: 6vh;
+    height: 6vh;
+    background-image: url(../../utils/img/gasstation/test.svg);
+    background-size: 3.5vh;
+    background-color: #fff0;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 1vh;
+}
+
+.gas-station .header .title h1 {
+    text-transform: uppercase;
+    font-size: 3vh;
+}
+
+.gas-station .header p {
+    text-align: center;
+    font-size: 1.25vh;
+    color: rgb(255 255 255 / 60%);
+}
+
+.gas-station .content {
+    position: relative;
+    width: 100%;
+    height: 37vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.gas-station .content .module {
+    position: relative;
+    width: 100%;
+    height: 32.5vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 100%), rgb(255 255 255 / 10%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    border-radius: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh;
+}
+
+.gas-station .content .module.active {
+    background: linear-gradient(0deg, #0DAAFF, #0DAAFF), radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.59) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.5);
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+.gas-station .content .module:hover {
+    background: linear-gradient(0deg, #0DAAFF, #0DAAFF), radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.59) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.5);
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+.gas-station .content .module .logo {
+    width: 100%;
+    height: 15vh;
+    background-position: center;
+    background-image: url(../../utils/img/gasstation/ron.png);
+    background-repeat: no-repeat;
+    background-size: 10vh;
+    background-position-y: 4vh;
+    margin-bottom: 2vh;
+}
+
+.gas-station .content .module .text {
+    padding: 1vh;
+}
+
+.gas-station .content .module h1 {
+    font-size: 3vh;
+}
+
+.gas-station .content .module p {
+    font-size: 1.5vh;
+}
+
+.gas-station .content .module h2 {
+    font-size: 2.25vh;
+}
+
+.gas-station .footer {
+    position: relative;
+    width: 100%;
+    height: 25vh;
+    /* background: rgba(255, 166, 0, 0.192); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5vh;
+}
+
+.gas-station .footer .progress-header {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    padding: 0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gas-station .footer .progress-header p {
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'ubuntu-m';
+    font-size: 1.75vh;
+}
+
+.gas-station .footer .progress-header i {
+    color: #ffb800;
+    margin: 0 1vh;
+}
+
+.gas-station .footer .progress-header .progress-bar {
+    width: 99%;
+    height: 1.5vh;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 0.5vh;
+    margin: 0.5vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.gas-station .footer .progress-header .progress-bar .current_vehicle_fuel {
+    position: absolute;
+    height: 1.5vh;
+    width: 20%;
+    background: #0daaff;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+    float: left;
+    border-radius: 0 0.5vh 0.5vh 0;
+    transition: all 0.5s;
+}
+
+.gas-station .footer .progress-header .progress-bar .added_vehicle_fuel {
+    position: absolute;
+    height: 1.5vh;
+    width: 70%;
+    float: left;
+    border-radius: 0 0.5vh 0.5vh 0;
+    background: #ffb800;
+    box-shadow: 0vh 0vh 0.9vh #ffb800;
+    transition: all 0.5s;
+}
+
+.gas-station .footer .interactions {
+    position: relative;
+    width: 100%;
+    height: 17vh;
+    display: none;
+}
+
+.gas-station .footer .interactions .interactions-header {
+    position: relative;
+    width: 36vh;
+    height: 2.5vh;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0.5vh;
+}
+
+.gas-station .footer .interactions .btn-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.gas-station .footer .interactions .btn-wrapper .btn {
+    position: relative;
+    width: 20vh;
+    height: 7vh;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 0.5vh;
+    margin: 0.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'ubuntu-m';
+    font-size: 2vh;
+}
+
+.gas-station .footer .interactions .btn-wrapper .btn.active {
+    background: #0daaff;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+.gas-station .footer .interactions .btn-wrapper .btn:hover {
+    background: #0daaff;
+    box-shadow: 0vh 0vh 0.9vh #0daaff;
+}
+
+.gas-station .footer .interactions .btn-wrapper .btn.display {
+    width: 37vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 100%), rgb(255 255 255 / 10%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vh;
+}
+
+#dollar-logo {
+    background: #0daaff;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vh;
+    float: left;
+    margin-right: 0.5vh;
+}
+
+#drop-logo {
+    font-size: 1.75vh;
+    color: #ffb800;
+    margin-right: 0.5vh;
+}
+
+.gas-station .selection {
+    position: relative;
+    width: 100%;
+    height: 37vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.gas-station .selection .vehicle-model {
+    position: relative;
+    width: 22vh;
+    height: 100%;
+    margin: 1vh;
+}
+
+.gas-station .selection .vehicle-model .vehicle-inner {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 100%), rgb(255 255 255 / 10%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5vh;
+    padding: 2vh;
+}
+
+.gas-station .selection .vehicle-model .vehicle-inner-selection {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    background: #0daafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+    font-family: 'ubuntu-m';
+    border-radius: 0.5vh;
+    margin-top: 1.5vh;
+}
+
+.gas-station .selection .vehicle-model .vehicle-inner .car-image {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    background-size: contain;
+    background-image: url(../../utils/img/carimages/unknown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffffff0d;
+    border-radius: 0.5vh;
+}
+
+.gas-station .selection .vehicle-model .vehicle-inner .car-plate {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    background: #ffffff0d;
+    margin-top: 1vh;
+    border-radius: 0.5vh;
+    padding: 0.75vh;
+    font-family: 'ubuntu-m';
+    font-size: 1.5vh;
+    text-align: center;
+}

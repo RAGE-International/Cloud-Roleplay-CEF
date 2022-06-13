@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous"></script>
+    <script src="../utils/libs/jquery.js"></script>
+    <title>Cloud | Adminmenu</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="side-bar">
+            <img class="logo" src="../utils/img/logos/cloud512.png" alt="">
+            <p class="title">CLOUD ROLEPLAY<br>ADMIN MENU</p>
+            <div class="menus">
+                <div onclick="switchToDashboard()" id="active" class="menu dashboard-menu">
+                    <i class="fa-solid fa-house"></i>
+                    <p class="menu-name">DASHBOARD</p>
+                </div>
+                <div onclick="switchToPlayerList()" class="menu player-list">
+                    <i class="fa-solid fa-users"></i>
+                    <p class="menu-name">SPIELERLISTE</p>
+                </div>
+                <div onclick="switchToVehicleList()" class="menu">
+                    <i class="fa-solid fa-cars"></i>
+                    <p class="menu-name">FAHRZEUGLISTE</p>
+                </div>
+                <div onclick="switchToHouseList()" class="menu">
+                    <i class="fa-solid fa-house-building"></i>
+                    <p class="menu-name">HÄUSERÜBERSICHT</p>
+                </div>
+                <div onclick="switchToStorageList()" class="menu">
+                    <i class="fa-solid fa-warehouse"></i>
+                    <p class="menu-name">LAGERHALLENÜBERSICHT</p>
+                </div>
+                <div onclick="switchToFactionList()" class="menu">
+                    <i class="fa-solid fa-user-group"></i>
+                    <p class="menu-name">FRAKTIONSÜBERSICHT</p>
+                </div>
+                <div onclick="switchToTeamList()" class="menu team-list">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <p class="menu-name">TEAMLISTE</p>
+                </div>
+                <div onclick="switchToTeamChat()" class="menu team-chat">
+                    <i class="fa-solid fa-comments"></i>
+                    <p class="menu-name">TEAMCHAT</p>
+                </div>
+                <div onclick="switchToLogList()" class="menu">
+                    <i class="fa-solid fa-list"></i>
+                    <p class="menu-name">LOGS</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="active-page" class="dashboard">
+                <p class="welcome-back"><i class="fa-regular fa-square"></i>Willkommen zurück, <span id="player-name"></span></p>
+                <p class="area-title">STATISTIKEN</p>
+                <div class="box-area">
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Registrierte Spieler</p>
+                        <p class="box-content"><span id="registered-player"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Spieleranzahl</p>
+                    <p class="box-content"><span id="active-players"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Geld im Umlauf</p>
+                        <p class="box-content">$ <span id="money-circulation"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Fahrzeuge</p>
+                        <p class="box-content"><span id="registered-vehicles"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Waffen hergestellt</p>
+                        <p class="box-content"><span id="registered-weapons"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Fraktionsmitglieder</p>
+                        <p class="box-content"><span id="registered-faction-members"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Staatsmitglieder</p>
+                        <p class="box-content"><span id="registered-govern-members"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Zivilisten</p>
+                        <p class="box-content"><span id="registered-civil-members"></span></p>
+                    </div>  
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Häuser</p>
+                        <p class="box-content"><span id="registered-houses"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Lagerhallen</p>
+                        <p class="box-content"><span id="registered-storages"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Businesses</p>
+                        <p class="box-content"><span id="registered-businesses"></span></p>
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-bars"></i>
+                        <p class="box-title">Weedpflanzen angebaut</p>
+                        <p class="box-content"><span id="registered-weed-plants"></span></p>
+                    </div>
+                </div>
+                <p class="area-title">SERVERVERWALTUNG</p>
+                <div class="button-area">
+                    <button><i class="fa-solid fa-power-off"></i>Server neustarten</button>
+                    <button><i class="fa-solid fa-bullhorn"></i>Ankündigung</button>
+                </div>
+            </div>
+            <div style="display: none;" class="player-list">
+                <div class="player-list-container">
+                    <div class="top">
+                        <p class="area-title">SPIELERLISTE</p>
+                        <input type="text" placeholder="Spieler suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table id="player-list-table">
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th></th>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Fraktion</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Zuletzt eingeloggt</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <div style="display: none;" class="player-info-container">
+                    <div>
+                        <p style="margin-bottom: 1vh;" class="area-title">SPIELERINFORMATIONEN</p>
+                        <div class="box-area">
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Name</p>
+                                <p class="box-content"><span id="player-information-name"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">ID</p>
+                                <p class="box-content"><span id="player-information-id"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Bankguthaben</p>
+                                <p class="box-content">$ <span id="player-information-bankMoney"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Bargeld</p>
+                                <p class="box-content">$ <span id="player-information-handMoney"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Fahrzeuge</p>
+                                <p class="box-content"><span id="player-information-vehicles"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Visumstufe</p>
+                                <p class="box-content"><span id="player-information-level"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Fraktion</p>
+                                <p class="box-content"><span id="player-information-faction"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Rang</p>
+                                <p class="box-content"><span id="player-information-faction-rank"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Business</p>
+                                <p class="box-content"><span id="player-information-business"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Business ID</p>
+                                <p class="box-content"><span id="player-information-business-id"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Socialclubname</p>
+                                <p class="box-content"><span id="player-information-social"></span></p>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="box-title">Zuletzt eingeloggt</p>
+                                <p class="box-content"><span id="player-information-LastLoggedIn"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 1vh;" class="area-title">SPIELERVERWALTUNG</p>
+                        <div class="button-area">
+                            <button onclick="BanPlayer()"><i class="fa-solid fa-gavel"></i>Spieler bannen</button>
+                            <button onclick="KickPlayer()"><i class="fa-solid fa-right-from-bracket"></i>Spieler kicken</button>
+                            <button onclick="SetAdminRank()"><i class="fa-solid fa-user-gear"></i>Adminrank setzen</button>
+                            <button onclick="SendMessage()"><i class="fa-solid fa-message"></i>Nachricht senden</button>
+                            <button onclick="WarnPlayer()"><i class="fa-solid fa-message-exclamation"></i>Spieler verwarnen</button>
+                            <button onclick="BlockFaction()"><i class="fa-solid fa-user-xmark"></i>Fraktionsperre setzen</button>
+                            <button onclick="TpToMe()"><i class="fa-solid fa-location-dot"></i>Zu mir teleportieren</button>
+                            <button onclick="TpToPlayer()"><i class="fa-solid fa-location-dot"></i>Zum Spieler teleportieren</button>
+                            <button onclick="ResetDimension()"><i class="fa-solid fa-earth-americas"></i>Dimension zurücksetzen</button>
+                            <button onclick="FreezePlayer()"><i class="fa-solid fa-icicles"></i>Spieler einfrieren</button>
+                            <button onclick="RevivePlayer()"><i class="fa-solid fa-briefcase-medical"></i>Spieler wiederbeleben</button>
+                            <button onclick="SpectatePlayer()"><i class="fa-solid fa-eye"></i>Spieler beobachten</button>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 1vh; margin-top: 2vh;" class="area-title">AKTIVE VERWARNUNGEN</p>
+                            <div class="kick-history">
+                                <table id="active-warns-history-table" style="width: 43vh;">
+                                    <tr>
+                                        <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Verwarnt von</th>
+                                        <th>Grund</th>
+                                        <th>Datum | Uhrzeit</th>
+                                        <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;"></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-right: 2vh;">
+                        <p style="margin-bottom: 1vh; margin-top: 2vh;" class="area-title">LETZTE LOGINS</p>
+                        <div class="kick-history">
+                            <table id="logins-history-table" style="width: 43vh;">
+                                <tr>
+                                    <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Datum</th>
+                                    <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Uhrzeit</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 1vh; margin-top: 2vh;" class="area-title">KICKVERLAUF</p>
+                        <div class="kick-history">
+                            <table id="kick-history-table" style="width: 43vh;">
+                                <tr>
+                                    <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Gekickt von</th>
+                                    <th>Grund</th>
+                                    <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Datum | Uhrzeit</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-right: 2vh;">
+                        <p style="margin-bottom: 1vh; margin-top: 2vh;" class="area-title">BANVERLAUF</p>
+                        <div class="kick-history">
+                            <table id="ban-history-table" style="width: 43vh;">
+                                <tr>
+                                    <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Gebannt von</th>
+                                    <th>Grund</th>
+                                    <th>Dauer</th>
+                                    <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Datum | Uhrzeit</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 1vh; margin-top: 2vh;" class="area-title">WARNVERLAUF</p>
+                        <div class="kick-history">
+                            <table id="warn-history-table" style="width: 43vh;">
+                                <tr>
+                                    <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Verwarnt von</th>
+                                    <th>Grund</th>
+                                    <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Datum | Uhrzeit</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="vehicle-list">
+                <div class="vehicle-list-container">
+                    <div class="top">
+                        <p class="area-title">FAHRZEUGLISTE</p>
+                        <input type="text" placeholder="Fahrzeug suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th></th>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Kennzeichen</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Garage</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr onclick="showVehicleInfo()" class="vehicle-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="online" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-car"></i></td>
+                                <td>Asea</td>
+                                <td>1</td>
+                                <td>-</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Pillbox Hill</td>
+                            </tr>
+                            <tr class="vehicle-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="offline" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-car"></i></td>
+                                <td>Faggio</td>
+                                <td>2</td>
+                                <td>CR-00001</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Fort Zancudo</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="display: none;" class="vehicle-info-container">
+                    <div class="top">
+                        <p class="area-title">FAHRZEUG INFORMATION</p>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Item ID</th>
+                                <th>Item Name</th>
+                                <th>Item Anzahl</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;"></th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="vehicle-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td>Sichel</td>
+                                <td>32</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </td>
+                            </tr>
+                            <tr class="vehicle-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">2</td>
+                                <td>Sturmgewehr</td>
+                                <td>1</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="house-list">
+                <div class="house-list-container">
+                    <div class="top">
+                        <p class="area-title">HAUS LISTE</p>
+                        <input type="text" placeholder="Haus suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Besitzer</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr onclick="showHouseInfo()" class="house-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">
+                                    <i class="fa-solid fa-house"></i>
+                                </td>
+                                <td>1</td>
+                                <td>Pillbox Hill Mansion</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">John Allison</td>
+                            </tr>
+                            <tr class="house-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">
+                                    <i class="fa-solid fa-house"></i>
+                                </td>
+                                <td>2</td>
+                                <td>Davis 1</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Diego Opfer</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="display: none;" class="house-info-container">
+                    <div class="top">
+                        <p class="area-title">HAUS MIETER</p>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">ID</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Name</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="house-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Jefferson Abi</td>
+                            </tr>
+                            <tr class="house-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">2</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Espenhain Abi</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="storage-list">
+                <div class="storage-list-container">
+                    <div class="top">
+                        <p class="area-title">LAGERHALLEN LISTE</p>
+                        <input type="text" placeholder="Lagerhalle suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Besitzer</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Gewicht</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr onclick="showStorageInfo()" class="storage-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder">
+                                    <i class="fa-solid fa-warehouse"></i>
+                                </td>
+                                <td>1</td>
+                                <td>Lagerhalle Vespucci</td>
+                                <td>John Allison</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">100.000 KG</td>
+                            </tr>
+                            <tr class="storage-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder">
+                                    <i class="fa-solid fa-warehouse"></i>
+                                </td>
+                                <td>2</td>
+                                <td>Lagerhalle Grapeseed</td>
+                                <td>Diego Opfer</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">1.000 KG</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="display: none;" class="storage-info-container">
+                    <div class="top">
+                        <p class="area-title">LAGERHALLEN SCHLÜSSEL</p>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">ID</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Name</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="storage-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Espe Abi</td>
+                            </tr>
+                            <tr class="storage-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">2</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Jefferson Abi</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="faction-list">
+                <div class="faction-list-container">
+                    <div class="top">
+                        <p class="area-title">FRAKTIONS LISTE</p>
+                        <input type="text" placeholder="Haus suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Rang 12</th>
+                                <th>Rang 11</th>
+                                <th>Rang 10</th>
+                                <th>Anzahl</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Bank</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr onclick="showFactionInfo()" class="faction-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">
+                                    <i class="fa-solid fa-user-group"></i>
+                                </td>
+                                <td>1</td>
+                                <td>YakuZa</td>
+                                <td>Jefferson</td>
+                                <td>Espe, Diego</td>
+                                <td>Niclas, Jaden, Sebastian</td>
+                                <td>23</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">2.350.412 $</td>
+                            </tr>
+                            <tr class="faction-entry">
+                                <td class="icon" style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">
+                                    <i class="fa-solid fa-user-group"></i>
+                                </td>
+                                <td>1</td>
+                                <td>FIB</td>
+                                <td>Huso 1</td>
+                                <td>opfer, Jürgen</td>
+                                <td>Huso 2, Huso 23, Udo</td>
+                                <td>99</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">2.350.412 $</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="display: none;" class="faction-info-container">
+                    <div class="top">
+                        <p class="area-title">FRAKTIONS LAGERHALLEN ITEMS</p>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">Item ID</th>
+                                <th>Item Name</th>
+                                <th>Item Anzahl</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;"></th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="faction-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td>Sichel</td>
+                                <td>32</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </td>
+                            </tr>
+                            <tr class="faction-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">2</td>
+                                <td>Sturmgewehr</td>
+                                <td>1</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="team-list">
+                <div class="team-list-container">
+                    <div class="top">
+                        <p class="area-title">TEAMLISTE</p>
+                        <input type="text" placeholder="Spieler suchen...">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;"></th>
+                                <th></th>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Adminrank</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Rangbezeichnung</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="player-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="online" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-user"></i></td>
+                                <td>Sebastian Young</td>
+                                <td>16</td>
+                                <td>100</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Projektleitung</td>
+                            </tr>
+                            <tr class="player-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="online" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-user"></i></td>
+                                <td>Sebastian Young</td>
+                                <td>16</td>
+                                <td>100</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Projektleitung</td>
+                            </tr>
+                            <tr class="player-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="online" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-user"></i></td>
+                                <td>Sebastian Young</td>
+                                <td>16</td>
+                                <td>100</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Projektleitung</td>
+                            </tr>
+                            <tr class="player-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;" class="online-holder"><div id="online" class="online-state"></div></td>
+                                <td class="icon"><i class="fa-solid fa-user"></i></td>
+                                <td>Sebastian Young</td>
+                                <td>16</td>
+                                <td>100</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Projektleitung</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="team-chat">
+                <p class="area-title">TEAMCHAT</p>
+                <div class="chat-container">
+                    <div class="chat-menu">
+                        <p class="chat-title"><i class="fa-solid fa-comment"></i>Allgemeiner Chat</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="chat-box">
+                        <div class="chat-history">
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="text">
+                                    <p class="name">Sebastian Young<span class="date">Gestern 13:44</span></p>
+                                    <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea accusantium, omnis eum hic pariatur!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Schreibe deine Nachricht...">
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="log-list">
+                <div class="log-list-container">
+                    <div class="top">
+                        <p class="area-title">LOG LISTE</p>
+                    </div>
+                    <div class="button-area">
+                        <button onclick="showLogInfo()"><i class="fa-solid fa-folder"></i>INVENTAR</button>
+                        <button><i class="fa-solid fa-folder"></i>WEAPON FACTORY</button>
+                        <button><i class="fa-solid fa-folder"></i>CONNECTION</button>
+                        <button><i class="fa-solid fa-folder"></i>LOOTDROP</button>
+                        <button><i class="fa-solid fa-folder"></i>KILL</button>
+                        <button><i class="fa-solid fa-folder"></i>DEATH</button>
+                        <button><i class="fa-solid fa-folder"></i>ACP</button>
+                        <button><i class="fa-solid fa-folder"></i>COMMAND</button>
+                        <button><i class="fa-solid fa-folder"></i>GELD</button>
+                        <button><i class="fa-solid fa-folder"></i>KAUF</button>
+                        <button><i class="fa-solid fa-folder"></i>FRAKTION</button>
+                        <button><i class="fa-solid fa-folder"></i>DEALER</button>
+                        <button><i class="fa-solid fa-folder"></i>VERARBEITER</button>
+                        <button><i class="fa-solid fa-folder"></i>GANGWAR</button>
+                        <button><i class="fa-solid fa-folder"></i>IMPOUND</button>
+                        <button><i class="fa-solid fa-folder"></i>SCHLÜSSELVERGABE</button>
+                    </div>
+                </div>
+                <div style="display: none;" class="log-info-container">
+                    <div class="top">
+                        <p class="area-title">LOOTDROP LOGS</p>
+                    </div>
+
+                    <div class="button-area">
+                        <button onclick="showLogInfoContent()"><i class="fa-solid fa-folder"></i>CREATE</button>
+                        <button><i class="fa-solid fa-folder"></i>OPEN</button>
+                    </div>
+                    <div style="display: none;" class="table-scroll">
+                        <table>
+                            <tr>
+                                <th style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">ID</th>
+                                <th>Date</th>
+                                <th>Drop Id</th>
+                                <th style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">Drop Loot</th>
+                            </tr>
+                            <tr class="placeholder">
+                            </tr>
+                            <tr class="log-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td>06 März 2022 16:38:36</td>
+                                <td>6</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">[1, 4, 3, 2, 2]</td>
+                            </tr>
+                            <tr class="log-entry">
+                                <td style="border-top-left-radius: 0.5vh; border-bottom-left-radius: 0.5vh;">1</td>
+                                <td>1 Januar 2043 01:18:56</td>
+                                <td>2</td>
+                                <td style="border-top-right-radius: 0.5vh; border-bottom-right-radius: 0.5vh;">[22, 2, 100, 19, 342]</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="app.js">
+</script>
+
+</html>

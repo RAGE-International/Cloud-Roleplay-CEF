@@ -1,0 +1,295 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../utils/libs/betterslider.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous "></script>
+    <script src="../utils/libs/jquery.js"></script>
+    <script src="../utils/libs/betterslider.js "></script>
+
+    <title>Cloud | Fraktionbank</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="contaienr-close" onmouseenter="CloseIconHover(false)" onmouseleave="CloseIconHover(true)" onclick="CloseBank()">
+            <p class="bankicon"><i class="fa-solid fa-bank "></i></p>
+            <p class="closeicon" style="display: none; font-size: 3vh;"><i class="fa-regular fa-xmark"></i></p>
+        </div>
+
+        <div class="main-container">
+            <div class="header ">
+                <img src="./img/logo.png ">
+            </div>
+            <p class="info-text">Wählen Sie eine der unteren Möglichkeiten aus</p>
+            <p class="info-text-two">Dein Fraktionskonto</p>
+            <div class="row">
+                <div class="row-item">
+                    <center>
+                        <img class="card" src="./img/02.png">
+                    </center>
+                    <div class="card-content">
+                        <div class="head">
+                            <img class="img-logo" src="./img/logo.png ">
+                            <img class="img-icon" src="./img/03.png ">
+                        </div>
+                        <p class="current-bank-number">Fraktion</p>
+                        <p class="current-bank-number-inner">MG13</p>
+                        <p class="current-balance-info">Aktueller kontostand</p>
+                        <p class="current-balance-text"><span id="current-balance-text"></span> $</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button onclick="gotowithdraw() " id="withdraw-button" style="background-color: #78DE28; box-shadow: 0 0 1vh 0 #78DE28; "><a><i class="fa-solid fa-wallet"></i>Geld auszahlen</a></button>
+                        <button onclick="gotodeposit() " id="deposit-button"><a><i class="fa-solid fa-credit-card"></i>Geld einzahlen</a></button>
+                        <button onclick="gotoactivity() " style="margin-bottom: 2vh;" id="activity-button"><a><i class="fa-solid fa-chart-line"></i>Kontoaktivität</a></button>
+                    </div>
+                </div>
+                <div class="row-item">
+                    <div class="withdraw">
+                        <i class="fa-solid fa-wallet"></i>
+                        <p class="info-text-one-withdraw">Geld auszahlen</p>
+                        <p class="info-text-two-withdraw">Zahlen Sie Geld aus.</p>
+                        <p class="info-text-three-withdraw">Betrag</p>
+                        <input class="input1" id="withdraw-input" type="number" onkeypress="return (event.charCode>= 48 && event.charCode <= 57) " onpaste="return false" placeholder="5.000.000 € ">
+                        <p class="info-text-three-withdraw" style="margin-top: 2vh;">Betrag</p>
+                        <div class="slider-container">
+                            <div class="slider-module-slider" id="slider-withdraw" style="width: 85%; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                        </div>
+                        <button onclick="bankWithdrawMoney()" class="withdraw-submit">Geld abheben</button>
+                    </div>
+                    <div class="deposit">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <p class="info-text-one-withdraw">Geld einzahlen</p>
+                        <p class="info-text-two-withdraw">Zahlen Sie Geld ein.</p>
+                        <p class="info-text-three-withdraw">Betrag</p>
+                        <input class="input2" id="deposit-input" type="number" onkeypress="return (event.charCode>= 48 && event.charCode <= 57)" onpaste="return false" placeholder="5.000.000 €">
+                        <p class="info-text-three-withdraw" style="margin-top: 2vh;">Betrag</p>
+                        <div class="slider-container">
+                            <div class="slider-module-slider" id="slider-deposit" style="width: 85%; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                        </div>
+                        <button onclick="bankDepositMoney()" class="withdraw-submit">Geld einzahlen</button>
+                    </div>
+                    <div class="activity">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <p class="info-text-one-withdraw">Kontoaktivität</p>
+                        <p class="info-text-two-withdraw">Hier siehst du deine Kontoaktivitäten.</p>
+                        <ul id="bankhistory-field">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .noUi-connects {
+        border-radius: 0.5vh;
+        filter: drop-shadow(0 0 1vh #78DE28) !important;
+    }
+    
+    .noUi-connect {
+        background: #78DE28 !important;
+        height: 0.5vw;
+        outline: none;
+        filter: drop-shadow(0 0 1vh #78DE28);
+    }
+</style>
+
+<script>
+    function bankDepositMoney() {
+        let depositamount = $('#deposit-input').val();
+        console.log(`Amount1: ${depositamount}`);
+        if (Number(depositamount) > 0) {
+            mp.trigger('Client:Frakbank:BankDepositMoney', depositamount);
+        }
+    }
+
+    function bankWithdrawMoney() {
+        let withdrawamount = $('#withdraw-input').val();
+        console.log(`Amount2: ${withdrawamount}`);
+        if (Number(withdrawamount) > 0) {
+            mp.trigger('Client:Frakbank:BankWithdrawMoney', withdrawamount);
+        }
+    }
+
+    // openatm('{"bankmoney":8074001,"currentmoney":2672459,"banknumber":1307929877,"bankHistory":[{"name":"Auszahlung","amount":158128,"ispayment":true,"date":"09.12.2021"},{"name":"Einzahlung","amount":45685,"ispayment":false,"date":"09.12.2021"},{"name":"Überweisung","amount":706,"ispayment":true,"date":"09.12.2021"}]}')
+
+    function openatm(bankcardjson) {
+        let atmjson = JSON.parse(bankcardjson)
+        $('#current-balance-text').text(formatNumber(atmjson.bankmoney))
+        $('.current-bank-number-inner').text(atmjson.banknumber)
+
+        if (atmjson.bankmoney <= 0) {
+            atmjson.bankmoney = 1;
+        }
+
+        if (atmjson.currentmoney <= 0) {
+            atmjson.currentmoney = 1;
+        }
+
+        console.log(atmjson.currentmoney);
+
+        let slider_withdraw = document.getElementById('slider-withdraw')
+
+        noUiSlider.create(slider_withdraw, {
+            start: [0],
+            connect: [true, false],
+            step: 1,
+            range: {
+                'min': 0,
+                'max': atmjson.bankmoney
+            }
+        });
+
+        slider_withdraw.noUiSlider.on('update', function(values, handle) {
+            $('#withdraw-input').val(parseInt(values[0]))
+        });
+
+        let slider_deposit = document.getElementById('slider-deposit')
+
+        noUiSlider.create(slider_deposit, {
+            start: [0],
+            connect: [true, false],
+            step: 1,
+            range: {
+                'min': 0,
+                'max': atmjson.currentmoney
+            }
+        });
+
+        slider_deposit.noUiSlider.on('update', function(values, handle) {
+            $('#deposit-input').val(parseInt(values[0]))
+        });
+
+        atmjson.bankHistory.forEach(element => {
+            if (element.ispayment == true) {
+                $html = $(
+                    `
+                <li>
+                    <div class="info ">
+                        <a>${element.name}</a>
+                        ${element.date}
+                        <br>
+                        ${element.date}
+                    </div>
+                    <div class="money ">
+                        <span style="font-weight: bold; color: red; ">-${formatNumber(element.amount)}</span> <span>$</span>
+                    </div>
+                </li>
+                `
+                )
+            } else {
+                $html = $(
+                    `
+                <li>
+                    <div class="info ">
+                        <a>${element.name}</a>
+                        ${element.date}
+                        <br>
+                        ${element.date}
+                    </div>
+                    <div class="money ">
+                        <span style="font-weight: bold; color: rgb(120, 222, 40); ">+${formatNumber(element.amount)}</span> <span>$</span>
+                    </div>
+                </li>
+                `
+                )
+            }
+            $('#bankhistory-field').append($html)
+        })
+    }
+
+    function gotowithdraw() {
+        $('.row-item .withdraw').show(0)
+        $('.row-item .deposit').hide(0)
+        $('.row-item .send').hide(0)
+        $('.row-item .activity').hide(0)
+
+        $("#withdraw-button ").css("background-color", "#78DE28");
+        $("#deposit-button ").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#send-button ").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#activity-button ").css("background-color", "rgba(196, 196, 196, 0.05)");
+
+        $("#withdraw-button").css("box-shadow", "0 0 1vh 0 #78DE28");
+        $("#deposit-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#send-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#activity-button").css("box-shadow", "0 0 1vh 0 transparent");
+    }
+
+    function gotodeposit() {
+        $('.row-item .withdraw').hide(0)
+        $('.row-item .deposit').show(0)
+        $('.row-item .send').hide(0)
+        $('.row-item .activity').hide(0)
+
+        $("#withdraw-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#deposit-button").css("background-color", "#78DE28");
+        $("#send-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#activity-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+
+        $("#withdraw-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#deposit-button").css("box-shadow", "0 0 1vh 0 #78DE28");
+        $("#send-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#activity-button").css("box-shadow", "0 0 1vh 0 transparent");
+    }
+
+    function gotosend() {
+        $('.row-item .withdraw').hide(0)
+        $('.row-item .deposit').hide(0)
+        $('.row-item .send').show(0)
+        $('.row-item .activity').hide(0)
+
+        $("#withdraw-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#deposit-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#send-button").css("background-color", "#78DE28");
+        $("#activity-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+
+        $("#withdraw-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#deposit-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#send-button").css("box-shadow", "0 0 1vh 0 #78DE28");
+        $("#activity-button").css("box-shadow", "0 0 1vh 0 transparent");
+    }
+
+    function gotoactivity() {
+        $('.row-item .withdraw').hide(0)
+        $('.row-item .deposit').hide(0)
+        $('.row-item .send').hide(0)
+        $('.row-item .activity').show(0)
+
+        $("#withdraw-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#deposit-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#send-button").css("background-color", "rgba(196, 196, 196, 0.05)");
+        $("#activity-button").css("background-color", "#78DE28");
+
+        $("#withdraw-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#deposit-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#send-button").css("box-shadow", "0 0 1vh 0 transparent");
+        $("#activity-button").css("box-shadow", "0 0 1vh 0 #78DE28");
+    }
+
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    }
+
+    function CloseBank() {
+        mp.trigger('Client:Frakbank:Destroy');
+    }
+
+    function CloseIconHover(state) {
+        if (state) {
+            $('.bankicon').css('display', 'block')
+            $('.closeicon').css('display', 'none')
+        } else {
+            $('.closeicon').css('display', 'block')
+            $('.bankicon').css('display', 'none')
+        }
+    }
+</script>
+
+</html>

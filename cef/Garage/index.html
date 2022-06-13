@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="../utils/js/fas.js" crossorigin="anonymous "></script>
+    <script src="../utils/libs/jquery.js"></script>
+</head>
+
+<body>
+
+    <div class="container" style="display: none;">
+
+        <div class="header">
+
+            <div class="gradiant"></div>
+
+            <div class="close" onclick="tryCloseGarage()">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <p class="title">Garage</p>
+
+            <div class="information">
+
+                <div class="module">
+                    <p class="first-title" id="garagename">Vinewood Garage</p>
+                    <p class="sec-title">Los Santos</p>
+                </div>
+
+                <div class="module">
+                    <p class="first-title" id="vehiclesingarage">7 Fahrzeuge</p>
+                    <p class="sec-title">in der Garage</p>
+                </div>
+
+                <div class="module">
+                    <p class="first-title" id="vehiclesinrage">20 Fahrzeuge</p>
+                    <p class="sec-title">in der Umgebung</p>
+                </div>
+
+            </div>
+
+            <div class="interaction">
+                <button class="active" onclick="toggleCategory(this, 'parkin')">Einparken</button>
+                <button onclick="toggleCategory(this, 'parkout')">Ausparken</button>
+            </div>
+
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <input oninput="sortCategory()" type="text" placeholder="Suche...">
+            </div>
+
+
+        </div>
+
+        <div class="content">
+
+            <div class="wrapper" onclick="toggleInformations(this)">
+                <div class="model">
+                    <div class="number">1</div>
+                    <div class="information">
+                        <p class="name">Karin BeeJay XL</p>
+                        <p class="plate">XXLSA234SDL</p>
+                    </div>
+                    <button>Einparken</button>
+                </div>
+                <div class="informations">
+
+                    <div class="info">
+                        <p class="title">Fahrzeugnotz</p>
+                        <p class="value">Schutzweste</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Fahrzeugnotz</p>
+                        <p class="value">Schutzweste</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Fahrzeugnotz</p>
+                        <p class="value">Schutzweste</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Fahrzeugnotz</p>
+                        <p class="value">Schutzweste</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="./javascript/functions.js"></script>
+<script src="../utils/libs/jquery.js"></script>
+
+<script>
+    let parkedInVehicles = [];
+    let parkedOutVehicle = [];
+    let currentSelectedTab = "parkin";
+    let garageId = "null";
+
+    function loadGaraga(gid, gName, json) {
+        let array = JSON.parse(json); /*array 0 = ausgeparkte | array 1 = eingeparkte*/
+        garageId = gid;
+        parkedInVehicles = array[0];
+        parkedOutVehicle = array[1];
+
+        $('#garagename').text(gName);
+        $('#vehiclesingarage').text(`${parkedOutVehicle.length ? parkedOutVehicle.length : "Keine"} Fahrzeuge`);
+        $('#vehiclesinrage').text(`${parkedInVehicles.length ? parkedInVehicles.length : "Keine"} Fahrzeuge`);
+
+        loadCategory(parkedInVehicles)
+        $('.container').fadeIn(1000);
+    }
+
+
+    function toggleCategory(element, value) {
+
+        currentSelectedTab = value;
+
+        $('.interaction button').each((index, elem) => $(elem).removeClass('active'));
+
+        $(element).addClass('active');
+
+        let vehicles = value == "parkin" ? parkedInVehicles : parkedOutVehicle;
+
+        loadCategory(vehicles);
+    }
+
+    function sortCategory() {
+        let value = $('.search input').val();
+
+        let vehicles = currentSelectedTab == "parkin" ? parkedInVehicles : parkedOutVehicle;
+
+        if (!value.length) return loadCategory(vehicles);
+
+        vehicles = vehicles.filter(x => x.Note.toLowerCase().startsWith(value.toLowerCase()) ||
+            x.NumberPlate.toLowerCase().startsWith(value.toLowerCase()) ||
+            x.DisplayName.toLowerCase().startsWith(value.toLowerCase()));
+
+        loadCategory(vehicles);
+    }
+
+    let blockInfo = false;
+
+    function tryVehicleActive(element) {
+
+        blockInfo = true;
+        let vehId = parseInt($(element).attr("vehicleId"));
+
+        setTimeout(() => {
+            blockInfo = false;
+        }, 250);
+
+        if (typeof(vehId) == "number" && typeof(garageId) == "number") {
+            let eventName = currentSelectedTab == "parkin" ? "Client:ParkInVehicle" : "Client:ParkOutVehicle";
+
+            mp.trigger(eventName, garageId, vehId);
+        }
+    }
+
+    function tryCloseGarage() {
+        mp.trigger("Client:DestroyGarage");
+    }
+
+    function loadCategory(vehicles) {
+        let count = 0;
+
+        $(".content").html("");
+
+        for (const x of vehicles) {
+
+            count++;
+            let element = `
+            <div class="wrapper" onclick="toggleInformations(this)">
+                <div class="model">
+                    <div class="number">${count}</div>
+                    <div class="information">
+                        <p class="name">${x.DisplayName}</p>
+                        <p class="plate">${x.NumberPlate != "" ? x.NumberPlate : "Kein Nummernschild"}</p>
+                    </div>
+                    <button onclick="tryVehicleActive(this)" vehicleId="${x.Id}" >${currentSelectedTab == "parkin" ? "Einparken" : "Ausparken"}</button>
+                </div>
+                <div class="informations">
+
+                    <div class="info">
+                        <p class="title">Motorstatus</p>
+                        <p class="value" style="color: #78de28">${x.Health}%</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Tankvolumen</p>
+                        <p class="value" style="color: #FFDE33" >${(x.Fuel).toFixed(0)}%</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Kilometerstand</p>
+                        <p class="value">${(x.Km).toFixed(2)} Km</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Fahrzeugnotiz</p>
+                        <p class="value">${x.Note == "-" ? "Keine Notiz" : x.Note}</p>
+                    </div>
+                    <div class="info">
+                        <p class="title">Kofferraumgewicht</p>
+                        <p class="value">${parseFloat((x.TrunkWeight / 1000)).toFixed(1)} Kg</p>
+                    </div>
+
+                </div>
+            </div>`;
+
+            $(".content").append(element);
+        }
+    }
+
+    function toggleInformations(element) {
+
+        if (blockInfo) return;
+
+        let active = $(element).attr('active');
+
+        if ($(element).attr('block') == "true") return;
+
+        if (active == undefined) active = "false";
+
+        if (active == "true") {
+            $(element).attr('active', "false");
+
+            $(element).find('.model').css({
+                "background": "rgba(255, 255, 255, 0.15)",
+            });
+
+            $(element).find('.number').css({
+                "background": "#ffffff",
+                "box-shadow": "0vh 0vh 0.5vh #ffffff",
+                "color": "rgb(0, 0, 0)",
+            });
+
+            $(element).find('.name').css({
+                "color": "rgb(255, 255, 255)",
+            });
+
+            $(element).find('.plate').css({
+                "color": "rgba(255, 255, 255, 0.8)",
+            });
+
+            $(element).find('.informations').slideUp(250);
+
+            $(element).find('.model').css({
+                "border-radius": "1.5vh",
+            });
+
+        } else if (active == "false") {
+
+            $(element).attr('block', "true");
+
+            $('.wrapper').each((index, elem) => {
+
+                $(elem).attr('active', "false");
+
+                $(elem).find('.model').css({
+                    "background": "rgba(255, 255, 255, 0.15)",
+                });
+
+                $(elem).find('.number').css({
+                    "background": "#ffffff",
+                    "box-shadow": "0vh 0vh 0.5vh #ffffff",
+                    "color": "rgb(0, 0, 0)",
+                });
+
+                $(elem).find('.name').css({
+                    "color": "rgb(255, 255, 255)",
+                });
+
+                $(elem).find('.plate').css({
+                    "color": "rgba(255, 255, 255, 0.8)",
+                });
+
+                $(elem).find('.informations').slideUp(250);
+
+
+                $(elem).find('.model').css({
+                    "border-radius": "1.5vh",
+                });
+            });
+
+            $(element).attr('active', "true");
+
+            $(element).find('.model').css({
+                "background": "#fff",
+            });
+
+            $(element).find('.number').css({
+                "background": "#3EA2EB",
+                "box-shadow": "0vh 0vh 0.5vh #3EA2EB",
+                "color": "rgb(255, 255, 255)",
+            });
+
+            $(element).find('.name').css({
+                "color": "rgb(0, 0, 0)",
+            });
+
+            $(element).find('.plate').css({
+                "color": "rgba(0, 0, 0, 0.8)",
+            });
+
+            $(element).find('.informations').slideDown(250);
+
+            $(element).find('.model').css({
+                "border-radius": "1.5vh 1.5vh 0 0",
+            });
+
+            setTimeout(() => {
+                $(element).attr('block', "false");
+            }, 500);
+        }
+    }
+</script>
+
+</html>

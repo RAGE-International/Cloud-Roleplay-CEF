@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "ubuntu";
+    src: url('../fonts/Ubuntu.ttf');
+}
+
+@font-face {
+    font-family: "ubuntu-m";
+    src: url('../fonts/Ubuntu-Medium.ttf');
+}
+
+body {
+    background-image: url(../img/background.png);
+    background-size: 100%;
+}
+
+.container .house-info {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 2%;
+    top: 70%;
+}
+
+.container .house-info .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container .house-info .title .icon {
+    width: 4vh;
+    height: 4vh;
+    background-color: white;
+    color: #33A6E6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6vh;
+}
+
+.container .house-info .title .house-type {
+    color: white;
+    font-family: 'ubuntu-m';
+    margin-left: 1.05vh;
+    font-size: 1.6vh;
+}
+
+.container .house-info .house-name {
+    color: white;
+    font-family: 'ubuntu-m';
+    font-size: 2.14vh;
+    margin-top: 0.8vh;
+}
+
+.container .house-info .quality-text {
+    font-family: 'ubuntu';
+    color: #33CEFF;
+    font-size: 1.19vh;
+    margin-top: 0.3vh;
+}
+
+.container .house-info .quality-stars {
+    display: flex;
+    flex-direction: row;
+    color: rgba(255, 255, 255, 0.24);
+    font-size: 1.5vh;
+    margin-top: 1vh;
+    letter-spacing: 0.15vh;
+}
+
+.container .house-info .quality-stars .fa-star.active {
+    color: #E6CB33;
+}
+
+.container .house-info .info-box {
+    margin-top: 2vh;
+    display: flex;
+}
+
+.container .house-info .info-box .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .house-info .info-box .info .info-title {
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1.19vh;
+}
+
+.container .house-info .info-box .info .info-text {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'ubuntu-m';
+    font-size: 2.14vh;
+    margin-top: 0.2vh;
+}
+
+.container .house-info .info-box .stripe {
+    margin-left: 2.7vh;
+    margin-right: 1.3vh;
+    height: 4.2vh;
+    width: 0.1vh;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.container .house-info .info-box .lock-box {
+    width: 3vh;
+    height: 3vh;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-left: 0.3vh;
+    border-radius: 0.7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .house-info .info-box .locked {
+    background: #BC3F3F;
+}
+
+.container .house-info .info-box .unlocked {
+    background: #58bc3f;
+}
+
+.container .house-info .info-box .lock-box i {
+    color: white;
+    font-size: 1.3vh;
+}
+
+.container .house-info .buttons {
+    margin-top: 3.4vh;
+}
+
+.container .house-info .buttons button {
+    width: 15.75vh;
+    height: 4.5vh;
+    border-radius: 0.5vh;
+    outline: none;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: opacity 250ms, background-color 250ms, filter 250ms, border 250ms;
+    margin-right: 2vh;
+    background-color: transparent;
+    font-size: 1.4vh;
+    font-family: 'ubuntu';
+}
+
+.container .house-info .buttons button:hover {
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 1vh #2FBDEA);
+    background-color: #2FBDEA;
+    border: none;
+}
+
+.container .house-info .buttons button.active {
+    filter: drop-shadow(0px 0px 1vh #2FBDEA);
+    background-color: #2FBDEA;
+    font-family: 'ubuntu-m';
+    font-size: 1.4vh;
+    border: none;
+}
+
+.container .renter-overview {
+    display: none;
+    width: 42.7vh;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#renter-blur {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+}
+
+.container .renter-overview .title {
+    margin-bottom: 4vh;
+    padding-left: 1vh;
+}
+
+.container .renter-overview .title .renter-title{
+    color: white;
+    font-family: 'ubuntu-m';
+    font-size: 2.14vh;
+}
+
+.container .renter-overview .title .renter-text{
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'ubuntu';
+    font-size: 1.19vh;
+    margin-top: 0.3vh;
+}
+
+.container .renter-overview .content-title {
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1vh;
+    margin-bottom: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .renter-overview .content-title .text {
+    width: 5vh;
+}
+
+.container .renter-overview .content {
+    width: 100%;
+    height: auto;
+    max-height: 30vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    /* background-color: red; */
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+.container .renter-overview .content::-webkit-scrollbar {
+    width: 0;
+}
+
+.container .renter-overview .content .content-item {
+    position: relative;
+    width: 100%;
+    height: 4.5vh;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 0.5vh;
+    font-family: 'ubuntu';
+    font-size: 1.3vh;
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+.container .renter-overview .content .content-item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.container .renter-overview .content .content-item .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background-color: #2FBDEA;
+    border-radius: 50%;
+    overflow: visible !important;
+}
+
+.container .renter-overview .content .content-item .text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    width: 8vh;
+    margin-left: 3.5vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.container .renter-overview .content .content-item .n2 {
+
+    margin-left: 6.3vh;
+}
+
+.container .renter-overview .content .content-item .n3 {
+
+    margin-left: 6.2vh;
+}
+
+.renter-overview button {
+    width: 15.75vh;
+    height: 4.5vh;
+    border-radius: 0.5vh;
+    outline: none;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: opacity 250ms, background-color 250ms, filter 250ms, border 250ms;
+    background-color: transparent;
+    font-size: 1.4vh;
+    font-family: 'ubuntu';
+    margin-top: 1vh;
+    float: right;
+    margin-right: 1vh;
+}
+
+.renter-overview button:hover {
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 1vh #2FBDEA);
+    background-color: #2FBDEA;
+    border: none;
+}
+
+.container .renter-options {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../utils/img/backgrounds/bg2.png);
+    background-size: cover;
+}
+
+.container .renter-options .menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 28vh;
+    height: 32vh;
+    background-color: #0B1533;
+    /* background-color: #0b15336e; */
+    border-radius: 1vh;
+    padding-left: 2.8vh;
+    padding-right: 2.8vh;
+    padding-top: 3.5vh;
+    padding-bottom: 3.5vh;
+}
+
+.container .renter-options .menu .title {
+    color: white;
+    font-size: 1.6vh;
+    font-family: 'ubuntu-m';
+}
+
+.container .renter-options .menu .info {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-family: 'ubuntu';
+}
+
+.container .renter-options .menu .info .info-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.5vh;
+}
+
+.container .renter-options .menu .info .info-box .info-title {
+    font-size: 1vh;
+}
+
+.container .renter-options .menu .info .info-box .info-text {
+    font-size: 1.2vh;
+    margin-top: 1.2vh;
+}
+
+.container .renter-options .menu .rent-info-title {
+    color: white;
+    font-family: 'ubuntu';
+}
+
+.container .renter-options .menu .rent-info-title {
+    font-size: 1vh;
+    margin-top: 2.75vh;
+}
+
+.container .renter-options .menu .rent-info .rent-info-box {
+    display: flex;
+    flex-direction: row;
+    font-family: 'ubuntu';
+    color: white;
+    justify-content: space-between;
+}
+
+.container .renter-options .menu .rent-info .rent-info-box .rent-info-current-price {
+    padding: 1vh;
+    width: 11vh;
+    height: 4.25vh;
+    background: rgba(0, 0, 0, 0.31);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    margin-top: 1vh;
+    border-radius: 0.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3vh;
+}
+
+.container .renter-options .menu .rent-info .rent-info-box .rent-info-current-price .rent-info-icon{
+    color: #33FF47;
+    font-size: 1.6vh;
+}
+
+#sprice {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    user-select: auto;
+}
+
+
+.container .renter-options .menu .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container .renter-options .menu .buttons .button {
+    background-color: red;
+    width: 11vh;
+    height: 4.5vh;
+    border-radius: 0.5vh;
+    margin-top: 3.25vh;
+    font-family: 'ubuntu-m';
+    font-size: 1.3vh;
+    background-color: #2FBDEA;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 250ms;
+}
+
+.container .renter-options .menu .buttons .button:hover {
+    opacity: 0.8;
+}
+
+@keyframes garageanimation {
+    100% {
+        opacity: 1;
+    }
+}
+
+.garage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+    opacity: 0;
+    animation: garageanimation 300ms linear;
+    animation-fill-mode: forwards;
+}
+
+.garage .garage-overview {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin-top: 1vh;
+}
+
+#garage1 {
+    top: 30%;
+}
+
+#garage2 {
+    margin-top: 7vh;
+}
+
+.garage .garage-overview .title {
+    margin-bottom: 4vh;
+    padding-left: 1vh;
+}
+
+.garage .garage-overview .title .garage-title{
+    color: white;
+    font-family: 'ubuntu-m';
+    font-size: 2.14vh;
+}
+
+.garage .garage-overview .title .garage-text{
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'ubuntu';
+    font-size: 1.19vh;
+    margin-top: 0.3vh;
+}
+
+.garage .garage-overview .content-title {
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'ubuntu';
+    font-size: 1vh;
+    margin-bottom: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.garage .garage-overview .content-title .text {
+    width: 5.5vh;
+}
+
+.garage .garage-overview .content {
+    width: 100%;
+    height: auto;
+    max-height: 25vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    border-radius: 0.5vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    scroll-behavior: smooth;
+}
+
+.garage .garage-overview .content::-webkit-scrollbar {
+    width: 0;
+}
+
+.garage .garage-overview .content .content-item {
+    position: relative;
+    width: 100%;
+    height: 4.5vh;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 0.5vh;
+    font-family: 'ubuntu';
+    font-size: 1.3vh;
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+.container .garage-overview .content .content-item-active {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.garage .garage-overview .content .content-item .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background-color: #2FBDEA;
+    border-radius: 50%;
+    overflow: visible !important;
+}
+
+.garage .garage-overview .content .content-item .text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    width: 8vh;
+    margin-left: 4.2vh; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    overflow: visible;
+}
+
+.garage .garage-overview .content .content-item .n2 {
+
+    margin-left: 8.7vh;
+}
+
+.garage .garage-overview .content .content-item .n3 {
+
+    margin-left: 8.7vh;
+}
+
+.garage-overview button {
+    width: 15.75vh;
+    height: 4.5vh;
+    border-radius: 0.5vh;
+    outline: none;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: opacity 250ms, background-color 250ms, filter 250ms, border 250ms;
+    background-color: transparent;
+    font-size: 1.4vh;
+    font-family: 'ubuntu';
+    margin-top: 1vh;
+    float: right;
+    margin-right: 1vh;
+}
+
+.garage-close:hover,
+.garage-overview button:hover {
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 1vh #2FBDEA);
+    background-color: #2FBDEA;
+    border: none;
+}
+
+.garage-close {
+    position: absolute;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15.75vh;
+    height: 4.5vh;
+    border-radius: 0.5vh;
+    outline: none;
+    border: 0.2vh solid rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: opacity 250ms, background-color 250ms, filter 250ms, border 250ms;
+    background-color: transparent;
+    font-size: 1.4vh;
+    font-family: 'ubuntu';
+    margin-top: 1vh;
+    float: right;
+    margin-right: 1vh;
+}

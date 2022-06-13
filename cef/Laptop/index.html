@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="betterslider.css">
+    <script src="fas.js"></script>
+    <script src="betterslider.js"></script>
+    <title>Cloud | Laptop</title>
+</head>
+<body>
+    <div class="laptop" style="display: none;">
+        <div class="laptop-inner">
+            <div class="pages">
+                <div class="page" id="app-home" style="display: block;">
+                    <div class="headbar">
+                        <img src="./img/cloud.png" class="cloudlogo">
+                        <div class="headbarright">
+                            <i class="fa-solid fa-wifi headbaricon"></i>
+                            <i class="fa-solid fa-battery-full headbaricon"></i>
+                            <h1 onclick="mp.trigger('GetUserInfo')">Einstellungen</h1>
+                            <h1>Montag, 14.04.2004</h1>
+                            <h1>16:26</h1>
+                        </div>
+                    </div>
+                    <div class="apps">
+                        <div class="app" id="dispatchapp" onclick="OpenApp('emergency')"><i class="fa-regular fa-phone-hangup"></i></div>
+                        <div class="app" id="overviewapp" onclick="OpenApp('overview')"><i class="fa-regular fa-boxes-stacked"></i></div>
+                        <div class="app" id="policeapp" onclick="OpenApp('police')"><i class="fa-solid fa-police-box policeicon"></i></div>
+                        <div class="app" id="factionapp" onclick="OpenApp('faction')"><i class="fa-solid fa-user-group"></i></div>
+                        <div class="app" id="businessapp" onclick="OpenApp('business')"><i class="fa-solid fa-user-group"></i></div>
+<!--                        <div class="app" id="mailapp" onclick="OpenApp('cmail')"><img src="./img/Apps/mail.png"></div>-->
+                    </div>
+                </div>
+                <div class="page" id="app-overview">
+                    <img src="./img/home.svg" class="homebtn" onclick="CloseOVWApp()">
+                    <div class="ovw-c">
+                        <div class="ovw-header">
+                            <h1>Übersicht</h1>
+                            <h2>Mit dieser App kannst du deine Fahrzeuge/-Schlüssel, Häuser/-Schlüssel oder deine Lagerhallen einsehen!</h2>
+                        </div>
+                        <div class="ovw-item">
+                            <h1>FAHRZEUGE</h1>
+                            <h2>Eine Übersicht deiner Fahrzeuge/-Schlüssel.</h2>
+                            <img class="ovw-vv-v-1" src="./img/vehicle.png">
+                            <div class="accessovwtab" onclick="OpenOVWTab('vehicles')"><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                        <div class="ovw-item">
+                            <h1>LAGERHALLEN</h1>
+                            <h2>Eine Übersicht deiner Lagerhallen/-Schlüssel.</h2>
+                            <img class="ovw-vv-v-2" src="./img/lager.png">
+                            <div class="accessovwtab" onclick="OpenOVWTab('storages')"><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                        <div class="ovw-item">
+                            <h1>HÄUSER</h1>
+                            <h2>Eine Übersicht deiner Häuser/-Schlüssel.</h2>
+                            <img class="ovw-vv-v-3" src="./img/house.png">
+                            <div class="accessovwtab" style="right: 2vh;" onclick="OpenOVWTab('houses')"><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="ovwTab" id="ovwTab-vehicles">
+                        <div class="ovwcont">
+                            <div class="ovwhead">
+                                <h1>Fahrzeug-Übersicht</h1>
+                                <h2>Mit dieser App kannst du deine Fahrzeuge/-Schlüssel <br>einsehen!</h2>
+                            </div>
+                            <div class="content-title">
+                                <div class="text">Fahrzeugname</div>
+                                <div class="text">Fahrzeug-Id</div>
+                                <div class="text">Kennzeichen</div>
+                                <div class="text">Garage</div>
+                            </div>
+                            <div class="content" id="ovwcontent"></div>
+                            <h1 class="ovwheaderdingsn">Schlüssel</h1>
+                            <div class="content-title" style="margin-top: 1vh;">
+                                <div class="text">Fahrzeugname</div>
+                                <div class="text">Fahrzeug-Id</div>
+                                <div class="text">Kennzeichen</div>
+                                <div class="text">Garage</div>
+                            </div>
+                            <div class="content" id="ovwcontent2"></div>
+                        </div>
+                    </div>
+                    <div class="ovwTab" id="ovwTab-storages">
+                        <div class="ovwcont">
+                            <div class="ovwhead">
+                                <h1>Lager-Übersicht</h1>
+                                <h2>Mit dieser App kannst du deine Fahrzeuge/-Schlüssel <br>einsehen!</h2>
+                            </div>
+                            <div class="content-title">
+                                <div class="text">Lagername</div>
+                                <div class="text">Lager Id</div>
+                                <div class="text">Plätze</div>
+                                <div class="text">Standort</div>
+                            </div>
+                            <div class="content" id="ovwcontentstorage"></div>
+                            <h1 class="ovwheaderdingsn">Schlüssel</h1>
+                            <div class="content-title" style="margin-top: 1vh;">
+                                <div class="text">Lagername</div>
+                                <div class="text">Lager Id</div>
+                                <div class="text">Plätze</div>
+                                <div class="text">Standort</div>
+                            </div>
+                            <div class="content" id="ovwcontentstorage2"></div>
+                        </div>
+                    </div>
+                    <div class="ovwTab" id="ovwTab-houses">
+                        <div class="ovwcont">
+                            <div class="ovwhead">
+                                <h1>Haus-Übersicht</h1>
+                                <h2>Mit dieser App kannst du deine Fahrzeuge/-Schlüssel <br>einsehen!</h2>
+                            </div>
+                            <div class="content-title">
+                                <div class="text" style="margin-left: 1vh;">Hausname</div>
+                                <div class="text">Haus-Id</div>
+                                <div class="text">Mietplätze</div>
+                                <div class="text">Garagen-Plätze</div>
+                                <div class="text">Standort</div>
+                            </div>
+                            <div class="content" id="ovwcontenthouse"></div>
+                            <h1 class="ovwheaderdingsn">Schlüssel</h1>
+                            <div class="content-title" style="margin-top: 1vh;">
+                                <div class="text" style="margin-left: 1vh;">Hausname</div>
+                                <div class="text">Haus-Id</div>
+                                <div class="text">Mietplätze</div>
+                                <div class="text">Garagen-Plätze</div>
+                                <div class="text">Standort</div>
+                            </div>
+                            <div class="content" id="ovwcontenthouse2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="app-settings">
+                    <i class="settingsclosebtn fa-solid fa-circle-xmark" onclick="OpenApp('home')"></i>
+                    <div class="space"></div>
+                    <h1>Einstellungen</h1>
+                    <div class="playerimage"></div>
+                    <div class="playerinfos">
+                        <h1 id="playerinfos-name">Diego Otto</h1>
+                        <h2 id="playerinfos-email">diego.otto@cloudmail.com</h2>
+                    </div>
+                    <button><img class="settingsbtnimg" src="./img/bell.svg">Benachrichtigungen<div id="pimmelring" class="pimmelring" onclick="ToggleNotifications()"></div></button>
+                    <button><i class="fa-solid fa-volume"></i>Töne<i class="fa-solid fa-chevron-right settingsarrow" onclick="OpenSettingsTab('sounds')"></i></button>
+                    <button><img class="settingsbtnimg" src="./img/image.svg">Hintergrundbilder<i class="fa-solid fa-chevron-right settingsarrow" onclick="OpenSettingsTab('backgrounds')"></i></button>
+
+                    <div class="settingsTab" id="settingsTab-sounds">
+                        <i class="settingsclosebtn fa-solid fa-circle-xmark" onclick="SettingsCloseTab()"></i>
+                        <div class="space" style="height: 2.5vh;"></div>
+                        <h1>Einstellungen > Sound</h1>
+                        <div class="volbox">
+                            <div class="space2"></div>
+                            <h1>Lautstärke</h1>
+                            <i class="fa-solid fa-volume-off settingsicon"></i>
+                            <div class="slider-round" id="slider"></div>
+                            <i class="fa-solid fa-volume settingsicon"></i>
+                        </div>
+                        <div class="sounditem" onclick="SelectRingtone('pimmelring1', 1)">
+                            <i class="fa-solid fa-volume settingsicon"></i>
+                            <h1>Klingelton 1</h1>
+                            <div id="pimmelring1" class="pimmelring"></div>
+                        </div>
+                        <div class="sounditem" onclick="SelectRingtone('pimmelring2', 2)">
+                            <i class="fa-solid fa-volume settingsicon"></i>
+                            <h1>Klingelton 2</h1>
+                            <div id="pimmelring2" class="pimmelring"></div>
+                        </div>
+                    </div>
+                    <div class="settingsTab" id="settingsTab-backgrounds">
+                        <i class="settingsclosebtn fa-solid fa-circle-xmark" onclick="SettingsCloseTab()"></i>
+                        <div class="space" style="height: 2.5vh;"></div>
+                        <h1>Einstellungen > Hintergrund</h1>
+                        <div class="bgbox">
+                            <div class="bgitem" id="bg-1" style="background-image: url(./img/Wallpaper/1.jpg);" onclick="SelectBackground(this, 1)"></div>
+                            <div class="bgitem" id="bg-2" style="background-image: url(./img/Wallpaper/2.jpg);" onclick="SelectBackground(this, 2)"></div>
+                            <div class="bgitem" id="bg-3" style="background-image: url(./img/Wallpaper/3.jpg);" onclick="SelectBackground(this, 3)"></div>
+                            <div class="bgitem" id="bg-4" style="background-image: url(./img/Wallpaper/4.jpg);" onclick="SelectBackground(this, 4)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="app-police">
+                    <img src="./img/home.svg" class="homebtn" onclick="OpenApp('home')">
+                    <div class="header">
+                        <div class="logo">
+                            <img src="./img/police-app/logo.png">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="header-items">
+                            <div class="header-item active" id="police-app" onclick="PoliceSwitchTab(this, 'playerSearch')">
+                                <p>Personensuche</p>
+                            </div>
+                            <div class="header-item" id="police-app" onclick="PoliceSwitchTab(this, 'vehicleSearch')">
+                                <p>Fahrzeugsuche</p>
+                            </div>
+                            <div class="header-item" id="police-app" onclick="PoliceSwitchTab(this, 'wantedPlayer')">
+                                <p>Gesuchte Personen</p>
+                            </div>
+                            <div class="header-item" id="police-app" onclick="PoliceSwitchTab(this, 'laws')">
+                                <p>Gesetze</p>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-playerRecord" style="display: none;">
+                            <div class="buttons">
+                                <div class="button" id="create-player-akte" style="background-color: #7E1C1C;">
+                                    Akte anlegen
+                                </div>
+                                <div class="button" id="save-player-akte" style="background-color: #1C417E;">
+                                    Speichern
+                                </div>
+                            </div>
+                            <p class="title" style="margin-top: 0;">Personen Information</p>
+                            <div class="player-information">
+                                <div class="img"></div>
+                                <div class="player-information-item" style="margin-left: 3vh;">
+                                    <div class="item">
+                                        <p class="title">Vorname</p>
+                                        <p class="content" id="policeplayerinfoname">Leon</p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="title">Nachname</p>
+                                        <p class="content" id="policeplayerinfoname2">Conrey</p>
+                                    </div>
+                                </div>
+                                <div class="player-information-item">
+                                    <div class="item">
+                                        <p class="title">Geburtsdatum</p>
+                                        <p class="content" id="policeplayerinfobirthdate">26.03.1999</p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="title">Status</p>
+                                        <div id="policevehiclestatus-c">
+                                            <!-- <button onclick="ToggleDropDown(this, 'policevehicledropdown', 'policestatuslist')" id="policestatus" style="color: #FF4B4B;">Gesucht<img src="./img/arrowdown.svg" class="policevehiclestatusarrow" id="policevehicledropdown"></button> -->
+                                            <div id="policestatuslist">
+                                                <div class="policestatusitem" id="policestatusitem" style="color: #5BA936;">Nicht gesucht</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="player-information-item">
+                                    <div class="item">
+                                        <p class="title">Telefonnummer</p>
+                                        <p class="content" id="policeplayerinfophonenumber">+370 616 50555</p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="title">Fraktion</p>
+                                        <p class="content" id="policeplayerinfofaction">Keine</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-information">
+                                <div class="personal-information-left">
+                                    <p class="title" style="margin-top: 4.5vh;">Lizenzen</p>
+                                    <div class="license-items">
+                                        <div class="license-item" onclick="TakeLicense('pkw')">
+                                            <img class="licnese-icon" id="policelicense-PKW-icon" src="./img/car.svg">
+                                            <div class="dot" id="policelicense-PKW"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('lkw')">
+                                            <img class="licnese-icon" id="policelicense-LKW-icon" src="./img/lkw.svg">
+                                            <div class="dot" id="policelicense-LKW"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('bike')">
+                                            <img class="licnese-icon" id="policelicense-Bike-icon" src="./img/bike.svg">
+                                            <div class="dot" id="policelicense-Bike"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('heli')">
+                                            <img class="licnese-icon" id="policelicense-Heli-icon" src="./img/heli.svg">
+                                            <div class="dot" id="policelicense-Heli"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('flugzeug')">
+                                            <img class="licnese-icon" id="policelicense-Flugzeug-icon" src="./img/plane.svg">
+                                            <div class="dot" id="policelicense-Flugzeug"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('boot')">
+                                            <img class="licnese-icon" id="policelicense-Boot-icon" src="./img/boot.svg">
+                                            <div class="dot" id="policelicense-Boot"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('taxi')">
+                                            <img class="licnese-icon" id="policelicense-Taxi-icon" src="./img/taxi.svg">
+                                            <div class="dot" id="policelicense-Taxi"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('waffenschein')">
+                                            <img class="licnese-icon" id="policelicense-Waffenschein-icon" src="./img/weapon.svg">
+                                            <div class="dot" id="policelicense-Waffenschein"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('anwalt')">
+                                            <img class="licnese-icon" id="policelicense-Anwalt-icon" src="./img/anwalt.svg">
+                                            <div class="dot" id="policelicense-Anwalt"></div>
+                                        </div>
+                                        <div class="license-item" onclick="TakeLicense('ehk')">
+                                            <i class="fa-solid fa-clipboard-medical" id="policelicense-EHK-icon" style="color: white;"></i>
+                                            <div class="dot" id="policelicense-EHK"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="personal-information-right">
+                                    <p class="title" style="margin-top: 4.5vh;">Person Information</p>
+                                    <textarea id="policeovwinfos" placeholder="Keine Information hinterlegt..."></textarea>
+                                </div>
+                            </div>
+                            <p class="title" style="margin-top: 7vh;">Aktuelle Akte</p>
+                            <div class="akten-carousell" id="akten-carousell"></div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-playerSearch" style="display: block;">
+                            <div class="search-bar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input id="policesearchinput" type="text" placeholder="Suche...">
+                                <button onclick="PoliceSearchPerson()">Suchen</button>
+                            </div>
+
+                            <div class="search-result">
+                                <div class="search-result-title">
+                                    <div class="name">Name</div>
+                                    <div class="birth-day">Geburtsdatum</div>
+                                    <div class="sex">Geschlecht</div>
+                                    <div class="information">Information</div>
+                                </div>
+                                <div class="search-result-items" id="policesearchlist"></div>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-vehicleSearch" style="display: none;">
+                            <div class="search-bar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Suche..." id="policevehsearchinput">
+                                <button onclick="PoliceSearchVehicle()">Suchen</button>
+                            </div>
+
+                            <div class="search-result">
+                                <div class="search-result-title">
+                                    <div class="car-name">Fahrzeugname</div>
+                                    <div class="car-id">Fahrzeug-ID</div>
+                                    <div class="car-plate">Kennzeichen</div>
+                                    <div class="car-status">Status</div>
+                                </div>
+                                <div class="search-result-items" id="policesearchedvehicles"></div>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-vehicleOverview" style="display: none;">
+                            <p class="title">Fahrzeuginformation</p>
+                            <div class="player-information">
+                                <div class="player-information-item">
+                                    <div class="item">
+                                        <p class="title">Besitzer</p>
+                                        <p class="content" id="policevehicleinfoname">Otto Sensei</p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="title">Seriennummer</p>
+                                        <p class="content" id="policevehicleinfoid">6436543</p>
+                                    </div>
+                                </div>
+                                <div class="player-information-item">
+                                    <div class="item">
+                                        <p class="title">Fahrzeugname</p>
+                                        <p class="content" id="policevehicleinfobirthdate">Jugular</p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="title">Status</p>
+                                        <div id="policevehiclestatus-c">
+                                            <button onclick="ToggleDropDown(this, 'policevehicledropdown', 'policevehstatuslist')" id="policevehiclestatus" style="color: #FF4B4B;">Gesucht<img src="./img/arrowdown.svg" class="policevehiclestatusarrow" id="policevehicledropdown"></button>
+                                            <div id="policevehstatuslist">
+                                                <div class="policevehstatusitem" id="policevehstatusitem1" style="color: #E9CC34;">Geklaut</div>
+                                                <div class="policevehstatusitem" id="policevehstatusitem2" style="color: #5BA936;">Nicht Gesucht</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="player-information-item">
+                                    <div class="item">
+                                        <p class="title">Kennzeichen</p>
+                                        <p class="content" id="policevehicleplate">Cloud</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-wantedPlayer" style="display: none;">
+                            <div class="search-result">
+                                <div class="search-result-title">
+                                    <div class="name">Name</div>
+                                    <div class="birth-day">Geburtsdatum</div>
+                                    <div class="sex">Geschlecht</div>
+                                    <div class="wanteds">Haftzeit</div>
+                                </div>
+                                <div class="search-result-items" id="policewanteds" style="max-height: 43vh !important;"></div>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-laws" style="display: none;">
+                            <div class="laws-content">
+                                <p>Gesetze</p>
+                                <div class="laws-content-inner">
+                                    <div class="inner-left laws-cats"></div>
+                                    <div class="inner-right" id="laws"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="policepage" id="policeTab-AddCrimes" style="display: none;">
+                            <div class="laws-content">
+                                <p>Gesetze</p>
+                                <button onclick="AddCrimes()">Hinzufügen</button>
+                                <div class="laws-content-inner">
+                                    <div class="inner-left laws-cats"></div>
+                                    <div class="inner-right" id="crimes"></div>
+                                </div>
+                            </div>
+                            <div class="laws-content" style="margin-top: 9vh;">
+                                <p style="margin-bottom: 0;">Gesamtakte von <span id="crimes-name" style="color: #3c6fc2;">Diego Vaasdfdasdf</span></p>
+                                <p id="crimes-info"><span id="crimes-jailtime" style="color: #FF4B4B;">0 Hafteinheiten</span> • <span id="crimes-fine" style="color: #5BA936;">0 $</span></p>
+                                <button onclick="AddPlayerCrimes()">Akte anlegen</button>
+                                <div class="laws-content-inner">
+                                    <div class="inner-right" id="addedcrimes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="app-emergency">
+                    <img src="./img/home.svg" class="homebtn" id="homebtn" onclick="OpenApp('home')">
+                    <p class="title">Notrufe</p>
+                    <div class="header">
+                        <div class="header-item">
+                            <p>Notrufe Offen</p>
+                        </div>
+                        <div class="header-item">
+                            <p>Notrufe in Bearbeitung</p>
+                        </div>
+                        <div class="header-item">
+                            <p>Notrufe Abgeschlossen</p>
+                        </div>
+                    </div>
+                    <div class="emergency-content">
+                        <div class="emergency-content-item-list" id="opendispatches"></div>
+                        <div class="emergency-content-item-list" id="accepteddispatches"></div>
+                        <div class="emergency-content-item-list" id="closeddispatches"></div>
+                    </div>
+                </div>
+                <div class="page" id="app-cmail">
+                    <img src="./img/home.svg" class="homebtn" onclick="CloseOVWApp()">
+                    <div class="top-bar">
+                        <div class="logo">
+                            <img src="./img/cmail/logo.png">
+                            <p>Cmail</p>
+                        </div>
+                        <div class="serach-bar">
+                            <i class="fa-regular fa-magnifying-glass"></i>
+                            <input placeholder="Suche..." id="email-searchbar">
+                            <button onclick="SearchEmails()">Suche</button>
+                        </div>
+                        <div class="logo" style="margin-right: 3vh; opacity: 0; margin-left: 0;">
+                            <img src="./img/cmail/logo.png">
+                            <p>Cmail</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="side-bar">
+                            <div class="interaction-buttons">
+                                <div class="send-button" onclick="OpenSendMail(false)">
+                                    <i class="fa-solid fa-envelope-open"></i>
+                                    <p>Verfassen</p>
+                                </div>
+                                <div class="button active" style="margin-top: 2.5vh;" onclick="SwitchCMailTab(this, 1)">
+                                    <i class="fa-solid fa-envelope-dot"></i>
+                                    <p>Posteingang</p>
+                                </div>
+                                <div class="button" onclick="SwitchCMailTab(this, 2)">
+                                    <i class="fa-solid fa-paper-plane-top"></i>
+                                    <p>Versendet</p>
+                                </div>
+                                <div class="button" onclick="SwitchCMailTab(this, 3)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    <p>Gelöscht</p>
+                                </div>
+                            </div>
+                            <div class="interaction-profile">
+                                <div class="profile-info">
+                                    <div class="profile-info-img">
+                                        <img src="./img/cmail/Profile.png">
+                                    </div>
+                                    <div class="profile-info-text">
+                                        <p class="name" id="cmailname"></p>
+                                        <p class="email" id="cmailmail"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-main">
+                            <div class="content-email-read" id="readmail" style="display: none;">
+                                <div class="content-email-read-inner" id="readmail-inner">
+                                    <div class="top-bar">
+                                        <div>
+                                            <i class="fa-solid fa-arrow-left" style="margin-left: 2vh;" onclick="ExitMail()"></i>
+                                            <i class="fa-solid fa-trash" style="margin-left: 2vh;"></i>
+                                        </div>
+                                        <div style="display: flex; align-items: center; margin-right: 2vh;">
+                                            <p id="cmail-mailindex">3 von 200</p>
+                                            <i class="fa-solid fa-chevron-left" style="margin-left: 1vh;" onclick="SwitchMail(-1)"></i>
+                                            <i class="fa-solid fa-chevron-right" style="margin-left: 1vh;" onclick="SwitchMail(1)"></i>
+                                        </div>
+                                    </div>
+                                    <div class="email-info">
+                                        <div class="sender-info">
+                                            <div class="sender-info-img">
+                                                <img src="./img/cmail/Profile.png">
+                                            </div>
+                                            <div class="sender-info-text">
+                                                <p class="name" id="readmail-sender"></p>
+                                                <p class="email" id="readmail-mail"></p>
+                                            </div>
+                                        </div>
+                                        <div class="sender-info-date">
+                                            <p>14:17 | 17.01.2022</p>
+                                        </div>
+                                    </div>
+                                    <textarea disabled>
+
+                                    </textarea>
+                                </div>
+                                <div class="buttons">
+                                    <div class="button" onclick="OpenSendMail(true)">
+                                        <i class="fa-regular fa-turn-down-left"></i>
+                                        <p>Antworten</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-main-inner">
+                                <div class="top-bar">
+                                    <label class="cb-container">
+                                        <input type="checkbox" id="cmail-checkall" onchange="CheckAllBoxes(this.checked)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <i class="fa-solid fa-arrows-rotate" onclick="OpenCMailApp()"></i>
+                                    <i class="fa-solid fa-trash" id="cmail-trashdings" style="margin-left: 1.2vh;display: none;" onclick="DeleteSelectedMails()"></i>
+                                </div>
+                                <div class="message-box">
+                                    <div class="message-box-inner" id="cmail-list">
+                                        <div class="loading" id="cmail-loading" style="z-index: 2;display: none;">
+                                            <i class="fal fa-sync fa-spin"></i>
+                                            <p style="margin-top: 2vh;">Loading...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mail-send" id="sendmail" style="display: none;">
+                        <div class="top-bar">
+                            <p>Neue Nachricht</p>
+                            <i class="fa-regular fa-angle-down" id="MailTopBarArrow" onclick="CloseSendMail()"></i>
+                        </div>
+                        <div class="send-box">
+                            <div class="send-box-inner">
+                                <div class="input-box">
+                                    <p class="info">An:</p>
+                                    <input type="text" id="input-reciver" placeholder="C-Mail...">
+                                </div>
+                            </div>
+                            <div class="send-box-inner">
+                                <div class="input-box">
+                                    <p class="info" id="cmail-betreff">Betreff:</p>
+                                    <input type="text" id="input-title" placeholder="Betreff...">
+                                </div>
+                            </div>
+                            <textarea placeholder="Dein Text hier..." id="MailTextArea"></textarea>
+                            <div class="buttons">
+                                <div class="button" id="mail-delete" onclick="ClearSendMailText()"><i class="fa-regular fa-trash-can"></i></div>
+                                <div class="button" id="send" onclick="SendMail()">Versenden</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="app-faction">
+                    <img src="./img/home.svg" class="homebtn" onclick="CloseFrakApp()">
+                    <div class="faction-overview">
+                        <div class="overview">
+                            <div class="head">
+                                <h1>Fraktions-Übersicht</h1>
+                                <h2>Mit dieser App kannst du deine Mitglieder einsehen</h2>
+                            </div>
+                            <div class="title">
+                                <div class="text">Vorname</div>
+                                <div class="text">Nachname</div>
+                                <div class="text">Rang</div>
+                                <div class="text">Payday</div>
+                            </div>
+                            <div class="content" id="faction-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="app-business">
+                    <img src="./img/home.svg" class="homebtn" onclick="CloseBusinessApp()">
+                    <div class="business-overview">
+                        <div class="overview">
+                            <div class="head">
+                                <h1>Business-Übersicht</h1>
+                                <h2>Mit dieser App kannst du deine Mitglieder einsehen</h2>
+                            </div>
+                            <div class="title">
+                                <div class="text">Vorname</div>
+                                <div class="text">Nachname</div>
+                                <div class="text">Rang</div>
+                                <div class="text">Payday</div>
+                            </div>
+                            <div class="content" id="business-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../Garage/js/owl.carousel.min.js"></script>
+<script src="./scripts/app.js"></script>
+</html>
